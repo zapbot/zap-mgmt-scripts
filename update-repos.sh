@@ -7,27 +7,27 @@ cd ..
 # zaproxy
 cd zaproxy
 git fetch upstream
-git merge upstream/develop -m Sync
+git rebase upstream/develop
 git push origin develop
 cd ..
 
 # zap-extensions
 cd zap-extensions
 git fetch upstream
-git merge upstream/master -m Sync
+git rebase upstream/master
 git push origin master
 cd ..
 
 # zap-extensions beta
 cd zap-extensions_beta
 git fetch upstream
-git merge upstream/beta -m Sync
+git rebase upstream/beta
 git push origin beta
 cd ..
 
 # zap-extensions alpha
 cd zap-extensions_alpha
 git fetch upstream
-git merge upstream/alpha -m Sync
+git rebase upstream/alpha
 git push origin alpha
 cd ..
