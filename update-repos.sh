@@ -1,6 +1,9 @@
 # Update all of the repos to the latest ones from zaproxy
 # Requires a ~/.netrc file present with valid credentials
 
+git config --global user.name "zapbot"
+git config --global user.email "zapbot@zaproxy.org"
+
 # Assume we're running in the zap-mgmt-scripts directory
 cd ..
 
