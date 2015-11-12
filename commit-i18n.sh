@@ -1,6 +1,9 @@
 # Commit all of the i18n changes
 # Requires a ~/.netrc-api file present with valid credentials
 
+git config --global user.name "zapbot"
+git config --global user.email "zapbot@zaproxy.org"
+
 # Assume we're running in the zap-mgmt-scripts directory
 cd ..
 
