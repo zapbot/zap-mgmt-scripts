@@ -10,27 +10,27 @@ cd ..
 # zaproxy
 cd zaproxy
 git fetch upstream
-git rebase upstream/develop
-git push origin develop
+git checkout -B develop upstream/develop
+git push origin develop --force
 cd ..
 
 # zap-extensions
 cd zap-extensions
 git fetch upstream
-git rebase upstream/master
-git push origin master
+git checkout -B master upstream/master
+git push origin master --force
 cd ..
 
 # zap-extensions beta
 cd zap-extensions_beta
 git fetch upstream
-git rebase upstream/beta
-git push origin beta
+git checkout -B beta upstream/beta
+git push origin beta --force
 cd ..
 
 # zap-extensions alpha
 cd zap-extensions_alpha
 git fetch upstream
-git rebase upstream/alpha
-git push origin alpha
+git checkout -B alpha upstream/alpha
+git push origin alpha --force
 cd ..
