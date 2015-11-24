@@ -550,7 +550,7 @@ def main(argv):
 	s, ms = divmod(totalTime, 1000)
 	m, s = divmod(s, 60)
 	h, m = divmod(m, 60)
-	time = "%d:%02d:%02d.%03d" % (h, m, s, ms)
+	time = "%d:%02d:%02d" % (h, m, s)
 	reportFile.write("<td>" + time + "</td>")
 	reportFile.write("</tr>\n")
 
@@ -565,6 +565,7 @@ def main(argv):
 	#print ''	
 	
 	print ''	
+	print 'ZAP ' + zapVersion
 	print 'Got ' + str(totalAlerts) + ' alerts'
 	print 'Got ' + str(len(uniqueUrls)) + ' unique urls'
 	print 'Took ' + time
