@@ -50,6 +50,7 @@ def main(argv):
    target = 'http://' + wivitHostIp + '/'
    
    zap = ZAPv2(proxies={'http': 'http://' + zapHostIp + ':8090', 'https': 'http://' + zapHostIp + ':8090'})
+   zapVersion = zap.core.version
    
    # Access the top page
    zap.urlopen(target)
@@ -85,6 +86,7 @@ def main(argv):
    print 'Ajax Spider completed'
 
    end = time.time()
+   print 'ZAP: ' + zapVersion
    print 'Time: ' + time.strftime('%H:%M:%S', time.gmtime(end - start))
    print 'Pages: ' + zap.ajaxSpider.number_of_results
 
