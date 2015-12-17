@@ -111,7 +111,8 @@ echo "<td>${text}</td>" >> ${name}.summary
 echo "<td>-</td>" >> ${name}.summary
 
 echo "<td>" `date --rfc-3339 date` "</td>" >> ${name}.summary
-echo "<td><a href=\"reports/${name}.html\">" `cat result | grep Score | awk -F ' ' '{print $2}'` " &#37;</a></td>" >> ${name}.summary
+SC=$(cat result | grep Score | awk -F ' ' '{print $2}')
+echo "<td><a href=\"reports/${name}.html\">${SC} &#37;</a></td>" >> ${name}.summary
 echo "<td>" `cat result | grep Pages | awk -F ' ' '{print $2}'` "</td>" >> ${name}.summary
 echo "<td>" `cat result | grep Time | awk -F ' ' '{print $2}'` "</td>" >> ${name}.summary
 
@@ -124,7 +125,6 @@ cat ${name}.summary
 # If present ~/.awssns should contain the AWS SNS topic to post to
 AWSSNSF=$(echo ~/.awssns)
 
-# TODO SC is never set up ;)
 if [ "$SC" != "$expected" ]; then
   # Unexpected score, send an alert
   AWSSNS=$(cat ~/.awssns)
