@@ -24,7 +24,7 @@ text=''
 zap_opt=''
 score_opt=''
 
-while getopts "ad:e:n:p:z:" optname
+while getopts "ad:e:n:p:t:z:" optname
   do
     case "$optname" in
       "a")
