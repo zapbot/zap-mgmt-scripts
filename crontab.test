@@ -1,1 +1,4 @@
 0 0 * * * cd /home/ubuntu/zap-mgmt-scripts;/usr/bin/git pull;./record-stats.sh
+0 22 * * 1 cd /home/ubuntu/zap-mgmt-scripts;/usr/bin/git pull;./stop-delete-docker.sh;sleep 30;wavsep/zap-vs-wavsep-1.5.sh -d "owasp/zap2docker-weekly" -e "Score 66" -n "wavsep-1.5-weekly-RB-M-M" -t "Rel, Beta" > /home/ubuntu/wrk/test.out
+0 22 * * 2 cd /home/ubuntu/zap-mgmt-scripts;/usr/bin/git pull;./stop-delete-docker.sh;sleep 30;wavsep/zap-vs-wavsep-1.5.sh -d "owasp/zap2docker-weekly" -a -e "Score 66" -n "wavsep-1.5-weekly-RBJ-M-M" -t "Rel, Beta, Alpha, Ajax" -z "-addoninstall ascanrulesAlpha -addoninstall domxss" > /home/ubuntu/wrk/test.out
+0 22 * * 3 cd /home/ubuntu/zap-mgmt-scripts;/usr/bin/git pull;./stop-delete-docker.sh;sleep 30;wavsep/zap-vs-wavsep-1.5.sh -d "owasp/zap2docker-weekly" -a -e "Score 66" -n "wavsep-1.5-weekly-All-M-M" -t "All" -z "-addoninstallall" > /home/ubuntu/wrk/test.out
