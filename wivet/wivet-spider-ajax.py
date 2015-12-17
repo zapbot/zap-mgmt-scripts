@@ -28,9 +28,10 @@ def main(argv):
    # -------------------------------------------------------------------------
    wivitHostIp = '172.17.0.2'
    zapHostIp = '172.17.0.3'
+   name = 'wivet-default'
    
    try:
-      opts, args = getopt.getopt(argv,"hz:w:",["zap=","wivet="])
+      opts, args = getopt.getopt(argv,"hn:z:w:",["zap=","wivet=","name="])
    except getopt.GetoptError:
       print 'test.py -z <ZAPipaddr> -w <WIVITipaddr>'
       sys.exit(2)
@@ -38,6 +39,8 @@ def main(argv):
       if opt == '-h':
          print 'test.py -z <ZAPipaddr> -w <WIVITipaddr>'
          sys.exit()
+      elif opt in ("-n", "--name"):
+         name = arg
       elif opt in ("-z", "--zap"):
          zapHostIp = arg
       elif opt in ("-w", "--wivit"):
@@ -98,7 +101,27 @@ def main(argv):
       # This assumes wivet is reset after each test
       if int(score) > top_score:
          top_score = int(score)
+         # find and extract the right url for the results
+         backstop = stats.find('Coverage: %' + score + ')')
+         frontstop = stats.rfind('statistics', 0, backstop)
+         backstop = stats.find('"', frontstop)
+         # print 'Front: ' + str(frontstop) + ' Back: ' + str(backstop)
+         results = stats[frontstop:backstop]
    print 'Score: ' + str(top_score)
+
+   # Output the results page
+   res = zap.urlopen(target + 'offscanpages/' + results)
+   resfile = open(name + '.html', 'w')
+   # fix the style page and remove the BACK button (which wont work in isolation)
+   res = res.replace('/style.css', 'wivet-style.css').replace('<br/><a href=\'statistics.php\'>BACK</a><br/>', '')
+   resfile.write(res)
+   resfile.close()
+
+   # Output the style page
+   style = zap.urlopen(target + 'style.css')
+   stylefile = open('wivet-style.css', 'w')
+   stylefile.write(style)
+   stylefile.close()
 
 if __name__ == "__main__":
    main(sys.argv[1:])   

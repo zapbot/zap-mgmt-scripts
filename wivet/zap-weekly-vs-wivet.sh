@@ -1,8 +1,75 @@
-# Runs ZAP weekly against wivet with default options, generates the report and issues a PR to update it
+#!/bin/bash
+# Runs ZAP against wivet with default options, generates the report and issues a PR to update it
+# Parameters:
+#	-d docker-image		Name of the ZAP docker image to use, typically owasp/zap2docker-weekly or owasp/zap2docker-stable
+#	-e expected-score	Expected score string
+#	-n name				Base name to use for the result files
+#	-t text				Text to use in the summary table for the add-ons installed
+#	-z zap-options		Options to be passed directly to the ZAP command line call 
 
-EXPECTED="Score 51"
-REP="wivet-weekly"
+USAGE="Usage: $0 -d docker-image [-e expected-score] -n name [-t text] [-z zap-options]"
 
+# Handle the options
+docker=''
+expected=''
+name=''
+text='Ajax'
+zap_opt=''
+score_opt=''
+
+while getopts "ad:e:n:p:t:z:" optname
+  do
+    case "$optname" in
+      "a")
+        # Ajax Spider
+        score_opt="-a"
+        ;;
+      "d")
+        # Docker image (mandatory)
+        docker=$OPTARG
+        ;;
+      "e")
+        # The expected score string
+        expected=$OPTARG
+        ;;
+      "n")
+        # The name to use in the results files
+        name=$OPTARG
+        ;;
+      "t")
+        text=$OPTARG
+        ;;
+      "z")
+        # ZAP command line options
+        zap_opt=$OPTARG
+        ;;
+      "?")
+        echo "Unknown option $OPTARG"
+        ;;
+      ":")
+        echo "No argument value for option $OPTARG"
+        ;;
+      *)
+      # Should not occur
+        echo "Unknown error while processing options"
+        ;;
+    esac
+  done
+# Check for the mandatory ones
+if [ "$docker" == "" ]
+then
+  echo "Missing docker"
+  echo $USAGE
+  exit 2
+fi
+if [ "$name" == "" ]
+then
+  echo "Missing name"
+  echo $USAGE
+  exit 2
+fi
+
+# Git stuff
 git config --global user.name "zapbot"
 git config --global user.email "zapbot@zaproxy.org"
 
@@ -17,8 +84,8 @@ IP=$(echo $IP | awk '{print substr($0,15)}')
 WSIP=$(echo ${IP::-2})
 echo Wivet IP = $WSIP
 
-docker pull owasp/zap2docker-weekly
-ZPCID=$(docker run -u zap -p 8090:8090 -d owasp/zap2docker-weekly zap-x.sh -daemon -port 8090 -host 0.0.0.0 -config api.disablekey=true -config ajaxSpider.clickDefaultElems=False)
+docker pull ${docker}
+ZPCID=$(docker run -u zap -p 8090:8090 -d ${docker} zap-x.sh -daemon -port 8090 -host 0.0.0.0 -config api.disablekey=true -config ajaxSpider.clickDefaultElems=False $zap_opt)
 
 IP=$(docker inspect $ZPCID | grep IPAddress | tail -1)
 IP=$(echo $IP | awk '{print substr($0,15)}')
@@ -30,44 +97,42 @@ echo Let ZAP start up...
 sleep 20
 
 # Spider and scan the app
-python ~/zap-mgmt-scripts/wivet/wivet-spider-ajax.py -z $ZPIP -w $WSIP > result
+python ~/zap-mgmt-scripts/wivet/wivet-spider-ajax.py -n ${name} -z $ZPIP -w $WSIP > result
 
 # Save the logs
-LOG="~/zap-mgmt-scripts_gh-pages/reports/${REP}.logs.txt"
-docker logs $ZPCID > ~/zap-mgmt-scripts_gh-pages/reports/${REP}.logs.txt
+LOG="~/zap-mgmt-scripts_gh-pages/reports/${name}.logs.txt"
+docker logs $ZPCID > ~/zap-mgmt-scripts_gh-pages/reports/${name}.logs.txt
 
-echo "<tr>" > ${REP}.summary
-echo "<td>" `cat result | grep ZAP | awk -F ' ' '{print $2}'` "</td>" >> ${REP}.summary
+echo "<tr>" > ${name}.summary
+echo "<td>" `cat result | grep ZAP | awk -F ' ' '{print $2}'` "</td>" >> ${name}.summary
 
-# Change these manually
-echo "<td>wivet</td>" >> ${REP}.summary
-echo "<td>Ajax</td>" >> ${REP}.summary
-echo "<td>-</td>" >> ${REP}.summary
-echo "<td>-</td>" >> ${REP}.summary
+echo "<td>wivet</td>" >> ${name}.summary
+echo "<td>${text}</td>" >> ${name}.summary
+echo "<td>-</td>" >> ${name}.summary
 
-echo "<td>" `date --rfc-3339 date` "</td>" >> ${REP}.summary
-echo "<td>" `cat result | grep Score | awk -F ' ' '{print $2}'` "</td>" >> ${REP}.summary
-echo "<td>" `cat result | grep Pages | awk -F ' ' '{print $2}'` "</td>" >> ${REP}.summary
-echo "<td>" `cat result | grep Time | awk -F ' ' '{print $2}'` "</td>" >> ${REP}.summary
+echo "<td>" `date --rfc-3339 date` "</td>" >> ${name}.summary
+echo "<td><a href=\"reports/${name}.html\">" `cat result | grep Score | awk -F ' ' '{print $2}'` " &#37;</a></td>" >> ${name}.summary
+echo "<td>" `cat result | grep Pages | awk -F ' ' '{print $2}'` "</td>" >> ${name}.summary
+echo "<td>" `cat result | grep Time | awk -F ' ' '{print $2}'` "</td>" >> ${name}.summary
 
-ERRS=$(grep -c ERROR ~/zap-mgmt-scripts_gh-pages/reports/${REP}.logs.txt) >> ${REP}.summary
-echo "<td><a href=\"reports/${REP}.logs.txt\">${ERRS}</a></td>" >> ${REP}.summary
-echo "</tr>" >> ${REP}.summary
+ERRS=$(grep -c ERROR ~/zap-mgmt-scripts_gh-pages/reports/${name}.logs.txt) >> ${name}.summary
+echo "<td><a href=\"reports/${name}.logs.txt\">${ERRS}</a></td>" >> ${name}.summary
+echo "</tr>" >> ${name}.summary
 
-cat ${REP}.summary
+cat ${name}.summary
 
 # If present ~/.awssns should contain the AWS SNS topic to post to
 AWSSNSF=$(echo ~/.awssns)
 
 # TODO SC is never set up ;)
-if [ "$SC" != "$EXPECTED" ]; then
+if [ "$SC" != "$expected" ]; then
   # Unexpected score, send an alert
   AWSSNS=$(cat ~/.awssns)
-  aws sns publish --subject "ZAP ${REP} Unexpected score" --message "Expected $EXPECTED got $SC" --topic $AWSSNS
+  aws sns publish --subject "ZAP ${name} Unexpected score" --message "Expected $expected got $SC" --topic $AWSSNS
 fi
 
 # Save and push to github
-mv ${REP}.summary ~/zap-mgmt-scripts_gh-pages/reports/
+mv ${name}.summary ${name}.html wivet-style.css ~/zap-mgmt-scripts_gh-pages/reports/
 
 cd ~/zap-mgmt-scripts_gh-pages
 git add reports
@@ -75,6 +140,6 @@ git add reports
 cat scan.head reports/*.summary scan.tail > scans.html
 git add scans.html
 
-git commit -m "Latest report weekly vs wivet"
+git commit -m "Report ${name}"
 git push origin
 

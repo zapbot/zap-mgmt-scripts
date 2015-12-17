@@ -109,7 +109,7 @@ WSIP=$(echo ${IP::-2})
 echo "WSIP=$WSIP" >> ~/wrk/out.txt
 echo Wavsep IP = $WSIP
 
-docker pull owasp/zap2docker-weekly
+docker pull $docker
 ZPCID=$(sudo docker run -u zap -p 8090:8090 -d $docker zap-x.sh -daemon -port 8090 -host 0.0.0.0 -config api.disablekey=true $zap_opt)
 
 IP=$(docker inspect $ZPCID | grep IPAddress | tail -1)
