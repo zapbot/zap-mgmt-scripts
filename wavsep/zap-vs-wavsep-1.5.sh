@@ -159,11 +159,11 @@ cat ${name}.summary
 
 # If present ~/.awssns should contain the AWS SNS topic to post to
 AWSSNSF=$(echo ~/.awssns)
+OUTFILE=$(cat ~/wrk/out.txt)
 
 if [ "$SC" == "" ]; then
   # Something went wrong score, send an alert
   AWSSNS=$(cat ~/.awssns)
-  OUTFILE=$(cat ~/wrk/out.txt)
   aws sns publish --subject "ZAP ${name} Failed to run properly" --message "$OUTFILE" --topic $AWSSNS
   exit
 elif [ "$SC" != "$expected" ]; then
