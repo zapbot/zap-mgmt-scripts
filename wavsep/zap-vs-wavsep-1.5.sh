@@ -1,12 +1,19 @@
 #!/bin/bash
 # Runs ZAP against wavsep with the specified options, generates the report and issues a PR to update it
+# Parameters:
+#	-a					Run the Ajax spider (in addition to the traditional one)
+#	-d docker-image		Name of the ZAP docker image to use, typically owasp/zap2docker-weekly or owasp/zap2docker-stable
+#	-e expected-score	Expected score string
+#	-n name				Base name to use for the result files
+#	-t text				Text to use in the summary table for the add-ons installed
+#	-z zap-options		Options to be passed directly to the ZAP command line call 
 #
 # Some example calls:
-# ./zap-vs-wavsep-1.5.sh -d "owasp/zap2docker-weekly" -e "Score 66" -s "wavsep-1.5-weekly-RB-M-M" -t "Rel,Beta"
-# ./zap-vs-wavsep-1.5.sh -d "owasp/zap2docker-weekly" -e "Score 66" -p "St-High-Th-Med" -s "wavsep-1.5-weekly-RB-H-M" -t "Rel,Beta"
-# ./zap-vs-wavsep-1.5.sh -d "owasp/zap2docker-weekly" -e "Score 66" -s "wavsep-1.5-weekly-RBA-M-M" -t "Rel,Beta" -z "-addoninstall ascanrulesAlpha"
+# ./zap-vs-wavsep-1.5.sh -d "owasp/zap2docker-weekly" -e "Score 66" -n "wavsep-1.5-weekly-RB-M-M" -t "Rel,Beta"
+# ./zap-vs-wavsep-1.5.sh -d "owasp/zap2docker-weekly" -e "Score 66" -p "St-High-Th-Med" -n "wavsep-1.5-weekly-RB-H-M" -t "Rel,Beta"
+# ./zap-vs-wavsep-1.5.sh -d "owasp/zap2docker-weekly" -e "Score 66" -n "wavsep-1.5-weekly-RBA-M-M" -t "Rel,Beta,Alpha" -z "-addoninstall ascanrulesAlpha"
 
-USAGE="Usage: $0 -d docker-image -e expected-score -n name -t text -z zap-options"
+USAGE="Usage: $0 [-a] -d docker-image [-e expected-score] -n name [-t text] [-z zap-options]"
 
 # Handle the options
 docker=''
