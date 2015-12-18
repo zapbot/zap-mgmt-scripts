@@ -1,0 +1,102 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>ZAP Add-ons</title>
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/github-dark.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script src="javascripts/respond.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <!--[if lt IE 8]>
+    <link rel="stylesheet" href="stylesheets/ie.css">
+    <![endif]-->
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+  </head>
+  <body>
+      <div id="header">
+        <nav>
+          <li class="fork"><a href="https://github.com/zapbot/zap-mgmt-scripts">View On GitHub</a></li>
+          <li class="downloads"><a href="https://github.com/zapbot/zap-mgmt-scripts/zipball/master">ZIP</a></li>
+          <li class="downloads"><a href="https://github.com/zapbot/zap-mgmt-scripts/tarball/master">TAR</a></li>
+          <li class="title">DOWNLOADS</li>
+        </nav>
+      </div><!-- end header -->
+
+    <div class="wrapper">
+
+      <section>
+        <div id="title">
+          <h1>ZAP Add-ons</h1>
+          <hr>
+          <span class="credits left">Project maintained by <a href="https://github.com/zapbot">zapbot</a></span>
+          <span class="credits right">Hosted on GitHub Pages &mdash; Theme by <a href="https://twitter.com/michigangraham">mattgraham</a></span>
+        </div>
+
+        <h1>
+<a id="zap-downloads" class="anchor" href="#zap-scans" aria-hidden="true"><span class="octicon octicon-link"></span></a>Add-ons</h1>
+
+<script type="text/javascript" src="https://www.google.com/jsapi?autoload={'modules':[{'name':'visualization','version':'1.1','packages':['corechart', 'timeline']}]}"></script>
+   
+<script type="text/javascript">
+google.load('visualization', '1', {packages: ['corechart', 'bar']});
+google.setOnLoadCallback(drawColColors);
+
+function drawColColors() {
+      var data = new google.visualization.DataTable();
+      data.addColumn('string', 'Add-on');
+      data.addColumn('number', '2015-12-14');
+      data.addColumn('number', '2015-12-15');
+      data.addColumn('number', '2015-12-16');
+      data.addColumn('number', '2015-12-17');
+      data.addColumn('number', '2015-12-18');
+      data.addRows([
+        ['directorylistv2_3-release-3.zap', 35, 75, 73, 60, 69, ],
+        ['directorylistv2_3_lc-release-3.zap', 33, 72, 67, 58, 69, ],
+        ['selenium-release-3.zap', 38, 59, 67, 47, 65, ],
+        ['directorylistv1-release-3.zap', 28, 60, 64, 61, 55, ],
+        ['onlineMenu-release-4.zap', 30, 60, 63, 60, 55, ],
+        ['diff-beta-6.zap', 29, 60, 63, 59, 56, ],
+        ['portscan-beta-7.zap', 25, 57, 50, 40, 56, ],
+        ['ascanrules-release-21.zap', 29, 44, 52, 45, 52, ],
+        ['httpsInfo-alpha-6.zap', 18, 51, 38, 29, 45, ],
+        ['sqliplugin-beta-9.zap', 24, 49, 48, 34, 45, ],
+        ['fuzzdb-release-3.zap', 22, 49, 41, 35, 44, ],
+        ['domxss-alpha-2.zap', 19, 47, 39, 28, 49, ],
+        ['ascanrulesBeta-beta-18.zap', 9, 40, 35, 21, 47, ],
+        ['pscanrulesBeta-beta-12.zap', 11, 39, 31, 19, 42, ],
+        ['customreport-alpha-1.zap', 18, 41, 26, 23, 35, ],
+        ['codedx-alpha-2.zap', 17, 41, 30, 22, 38, ],
+        ['alertReport-beta-14.zap', 12, 40, 23, 19, 26, ],
+        ['accessControl-alpha-1.zap', 15, 38, 18, 18, 30, ],
+        ['importurls-beta-2.zap', 12, 37, 19, 21, 25, ],
+        ['browserView-alpha-4.zap', 15, 36, 17, 16, 30, ],
+      ]);
+
+      var options = {
+        width: 650,
+        height: 550,
+        hAxis: {
+          title: 'Add-ons'
+        },
+        vAxis: {
+          title: 'Downloads per day'
+        }
+      };
+
+      var chart = new google.visualization.ColumnChart(document.getElementById('chart_div'));
+      chart.draw(data, options);
+    }
+</script>
+
+<div id="chart_div"></div>
+
+  </section>
+  </div>
+
+  </body>
+</html>
