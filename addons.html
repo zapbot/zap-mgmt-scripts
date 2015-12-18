@@ -40,21 +40,15 @@
         <h1>
 <a id="zap-downloads" class="anchor" href="#zap-scans" aria-hidden="true"><span class="octicon octicon-link"></span></a>Add-ons</h1>
 
-<script type="text/javascript" src="https://www.google.com/jsapi?autoload={'modules':[{'name':'visualization','version':'1.1','packages':['corechart', 'timeline']}]}"></script>
-   
+<script type="text/javascript" src="https://www.google.com/jsapi"></script>
 <script type="text/javascript">
-google.load('visualization', '1', {packages: ['corechart', 'bar']});
+google.load("visualization", "1.1", {packages:["bar"]});
 google.setOnLoadCallback(drawColColors);
 
 function drawColColors() {
-      var data = new google.visualization.DataTable();
-      data.addColumn('string', 'Add-on');
-      data.addColumn('number', '2015-12-14');
-      data.addColumn('number', '2015-12-15');
-      data.addColumn('number', '2015-12-16');
-      data.addColumn('number', '2015-12-17');
-      data.addColumn('number', '2015-12-18');
-      data.addRows([
+      var data = google.visualization.arrayToDataTable([
+        ['Add-on', '2015-12-14' , '2015-12-15' , '2015-12-16' , '2015-12-17' , '2015-12-18'],
+        ['directorylistv2_3-release-3.zap', 35, 75, 73, 60, 69, ],
         ['directorylistv2_3-release-3.zap', 35, 75, 73, 60, 69, ],
         ['directorylistv2_3_lc-release-3.zap', 33, 72, 67, 58, 69, ],
         ['selenium-release-3.zap', 38, 59, 67, 47, 65, ],
@@ -79,16 +73,17 @@ function drawColColors() {
 
       var options = {
         width: 650,
-        height: 550,
+        height: 1000,
         hAxis: {
-          title: 'Add-ons'
+          title: 'Downloads per day'
         },
         vAxis: {
-          title: 'Downloads per day'
-        }
+          title: 'Top 20 Add-ons downloaded in the last 5 days'
+        },
+        bars: 'horizontal' // Required for Material Bar Charts.
       };
 
-      var chart = new google.visualization.ColumnChart(document.getElementById('chart_div'));
+      var chart = new google.charts.Bar(document.getElementById('chart_div'));
       chart.draw(data, options);
     }
 </script>
