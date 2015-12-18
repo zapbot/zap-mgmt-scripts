@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <title>ZAP Scan Results</title>
+    <title>ZAP Downloads</title>
     <link rel="stylesheet" href="stylesheets/styles.css">
     <link rel="stylesheet" href="stylesheets/github-dark.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
@@ -32,23 +32,18 @@
 
       <section>
         <div id="title">
-          <h1>ZAP Scans</h1>
+          <h1>ZAP Downloads</h1>
         </div>
 
         <h1>
-<a id="zap-results" class="anchor" href="#zap-scans" aria-hidden="true"><span class="octicon octicon-link"></span></a>Results</h1>
+<a id="zap-downloads" class="anchor" href="#zap-scans" aria-hidden="true"><span class="octicon octicon-link"></span></a>Downloads</h1>
 
-<table>
-
-<tr>
-<th><b>ZAP</b></th>
-<th><b>Target</b></th>
-<th><b>Add-ons</b></th>
-<th><b>Profile</b></th>
-<th><b>Date</b></th>
-<th><b>Score</b></th>
-<th><b>URLs</b></th>
-<th><b>Time</b></th>
-<th><b>Errors</b></th>
-</tr>
+<script type="text/javascript" src="https://www.google.com/jsapi?autoload={'modules':[{'name':'visualization','version':'1.1','packages':['corechart', 'timeline']}]}"></script>
+   
+<script type="text/javascript">
+      google.load("visualization", "1", {packages:["corechart"]});
+      google.setOnLoadCallback(drawChart);
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+                ['Date', 'Windows', 'Linux', 'Mac', 'Cross Platform', 'Core', { role: 'annotation' } ],
 
