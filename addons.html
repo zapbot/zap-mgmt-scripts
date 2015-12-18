@@ -38,7 +38,7 @@
         </div>
 
         <h1>
-<a id="zap-downloads" class="anchor" href="#zap-scans" aria-hidden="true"><span class="octicon octicon-link"></span></a>Add-ons</h1>
+<a id="zap-downloads" class="anchor" href="#zap-scans" aria-hidden="true"><span class="octicon octicon-link"></span></a>Most downloaded add-ons this week</h1>
 
 <script type="text/javascript" src="https://www.google.com/jsapi"></script>
 <script type="text/javascript">
@@ -47,38 +47,37 @@ google.setOnLoadCallback(drawColColors);
 
 function drawColColors() {
       var data = google.visualization.arrayToDataTable([
-        ['Add-on', '2015-12-14' , '2015-12-15' , '2015-12-16' , '2015-12-17' , '2015-12-18'],
-        ['directorylistv2_3-release-3.zap', 35, 75, 73, 60, 69, ],
-        ['directorylistv2_3-release-3.zap', 35, 75, 73, 60, 69, ],
-        ['directorylistv2_3_lc-release-3.zap', 33, 72, 67, 58, 69, ],
-        ['selenium-release-3.zap', 38, 59, 67, 47, 65, ],
-        ['directorylistv1-release-3.zap', 28, 60, 64, 61, 55, ],
-        ['onlineMenu-release-4.zap', 30, 60, 63, 60, 55, ],
-        ['diff-beta-6.zap', 29, 60, 63, 59, 56, ],
-        ['portscan-beta-7.zap', 25, 57, 50, 40, 56, ],
-        ['ascanrules-release-21.zap', 29, 44, 52, 45, 52, ],
-        ['httpsInfo-alpha-6.zap', 18, 51, 38, 29, 45, ],
-        ['sqliplugin-beta-9.zap', 24, 49, 48, 34, 45, ],
-        ['fuzzdb-release-3.zap', 22, 49, 41, 35, 44, ],
-        ['domxss-alpha-2.zap', 19, 47, 39, 28, 49, ],
-        ['ascanrulesBeta-beta-18.zap', 9, 40, 35, 21, 47, ],
-        ['pscanrulesBeta-beta-12.zap', 11, 39, 31, 19, 42, ],
-        ['customreport-alpha-1.zap', 18, 41, 26, 23, 35, ],
-        ['codedx-alpha-2.zap', 17, 41, 30, 22, 38, ],
-        ['alertReport-beta-14.zap', 12, 40, 23, 19, 26, ],
-        ['accessControl-alpha-1.zap', 15, 38, 18, 18, 30, ],
-        ['importurls-beta-2.zap', 12, 37, 19, 21, 25, ],
-        ['browserView-alpha-4.zap', 15, 36, 17, 16, 30, ],
+        ['Add-ons', '2015-12-12', '2015-12-13', '2015-12-14', '2015-12-15', '2015-12-16', '2015-12-17', '2015-12-18', ],
+        ['directorylistv2_3-release-3.zap', 77, 32, 35, 75, 73, 60, 69],
+        ['directorylistv2_3_lc-release-3.zap', 74, 30, 33, 72, 67, 58, 69],
+        ['selenium-release-3.zap', 66, 30, 38, 59, 67, 47, 65],
+        ['directorylistv1-release-3.zap', 54, 28, 28, 60, 64, 61, 55],
+        ['onlineMenu-release-4.zap', 54, 26, 30, 60, 63, 60, 55],
+        ['diff-beta-6.zap', 54, 26, 29, 60, 63, 59, 56],
+        ['portscan-beta-7.zap', 46, 27, 25, 57, 50, 40, 56],
+        ['fuzzdb-release-3.zap', 54, 16, 22, 49, 41, 35, 44],
+        ['ascanrules-release-21.zap', 51, 20, 29, 44, 52, 45, 52],
+        ['httpsInfo-alpha-6.zap', 39, 25, 18, 51, 38, 29, 45],
+        ['sqliplugin-beta-9.zap', 36, 17, 24, 49, 48, 34, 45],
+        ['domxss-alpha-2.zap', 39, 22, 19, 47, 39, 28, 49],
+        ['ascanrulesBeta-beta-18.zap', 34, 9, 9, 40, 35, 21, 47],
+        ['pscanrulesBeta-beta-12.zap', 28, 11, 11, 39, 31, 19, 42],
+        ['customreport-alpha-1.zap', 28, 22, 18, 41, 26, 23, 35],
+        ['codedx-alpha-2.zap', 26, 20, 17, 41, 30, 22, 38],
+        ['alertReport-beta-14.zap', 25, 14, 12, 40, 23, 19, 26],
+        ['accessControl-alpha-1.zap', 19, 13, 15, 38, 18, 18, 30],
+        ['importurls-beta-2.zap', 23, 14, 12, 37, 19, 21, 25],
+        ['browserView-alpha-4.zap', 21, 15, 15, 36, 17, 16, 30],
       ]);
 
       var options = {
         width: 650,
-        height: 1000,
+        height: 1500,
         hAxis: {
           title: 'Downloads per day'
         },
         vAxis: {
-          title: 'Top 20 Add-ons downloaded in the last 5 days'
+          title: 'Top 20 Add-ons downloaded in the last 7 days'
         },
         bars: 'horizontal' // Required for Material Bar Charts.
       };
