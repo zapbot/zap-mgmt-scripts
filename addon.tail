@@ -1,0 +1,31 @@
+      ]);
+
+      var options = {
+        width: 650,
+        height: 1500,
+        hAxis: {
+          title: 'Downloads per day'
+        },
+        vAxis: {
+          title: 'Top 20 Add-ons downloaded in the last 7 days'
+        },
+        bars: 'horizontal' // Required for Material Bar Charts.
+      };
+
+      var chart = new google.charts.Bar(document.getElementById('chart_div'));
+      chart.draw(data, options);
+    }
+</script>
+
+<div id="chart_div"></div>
+
+        <div id="title">
+          <br/>
+          <span class="credits left">Project maintained by <a href="https://github.com/zapbot">zapbot</a></span>
+          <span class="credits right">Hosted on GitHub Pages &mdash; Theme by <a href="https://twitter.com/michigangraham">mattgraham</a></span>
+        </div>
+  </section>
+  </div>
+
+  </body>
+</html>
