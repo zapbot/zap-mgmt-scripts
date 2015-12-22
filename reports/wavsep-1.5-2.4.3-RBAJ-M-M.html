@@ -6,7 +6,7 @@
   </head>
 <body>
 <h1><img src="https://raw.githubusercontent.com/zaproxy/zaproxy/develop/src/resource/zap64x64.png" align="middle">OWASP ZAP wavsep results</h1>
-Generated: 2015-12-22 12:49
+Generated: 2015-12-22 13:51
 <h3>Total Score</h3>
 <font style="BACKGROUND-COLOR: GREEN">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font style="BACKGROUND-COLOR: RED">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font>66%<br/><br/>
 ZAP Version: 2.4.3<br/>
@@ -1339,28 +1339,60 @@ URLs found: 1229<h3>Top Level Scores</h3>
     // Instantiate and draw our chart, passing in some options.
     var chart = new google.visualization.PieChart(document.getElementById('chart_div'));
     chart.draw(data, options);
+
+    // Create the 2nd data table.
+    var data2 = new google.visualization.DataTable();
+    data2.addColumn('string', 'Plugin');
+    data2.addColumn('number', 'Requests');
+    data2.addRows([
+      ['Path Traversal', 32371],
+      ['Remote File Inclusion', 19467],
+      ['Server Side Include', 4152],
+      ['Cross Site Scripting (Reflected)', 2998],
+      ['SQL Injection', 43641],
+      ['Server Side Code Injection', 8488],
+      ['Remote OS Command Injection', 38196],
+      ['Directory Browsing', 1799],
+      ['External Redirect', 11065],
+      ['Buffer Overflow', 1051],
+      ['Format String Error', 3127],
+      ['CRLF Injection', 7427],
+      ['Parameter Tampering', 6246],
+      ['Cross Site Scripting (Persistent) - Prime', 1061],
+      ['Cross Site Scripting (Persistent) - Spider', 1799],
+      ['Cross Site Scripting (Persistent)', 0],
+      ['Script Active Scan Rules', 0],
+    ]);
+    // Set chart options
+    var options2 = {'title':'Request counts',
+                   'width':600,
+                   'height':500};
+    // Instantiate and draw our chart, passing in some options.
+    var chart2 = new google.visualization.PieChart(document.getElementById('chart_div2'));
+    chart2.draw(data2, options2);
   }
 </script>
-<div id="chart_div"></div>
+<div id="chart_div" style="width: 600px; float: left;"></div>
+<div id="chart_div2" style="margin-left: 620px;"></div>
 <table border="1">
-<tr><th>Plugin</th><th>ms</th></tr>
-<tr><td>Path Traversal</td><td>0:02:32.508</td></tr>
-<tr><td>Remote File Inclusion</td><td>0:02:49.933</td></tr>
-<tr><td>Server Side Include</td><td>0:02:33.650</td></tr>
-<tr><td>Cross Site Scripting (Reflected)</td><td>0:02:32.558</td></tr>
-<tr><td>SQL Injection</td><td>0:02:51.205</td></tr>
-<tr><td>Server Side Code Injection</td><td>0:02:52.826</td></tr>
-<tr><td>Remote OS Command Injection</td><td>0:02:57.648</td></tr>
-<tr><td>Directory Browsing</td><td>0:03:07.992</td></tr>
-<tr><td>External Redirect</td><td>0:03:00.418</td></tr>
-<tr><td>Buffer Overflow</td><td>0:02:27.036</td></tr>
-<tr><td>Format String Error</td><td>0:02:37.237</td></tr>
-<tr><td>CRLF Injection</td><td>0:02:35.817</td></tr>
-<tr><td>Parameter Tampering</td><td>0:02:51.654</td></tr>
-<tr><td>Cross Site Scripting (Persistent) - Prime</td><td>0:02:33.012</td></tr>
-<tr><td>Cross Site Scripting (Persistent) - Spider</td><td>0:03:07.951</td></tr>
-<tr><td>Cross Site Scripting (Persistent)</td><td>0:01:54.171</td></tr>
-<tr><td>Script Active Scan Rules</td><td>0:01:56.957</td></tr>
-<tr><td></td><td></td></tr><tr><td>Total</td><td>0:45:22</td></tr>
+<tr><th>Plugin</th><th>ms</th><th>Reqs</th></tr>
+<tr><td>Path Traversal</td><td>0:02:32.508</td><td>32371</td></tr>
+<tr><td>Remote File Inclusion</td><td>0:02:49.933</td><td>19467</td></tr>
+<tr><td>Server Side Include</td><td>0:02:33.650</td><td>4152</td></tr>
+<tr><td>Cross Site Scripting (Reflected)</td><td>0:02:32.558</td><td>2998</td></tr>
+<tr><td>SQL Injection</td><td>0:02:51.205</td><td>43641</td></tr>
+<tr><td>Server Side Code Injection</td><td>0:02:52.826</td><td>8488</td></tr>
+<tr><td>Remote OS Command Injection</td><td>0:02:57.648</td><td>38196</td></tr>
+<tr><td>Directory Browsing</td><td>0:03:07.992</td><td>1799</td></tr>
+<tr><td>External Redirect</td><td>0:03:00.418</td><td>11065</td></tr>
+<tr><td>Buffer Overflow</td><td>0:02:27.036</td><td>1051</td></tr>
+<tr><td>Format String Error</td><td>0:02:37.237</td><td>3127</td></tr>
+<tr><td>CRLF Injection</td><td>0:02:35.817</td><td>7427</td></tr>
+<tr><td>Parameter Tampering</td><td>0:02:51.654</td><td>6246</td></tr>
+<tr><td>Cross Site Scripting (Persistent) - Prime</td><td>0:02:33.012</td><td>1061</td></tr>
+<tr><td>Cross Site Scripting (Persistent) - Spider</td><td>0:03:07.951</td><td>1799</td></tr>
+<tr><td>Cross Site Scripting (Persistent)</td><td>0:01:54.171</td><td>0</td></tr>
+<tr><td>Script Active Scan Rules</td><td>0:01:56.957</td><td>0</td></tr>
+<tr><td></td><td></td><td></td></tr><tr><td>Total</td><td>0:45:22</td><td>-</td></tr>
 </table><br/>
 </body></html>
