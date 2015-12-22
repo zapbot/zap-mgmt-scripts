@@ -79,6 +79,7 @@ def main(argv):
 			'Information disclosure - database error messages' : 'InfoDb',\
 			'Information disclosure - debug error messages' : 'InfoDebug',\
 			'Information Disclosure - Sensitive Informations in URL' : 'InfoUrl',\
+			'Integer Overflow Error' : 'IntOver',\
 			'LDAP Injection' : 'LDAP',\
 			'Loosely Scoped Cookie' : 'CookieLoose',\
 			'None. Warning only.' : 'NoCSRF2',\
@@ -100,6 +101,7 @@ def main(argv):
 			'SQL Injection - Oracle - Time Based' : 'SqlOracleT',\
 			'SQL Injection - PostgreSQL - Time Based' : 'SqlPostgreT',\
 			'URL Redirector Abuse' : 'UrlRedir',\
+			'User Agent Fuzzer' : 'UAfuzz',\
 			'Viewstate without MAC signature (Unsure)' : 'ViewstateNoMac',\
 			'Weak Authentication Method' : 'WeakAuth',\
 			'Web Browser XSS Protection Not Enabled' : 'XSSoff',\
@@ -112,18 +114,20 @@ def main(argv):
 	# Column 3: pass, fail, ignore
 	# 
 	rules = [ \
-			# All these appear to be valid ;)
-			['-', 'InfoDebug', 'ignore'], \
-			['-', 'InfoUrl', 'ignore'], \
+			# Should check again that all of these are valid...
 			['-', 'ACSRF', 'ignore'], \
 			['-', 'ACSRF', 'ignore'], \
 			['-', 'Ex', 'ignore'], \
 			['-', 'CookieLoose', 'ignore'], \
 			['-', 'CookieSlack', 'ignore'], \
+			['-', 'InfoDebug', 'ignore'], \
+			['-', 'InfoUrl', 'ignore'], \
+			#['-', 'IntOver', 'ignore'], \
 			['-', 'NoCSRF2', 'ignore'], \
 			['-', 'ParamOver', 'ignore'], \
 			['-', 'PrivIP', 'ignore'], \
 			['-', 'SrcInc', 'ignore'], \
+			#['-', 'UAfuzz', 'ignore'], \
 			['-', 'XFrame', 'ignore'], \
 			['-', 'XContent', 'ignore'], \
 			['-', 'XSSoff', 'ignore'], \
@@ -512,7 +516,7 @@ def main(argv):
 	for plugin in progress[1]['HostProcess']:
 		reportFile.write("      ['" + plugin['Plugin'][0] + "', " + plugin['Plugin'][3] + "],\n")
 
-	# The end of the chart script
+	# The end of the first chart
 	reportFile.write("    ]);\n")
 	reportFile.write("    // Set chart options\n")
 	reportFile.write("    var options = {'title':'Plugin times',\n")
@@ -521,12 +525,34 @@ def main(argv):
 	reportFile.write("    // Instantiate and draw our chart, passing in some options.\n")
 	reportFile.write("    var chart = new google.visualization.PieChart(document.getElementById('chart_div'));\n")
 	reportFile.write("    chart.draw(data, options);\n")
+	reportFile.write("\n")
+	reportFile.write("    // Create the 2nd data table.\n")
+	reportFile.write("    var data2 = new google.visualization.DataTable();\n")
+	reportFile.write("    data2.addColumn('string', 'Plugin');\n")
+	reportFile.write("    data2.addColumn('number', 'Requests');\n")
+	reportFile.write("    data2.addRows([\n")
+
+	# Loop through 2nd time for the 2nd chart
+	for plugin in progress[1]['HostProcess']:
+		reportFile.write("      ['" + plugin['Plugin'][0] + "', " + plugin['Plugin'][4] + "],\n")
+
+	# The end of the chart script
+	reportFile.write("    ]);\n")
+	reportFile.write("    // Set chart options\n")
+	reportFile.write("    var options2 = {'title':'Request counts',\n")
+	reportFile.write("                   'width':600,\n")
+	reportFile.write("                   'height':500};\n")
+	reportFile.write("    // Instantiate and draw our chart, passing in some options.\n")
+	reportFile.write("    var chart2 = new google.visualization.PieChart(document.getElementById('chart_div2'));\n")
+	reportFile.write("    chart2.draw(data2, options2);\n")
 	reportFile.write("  }\n")
 	reportFile.write("</script>\n")
-	reportFile.write("<div id=\"chart_div\"></div>\n")
+
+	reportFile.write("<div id=\"chart_div\" style=\"width: 600px; float: left;\"></div>\n")
+	reportFile.write("<div id=\"chart_div2\" style=\"margin-left: 620px;\"></div>\n")
 
 	reportFile.write("<table border=\"1\">\n")
-	reportFile.write("<tr><th>Plugin</th><th>ms</th></tr>\n")
+	reportFile.write("<tr><th>Plugin</th><th>ms</th><th>Reqs</th></tr>\n")
 
 	# Loop through second time for the table
 	totalTime = 0
@@ -541,9 +567,10 @@ def main(argv):
 		h, m = divmod(m, 60)
 		time = "%d:%02d:%02d.%03d" % (h, m, s, ms)
 		reportFile.write("<td>" + time + "</td>")
+		reportFile.write("<td>" + plugin['Plugin'][4] + "</td>")
 		reportFile.write("</tr>\n")
 
-	reportFile.write("<tr><td></td><td></td></tr>")
+	reportFile.write("<tr><td></td><td></td><td></td></tr>")
 	reportFile.write("<tr>")
 	reportFile.write("<td>Total</td>")
 	# Convert ms into something more readable
@@ -552,11 +579,14 @@ def main(argv):
 	h, m = divmod(m, 60)
 	time = "%d:%02d:%02d" % (h, m, s)
 	reportFile.write("<td>" + time + "</td>")
+	reportFile.write("<td>-</td>")
 	reportFile.write("</tr>\n")
 
 	reportFile.write("</table><br/>\n")
 
 	reportFile.write("</body></html>\n")
+	reportFile.close()
+	
 	reportFile.close()
 	
 	#for key, value in sorted(alertsPerUrl.iteritems()):
