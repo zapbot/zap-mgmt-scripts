@@ -15,7 +15,8 @@ counts = {}
 files = sorted(glob.glob('../zap-mgmt-scripts_gh-pages/stats/releases-*'))
 # Just show the last 30 days to prevent the chart getting too big
 
-files = files[-30:]
+files = files[-31:]
+first = 1
 for file in files:
   with open(file) as stats_file:
     stats = json.load(stats_file)
@@ -31,5 +32,9 @@ for file in files:
         else:
           assets[name] = count
         counts[name] = count
-      print "        ['%s', %d, %d, %d, %d, %d, '']," % (file[-15:-5], assets[WIN], assets[LINUX], assets[MAC], assets[CROSS], assets[CORE])
+      if (first):
+        # Ignore the first as its just for getting a baseline
+        first = 0
+      else:
+        print "        ['%s', %d, %d, %d, %d, %d, '']," % (file[-15:-5], assets[WIN], assets[LINUX], assets[MAC], assets[CROSS], assets[CORE])
     
