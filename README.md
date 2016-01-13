@@ -6,7 +6,7 @@ The information maintained by this repo see the [ZAPbot Homepage](http://zapbot.
 ## ZAP Automated Tests
 The following instructions have been used to set up an AWS instance for running the ZAP automated tests - they will need tweaking for other environments.
 
-The current instance being used is a t2.medium running with Ubunty trusty and 24Gb disk.
+The current instance being used is a t2.medium running with Ubuntu trusty and 24Gb disk.
 
 From a bare bones install, as root run:
 * apt-get update -y
