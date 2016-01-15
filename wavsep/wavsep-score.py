@@ -65,12 +65,13 @@ def main(argv):
 	abbrev = {
 			'Active Vulnerability title' : 'Ex',\
 			'Cross Site Scripting (DOM Based)' : 'DXSS',\
+			'Cross Site Scripting (Persistent)' : 'PXSS',\
 			'Cross Site Scripting (Reflected)' : 'RXSS',\
 			'Absence of Anti-CSRF Tokens' : 'NoCSRF',\
 			'Application Error Disclosure' : 'AppError',\
 			'Anti CSRF Tokens Scanner' : 'ACSRF',\
 			'Buffer Overflow' : 'Buffer',\
-			'Cookie set without HttpOnly flag' : 'HttpOnly',\
+			'Cookie No HttpOnly Flag' : 'HttpOnly',\
 			'Cookie Slack Detector' : 'CookieSlack',\
 			'Cross Site Request Forgery' : 'CSRF',\
 			'External Redirect' : 'ExtRedir',\
@@ -83,10 +84,11 @@ def main(argv):
 			'LDAP Injection' : 'LDAP',\
 			'Loosely Scoped Cookie' : 'CookieLoose',\
 			'None. Warning only.' : 'NoCSRF2',\
-			'Password Autocomplete in browser' : 'Auto',\
+			'Password Autocomplete in Browser' : 'Auto',\
 			'Path Traversal' : 'PathTrav',\
 			'Private IP Disclosure' : 'PrivIP',\
 			'Remote File Inclusion' : 'RFI',\
+			'Remote OS Command Injection' : 'RCI',\
 			'Session ID in URL Rewrite' : 'SessRewrite',\
 			'Source Code Disclosure - File Inclusion' : 'SrcInc',\
 			'SQL Injection' : 'SQLi',\
@@ -102,7 +104,7 @@ def main(argv):
 			'SQL Injection - PostgreSQL - Time Based' : 'SqlPostgreT',\
 			'URL Redirector Abuse' : 'UrlRedir',\
 			'User Agent Fuzzer' : 'UAfuzz',\
-			'Viewstate without MAC signature (Unsure)' : 'ViewstateNoMac',\
+			'Viewstate without MAC Signature (Unsure)' : 'ViewstateNoMac',\
 			'Weak Authentication Method' : 'WeakAuth',\
 			'Web Browser XSS Protection Not Enabled' : 'XSSoff',\
 			'X-Content-Type-Options Header Missing' : 'XContent',\
@@ -190,8 +192,10 @@ def main(argv):
 			['RFI-Detection-Evaluation', 'RFI', 'pass'], \
 			['RFI-FalsePositives', 'RFI', 'fail'], \
 			['RXSS-Detection-Evaluation', 'DXSS', 'pass'], \
+			['RXSS-Detection-Evaluation', 'PXSS', 'pass'], \
 			['RXSS-Detection-Evaluation', 'RXSS', 'pass'], \
 			['RXSS-FalsePositives-GET', 'DXSS', 'fail'], \
+			['RXSS-FalsePositives-GET', 'PXSS', 'fail'], \
 			['RXSS-FalsePositives-GET', 'RXSS', 'fail'], \
 		
 			['SInjection-Detection-Evaluation', 'SQLfp', 'pass'], \

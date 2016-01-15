@@ -177,6 +177,7 @@ mv ${name}.summary ~/zap-mgmt-scripts_gh-pages/reports/
 mv report.html ~/zap-mgmt-scripts_gh-pages/reports/${name}.html
 
 cd ~/zap-mgmt-scripts_gh-pages
+git pull
 git add reports
 
 cat scan.head reports/*.summary scan.tail > scans.html
