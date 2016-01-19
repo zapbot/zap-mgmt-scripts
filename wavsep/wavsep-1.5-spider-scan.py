@@ -14,7 +14,7 @@ def main(argv):
    policy = None
    
    try:
-      opts, args = getopt.getopt(argv,"haztp",["zap=","wavsep=","ajax","policy="])
+      opts, args = getopt.getopt(argv,"haz:w:p:",["zap=","wavsep=","ajax","policy="])
    except getopt.GetoptError:
       print 'test.py -z <ZAPipaddr> -w <WAVSEPipaddr>'
       sys.exit(2)
@@ -29,7 +29,7 @@ def main(argv):
       elif opt in ("-a", "--ajax"):
          ajax = True
       elif opt in ("-p", "--policy"):
-         ploicy = arg
+         policy = arg
    print 'zap is', zapHostIp
    print 'wavsep is ', wavsepHostIp
    

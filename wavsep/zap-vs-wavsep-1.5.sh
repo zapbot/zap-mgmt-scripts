@@ -19,7 +19,7 @@ USAGE="Usage: $0 [-a] -d docker-image [-e expected-score] -n name [-t text] [-z 
 docker=''
 expected=''
 name=''
-policy='Default policy'
+policy='Default Policy'
 text=''
 zap_opt=''
 score_opt=''
@@ -125,7 +125,7 @@ echo Let ZAP start up...
 sleep 20
 
 # Spider and scan the app
-python ~/zap-mgmt-scripts/wavsep/wavsep-1.5-spider-scan.py $score_opt -p $policy -z $ZPIP -w $WSIP >> ~/wrk/out.txt
+python ~/zap-mgmt-scripts/wavsep/wavsep-1.5-spider-scan.py $score_opt -p "$policy" -z $ZPIP -w $WSIP >> ~/wrk/out.txt
 
 # Save the logs
 LOG="~/zap-mgmt-scripts_gh-pages/reports/${name}.logs.txt"
