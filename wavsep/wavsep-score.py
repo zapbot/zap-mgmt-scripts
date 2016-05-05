@@ -556,7 +556,7 @@ def main(argv):
 	reportFile.write("<div id=\"chart_div2\" style=\"margin-left: 620px;\"></div>\n")
 
 	reportFile.write("<table border=\"1\">\n")
-	reportFile.write("<tr><th>Plugin</th><th>ms</th><th>Reqs</th></tr>\n")
+	reportFile.write("<tr><th>Plugin</th><th>ms</th><th>Reqs</th><th>Quality</th></tr>\n")
 
 	# Loop through second time for the table
 	totalTime = 0
@@ -564,17 +564,18 @@ def main(argv):
 		reportFile.write("<tr>")
 		reportFile.write("<td>" + plugin['Plugin'][0] + "</td>")
 		# Convert ms into something more readable
-		t = int(plugin['Plugin'][3])
+		t = int(plugin['Plugin'][4])
 		totalTime += t
 		s, ms = divmod(t, 1000)
 		m, s = divmod(s, 60)
 		h, m = divmod(m, 60)
 		time = "%d:%02d:%02d.%03d" % (h, m, s, ms)
 		reportFile.write("<td>" + time + "</td>")
-		reportFile.write("<td>" + plugin['Plugin'][4] + "</td>")
+		reportFile.write("<td>" + plugin['Plugin'][5] + "</td>")
+		reportFile.write("<td>" + plugin['Plugin'][2] + "</td>")
 		reportFile.write("</tr>\n")
 
-	reportFile.write("<tr><td></td><td></td><td></td></tr>")
+	reportFile.write("<tr><td></td><td></td><td></td><td></td></tr>")
 	reportFile.write("<tr>")
 	reportFile.write("<td>Total</td>")
 	# Convert ms into something more readable
@@ -583,7 +584,7 @@ def main(argv):
 	h, m = divmod(m, 60)
 	time = "%d:%02d:%02d" % (h, m, s)
 	reportFile.write("<td>" + time + "</td>")
-	reportFile.write("<td>-</td>")
+	reportFile.write("<td>-</td><td>-</td>")
 	reportFile.write("</tr>\n")
 
 	reportFile.write("</table><br/>\n")
