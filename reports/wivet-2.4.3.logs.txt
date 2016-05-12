@@ -1,578 +1,576 @@
 Found Java version 1.7.0_91
 Available memory: 3952 MB
 Setting jvm heap size: -Xmx512m
-852 [main] INFO org.zaproxy.zap.DaemonBootstrap  - OWASP ZAP 2.4.3 started.
-2048 [main] INFO hsqldb.db.HSQLDB379AF3DEBD.ENGINE  - dataFileCache open start
-2070 [main] INFO hsqldb.db.HSQLDB379AF3DEBD.ENGINE  - dataFileCache open end
-3578 [main] INFO org.parosproxy.paros.common.AbstractParam  - Setting config ajaxSpider.clickDefaultElems = False was null
-3579 [main] INFO org.parosproxy.paros.common.AbstractParam  - Setting config api.disablekey = true was null
-3597 [main] INFO org.parosproxy.paros.network.SSLConnector  - Reading supported SSL/TLS protocols...
-3597 [main] INFO org.parosproxy.paros.network.SSLConnector  - Using a SSLEngine...
-4295 [main] INFO org.parosproxy.paros.network.SSLConnector  - Done reading supported SSL/TLS protocols: [SSLv2Hello, SSLv3, TLSv1, TLSv1.1, TLSv1.2]
-4308 [main] INFO org.parosproxy.paros.extension.option.OptionsParamCertificate  - Unsafe SSL renegotiation disabled.
-4318 [ZAP-daemon] INFO org.zaproxy.zap.control.ExtensionFactory  - Loading extensions
-6992 [ZAP-daemon] INFO org.zaproxy.zap.control.ExtensionFactory  - Extensions loaded
-9331 [ZAP-daemon] INFO org.parosproxy.paros.extension.filter.FilterFactory  - loaded filter Change user agent to other browsers. 
-9331 [ZAP-daemon] INFO org.parosproxy.paros.extension.filter.FilterFactory  - loaded filter Detect insecure or potentially malicious content in HTTP responses.
-9331 [ZAP-daemon] INFO org.parosproxy.paros.extension.filter.FilterFactory  - loaded filter Detect and alert 'Set-cookie' attempt in HTTP response for modification.
-9332 [ZAP-daemon] INFO org.parosproxy.paros.extension.filter.FilterFactory  - loaded filter Avoid browser cache (strip off IfModifiedSince)
-9332 [ZAP-daemon] INFO org.parosproxy.paros.extension.filter.FilterFactory  - loaded filter Log cookies sent by browser.
-9332 [ZAP-daemon] INFO org.parosproxy.paros.extension.filter.FilterFactory  - loaded filter Log unique GET queries into file:filter/get.xls
-9332 [ZAP-daemon] INFO org.parosproxy.paros.extension.filter.FilterFactory  - loaded filter Log unique POST queries into file:  filter/post.xls
-9332 [ZAP-daemon] INFO org.parosproxy.paros.extension.filter.FilterFactory  - loaded filter Log request and response into file: filter/message.txt
-9332 [ZAP-daemon] INFO org.parosproxy.paros.extension.filter.FilterFactory  - loaded filter Replace HTTP request body using defined pattern.
-9332 [ZAP-daemon] INFO org.parosproxy.paros.extension.filter.FilterFactory  - loaded filter Replace HTTP request header using defined pattern.
-9332 [ZAP-daemon] INFO org.parosproxy.paros.extension.filter.FilterFactory  - loaded filter Replace HTTP response body using defined pattern.
-9333 [ZAP-daemon] INFO org.parosproxy.paros.extension.filter.FilterFactory  - loaded filter Replace HTTP response header using defined pattern.
-9333 [ZAP-daemon] INFO org.parosproxy.paros.extension.filter.FilterFactory  - loaded filter Send ZAP session request ID
-9781 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Allows ZAP to check for updates
-9801 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing ExtensionViewOption
-9801 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing ExtensionEdit
-9801 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing ExtensionFilter
-9801 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Provides a rest based API for controlling and accessing ZAP
-10214 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing ExtensionState
-10214 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing ExtensionHistory
-10216 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Show hidden fields and enable disabled fields
-10217 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Search messages for strings and regular expressions 
-10217 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Encode/Decode/Hash...
-10217 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Allows you to intercept and modify requests and responses
-10218 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Passive scanner
-10360 [ZAP-daemon] INFO org.zaproxy.zap.extension.pscan.ExtensionPassiveScan  - loaded passive scan rule: Script passive scan rules
-10360 [ZAP-daemon] INFO org.zaproxy.zap.extension.pscan.ExtensionPassiveScan  - loaded passive scan rule: Application Error Disclosure
-10360 [ZAP-daemon] INFO org.zaproxy.zap.extension.pscan.ExtensionPassiveScan  - loaded passive scan rule: Incomplete or No Cache-control and Pragma HTTP Header Set
-10361 [ZAP-daemon] INFO org.zaproxy.zap.extension.pscan.ExtensionPassiveScan  - loaded passive scan rule: Content-Type Header Missing
-10361 [ZAP-daemon] INFO org.zaproxy.zap.extension.pscan.ExtensionPassiveScan  - loaded passive scan rule: Cookie No HttpOnly Flag
-10361 [ZAP-daemon] INFO org.zaproxy.zap.extension.pscan.ExtensionPassiveScan  - loaded passive scan rule: Cookie Without Secure Flag
-10361 [ZAP-daemon] INFO org.zaproxy.zap.extension.pscan.ExtensionPassiveScan  - loaded passive scan rule: Cross-Domain JavaScript Source File Inclusion
-10361 [ZAP-daemon] INFO org.zaproxy.zap.extension.pscan.ExtensionPassiveScan  - loaded passive scan rule: Web Browser XSS Protection Not Enabled
-10362 [ZAP-daemon] INFO org.zaproxy.zap.extension.pscan.ExtensionPassiveScan  - loaded passive scan rule: Secure Pages Include Mixed Content
-10362 [ZAP-daemon] INFO org.zaproxy.zap.extension.pscan.ExtensionPassiveScan  - loaded passive scan rule: Password Autocomplete in Browser
-10362 [ZAP-daemon] INFO org.zaproxy.zap.extension.pscan.ExtensionPassiveScan  - loaded passive scan rule: Private IP Disclosure
-10362 [ZAP-daemon] INFO org.zaproxy.zap.extension.pscan.ExtensionPassiveScan  - loaded passive scan rule: Session ID in URL Rewrite
-10362 [ZAP-daemon] INFO org.zaproxy.zap.extension.pscan.ExtensionPassiveScan  - loaded passive scan rule: X-Content-Type-Options Header Missing
-10362 [ZAP-daemon] INFO org.zaproxy.zap.extension.pscan.ExtensionPassiveScan  - loaded passive scan rule: X-Frame-Options Header Not Set
-10424 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Allows you to view and manage alerts
-10425 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Active scanner, heavily based on the original Paros active scanner, but with additional tests added
-10441 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Spider used for automatically finding URIs on a site
-10461 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing A set of common popup menus for miscellaneous tasks
-10474 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Forced browsing of files and directories using code from the OWASP DirBuster tool
-10474 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing ExtensionManualRequest
-10475 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Compares 2 sessions and generates an HTML file showing the differences
-10475 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Invoke external applications passing context related information such as URLs and parameters
-10475 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Handles anti cross site request forgery (CSRF) tokens
-10477 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing ExtensionAuthentication
-12894 [ZAP-daemon] INFO org.zaproxy.zap.extension.authentication.ExtensionAuthentication  - Loaded authentication method types: [Form-based Authentication, HTTP/NTLM Authentication, Manual Authentication, Script-based Authentication]
-12894 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Creates a dynamic SSL certificate to allow SSL communications to be intercepted without warnings being generated by the browser
-12895 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Logs errors to the Output tab in development mode only
-12895 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing ExtensionUserManagement
-12895 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Summarise and analyse FORM and URL parameters as well as cookies
-12896 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Script integration
-12911 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Scripting console, supports all JSR 223 scripting languages
-12911 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing ExtensionForcedUser
-12911 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Extension handling HTTP sessions
-12912 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Zest is a specialized scripting language from Mozilla specifically designed to be used in security tools
-13210 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing ExtensionDiff
-13210 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing ExtensionRequestPostTableView
-13210 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Simple browser configuration
-13219 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing ExtensionSessionManagement
-13426 [ZAP-daemon] INFO org.zaproxy.zap.extension.sessions.ExtensionSessionManagement  - Loaded session management method types: [Cookie-based Session Management, Http Authentication Session Management]
-13426 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing ExtensionHttpPanelRequestFormTableView
-13426 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Capture messages from WebSockets with the ability to set breakpoints.
-13430 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Summarise and analyse FORM and URL parameters as well as cookies
-13430 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing ExtensionAuthorization
-13430 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing AJAX Spider, uses Crawljax
-13431 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Handles adding Global Excluded URLs
-13431 [ZAP-daemon] WARN org.zaproxy.zap.extension.globalexcludeurl.ExtensionGlobalExcludeURL  - GlobalExcludeURL.optionsLoaded()
-13431 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Adds menu item to refresh the Sites tree
-13431 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Adds support for configurable keyboard shortcuts for all of the ZAP menus.
-13431 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing OWASP ZAP User Guide
-13432 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing ExtensionReport
-13432 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Allows you to configure which extensions are loaded when ZAP starts 
-13432 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing ExtensionHttpPanelComponentonentAll
-13432 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing ExtensionHttpPanelHexView
-13432 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing ExtensionHttpPanelImageView
-13432 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing ExtensionHttpPanelLargeRequestView
-13432 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing ExtensionHttpPanelLargeResponseView
-13432 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing ExtensionHttpPanelRequestQueryCookieTableView
-13432 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing ExtensionHttpPanelSyntaxHighlightTextView
-13432 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Quick Start panel 
-13433 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Translations of the core language files
-13433 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Tips and Tricks
-13433 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Passive Scan Rules
-13433 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Allows to fuzz WebSocket messages.
-13433 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Provides WebDrivers to control several browsers using Selenium and includes HtmlUnit browser.
-13442 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Active Scan Rules
-13442 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing The ZAP Getting Started Guide
-13442 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing The Online menu links
-13442 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing ExtensionSaveRawHttpMessage
-13442 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Provides the foundation for concrete message types (for example, HTTP, WebSockets) expose fuzzer implementations.
-13444 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Allows to fuzz HTTP messages.
-13444 [ZAP-daemon] WARN org.zaproxy.zap.extension.autoupdate.ExtensionAutoUpdate  - No check for updates for over 3 month - add-ons may well be out of date
-13445 [Thread-4] INFO org.zaproxy.zap.extension.dynssl.ExtensionDynSSL  - Creating new root CA certificate
-19199 [ZAP-ProxyThread-2] INFO org.zaproxy.zap.extension.httpsessions.ExtensionHttpSessions  - Added new session token for site '172.17.0.2:80': PHPSESSID
-19218 [ZAP-ProxyThread-2] INFO org.zaproxy.zap.extension.httpsessions.HttpSessionsSite  - Created a new session as no match was found: HttpSession [name=Session 0, active=false, tokenValues='']
-19254 [Thread-4] INFO org.zaproxy.zap.extension.dynssl.ExtensionDynSSL  - New root CA certificate created
-21320 [Thread-10] INFO org.zaproxy.zap.extension.spider.SpiderThread  - Starting spidering scan on SpiderApi-0 at Thu May 05 11:04:26 UTC 2016
-21339 [Thread-10] INFO org.zaproxy.zap.spider.Spider  - Spider initializing...
-21413 [Thread-10] INFO org.zaproxy.zap.spider.Spider  - Starting spider...
-21431 [Thread-10] INFO org.zaproxy.zap.spider.Spider  - Adding seed for spider: http://172.17.0.2/
-21434 [Thread-10] INFO org.zaproxy.zap.spider.Spider  - Adding seed for spider: http://172.17.0.2/robots.txt
-21468 [Thread-10] INFO org.zaproxy.zap.spider.Spider  - Adding seed for spider: http://172.17.0.2/sitemap.xml
-24066 [pool-1-thread-1] INFO org.zaproxy.zap.spider.Spider  - Spidering process is complete. Shutting down...
-24069 [Thread-11] INFO org.zaproxy.zap.extension.spider.SpiderThread  - Spider scanning complete: true
-29450 [ZAP-daemon] INFO org.parosproxy.paros.CommandLine  - Add-on update check complete
-29451 [ZAP-daemon] INFO org.parosproxy.paros.CommandLine  - Downloading add-on from: https://github.com/zaproxy/zap-extensions/releases/download/2.4/selenium-release-5.zap
-29451 [ZAP-daemon] INFO org.parosproxy.paros.CommandLine  - Add-on downloaded to: /home/zap/.ZAP/plugin/zest-beta-20.zap
-29451 [ZAP-daemon] INFO org.parosproxy.paros.CommandLine  - Add-on downloaded to: /home/zap/.ZAP/plugin/selenium-release-5.zap
-30512 [ZAP-daemon] INFO org.zaproxy.zap.DaemonBootstrap  - ZAP is now listening on 0.0.0.0:8090
-31384 [Thread-12] INFO org.zaproxy.zap.extension.spiderAjax.SpiderThread  - Running crawljax targeting http://172.17.0.2/
-31385 [Thread-12] INFO org.zaproxy.zap.extension.spiderAjax.SpiderThread  - Starting proxy...
-31385 [Thread-12] INFO org.zaproxy.zap.extension.spiderAjax.SpiderThread  - Proxy started, listening at port [58214].
-32184 [Thread-12] WARN com.crawljax.core.plugin.Plugins  - No plugins loaded. There will be no output
-38377 [ZAP-ProxyThread-10] INFO org.zaproxy.zap.extension.httpsessions.HttpSessionsSite  - Created a new session as no match was found: HttpSession [name=Session 1, active=false, tokenValues='']
-50763 [Thread-12] INFO com.crawljax.core.UnfiredCandidateActions  - There are 1 states with unfired actions
-50764 [pool-2-thread-2] INFO com.crawljax.core.UnfiredCandidateActions  - There are 1 states with unfired actions
-56915 [pool-2-thread-2] INFO com.crawljax.core.state.StateMachine  - State state2 added to the StateMachine.
-56915 [pool-2-thread-2] INFO com.crawljax.core.Crawler  - New DOM is a new state! crawl depth is now 1
-66212 [pool-2-thread-2] INFO com.crawljax.core.UnfiredCandidateActions  - There are 2 states with unfired actions
-68373 [pool-2-thread-2] INFO com.crawljax.core.state.StateMachine  - State state3 added to the StateMachine.
-68373 [pool-2-thread-2] INFO com.crawljax.core.Crawler  - New DOM is a new state! crawl depth is now 2
-75734 [pool-2-thread-2] INFO com.crawljax.core.UnfiredCandidateActions  - There are 2 states with unfired actions
-79419 [pool-2-thread-2] INFO com.crawljax.core.state.StateMachine  - State state4 added to the StateMachine.
-79420 [pool-2-thread-2] INFO com.crawljax.core.Crawler  - New DOM is a new state! crawl depth is now 1
-87197 [pool-2-thread-2] INFO com.crawljax.core.UnfiredCandidateActions  - There are 3 states with unfired actions
-89405 [pool-2-thread-2] INFO com.crawljax.core.state.StateMachine  - State state5 added to the StateMachine.
-89405 [pool-2-thread-2] INFO com.crawljax.core.Crawler  - New DOM is a new state! crawl depth is now 2
-96745 [pool-2-thread-2] INFO com.crawljax.core.UnfiredCandidateActions  - There are 4 states with unfired actions
-100175 [pool-2-thread-2] INFO com.crawljax.core.state.StateMachine  - State state6 added to the StateMachine.
-100175 [pool-2-thread-2] INFO com.crawljax.core.Crawler  - New DOM is a new state! crawl depth is now 3
-109023 [pool-2-thread-2] INFO com.crawljax.core.UnfiredCandidateActions  - There are 3 states with unfired actions
-112161 [pool-2-thread-2] INFO com.crawljax.core.Crawler  - Crawl depth is now 1
-114223 [pool-2-thread-2] INFO com.crawljax.core.state.StateMachine  - State state7 added to the StateMachine.
-114235 [pool-2-thread-2] INFO com.crawljax.core.Crawler  - New DOM is a new state! crawl depth is now 2
-122126 [pool-2-thread-2] INFO com.crawljax.core.UnfiredCandidateActions  - There are 4 states with unfired actions
-124755 [pool-2-thread-2] INFO com.crawljax.core.state.StateMachine  - State state8 added to the StateMachine.
-124755 [pool-2-thread-2] INFO com.crawljax.core.Crawler  - New DOM is a new state! crawl depth is now 3
-131815 [pool-2-thread-2] INFO com.crawljax.core.UnfiredCandidateActions  - There are 4 states with unfired actions
-135298 [pool-2-thread-2] INFO com.crawljax.core.state.StateMachine  - State state9 added to the StateMachine.
-135298 [pool-2-thread-2] INFO com.crawljax.core.Crawler  - New DOM is a new state! crawl depth is now 1
-142255 [pool-2-thread-2] INFO com.crawljax.core.UnfiredCandidateActions  - There are 5 states with unfired actions
-144849 [pool-2-thread-2] INFO com.crawljax.core.state.StateMachine  - State state10 added to the StateMachine.
-144849 [pool-2-thread-2] INFO com.crawljax.core.Crawler  - New DOM is a new state! crawl depth is now 2
-151934 [pool-2-thread-2] INFO com.crawljax.core.UnfiredCandidateActions  - There are 5 states with unfired actions
-153996 [pool-2-thread-2] INFO com.crawljax.core.state.StateMachine  - State state11 added to the StateMachine.
-153996 [pool-2-thread-2] INFO com.crawljax.core.Crawler  - New DOM is a new state! crawl depth is now 3
-160647 [pool-2-thread-2] INFO com.crawljax.core.UnfiredCandidateActions  - There are 6 states with unfired actions
-162704 [pool-2-thread-2] INFO com.crawljax.core.state.StateMachine  - CLONE State detected: state12 and state10 are the same.
-190441 [pool-2-thread-2] INFO com.crawljax.core.state.StateMachine  - State state25 added to the StateMachine.
-190441 [pool-2-thread-2] INFO com.crawljax.core.Crawler  - New DOM is a new state! crawl depth is now 4
-196981 [pool-2-thread-2] INFO com.crawljax.core.UnfiredCandidateActions  - There are 6 states with unfired actions
-199184 [pool-2-thread-2] INFO com.crawljax.core.state.StateMachine  - CLONE State detected: state26 and state11 are the same.
-199188 [pool-2-thread-2] INFO com.crawljax.core.UnfiredCandidateActions  - There are 6 states with unfired actions
-202064 [pool-2-thread-2] INFO com.crawljax.core.Crawler  - Crawl depth is now 1
-203996 [pool-2-thread-2] INFO com.crawljax.core.state.StateMachine  - State state27 added to the StateMachine.
-203996 [pool-2-thread-2] INFO com.crawljax.core.Crawler  - New DOM is a new state! crawl depth is now 2
-210406 [pool-2-thread-2] INFO com.crawljax.core.UnfiredCandidateActions  - There are 6 states with unfired actions
-212410 [pool-2-thread-2] INFO com.crawljax.core.state.StateMachine  - State state28 added to the StateMachine.
-212410 [pool-2-thread-2] INFO com.crawljax.core.Crawler  - New DOM is a new state! crawl depth is now 3
-219022 [pool-2-thread-2] INFO com.crawljax.core.UnfiredCandidateActions  - There are 6 states with unfired actions
-221038 [pool-2-thread-2] INFO com.crawljax.core.state.StateMachine  - State state29 added to the StateMachine.
-221038 [pool-2-thread-2] INFO com.crawljax.core.Crawler  - New DOM is a new state! crawl depth is now 4
-227435 [pool-2-thread-2] INFO com.crawljax.core.UnfiredCandidateActions  - There are 6 states with unfired actions
-229328 [pool-2-thread-2] INFO com.crawljax.core.state.StateMachine  - State state30 added to the StateMachine.
-229328 [pool-2-thread-2] INFO com.crawljax.core.Crawler  - New DOM is a new state! crawl depth is now 5
-235796 [pool-2-thread-2] INFO com.crawljax.core.UnfiredCandidateActions  - There are 6 states with unfired actions
-237713 [pool-2-thread-2] INFO com.crawljax.core.state.StateMachine  - State state31 added to the StateMachine.
-237714 [pool-2-thread-2] INFO com.crawljax.core.Crawler  - New DOM is a new state! crawl depth is now 6
-244422 [pool-2-thread-2] INFO com.crawljax.core.UnfiredCandidateActions  - There are 6 states with unfired actions
-246973 [pool-2-thread-2] INFO com.crawljax.core.state.StateMachine  - State state32 added to the StateMachine.
-246973 [pool-2-thread-2] INFO com.crawljax.core.Crawler  - New DOM is a new state! crawl depth is now 7
-253573 [pool-2-thread-2] INFO com.crawljax.core.UnfiredCandidateActions  - There are 6 states with unfired actions
-255504 [pool-2-thread-2] INFO com.crawljax.core.state.StateMachine  - State state33 added to the StateMachine.
-255504 [pool-2-thread-2] INFO com.crawljax.core.Crawler  - New DOM is a new state! crawl depth is now 8
-261719 [pool-2-thread-2] INFO com.crawljax.core.UnfiredCandidateActions  - There are 6 states with unfired actions
-263670 [pool-2-thread-2] INFO com.crawljax.core.state.StateMachine  - State state34 added to the StateMachine.
-263670 [pool-2-thread-2] INFO com.crawljax.core.Crawler  - New DOM is a new state! crawl depth is now 9
-270182 [pool-2-thread-2] INFO com.crawljax.core.UnfiredCandidateActions  - There are 6 states with unfired actions
-272467 [pool-2-thread-2] INFO com.crawljax.core.state.StateMachine  - State state35 added to the StateMachine.
-272467 [pool-2-thread-2] INFO com.crawljax.core.Crawler  - New DOM is a new state! crawl depth is now 10
-272491 [pool-2-thread-2] INFO com.crawljax.core.UnfiredCandidateActions  - There are 5 states with unfired actions
-275332 [pool-2-thread-2] INFO com.crawljax.core.Crawler  - Crawl depth is now 1
-275624 [pool-2-thread-2] INFO com.crawljax.core.UnfiredCandidateActions  - There are 4 states with unfired actions
-278489 [pool-2-thread-2] INFO com.crawljax.core.Crawler  - Crawl depth is now 1
-280197 [pool-2-thread-2] INFO com.crawljax.core.Crawler  - Crawl depth is now 2
-282181 [pool-2-thread-2] INFO com.crawljax.core.state.StateMachine  - State state36 added to the StateMachine.
-282181 [pool-2-thread-2] INFO com.crawljax.core.Crawler  - New DOM is a new state! crawl depth is now 3
-288650 [pool-2-thread-2] INFO com.crawljax.core.UnfiredCandidateActions  - There are 3 states with unfired actions
-292126 [pool-2-thread-2] INFO com.crawljax.core.state.StateMachine  - State state37 added to the StateMachine.
-292126 [pool-2-thread-2] INFO com.crawljax.core.Crawler  - New DOM is a new state! crawl depth is now 1
-298569 [pool-2-thread-2] INFO com.crawljax.core.UnfiredCandidateActions  - There are 4 states with unfired actions
-303958 [pool-2-thread-2] INFO com.crawljax.core.UnfiredCandidateActions  - There are 3 states with unfired actions
-306942 [pool-2-thread-2] INFO com.crawljax.core.Crawler  - Crawl depth is now 1
-308485 [pool-2-thread-2] INFO com.crawljax.core.Crawler  - Crawl depth is now 2
-336728 [pool-2-thread-2] INFO com.crawljax.core.state.StateMachine  - CLONE State detected: state53 and state25 are the same.
-343888 [pool-2-thread-2] INFO com.crawljax.core.UnfiredCandidateActions  - There are 2 states with unfired actions
-346862 [pool-2-thread-2] INFO com.crawljax.core.state.StateMachine  - State state58 added to the StateMachine.
-346862 [pool-2-thread-2] INFO com.crawljax.core.Crawler  - New DOM is a new state! crawl depth is now 1
-351598 [pool-2-thread-2] INFO com.crawljax.core.UnfiredCandidateActions  - There are 3 states with unfired actions
-354026 [pool-2-thread-2] INFO com.crawljax.core.UnfiredCandidateActions  - There are 2 states with unfired actions
-356722 [pool-2-thread-2] INFO com.crawljax.core.Crawler  - Crawl depth is now 1
-358069 [pool-2-thread-2] INFO com.crawljax.core.Crawler  - Crawl depth is now 2
-359936 [pool-2-thread-2] INFO com.crawljax.core.UnfiredCandidateActions  - There are 1 states with unfired actions
-363146 [pool-2-thread-2] INFO com.crawljax.core.state.StateMachine  - State state61 added to the StateMachine.
-363146 [pool-2-thread-2] INFO com.crawljax.core.Crawler  - New DOM is a new state! crawl depth is now 1
-469083 [pool-2-thread-2] INFO com.crawljax.core.UnfiredCandidateActions  - There are 2 states with unfired actions
-481635 [pool-2-thread-2] INFO com.crawljax.core.UnfiredCandidateActions  - There are 1 states with unfired actions
-484770 [pool-2-thread-2] INFO com.crawljax.core.state.StateMachine  - State state66 added to the StateMachine.
-484771 [pool-2-thread-2] INFO com.crawljax.core.Crawler  - New DOM is a new state! crawl depth is now 1
-489212 [pool-2-thread-2] INFO com.crawljax.core.UnfiredCandidateActions  - There are 2 states with unfired actions
-492758 [pool-2-thread-2] INFO com.crawljax.core.state.StateMachine  - State state68 added to the StateMachine.
-492758 [pool-2-thread-2] INFO com.crawljax.core.Crawler  - New DOM is a new state! crawl depth is now 2
-497049 [pool-2-thread-2] INFO com.crawljax.core.UnfiredCandidateActions  - There are 1 states with unfired actions
-500425 [pool-2-thread-2] INFO com.crawljax.core.state.StateMachine  - State state69 added to the StateMachine.
-500425 [pool-2-thread-2] INFO com.crawljax.core.Crawler  - New DOM is a new state! crawl depth is now 1
-505242 [pool-2-thread-2] INFO com.crawljax.core.UnfiredCandidateActions  - There are 1 states with unfired actions
-508519 [pool-2-thread-2] INFO com.crawljax.core.state.StateMachine  - State state70 added to the StateMachine.
-508519 [pool-2-thread-2] INFO com.crawljax.core.Crawler  - New DOM is a new state! crawl depth is now 1
-513791 [pool-2-thread-2] INFO com.crawljax.core.UnfiredCandidateActions  - There are 2 states with unfired actions
-515578 [pool-2-thread-2] INFO com.crawljax.core.state.StateMachine  - State state71 added to the StateMachine.
-515578 [pool-2-thread-2] INFO com.crawljax.core.Crawler  - New DOM is a new state! crawl depth is now 2
-520407 [pool-2-thread-2] INFO com.crawljax.core.UnfiredCandidateActions  - There are 2 states with unfired actions
-523342 [pool-2-thread-2] INFO com.crawljax.core.state.StateMachine  - State state72 added to the StateMachine.
-523342 [pool-2-thread-2] INFO com.crawljax.core.Crawler  - New DOM is a new state! crawl depth is now 1
-528116 [pool-2-thread-2] INFO com.crawljax.core.UnfiredCandidateActions  - There are 3 states with unfired actions
-529531 [pool-2-thread-2] INFO com.crawljax.core.UnfiredCandidateActions  - There are 2 states with unfired actions
-532211 [pool-2-thread-2] INFO com.crawljax.core.Crawler  - Crawl depth is now 1
-535829 [pool-2-thread-2] INFO com.crawljax.core.state.StateMachine  - State state74 added to the StateMachine.
-535829 [pool-2-thread-2] INFO com.crawljax.core.Crawler  - New DOM is a new state! crawl depth is now 2
-540745 [pool-2-thread-2] INFO com.crawljax.core.UnfiredCandidateActions  - There are 2 states with unfired actions
-543741 [pool-2-thread-2] INFO com.crawljax.core.state.StateMachine  - State state75 added to the StateMachine.
-543741 [pool-2-thread-2] INFO com.crawljax.core.Crawler  - New DOM is a new state! crawl depth is now 1
-548512 [pool-2-thread-2] INFO com.crawljax.core.UnfiredCandidateActions  - There are 3 states with unfired actions
-550238 [pool-2-thread-2] INFO com.crawljax.core.state.StateMachine  - State state76 added to the StateMachine.
-550238 [pool-2-thread-2] INFO com.crawljax.core.Crawler  - New DOM is a new state! crawl depth is now 2
-555315 [pool-2-thread-2] INFO com.crawljax.core.UnfiredCandidateActions  - There are 3 states with unfired actions
-557955 [pool-2-thread-2] INFO com.crawljax.core.Crawler  - Crawl depth is now 1
-560018 [pool-2-thread-2] INFO com.crawljax.core.state.StateMachine  - State state77 added to the StateMachine.
-560018 [pool-2-thread-2] INFO com.crawljax.core.Crawler  - New DOM is a new state! crawl depth is now 2
-564187 [pool-2-thread-2] INFO com.crawljax.core.UnfiredCandidateActions  - There are 3 states with unfired actions
-567349 [pool-2-thread-2] INFO com.crawljax.core.state.StateMachine  - State state78 added to the StateMachine.
-567349 [pool-2-thread-2] INFO com.crawljax.core.Crawler  - New DOM is a new state! crawl depth is now 1
-572156 [pool-2-thread-2] INFO com.crawljax.core.UnfiredCandidateActions  - There are 3 states with unfired actions
-574756 [pool-2-thread-2] INFO com.crawljax.core.Crawler  - Crawl depth is now 1
-576977 [pool-2-thread-2] INFO com.crawljax.core.state.StateMachine  - State state79 added to the StateMachine.
-576977 [pool-2-thread-2] INFO com.crawljax.core.Crawler  - New DOM is a new state! crawl depth is now 2
-581999 [pool-2-thread-2] INFO com.crawljax.core.UnfiredCandidateActions  - There are 2 states with unfired actions
-584630 [pool-2-thread-2] INFO com.crawljax.core.Crawler  - Crawl depth is now 1
-586908 [pool-2-thread-2] INFO com.crawljax.core.state.StateMachine  - State state80 added to the StateMachine.
-586908 [pool-2-thread-2] INFO com.crawljax.core.Crawler  - New DOM is a new state! crawl depth is now 2
-591197 [pool-2-thread-2] INFO com.crawljax.core.UnfiredCandidateActions  - There are 2 states with unfired actions
-594305 [pool-2-thread-2] INFO com.crawljax.core.state.StateMachine  - State state81 added to the StateMachine.
-594305 [pool-2-thread-2] INFO com.crawljax.core.Crawler  - New DOM is a new state! crawl depth is now 1
-599345 [pool-2-thread-2] INFO com.crawljax.core.UnfiredCandidateActions  - There are 3 states with unfired actions
-601246 [pool-2-thread-2] INFO com.crawljax.core.state.StateMachine  - State state82 added to the StateMachine.
-601247 [pool-2-thread-2] INFO com.crawljax.core.Crawler  - New DOM is a new state! crawl depth is now 2
-605936 [pool-2-thread-2] INFO com.crawljax.core.UnfiredCandidateActions  - There are 3 states with unfired actions
-607707 [pool-2-thread-2] INFO com.crawljax.core.state.StateMachine  - State state83 added to the StateMachine.
-607707 [pool-2-thread-2] INFO com.crawljax.core.Crawler  - New DOM is a new state! crawl depth is now 3
-612409 [pool-2-thread-2] INFO com.crawljax.core.UnfiredCandidateActions  - There are 2 states with unfired actions
-615060 [pool-2-thread-2] INFO com.crawljax.core.Crawler  - Crawl depth is now 1
-618603 [pool-2-thread-2] INFO com.crawljax.core.state.StateMachine  - State state85 added to the StateMachine.
-618603 [pool-2-thread-2] INFO com.crawljax.core.Crawler  - New DOM is a new state! crawl depth is now 2
-622844 [pool-2-thread-2] INFO com.crawljax.core.UnfiredCandidateActions  - There are 2 states with unfired actions
-626228 [pool-2-thread-2] INFO com.crawljax.core.state.StateMachine  - State state86 added to the StateMachine.
-626228 [pool-2-thread-2] INFO com.crawljax.core.Crawler  - New DOM is a new state! crawl depth is now 1
-630500 [pool-2-thread-2] INFO com.crawljax.core.UnfiredCandidateActions  - There are 2 states with unfired actions
-633650 [pool-2-thread-2] INFO com.crawljax.core.Crawler  - Crawl depth is now 1
-635451 [pool-2-thread-2] INFO com.crawljax.core.state.StateMachine  - State state87 added to the StateMachine.
-635451 [pool-2-thread-2] INFO com.crawljax.core.Crawler  - New DOM is a new state! crawl depth is now 2
-640318 [pool-2-thread-2] INFO com.crawljax.core.UnfiredCandidateActions  - There are 2 states with unfired actions
-643176 [pool-2-thread-2] INFO com.crawljax.core.state.StateMachine  - State state88 added to the StateMachine.
-643176 [pool-2-thread-2] INFO com.crawljax.core.Crawler  - New DOM is a new state! crawl depth is now 1
-648142 [pool-2-thread-2] INFO com.crawljax.core.UnfiredCandidateActions  - There are 3 states with unfired actions
-649834 [pool-2-thread-2] INFO com.crawljax.core.state.StateMachine  - State state89 added to the StateMachine.
-649834 [pool-2-thread-2] INFO com.crawljax.core.Crawler  - New DOM is a new state! crawl depth is now 2
-654733 [pool-2-thread-2] INFO com.crawljax.core.UnfiredCandidateActions  - There are 3 states with unfired actions
-657350 [pool-2-thread-2] INFO com.crawljax.core.Crawler  - Crawl depth is now 1
-659268 [pool-2-thread-2] INFO com.crawljax.core.state.StateMachine  - State state90 added to the StateMachine.
-659269 [pool-2-thread-2] INFO com.crawljax.core.Crawler  - New DOM is a new state! crawl depth is now 2
-663614 [pool-2-thread-2] INFO com.crawljax.core.UnfiredCandidateActions  - There are 3 states with unfired actions
-666814 [pool-2-thread-2] INFO com.crawljax.core.state.StateMachine  - State state91 added to the StateMachine.
-666814 [pool-2-thread-2] INFO com.crawljax.core.Crawler  - New DOM is a new state! crawl depth is now 1
-671602 [pool-2-thread-2] INFO com.crawljax.core.UnfiredCandidateActions  - There are 3 states with unfired actions
-674283 [pool-2-thread-2] INFO com.crawljax.core.Crawler  - Crawl depth is now 1
-676102 [pool-2-thread-2] INFO com.crawljax.core.state.StateMachine  - State state92 added to the StateMachine.
-676102 [pool-2-thread-2] INFO com.crawljax.core.Crawler  - New DOM is a new state! crawl depth is now 2
-680679 [pool-2-thread-2] INFO com.crawljax.core.UnfiredCandidateActions  - There are 2 states with unfired actions
-683303 [pool-2-thread-2] INFO com.crawljax.core.Crawler  - Crawl depth is now 1
-686961 [pool-2-thread-2] INFO com.crawljax.core.state.StateMachine  - State state94 added to the StateMachine.
-686962 [pool-2-thread-2] INFO com.crawljax.core.Crawler  - New DOM is a new state! crawl depth is now 2
-691568 [pool-2-thread-2] INFO com.crawljax.core.UnfiredCandidateActions  - There are 2 states with unfired actions
-694665 [pool-2-thread-2] INFO com.crawljax.core.state.StateMachine  - State state95 added to the StateMachine.
-694666 [pool-2-thread-2] INFO com.crawljax.core.Crawler  - New DOM is a new state! crawl depth is now 1
-699389 [pool-2-thread-2] INFO com.crawljax.core.UnfiredCandidateActions  - There are 3 states with unfired actions
-702466 [pool-2-thread-2] INFO com.crawljax.core.UnfiredCandidateActions  - There are 2 states with unfired actions
-705412 [pool-2-thread-2] INFO com.crawljax.core.Crawler  - Crawl depth is now 1
-707179 [pool-2-thread-2] INFO com.crawljax.core.state.StateMachine  - State state97 added to the StateMachine.
-707179 [pool-2-thread-2] INFO com.crawljax.core.Crawler  - New DOM is a new state! crawl depth is now 2
-711988 [pool-2-thread-2] INFO com.crawljax.core.UnfiredCandidateActions  - There are 2 states with unfired actions
-714998 [pool-2-thread-2] INFO com.crawljax.core.state.StateMachine  - State state98 added to the StateMachine.
-714999 [pool-2-thread-2] INFO com.crawljax.core.Crawler  - New DOM is a new state! crawl depth is now 1
-725968 [pool-2-thread-2] INFO com.crawljax.core.UnfiredCandidateActions  - There are 3 states with unfired actions
-728593 [pool-2-thread-2] INFO com.crawljax.core.state.StateMachine  - State state99 added to the StateMachine.
-728593 [pool-2-thread-2] INFO com.crawljax.core.Crawler  - New DOM is a new state! crawl depth is now 2
-734570 [pool-2-thread-2] INFO com.crawljax.core.UnfiredCandidateActions  - There are 3 states with unfired actions
-737200 [pool-2-thread-2] INFO com.crawljax.core.Crawler  - Crawl depth is now 1
-739119 [pool-2-thread-2] INFO com.crawljax.core.state.StateMachine  - State state100 added to the StateMachine.
-739119 [pool-2-thread-2] INFO com.crawljax.core.Crawler  - New DOM is a new state! crawl depth is now 2
-743533 [pool-2-thread-2] INFO com.crawljax.core.UnfiredCandidateActions  - There are 3 states with unfired actions
-747201 [pool-2-thread-2] INFO com.crawljax.core.state.StateMachine  - State state101 added to the StateMachine.
-747201 [pool-2-thread-2] INFO com.crawljax.core.Crawler  - New DOM is a new state! crawl depth is now 1
-752629 [pool-2-thread-2] INFO com.crawljax.core.UnfiredCandidateActions  - There are 4 states with unfired actions
-752874 [pool-2-thread-2] INFO com.crawljax.core.UnfiredCandidateActions  - There are 3 states with unfired actions
-755693 [pool-2-thread-2] INFO com.crawljax.core.Crawler  - Crawl depth is now 1
-757465 [pool-2-thread-2] INFO com.crawljax.core.state.StateMachine  - State state102 added to the StateMachine.
-757465 [pool-2-thread-2] INFO com.crawljax.core.Crawler  - New DOM is a new state! crawl depth is now 2
-762490 [pool-2-thread-2] INFO com.crawljax.core.UnfiredCandidateActions  - There are 4 states with unfired actions
-764271 [pool-2-thread-2] INFO com.crawljax.core.state.StateMachine  - State state103 added to the StateMachine.
-764271 [pool-2-thread-2] INFO com.crawljax.core.Crawler  - New DOM is a new state! crawl depth is now 3
-769712 [pool-2-thread-2] INFO com.crawljax.core.UnfiredCandidateActions  - There are 4 states with unfired actions
-771588 [pool-2-thread-2] INFO com.crawljax.core.state.StateMachine  - CLONE State detected: state104 and state102 are the same.
-771593 [pool-2-thread-2] INFO com.crawljax.core.UnfiredCandidateActions  - There are 3 states with unfired actions
-774638 [pool-2-thread-2] INFO com.crawljax.core.Crawler  - Crawl depth is now 1
-778232 [pool-2-thread-2] INFO com.crawljax.core.state.StateMachine  - State state106 added to the StateMachine.
-778233 [pool-2-thread-2] INFO com.crawljax.core.Crawler  - New DOM is a new state! crawl depth is now 2
-782936 [pool-2-thread-2] INFO com.crawljax.core.UnfiredCandidateActions  - There are 3 states with unfired actions
-786123 [pool-2-thread-2] INFO com.crawljax.core.state.StateMachine  - State state107 added to the StateMachine.
-786123 [pool-2-thread-2] INFO com.crawljax.core.Crawler  - New DOM is a new state! crawl depth is now 1
-790872 [pool-2-thread-2] INFO com.crawljax.core.UnfiredCandidateActions  - There are 4 states with unfired actions
-792775 [pool-2-thread-2] INFO com.crawljax.core.state.StateMachine  - State state108 added to the StateMachine.
-792775 [pool-2-thread-2] INFO com.crawljax.core.Crawler  - New DOM is a new state! crawl depth is now 2
-797168 [pool-2-thread-2] INFO com.crawljax.core.UnfiredCandidateActions  - There are 3 states with unfired actions
-799988 [pool-2-thread-2] INFO com.crawljax.core.Crawler  - Crawl depth is now 1
-803656 [pool-2-thread-2] INFO com.crawljax.core.state.StateMachine  - State state110 added to the StateMachine.
-803657 [pool-2-thread-2] INFO com.crawljax.core.Crawler  - New DOM is a new state! crawl depth is now 2
-808404 [pool-2-thread-2] INFO com.crawljax.core.UnfiredCandidateActions  - There are 3 states with unfired actions
-810979 [pool-2-thread-2] INFO com.crawljax.core.Crawler  - Crawl depth is now 1
-812875 [pool-2-thread-2] INFO com.crawljax.core.state.StateMachine  - State state111 added to the StateMachine.
-812875 [pool-2-thread-2] INFO com.crawljax.core.Crawler  - New DOM is a new state! crawl depth is now 2
-817441 [pool-2-thread-2] INFO com.crawljax.core.UnfiredCandidateActions  - There are 3 states with unfired actions
-820453 [pool-2-thread-2] INFO com.crawljax.core.state.StateMachine  - State state112 added to the StateMachine.
-820453 [pool-2-thread-2] INFO com.crawljax.core.Crawler  - New DOM is a new state! crawl depth is now 1
-825568 [pool-2-thread-2] INFO com.crawljax.core.UnfiredCandidateActions  - There are 3 states with unfired actions
-828446 [pool-2-thread-2] INFO com.crawljax.core.Crawler  - Crawl depth is now 1
-830244 [pool-2-thread-2] INFO com.crawljax.core.state.StateMachine  - State state113 added to the StateMachine.
-830244 [pool-2-thread-2] INFO com.crawljax.core.Crawler  - New DOM is a new state! crawl depth is now 2
-834812 [pool-2-thread-2] INFO com.crawljax.core.UnfiredCandidateActions  - There are 3 states with unfired actions
-837435 [pool-2-thread-2] INFO com.crawljax.core.Crawler  - Crawl depth is now 1
-841166 [pool-2-thread-2] INFO com.crawljax.core.state.StateMachine  - State state115 added to the StateMachine.
-841166 [pool-2-thread-2] INFO com.crawljax.core.Crawler  - New DOM is a new state! crawl depth is now 2
-846042 [pool-2-thread-2] INFO com.crawljax.core.UnfiredCandidateActions  - There are 3 states with unfired actions
-902139 [pool-2-thread-2] INFO com.crawljax.core.UnfiredCandidateActions  - There are 2 states with unfired actions
-905346 [pool-2-thread-2] INFO com.crawljax.core.Crawler  - Crawl depth is now 1
-907191 [pool-2-thread-2] INFO com.crawljax.core.state.StateMachine  - State state148 added to the StateMachine.
-907191 [pool-2-thread-2] INFO com.crawljax.core.Crawler  - New DOM is a new state! crawl depth is now 2
-912025 [pool-2-thread-2] INFO com.crawljax.core.UnfiredCandidateActions  - There are 2 states with unfired actions
-914685 [pool-2-thread-2] INFO com.crawljax.core.Crawler  - Crawl depth is now 1
-918138 [pool-2-thread-2] INFO com.crawljax.core.state.StateMachine  - State state150 added to the StateMachine.
-918138 [pool-2-thread-2] INFO com.crawljax.core.Crawler  - New DOM is a new state! crawl depth is now 2
-922282 [pool-2-thread-2] INFO com.crawljax.core.UnfiredCandidateActions  - There are 2 states with unfired actions
-925403 [pool-2-thread-2] INFO com.crawljax.core.Crawler  - Crawl depth is now 1
-927111 [pool-2-thread-2] INFO com.crawljax.core.state.StateMachine  - State state151 added to the StateMachine.
-927111 [pool-2-thread-2] INFO com.crawljax.core.Crawler  - New DOM is a new state! crawl depth is now 2
-931473 [pool-2-thread-2] INFO com.crawljax.core.UnfiredCandidateActions  - There are 2 states with unfired actions
-934062 [pool-2-thread-2] INFO com.crawljax.core.Crawler  - Crawl depth is now 1
-935752 [pool-2-thread-2] INFO com.crawljax.core.state.StateMachine  - State state152 added to the StateMachine.
-935752 [pool-2-thread-2] INFO com.crawljax.core.Crawler  - New DOM is a new state! crawl depth is now 2
-940087 [pool-2-thread-2] INFO com.crawljax.core.UnfiredCandidateActions  - There are 2 states with unfired actions
-942863 [pool-2-thread-2] INFO com.crawljax.core.Crawler  - Crawl depth is now 1
-944692 [pool-2-thread-2] INFO com.crawljax.core.state.StateMachine  - State state153 added to the StateMachine.
-944692 [pool-2-thread-2] INFO com.crawljax.core.Crawler  - New DOM is a new state! crawl depth is now 2
-948606 [pool-2-thread-2] INFO com.crawljax.core.UnfiredCandidateActions  - There are 2 states with unfired actions
-951640 [pool-2-thread-2] INFO com.crawljax.core.Crawler  - Crawl depth is now 1
-953397 [pool-2-thread-2] INFO com.crawljax.core.state.StateMachine  - State state154 added to the StateMachine.
-953397 [pool-2-thread-2] INFO com.crawljax.core.Crawler  - New DOM is a new state! crawl depth is now 2
-957821 [pool-2-thread-2] INFO com.crawljax.core.UnfiredCandidateActions  - There are 2 states with unfired actions
-960450 [pool-2-thread-2] INFO com.crawljax.core.Crawler  - Crawl depth is now 1
-962228 [pool-2-thread-2] INFO com.crawljax.core.state.StateMachine  - State state155 added to the StateMachine.
-962228 [pool-2-thread-2] INFO com.crawljax.core.Crawler  - New DOM is a new state! crawl depth is now 2
-966587 [pool-2-thread-2] INFO com.crawljax.core.UnfiredCandidateActions  - There are 2 states with unfired actions
-969176 [pool-2-thread-2] INFO com.crawljax.core.Crawler  - Crawl depth is now 1
-970816 [pool-2-thread-2] INFO com.crawljax.core.state.StateMachine  - State state156 added to the StateMachine.
-970816 [pool-2-thread-2] INFO com.crawljax.core.Crawler  - New DOM is a new state! crawl depth is now 2
-974719 [pool-2-thread-2] INFO com.crawljax.core.UnfiredCandidateActions  - There are 2 states with unfired actions
-977947 [pool-2-thread-2] INFO com.crawljax.core.Crawler  - Crawl depth is now 1
-979739 [pool-2-thread-2] INFO com.crawljax.core.state.StateMachine  - State state157 added to the StateMachine.
-979739 [pool-2-thread-2] INFO com.crawljax.core.Crawler  - New DOM is a new state! crawl depth is now 2
-983994 [pool-2-thread-2] INFO com.crawljax.core.UnfiredCandidateActions  - There are 2 states with unfired actions
-986605 [pool-2-thread-2] INFO com.crawljax.core.Crawler  - Crawl depth is now 1
-990365 [pool-2-thread-2] INFO com.crawljax.core.state.StateMachine  - State state159 added to the StateMachine.
-990365 [pool-2-thread-2] INFO com.crawljax.core.Crawler  - New DOM is a new state! crawl depth is now 2
-994414 [pool-2-thread-2] INFO com.crawljax.core.UnfiredCandidateActions  - There are 2 states with unfired actions
-997179 [pool-2-thread-2] INFO com.crawljax.core.Crawler  - Crawl depth is now 1
-999028 [pool-2-thread-2] INFO com.crawljax.core.state.StateMachine  - State state160 added to the StateMachine.
-999029 [pool-2-thread-2] INFO com.crawljax.core.Crawler  - New DOM is a new state! crawl depth is now 2
-1002914 [pool-2-thread-2] INFO com.crawljax.core.UnfiredCandidateActions  - There are 2 states with unfired actions
-1005897 [pool-2-thread-2] INFO com.crawljax.core.Crawler  - Crawl depth is now 1
-1007554 [pool-2-thread-2] INFO com.crawljax.core.state.StateMachine  - State state161 added to the StateMachine.
-1007554 [pool-2-thread-2] INFO com.crawljax.core.Crawler  - New DOM is a new state! crawl depth is now 2
-1012035 [pool-2-thread-2] INFO com.crawljax.core.UnfiredCandidateActions  - There are 2 states with unfired actions
-1014809 [pool-2-thread-2] INFO com.crawljax.core.Crawler  - Crawl depth is now 1
-1016693 [pool-2-thread-2] INFO com.crawljax.core.state.StateMachine  - State state162 added to the StateMachine.
-1016693 [pool-2-thread-2] INFO com.crawljax.core.Crawler  - New DOM is a new state! crawl depth is now 2
-1020722 [pool-2-thread-2] INFO com.crawljax.core.UnfiredCandidateActions  - There are 2 states with unfired actions
-1023397 [pool-2-thread-2] INFO com.crawljax.core.Crawler  - Crawl depth is now 1
-1025161 [pool-2-thread-2] INFO com.crawljax.core.state.StateMachine  - State state163 added to the StateMachine.
-1025161 [pool-2-thread-2] INFO com.crawljax.core.Crawler  - New DOM is a new state! crawl depth is now 2
-1029093 [pool-2-thread-2] INFO com.crawljax.core.UnfiredCandidateActions  - There are 2 states with unfired actions
-1032152 [pool-2-thread-2] INFO com.crawljax.core.Crawler  - Crawl depth is now 1
-1033896 [pool-2-thread-2] INFO com.crawljax.core.state.StateMachine  - State state164 added to the StateMachine.
-1033897 [pool-2-thread-2] INFO com.crawljax.core.Crawler  - New DOM is a new state! crawl depth is now 2
-1038335 [pool-2-thread-2] INFO com.crawljax.core.UnfiredCandidateActions  - There are 2 states with unfired actions
-1040862 [pool-2-thread-2] INFO com.crawljax.core.Crawler  - Crawl depth is now 1
-1046194 [pool-2-thread-2] INFO com.crawljax.core.state.StateMachine  - State state167 added to the StateMachine.
-1046194 [pool-2-thread-2] INFO com.crawljax.core.Crawler  - New DOM is a new state! crawl depth is now 2
-1050396 [pool-2-thread-2] INFO com.crawljax.core.UnfiredCandidateActions  - There are 2 states with unfired actions
-1053218 [pool-2-thread-2] INFO com.crawljax.core.Crawler  - Crawl depth is now 1
-1054822 [pool-2-thread-2] INFO com.crawljax.core.state.StateMachine  - CLONE State detected: state168 and state102 are the same.
-1054836 [pool-2-thread-2] INFO com.crawljax.core.UnfiredCandidateActions  - There are 2 states with unfired actions
-1057421 [pool-2-thread-2] INFO com.crawljax.core.Crawler  - Crawl depth is now 1
-1061089 [pool-2-thread-2] INFO com.crawljax.core.state.StateMachine  - State state170 added to the StateMachine.
-1061089 [pool-2-thread-2] INFO com.crawljax.core.Crawler  - New DOM is a new state! crawl depth is now 2
-1065201 [pool-2-thread-2] INFO com.crawljax.core.UnfiredCandidateActions  - There are 2 states with unfired actions
-1067870 [pool-2-thread-2] INFO com.crawljax.core.Crawler  - Crawl depth is now 1
-1069613 [pool-2-thread-2] INFO com.crawljax.core.state.StateMachine  - CLONE State detected: state171 and state103 are the same.
-1069625 [pool-2-thread-2] INFO com.crawljax.core.UnfiredCandidateActions  - There are 2 states with unfired actions
-1072260 [pool-2-thread-2] INFO com.crawljax.core.Crawler  - Crawl depth is now 1
-1073935 [pool-2-thread-2] INFO com.crawljax.core.state.StateMachine  - State state172 added to the StateMachine.
-1073936 [pool-2-thread-2] INFO com.crawljax.core.Crawler  - New DOM is a new state! crawl depth is now 2
-1078402 [pool-2-thread-2] INFO com.crawljax.core.UnfiredCandidateActions  - There are 2 states with unfired actions
-1081140 [pool-2-thread-2] INFO com.crawljax.core.Crawler  - Crawl depth is now 1
-1082826 [pool-2-thread-2] INFO com.crawljax.core.state.StateMachine  - CLONE State detected: state173 and state103 are the same.
-1082838 [pool-2-thread-2] INFO com.crawljax.core.UnfiredCandidateActions  - There are 2 states with unfired actions
-1085485 [pool-2-thread-2] INFO com.crawljax.core.Crawler  - Crawl depth is now 1
-1087097 [pool-2-thread-2] INFO com.crawljax.core.UnfiredCandidateActions  - There are 1 states with unfired actions
-1089991 [pool-2-thread-2] INFO com.crawljax.core.Crawler  - Crawl depth is now 1
-1091739 [pool-2-thread-2] INFO com.crawljax.core.state.StateMachine  - CLONE State detected: state175 and state103 are the same.
-1091742 [pool-2-thread-2] INFO com.crawljax.core.UnfiredCandidateActions  - There are 1 states with unfired actions
-1094598 [pool-2-thread-2] INFO com.crawljax.core.Crawler  - Crawl depth is now 1
-1096394 [pool-2-thread-2] INFO com.crawljax.core.state.StateMachine  - CLONE State detected: state176 and state103 are the same.
-1096398 [pool-2-thread-2] INFO com.crawljax.core.UnfiredCandidateActions  - There are 1 states with unfired actions
-1099130 [pool-2-thread-2] INFO com.crawljax.core.Crawler  - Crawl depth is now 1
-1100865 [pool-2-thread-2] INFO com.crawljax.core.state.StateMachine  - CLONE State detected: state177 and state102 are the same.
-1100894 [pool-2-thread-2] INFO com.crawljax.core.UnfiredCandidateActions  - There are 1 states with unfired actions
-1103670 [pool-2-thread-2] INFO com.crawljax.core.Crawler  - Crawl depth is now 1
-1105429 [pool-2-thread-2] INFO com.crawljax.core.state.StateMachine  - CLONE State detected: state178 and state103 are the same.
-1105441 [pool-2-thread-2] INFO com.crawljax.core.UnfiredCandidateActions  - There are 1 states with unfired actions
-1108178 [pool-2-thread-2] INFO com.crawljax.core.Crawler  - Crawl depth is now 1
-1110032 [pool-2-thread-2] INFO com.crawljax.core.state.StateMachine  - CLONE State detected: state179 and state103 are the same.
-1110044 [pool-2-thread-2] INFO com.crawljax.core.UnfiredCandidateActions  - There are 1 states with unfired actions
-1112853 [pool-2-thread-2] INFO com.crawljax.core.Crawler  - Crawl depth is now 1
-1114598 [pool-2-thread-2] INFO com.crawljax.core.state.StateMachine  - CLONE State detected: state180 and state103 are the same.
-1114616 [pool-2-thread-2] INFO com.crawljax.core.UnfiredCandidateActions  - There are 1 states with unfired actions
-1117552 [pool-2-thread-2] INFO com.crawljax.core.Crawler  - Crawl depth is now 1
-1119249 [pool-2-thread-2] INFO com.crawljax.core.state.StateMachine  - CLONE State detected: state181 and state103 are the same.
-1119265 [pool-2-thread-2] INFO com.crawljax.core.UnfiredCandidateActions  - There are 1 states with unfired actions
-1122024 [pool-2-thread-2] INFO com.crawljax.core.Crawler  - Crawl depth is now 1
-1132970 [pool-2-thread-2] INFO com.crawljax.core.state.StateMachine  - State state187 added to the StateMachine.
-1132970 [pool-2-thread-2] INFO com.crawljax.core.Crawler  - New DOM is a new state! crawl depth is now 2
-1137607 [pool-2-thread-2] INFO com.crawljax.core.UnfiredCandidateActions  - There are 2 states with unfired actions
-1139291 [pool-2-thread-2] INFO com.crawljax.core.UnfiredCandidateActions  - There are 1 states with unfired actions
-1142237 [pool-2-thread-2] INFO com.crawljax.core.Crawler  - Crawl depth is now 1
-1143958 [pool-2-thread-2] INFO com.crawljax.core.state.StateMachine  - CLONE State detected: state189 and state187 are the same.
-1143961 [pool-2-thread-2] INFO com.crawljax.core.UnfiredCandidateActions  - There are 1 states with unfired actions
-1146736 [pool-2-thread-2] INFO com.crawljax.core.Crawler  - Crawl depth is now 1
-1148442 [pool-2-thread-2] INFO com.crawljax.core.state.StateMachine  - CLONE State detected: state190 and state187 are the same.
-1148458 [pool-2-thread-2] INFO com.crawljax.core.UnfiredCandidateActions  - There are 1 states with unfired actions
-1151293 [pool-2-thread-2] INFO com.crawljax.core.Crawler  - Crawl depth is now 1
-1152962 [pool-2-thread-2] INFO com.crawljax.core.state.StateMachine  - CLONE State detected: state191 and state187 are the same.
-1152966 [pool-2-thread-2] INFO com.crawljax.core.UnfiredCandidateActions  - There are 1 states with unfired actions
-1156055 [pool-2-thread-2] INFO com.crawljax.core.Crawler  - Crawl depth is now 1
-1157794 [pool-2-thread-2] INFO com.crawljax.core.state.StateMachine  - CLONE State detected: state192 and state187 are the same.
-1157809 [pool-2-thread-2] INFO com.crawljax.core.UnfiredCandidateActions  - There are 1 states with unfired actions
-1160589 [pool-2-thread-2] INFO com.crawljax.core.Crawler  - Crawl depth is now 1
-1162736 [pool-2-thread-2] INFO com.crawljax.core.state.StateMachine  - State state193 added to the StateMachine.
-1162736 [pool-2-thread-2] INFO com.crawljax.core.Crawler  - New DOM is a new state! crawl depth is now 2
-1167080 [pool-2-thread-2] INFO com.crawljax.core.UnfiredCandidateActions  - There are 2 states with unfired actions
-1168906 [pool-2-thread-2] INFO com.crawljax.core.UnfiredCandidateActions  - There are 1 states with unfired actions
-1171656 [pool-2-thread-2] INFO com.crawljax.core.Crawler  - Crawl depth is now 1
-1173333 [pool-2-thread-2] INFO com.crawljax.core.state.StateMachine  - CLONE State detected: state195 and state193 are the same.
-1173339 [pool-2-thread-2] INFO com.crawljax.core.UnfiredCandidateActions  - There are 1 states with unfired actions
-1176105 [pool-2-thread-2] INFO com.crawljax.core.Crawler  - Crawl depth is now 1
-1177964 [pool-2-thread-2] INFO com.crawljax.core.state.StateMachine  - CLONE State detected: state196 and state103 are the same.
-1177967 [pool-2-thread-2] INFO com.crawljax.core.UnfiredCandidateActions  - There are 1 states with unfired actions
-1180727 [pool-2-thread-2] INFO com.crawljax.core.Crawler  - Crawl depth is now 1
-1182513 [pool-2-thread-2] INFO com.crawljax.core.state.StateMachine  - CLONE State detected: state197 and state103 are the same.
-1182527 [pool-2-thread-2] INFO com.crawljax.core.UnfiredCandidateActions  - There are 1 states with unfired actions
-1185311 [pool-2-thread-2] INFO com.crawljax.core.Crawler  - Crawl depth is now 1
-1187098 [pool-2-thread-2] INFO com.crawljax.core.state.StateMachine  - CLONE State detected: state198 and state103 are the same.
-1187102 [pool-2-thread-2] INFO com.crawljax.core.UnfiredCandidateActions  - There are 1 states with unfired actions
-1190216 [pool-2-thread-2] INFO com.crawljax.core.Crawler  - Crawl depth is now 1
-1191844 [pool-2-thread-2] INFO com.crawljax.core.state.StateMachine  - CLONE State detected: state199 and state103 are the same.
-1191859 [pool-2-thread-2] INFO com.crawljax.core.UnfiredCandidateActions  - There are 1 states with unfired actions
-1194653 [pool-2-thread-2] INFO com.crawljax.core.Crawler  - Crawl depth is now 1
-1196460 [pool-2-thread-2] INFO com.crawljax.core.state.StateMachine  - CLONE State detected: state200 and state103 are the same.
-1196476 [pool-2-thread-2] INFO com.crawljax.core.UnfiredCandidateActions  - There are 1 states with unfired actions
-1199292 [pool-2-thread-2] INFO com.crawljax.core.Crawler  - Crawl depth is now 1
-1200970 [pool-2-thread-2] INFO com.crawljax.core.state.StateMachine  - CLONE State detected: state201 and state103 are the same.
-1200982 [pool-2-thread-2] INFO com.crawljax.core.UnfiredCandidateActions  - There are 1 states with unfired actions
-1203739 [pool-2-thread-2] INFO com.crawljax.core.Crawler  - Crawl depth is now 1
-1205655 [pool-2-thread-2] INFO com.crawljax.core.state.StateMachine  - CLONE State detected: state202 and state103 are the same.
-1205661 [pool-2-thread-2] INFO com.crawljax.core.UnfiredCandidateActions  - There are 1 states with unfired actions
-1208471 [pool-2-thread-2] INFO com.crawljax.core.Crawler  - Crawl depth is now 1
-1212013 [pool-2-thread-2] INFO com.crawljax.core.state.StateMachine  - State state204 added to the StateMachine.
-1212013 [pool-2-thread-2] INFO com.crawljax.core.Crawler  - New DOM is a new state! crawl depth is now 2
-1216449 [pool-2-thread-2] INFO com.crawljax.core.UnfiredCandidateActions  - There are 1 states with unfired actions
-1219008 [pool-2-thread-2] INFO com.crawljax.core.Crawler  - Crawl depth is now 1
-1220759 [pool-2-thread-2] INFO com.crawljax.core.state.StateMachine  - State state205 added to the StateMachine.
-1220759 [pool-2-thread-2] INFO com.crawljax.core.Crawler  - New DOM is a new state! crawl depth is now 2
-1224061 [pool-2-thread-2] INFO com.crawljax.core.UnfiredCandidateActions  - There are 1 states with unfired actions
-1226803 [pool-2-thread-2] INFO com.crawljax.core.Crawler  - Crawl depth is now 1
-1228449 [pool-2-thread-2] INFO com.crawljax.core.state.StateMachine  - State state206 added to the StateMachine.
-1228449 [pool-2-thread-2] INFO com.crawljax.core.Crawler  - New DOM is a new state! crawl depth is now 2
-1231965 [pool-2-thread-2] INFO com.crawljax.core.UnfiredCandidateActions  - There are 1 states with unfired actions
-1234556 [pool-2-thread-2] INFO com.crawljax.core.Crawler  - Crawl depth is now 1
-1236180 [pool-2-thread-2] INFO com.crawljax.core.state.StateMachine  - CLONE State detected: state207 and state103 are the same.
-1236184 [pool-2-thread-2] INFO com.crawljax.core.UnfiredCandidateActions  - There are 1 states with unfired actions
-1238754 [pool-2-thread-2] INFO com.crawljax.core.Crawler  - Crawl depth is now 1
-1240434 [pool-2-thread-2] INFO com.crawljax.core.state.StateMachine  - CLONE State detected: state208 and state102 are the same.
-1240438 [pool-2-thread-2] INFO com.crawljax.core.UnfiredCandidateActions  - There are 1 states with unfired actions
-1242972 [pool-2-thread-2] INFO com.crawljax.core.Crawler  - Crawl depth is now 1
-1244535 [pool-2-thread-2] INFO com.crawljax.core.state.StateMachine  - CLONE State detected: state209 and state103 are the same.
-1244538 [pool-2-thread-2] INFO com.crawljax.core.UnfiredCandidateActions  - There are 1 states with unfired actions
-1247557 [pool-2-thread-2] INFO com.crawljax.core.Crawler  - Crawl depth is now 1
-1251036 [pool-2-thread-2] INFO com.crawljax.core.state.StateMachine  - CLONE State detected: state211 and state187 are the same.
-1251039 [pool-2-thread-2] INFO com.crawljax.core.UnfiredCandidateActions  - There are 1 states with unfired actions
-1253890 [pool-2-thread-2] INFO com.crawljax.core.Crawler  - Crawl depth is now 1
-1255516 [pool-2-thread-2] INFO com.crawljax.core.state.StateMachine  - CLONE State detected: state212 and state187 are the same.
-1255519 [pool-2-thread-2] INFO com.crawljax.core.UnfiredCandidateActions  - There are 1 states with unfired actions
-1258178 [pool-2-thread-2] INFO com.crawljax.core.Crawler  - Crawl depth is now 1
-1259773 [pool-2-thread-2] INFO com.crawljax.core.state.StateMachine  - CLONE State detected: state213 and state193 are the same.
-1259777 [pool-2-thread-2] INFO com.crawljax.core.UnfiredCandidateActions  - There are 1 states with unfired actions
-1262505 [pool-2-thread-2] INFO com.crawljax.core.Crawler  - Crawl depth is now 1
-1264046 [pool-2-thread-2] INFO com.crawljax.core.state.StateMachine  - CLONE State detected: state214 and state187 are the same.
-1264049 [pool-2-thread-2] INFO com.crawljax.core.UnfiredCandidateActions  - There are 1 states with unfired actions
-1267177 [pool-2-thread-2] INFO com.crawljax.core.Crawler  - Crawl depth is now 1
-1268782 [pool-2-thread-2] INFO com.crawljax.core.state.StateMachine  - CLONE State detected: state215 and state193 are the same.
-1268794 [pool-2-thread-2] INFO com.crawljax.core.UnfiredCandidateActions  - There are 1 states with unfired actions
-1271409 [pool-2-thread-2] INFO com.crawljax.core.Crawler  - Crawl depth is now 1
-1272942 [pool-2-thread-2] INFO com.crawljax.core.state.StateMachine  - CLONE State detected: state216 and state103 are the same.
-1272946 [pool-2-thread-2] INFO com.crawljax.core.UnfiredCandidateActions  - There are 1 states with unfired actions
-1275624 [pool-2-thread-2] INFO com.crawljax.core.Crawler  - Crawl depth is now 1
-1279141 [pool-2-thread-2] INFO com.crawljax.core.state.StateMachine  - State state218 added to the StateMachine.
-1279145 [pool-2-thread-2] INFO com.crawljax.core.Crawler  - New DOM is a new state! crawl depth is now 2
-1282544 [pool-2-thread-2] INFO com.crawljax.core.UnfiredCandidateActions  - There are 1 states with unfired actions
-1285277 [pool-2-thread-2] INFO com.crawljax.core.Crawler  - Crawl depth is now 1
-1287051 [pool-2-thread-2] INFO com.crawljax.core.state.StateMachine  - CLONE State detected: state219 and state102 are the same.
-1287063 [pool-2-thread-2] INFO com.crawljax.core.UnfiredCandidateActions  - There are 1 states with unfired actions
-1289715 [pool-2-thread-2] INFO com.crawljax.core.Crawler  - Crawl depth is now 1
-1291756 [pool-2-thread-2] INFO com.crawljax.browser.WebDriverBackedEmbeddedBrowser  - Closing the browser...
-1291756 [Thread-12] INFO com.crawljax.core.CrawlController  - Received shutdown notice. Reason is Exausted
-1291761 [pool-2-thread-2] INFO com.crawljax.browser.WebDriverBackedEmbeddedBrowser  - Interrupted while waiting for the browser to close. It might not close correctly
-1291761 [Thread-12] INFO com.crawljax.core.CrawlController  - Shutdown process complete
-1291761 [Thread-12] INFO org.zaproxy.zap.extension.spiderAjax.SpiderThread  - Stopping proxy...
-1291862 [Thread-12] INFO org.zaproxy.zap.extension.spiderAjax.SpiderThread  - Proxy stopped.
-1291862 [Thread-12] INFO org.zaproxy.zap.extension.spiderAjax.SpiderThread  - Finished crawljax targeting http://172.17.0.2/
-1295229 [ZAP-ProxyThread-878] INFO org.zaproxy.zap.extension.httpsessions.HttpSessionsSite  - Created a new session as no match was found: HttpSession [name=Session 2, active=false, tokenValues='']
-1295251 [ZAP-ProxyThread-879] INFO org.zaproxy.zap.extension.httpsessions.HttpSessionsSite  - Created a new session as no match was found: HttpSession [name=Session 3, active=false, tokenValues='']
-1295263 [ZAP-ProxyThread-880] INFO org.zaproxy.zap.extension.httpsessions.HttpSessionsSite  - Created a new session as no match was found: HttpSession [name=Session 4, active=false, tokenValues='']
+193 [main] INFO org.zaproxy.zap.DaemonBootstrap  - OWASP ZAP 2.4.3 started.
+501 [main] INFO hsqldb.db.HSQLDB379AF3DEBD.ENGINE  - dataFileCache open start
+509 [main] INFO hsqldb.db.HSQLDB379AF3DEBD.ENGINE  - dataFileCache open end
+813 [main] INFO org.parosproxy.paros.common.AbstractParam  - Setting config ajaxSpider.clickDefaultElems = False was null
+814 [main] INFO org.parosproxy.paros.common.AbstractParam  - Setting config api.disablekey = true was null
+816 [main] INFO org.parosproxy.paros.network.SSLConnector  - Reading supported SSL/TLS protocols...
+816 [main] INFO org.parosproxy.paros.network.SSLConnector  - Using a SSLEngine...
+1018 [main] INFO org.parosproxy.paros.network.SSLConnector  - Done reading supported SSL/TLS protocols: [SSLv2Hello, SSLv3, TLSv1, TLSv1.1, TLSv1.2]
+1023 [main] INFO org.parosproxy.paros.extension.option.OptionsParamCertificate  - Unsafe SSL renegotiation disabled.
+1033 [ZAP-daemon] INFO org.zaproxy.zap.control.ExtensionFactory  - Loading extensions
+1782 [ZAP-daemon] INFO org.zaproxy.zap.control.ExtensionFactory  - Extensions loaded
+2158 [ZAP-daemon] INFO org.parosproxy.paros.extension.filter.FilterFactory  - loaded filter Change user agent to other browsers. 
+2158 [ZAP-daemon] INFO org.parosproxy.paros.extension.filter.FilterFactory  - loaded filter Detect insecure or potentially malicious content in HTTP responses.
+2158 [ZAP-daemon] INFO org.parosproxy.paros.extension.filter.FilterFactory  - loaded filter Detect and alert 'Set-cookie' attempt in HTTP response for modification.
+2159 [ZAP-daemon] INFO org.parosproxy.paros.extension.filter.FilterFactory  - loaded filter Avoid browser cache (strip off IfModifiedSince)
+2159 [ZAP-daemon] INFO org.parosproxy.paros.extension.filter.FilterFactory  - loaded filter Log cookies sent by browser.
+2159 [ZAP-daemon] INFO org.parosproxy.paros.extension.filter.FilterFactory  - loaded filter Log unique GET queries into file:filter/get.xls
+2159 [ZAP-daemon] INFO org.parosproxy.paros.extension.filter.FilterFactory  - loaded filter Log unique POST queries into file:  filter/post.xls
+2159 [ZAP-daemon] INFO org.parosproxy.paros.extension.filter.FilterFactory  - loaded filter Log request and response into file: filter/message.txt
+2159 [ZAP-daemon] INFO org.parosproxy.paros.extension.filter.FilterFactory  - loaded filter Replace HTTP request body using defined pattern.
+2159 [ZAP-daemon] INFO org.parosproxy.paros.extension.filter.FilterFactory  - loaded filter Replace HTTP request header using defined pattern.
+2159 [ZAP-daemon] INFO org.parosproxy.paros.extension.filter.FilterFactory  - loaded filter Replace HTTP response body using defined pattern.
+2160 [ZAP-daemon] INFO org.parosproxy.paros.extension.filter.FilterFactory  - loaded filter Replace HTTP response header using defined pattern.
+2160 [ZAP-daemon] INFO org.parosproxy.paros.extension.filter.FilterFactory  - loaded filter Send ZAP session request ID
+2275 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Allows ZAP to check for updates
+2282 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing ExtensionViewOption
+2282 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing ExtensionEdit
+2282 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing ExtensionFilter
+2283 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Provides a rest based API for controlling and accessing ZAP
+2374 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing ExtensionState
+2374 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing ExtensionHistory
+2376 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Show hidden fields and enable disabled fields
+2377 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Search messages for strings and regular expressions 
+2378 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Encode/Decode/Hash...
+2378 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Allows you to intercept and modify requests and responses
+2378 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Passive scanner
+2418 [ZAP-daemon] INFO org.zaproxy.zap.extension.pscan.ExtensionPassiveScan  - loaded passive scan rule: Script passive scan rules
+2419 [ZAP-daemon] INFO org.zaproxy.zap.extension.pscan.ExtensionPassiveScan  - loaded passive scan rule: Application Error Disclosure
+2419 [ZAP-daemon] INFO org.zaproxy.zap.extension.pscan.ExtensionPassiveScan  - loaded passive scan rule: Incomplete or No Cache-control and Pragma HTTP Header Set
+2419 [ZAP-daemon] INFO org.zaproxy.zap.extension.pscan.ExtensionPassiveScan  - loaded passive scan rule: Content-Type Header Missing
+2419 [ZAP-daemon] INFO org.zaproxy.zap.extension.pscan.ExtensionPassiveScan  - loaded passive scan rule: Cookie No HttpOnly Flag
+2419 [ZAP-daemon] INFO org.zaproxy.zap.extension.pscan.ExtensionPassiveScan  - loaded passive scan rule: Cookie Without Secure Flag
+2419 [ZAP-daemon] INFO org.zaproxy.zap.extension.pscan.ExtensionPassiveScan  - loaded passive scan rule: Cross-Domain JavaScript Source File Inclusion
+2420 [ZAP-daemon] INFO org.zaproxy.zap.extension.pscan.ExtensionPassiveScan  - loaded passive scan rule: Web Browser XSS Protection Not Enabled
+2420 [ZAP-daemon] INFO org.zaproxy.zap.extension.pscan.ExtensionPassiveScan  - loaded passive scan rule: Secure Pages Include Mixed Content
+2420 [ZAP-daemon] INFO org.zaproxy.zap.extension.pscan.ExtensionPassiveScan  - loaded passive scan rule: Password Autocomplete in Browser
+2420 [ZAP-daemon] INFO org.zaproxy.zap.extension.pscan.ExtensionPassiveScan  - loaded passive scan rule: Private IP Disclosure
+2420 [ZAP-daemon] INFO org.zaproxy.zap.extension.pscan.ExtensionPassiveScan  - loaded passive scan rule: Session ID in URL Rewrite
+2420 [ZAP-daemon] INFO org.zaproxy.zap.extension.pscan.ExtensionPassiveScan  - loaded passive scan rule: X-Content-Type-Options Header Missing
+2420 [ZAP-daemon] INFO org.zaproxy.zap.extension.pscan.ExtensionPassiveScan  - loaded passive scan rule: X-Frame-Options Header Not Set
+2433 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Allows you to view and manage alerts
+2433 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Active scanner, heavily based on the original Paros active scanner, but with additional tests added
+2437 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Spider used for automatically finding URIs on a site
+2441 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing A set of common popup menus for miscellaneous tasks
+2441 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Forced browsing of files and directories using code from the OWASP DirBuster tool
+2442 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing ExtensionManualRequest
+2442 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Compares 2 sessions and generates an HTML file showing the differences
+2442 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Invoke external applications passing context related information such as URLs and parameters
+2443 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Handles anti cross site request forgery (CSRF) tokens
+2444 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing ExtensionAuthentication
+3125 [ZAP-daemon] INFO org.zaproxy.zap.extension.authentication.ExtensionAuthentication  - Loaded authentication method types: [Form-based Authentication, HTTP/NTLM Authentication, Manual Authentication, Script-based Authentication]
+3126 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Creates a dynamic SSL certificate to allow SSL communications to be intercepted without warnings being generated by the browser
+3126 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Logs errors to the Output tab in development mode only
+3126 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing ExtensionUserManagement
+3127 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Summarise and analyse FORM and URL parameters as well as cookies
+3127 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Script integration
+3142 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Scripting console, supports all JSR 223 scripting languages
+3142 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing ExtensionForcedUser
+3142 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Extension handling HTTP sessions
+3143 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Zest is a specialized scripting language from Mozilla specifically designed to be used in security tools
+3226 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing ExtensionDiff
+3226 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing ExtensionRequestPostTableView
+3227 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Simple browser configuration
+3227 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing ExtensionSessionManagement
+3319 [ZAP-daemon] INFO org.zaproxy.zap.extension.sessions.ExtensionSessionManagement  - Loaded session management method types: [Cookie-based Session Management, Http Authentication Session Management]
+3320 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing ExtensionHttpPanelRequestFormTableView
+3320 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Capture messages from WebSockets with the ability to set breakpoints.
+3323 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Summarise and analyse FORM and URL parameters as well as cookies
+3323 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing ExtensionAuthorization
+3323 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing AJAX Spider, uses Crawljax
+3324 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Handles adding Global Excluded URLs
+3324 [ZAP-daemon] WARN org.zaproxy.zap.extension.globalexcludeurl.ExtensionGlobalExcludeURL  - GlobalExcludeURL.optionsLoaded()
+3324 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Adds menu item to refresh the Sites tree
+3324 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Adds support for configurable keyboard shortcuts for all of the ZAP menus.
+3325 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing OWASP ZAP User Guide
+3325 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing ExtensionReport
+3325 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Allows you to configure which extensions are loaded when ZAP starts 
+3325 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing ExtensionHttpPanelComponentonentAll
+3325 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing ExtensionHttpPanelHexView
+3325 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing ExtensionHttpPanelImageView
+3325 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing ExtensionHttpPanelLargeRequestView
+3325 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing ExtensionHttpPanelLargeResponseView
+3325 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing ExtensionHttpPanelRequestQueryCookieTableView
+3325 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing ExtensionHttpPanelSyntaxHighlightTextView
+3325 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Quick Start panel 
+3326 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Translations of the core language files
+3326 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Tips and Tricks
+3326 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Passive Scan Rules
+3326 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Allows to fuzz WebSocket messages.
+3326 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Provides WebDrivers to control several browsers using Selenium and includes HtmlUnit browser.
+3327 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Active Scan Rules
+3327 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing The ZAP Getting Started Guide
+3327 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing The Online menu links
+3327 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing ExtensionSaveRawHttpMessage
+3327 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Provides the foundation for concrete message types (for example, HTTP, WebSockets) expose fuzzer implementations.
+3328 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Allows to fuzz HTTP messages.
+3329 [ZAP-daemon] WARN org.zaproxy.zap.extension.autoupdate.ExtensionAutoUpdate  - No check for updates for over 3 month - add-ons may well be out of date
+3329 [Thread-4] INFO org.zaproxy.zap.extension.dynssl.ExtensionDynSSL  - Creating new root CA certificate
+3827 [Thread-4] INFO org.zaproxy.zap.extension.dynssl.ExtensionDynSSL  - New root CA certificate created
+17271 [ZAP-daemon] INFO org.parosproxy.paros.CommandLine  - Add-on update check complete
+17272 [ZAP-daemon] INFO org.parosproxy.paros.CommandLine  - Downloading add-on from: https://github.com/zaproxy/zap-extensions/releases/download/2.4/selenium-release-5.zap
+17273 [ZAP-daemon] INFO org.parosproxy.paros.CommandLine  - Add-on downloaded to: /home/zap/.ZAP/plugin/zest-beta-20.zap
+17273 [ZAP-daemon] INFO org.parosproxy.paros.CommandLine  - Add-on downloaded to: /home/zap/.ZAP/plugin/selenium-release-5.zap
+17530 [ZAP-daemon] INFO org.zaproxy.zap.DaemonBootstrap  - ZAP is now listening on 0.0.0.0:8090
+19682 [ZAP-ProxyThread-2] INFO org.zaproxy.zap.extension.httpsessions.ExtensionHttpSessions  - Added new session token for site '172.17.0.2:80': PHPSESSID
+19684 [ZAP-ProxyThread-2] INFO org.zaproxy.zap.extension.httpsessions.HttpSessionsSite  - Created a new session as no match was found: HttpSession [name=Session 0, active=false, tokenValues='']
+21698 [Thread-10] INFO org.zaproxy.zap.extension.spider.SpiderThread  - Starting spidering scan on SpiderApi-0 at Thu May 12 11:02:50 UTC 2016
+21702 [Thread-10] INFO org.zaproxy.zap.spider.Spider  - Spider initializing...
+21719 [Thread-10] INFO org.zaproxy.zap.spider.Spider  - Starting spider...
+21721 [Thread-10] INFO org.zaproxy.zap.spider.Spider  - Adding seed for spider: http://172.17.0.2/
+21723 [Thread-10] INFO org.zaproxy.zap.spider.Spider  - Adding seed for spider: http://172.17.0.2/robots.txt
+21731 [Thread-10] INFO org.zaproxy.zap.spider.Spider  - Adding seed for spider: http://172.17.0.2/sitemap.xml
+22136 [pool-1-thread-2] INFO org.zaproxy.zap.spider.Spider  - Spidering process is complete. Shutting down...
+22137 [Thread-11] INFO org.zaproxy.zap.extension.spider.SpiderThread  - Spider scanning complete: true
+31722 [Thread-12] INFO org.zaproxy.zap.extension.spiderAjax.SpiderThread  - Running crawljax targeting http://172.17.0.2/
+31722 [Thread-12] INFO org.zaproxy.zap.extension.spiderAjax.SpiderThread  - Starting proxy...
+31722 [Thread-12] INFO org.zaproxy.zap.extension.spiderAjax.SpiderThread  - Proxy started, listening at port [43632].
+31979 [Thread-12] WARN com.crawljax.core.plugin.Plugins  - No plugins loaded. There will be no output
+34185 [ZAP-ProxyThread-8] INFO org.zaproxy.zap.extension.httpsessions.HttpSessionsSite  - Created a new session as no match was found: HttpSession [name=Session 1, active=false, tokenValues='']
+38213 [Thread-12] INFO com.crawljax.core.UnfiredCandidateActions  - There are 1 states with unfired actions
+38214 [pool-2-thread-2] INFO com.crawljax.core.UnfiredCandidateActions  - There are 1 states with unfired actions
+42067 [pool-2-thread-2] INFO com.crawljax.core.state.StateMachine  - State state2 added to the StateMachine.
+42067 [pool-2-thread-2] INFO com.crawljax.core.Crawler  - New DOM is a new state! crawl depth is now 1
+44567 [pool-2-thread-2] INFO com.crawljax.core.UnfiredCandidateActions  - There are 2 states with unfired actions
+45945 [pool-2-thread-2] INFO com.crawljax.core.state.StateMachine  - State state3 added to the StateMachine.
+45945 [pool-2-thread-2] INFO com.crawljax.core.Crawler  - New DOM is a new state! crawl depth is now 2
+47970 [pool-2-thread-2] INFO com.crawljax.core.UnfiredCandidateActions  - There are 2 states with unfired actions
+50413 [pool-2-thread-2] INFO com.crawljax.core.state.StateMachine  - State state4 added to the StateMachine.
+50413 [pool-2-thread-2] INFO com.crawljax.core.Crawler  - New DOM is a new state! crawl depth is now 1
+52372 [pool-2-thread-2] INFO com.crawljax.core.UnfiredCandidateActions  - There are 3 states with unfired actions
+53700 [pool-2-thread-2] INFO com.crawljax.core.state.StateMachine  - State state5 added to the StateMachine.
+53700 [pool-2-thread-2] INFO com.crawljax.core.Crawler  - New DOM is a new state! crawl depth is now 2
+55767 [pool-2-thread-2] INFO com.crawljax.core.UnfiredCandidateActions  - There are 4 states with unfired actions
+57101 [pool-2-thread-2] INFO com.crawljax.core.state.StateMachine  - State state6 added to the StateMachine.
+57102 [pool-2-thread-2] INFO com.crawljax.core.Crawler  - New DOM is a new state! crawl depth is now 3
+58977 [pool-2-thread-2] INFO com.crawljax.core.UnfiredCandidateActions  - There are 3 states with unfired actions
+61286 [pool-2-thread-2] INFO com.crawljax.core.Crawler  - Crawl depth is now 1
+62627 [pool-2-thread-2] INFO com.crawljax.core.state.StateMachine  - State state7 added to the StateMachine.
+62627 [pool-2-thread-2] INFO com.crawljax.core.Crawler  - New DOM is a new state! crawl depth is now 2
+64589 [pool-2-thread-2] INFO com.crawljax.core.UnfiredCandidateActions  - There are 4 states with unfired actions
+65891 [pool-2-thread-2] INFO com.crawljax.core.state.StateMachine  - State state8 added to the StateMachine.
+65891 [pool-2-thread-2] INFO com.crawljax.core.Crawler  - New DOM is a new state! crawl depth is now 3
+67985 [pool-2-thread-2] INFO com.crawljax.core.UnfiredCandidateActions  - There are 4 states with unfired actions
+70395 [pool-2-thread-2] INFO com.crawljax.core.state.StateMachine  - State state9 added to the StateMachine.
+70395 [pool-2-thread-2] INFO com.crawljax.core.Crawler  - New DOM is a new state! crawl depth is now 1
+72263 [pool-2-thread-2] INFO com.crawljax.core.UnfiredCandidateActions  - There are 5 states with unfired actions
+73659 [pool-2-thread-2] INFO com.crawljax.core.state.StateMachine  - State state10 added to the StateMachine.
+73659 [pool-2-thread-2] INFO com.crawljax.core.Crawler  - New DOM is a new state! crawl depth is now 2
+75689 [pool-2-thread-2] INFO com.crawljax.core.UnfiredCandidateActions  - There are 5 states with unfired actions
+77022 [pool-2-thread-2] INFO com.crawljax.core.state.StateMachine  - State state11 added to the StateMachine.
+77023 [pool-2-thread-2] INFO com.crawljax.core.Crawler  - New DOM is a new state! crawl depth is now 3
+78781 [pool-2-thread-2] INFO com.crawljax.core.UnfiredCandidateActions  - There are 6 states with unfired actions
+80365 [pool-2-thread-2] INFO com.crawljax.core.state.StateMachine  - CLONE State detected: state12 and state10 are the same.
+97743 [pool-2-thread-2] INFO com.crawljax.core.state.StateMachine  - State state25 added to the StateMachine.
+97743 [pool-2-thread-2] INFO com.crawljax.core.Crawler  - New DOM is a new state! crawl depth is now 4
+99760 [pool-2-thread-2] INFO com.crawljax.core.UnfiredCandidateActions  - There are 6 states with unfired actions
+101072 [pool-2-thread-2] INFO com.crawljax.core.state.StateMachine  - CLONE State detected: state26 and state11 are the same.
+101076 [pool-2-thread-2] INFO com.crawljax.core.UnfiredCandidateActions  - There are 6 states with unfired actions
+103322 [pool-2-thread-2] INFO com.crawljax.core.Crawler  - Crawl depth is now 1
+104624 [pool-2-thread-2] INFO com.crawljax.core.state.StateMachine  - State state27 added to the StateMachine.
+104624 [pool-2-thread-2] INFO com.crawljax.core.Crawler  - New DOM is a new state! crawl depth is now 2
+106519 [pool-2-thread-2] INFO com.crawljax.core.UnfiredCandidateActions  - There are 6 states with unfired actions
+107807 [pool-2-thread-2] INFO com.crawljax.core.state.StateMachine  - State state28 added to the StateMachine.
+107807 [pool-2-thread-2] INFO com.crawljax.core.Crawler  - New DOM is a new state! crawl depth is now 3
+109601 [pool-2-thread-2] INFO com.crawljax.core.UnfiredCandidateActions  - There are 6 states with unfired actions
+110879 [pool-2-thread-2] INFO com.crawljax.core.state.StateMachine  - State state29 added to the StateMachine.
+110879 [pool-2-thread-2] INFO com.crawljax.core.Crawler  - New DOM is a new state! crawl depth is now 4
+112524 [pool-2-thread-2] INFO com.crawljax.core.UnfiredCandidateActions  - There are 6 states with unfired actions
+113777 [pool-2-thread-2] INFO com.crawljax.core.state.StateMachine  - State state30 added to the StateMachine.
+113777 [pool-2-thread-2] INFO com.crawljax.core.Crawler  - New DOM is a new state! crawl depth is now 5
+115290 [pool-2-thread-2] INFO com.crawljax.core.UnfiredCandidateActions  - There are 6 states with unfired actions
+116678 [pool-2-thread-2] INFO com.crawljax.core.state.StateMachine  - State state31 added to the StateMachine.
+116678 [pool-2-thread-2] INFO com.crawljax.core.Crawler  - New DOM is a new state! crawl depth is now 6
+118517 [pool-2-thread-2] INFO com.crawljax.core.UnfiredCandidateActions  - There are 6 states with unfired actions
+119835 [pool-2-thread-2] INFO com.crawljax.core.state.StateMachine  - State state32 added to the StateMachine.
+119835 [pool-2-thread-2] INFO com.crawljax.core.Crawler  - New DOM is a new state! crawl depth is now 7
+121478 [pool-2-thread-2] INFO com.crawljax.core.UnfiredCandidateActions  - There are 6 states with unfired actions
+122873 [pool-2-thread-2] INFO com.crawljax.core.state.StateMachine  - State state33 added to the StateMachine.
+122873 [pool-2-thread-2] INFO com.crawljax.core.Crawler  - New DOM is a new state! crawl depth is now 8
+124822 [pool-2-thread-2] INFO com.crawljax.core.UnfiredCandidateActions  - There are 6 states with unfired actions
+126143 [pool-2-thread-2] INFO com.crawljax.core.state.StateMachine  - State state34 added to the StateMachine.
+126143 [pool-2-thread-2] INFO com.crawljax.core.Crawler  - New DOM is a new state! crawl depth is now 9
+127801 [pool-2-thread-2] INFO com.crawljax.core.UnfiredCandidateActions  - There are 6 states with unfired actions
+129449 [pool-2-thread-2] INFO com.crawljax.core.state.StateMachine  - State state35 added to the StateMachine.
+129449 [pool-2-thread-2] INFO com.crawljax.core.Crawler  - New DOM is a new state! crawl depth is now 10
+129452 [pool-2-thread-2] INFO com.crawljax.core.UnfiredCandidateActions  - There are 5 states with unfired actions
+131729 [pool-2-thread-2] INFO com.crawljax.core.Crawler  - Crawl depth is now 1
+131821 [pool-2-thread-2] INFO com.crawljax.core.UnfiredCandidateActions  - There are 4 states with unfired actions
+134065 [pool-2-thread-2] INFO com.crawljax.core.Crawler  - Crawl depth is now 1
+135247 [pool-2-thread-2] INFO com.crawljax.core.Crawler  - Crawl depth is now 2
+135353 [pool-2-thread-2] INFO com.crawljax.core.UnfiredCandidateActions  - There are 3 states with unfired actions
+137745 [pool-2-thread-2] INFO com.crawljax.core.state.StateMachine  - State state36 added to the StateMachine.
+137745 [pool-2-thread-2] INFO com.crawljax.core.Crawler  - New DOM is a new state! crawl depth is now 1
+139538 [pool-2-thread-2] INFO com.crawljax.core.UnfiredCandidateActions  - There are 4 states with unfired actions
+142652 [pool-2-thread-2] INFO com.crawljax.core.UnfiredCandidateActions  - There are 3 states with unfired actions
+144893 [pool-2-thread-2] INFO com.crawljax.core.Crawler  - Crawl depth is now 1
+146065 [pool-2-thread-2] INFO com.crawljax.core.Crawler  - Crawl depth is now 2
+164621 [pool-2-thread-2] INFO com.crawljax.core.state.StateMachine  - CLONE State detected: state52 and state25 are the same.
+169985 [pool-2-thread-2] INFO com.crawljax.core.UnfiredCandidateActions  - There are 2 states with unfired actions
+172377 [pool-2-thread-2] INFO com.crawljax.core.state.StateMachine  - State state57 added to the StateMachine.
+172377 [pool-2-thread-2] INFO com.crawljax.core.Crawler  - New DOM is a new state! crawl depth is now 1
+174164 [pool-2-thread-2] INFO com.crawljax.core.UnfiredCandidateActions  - There are 3 states with unfired actions
+175632 [pool-2-thread-2] INFO com.crawljax.core.UnfiredCandidateActions  - There are 2 states with unfired actions
+177929 [pool-2-thread-2] INFO com.crawljax.core.Crawler  - Crawl depth is now 1
+179073 [pool-2-thread-2] INFO com.crawljax.core.Crawler  - Crawl depth is now 2
+180364 [pool-2-thread-2] INFO com.crawljax.core.UnfiredCandidateActions  - There are 1 states with unfired actions
+182788 [pool-2-thread-2] INFO com.crawljax.core.state.StateMachine  - State state60 added to the StateMachine.
+182788 [pool-2-thread-2] INFO com.crawljax.core.Crawler  - New DOM is a new state! crawl depth is now 1
+217222 [pool-2-thread-2] INFO com.crawljax.core.UnfiredCandidateActions  - There are 2 states with unfired actions
+226325 [pool-2-thread-2] INFO com.crawljax.core.UnfiredCandidateActions  - There are 1 states with unfired actions
+228754 [pool-2-thread-2] INFO com.crawljax.core.state.StateMachine  - State state65 added to the StateMachine.
+228754 [pool-2-thread-2] INFO com.crawljax.core.Crawler  - New DOM is a new state! crawl depth is now 1
+230568 [pool-2-thread-2] INFO com.crawljax.core.UnfiredCandidateActions  - There are 2 states with unfired actions
+233424 [pool-2-thread-2] INFO com.crawljax.core.state.StateMachine  - State state67 added to the StateMachine.
+233424 [pool-2-thread-2] INFO com.crawljax.core.Crawler  - New DOM is a new state! crawl depth is now 2
+235392 [pool-2-thread-2] INFO com.crawljax.core.UnfiredCandidateActions  - There are 1 states with unfired actions
+237781 [pool-2-thread-2] INFO com.crawljax.core.state.StateMachine  - State state68 added to the StateMachine.
+237781 [pool-2-thread-2] INFO com.crawljax.core.Crawler  - New DOM is a new state! crawl depth is now 1
+240294 [pool-2-thread-2] INFO com.crawljax.core.UnfiredCandidateActions  - There are 1 states with unfired actions
+242683 [pool-2-thread-2] INFO com.crawljax.core.state.StateMachine  - State state69 added to the StateMachine.
+242683 [pool-2-thread-2] INFO com.crawljax.core.Crawler  - New DOM is a new state! crawl depth is now 1
+244405 [pool-2-thread-2] INFO com.crawljax.core.UnfiredCandidateActions  - There are 2 states with unfired actions
+245714 [pool-2-thread-2] INFO com.crawljax.core.state.StateMachine  - State state70 added to the StateMachine.
+245714 [pool-2-thread-2] INFO com.crawljax.core.Crawler  - New DOM is a new state! crawl depth is now 2
+247500 [pool-2-thread-2] INFO com.crawljax.core.UnfiredCandidateActions  - There are 2 states with unfired actions
+249906 [pool-2-thread-2] INFO com.crawljax.core.state.StateMachine  - State state71 added to the StateMachine.
+249906 [pool-2-thread-2] INFO com.crawljax.core.Crawler  - New DOM is a new state! crawl depth is now 1
+251905 [pool-2-thread-2] INFO com.crawljax.core.UnfiredCandidateActions  - There are 3 states with unfired actions
+253171 [pool-2-thread-2] INFO com.crawljax.core.UnfiredCandidateActions  - There are 2 states with unfired actions
+255423 [pool-2-thread-2] INFO com.crawljax.core.Crawler  - Crawl depth is now 1
+258088 [pool-2-thread-2] INFO com.crawljax.core.state.StateMachine  - State state73 added to the StateMachine.
+258088 [pool-2-thread-2] INFO com.crawljax.core.Crawler  - New DOM is a new state! crawl depth is now 2
+259807 [pool-2-thread-2] INFO com.crawljax.core.UnfiredCandidateActions  - There are 2 states with unfired actions
+262221 [pool-2-thread-2] INFO com.crawljax.core.state.StateMachine  - State state74 added to the StateMachine.
+262221 [pool-2-thread-2] INFO com.crawljax.core.Crawler  - New DOM is a new state! crawl depth is now 1
+263917 [pool-2-thread-2] INFO com.crawljax.core.UnfiredCandidateActions  - There are 3 states with unfired actions
+265319 [pool-2-thread-2] INFO com.crawljax.core.state.StateMachine  - State state75 added to the StateMachine.
+265319 [pool-2-thread-2] INFO com.crawljax.core.Crawler  - New DOM is a new state! crawl depth is now 2
+267073 [pool-2-thread-2] INFO com.crawljax.core.UnfiredCandidateActions  - There are 3 states with unfired actions
+269331 [pool-2-thread-2] INFO com.crawljax.core.Crawler  - Crawl depth is now 1
+270652 [pool-2-thread-2] INFO com.crawljax.core.state.StateMachine  - State state76 added to the StateMachine.
+270652 [pool-2-thread-2] INFO com.crawljax.core.Crawler  - New DOM is a new state! crawl depth is now 2
+272390 [pool-2-thread-2] INFO com.crawljax.core.UnfiredCandidateActions  - There are 3 states with unfired actions
+274828 [pool-2-thread-2] INFO com.crawljax.core.state.StateMachine  - State state77 added to the StateMachine.
+274828 [pool-2-thread-2] INFO com.crawljax.core.Crawler  - New DOM is a new state! crawl depth is now 1
+276537 [pool-2-thread-2] INFO com.crawljax.core.UnfiredCandidateActions  - There are 3 states with unfired actions
+278963 [pool-2-thread-2] INFO com.crawljax.core.Crawler  - Crawl depth is now 1
+280453 [pool-2-thread-2] INFO com.crawljax.core.state.StateMachine  - State state78 added to the StateMachine.
+280453 [pool-2-thread-2] INFO com.crawljax.core.Crawler  - New DOM is a new state! crawl depth is now 2
+282139 [pool-2-thread-2] INFO com.crawljax.core.UnfiredCandidateActions  - There are 2 states with unfired actions
+284408 [pool-2-thread-2] INFO com.crawljax.core.Crawler  - Crawl depth is now 1
+285700 [pool-2-thread-2] INFO com.crawljax.core.state.StateMachine  - State state79 added to the StateMachine.
+285701 [pool-2-thread-2] INFO com.crawljax.core.Crawler  - New DOM is a new state! crawl depth is now 2
+287418 [pool-2-thread-2] INFO com.crawljax.core.UnfiredCandidateActions  - There are 2 states with unfired actions
+289821 [pool-2-thread-2] INFO com.crawljax.core.state.StateMachine  - State state80 added to the StateMachine.
+289821 [pool-2-thread-2] INFO com.crawljax.core.Crawler  - New DOM is a new state! crawl depth is now 1
+291596 [pool-2-thread-2] INFO com.crawljax.core.UnfiredCandidateActions  - There are 3 states with unfired actions
+292937 [pool-2-thread-2] INFO com.crawljax.core.state.StateMachine  - State state81 added to the StateMachine.
+292937 [pool-2-thread-2] INFO com.crawljax.core.Crawler  - New DOM is a new state! crawl depth is now 2
+294734 [pool-2-thread-2] INFO com.crawljax.core.UnfiredCandidateActions  - There are 3 states with unfired actions
+296124 [pool-2-thread-2] INFO com.crawljax.core.state.StateMachine  - State state82 added to the StateMachine.
+296125 [pool-2-thread-2] INFO com.crawljax.core.Crawler  - New DOM is a new state! crawl depth is now 3
+297705 [pool-2-thread-2] INFO com.crawljax.core.UnfiredCandidateActions  - There are 2 states with unfired actions
+299941 [pool-2-thread-2] INFO com.crawljax.core.Crawler  - Crawl depth is now 1
+302626 [pool-2-thread-2] INFO com.crawljax.core.state.StateMachine  - State state84 added to the StateMachine.
+302626 [pool-2-thread-2] INFO com.crawljax.core.Crawler  - New DOM is a new state! crawl depth is now 2
+304431 [pool-2-thread-2] INFO com.crawljax.core.UnfiredCandidateActions  - There are 2 states with unfired actions
+306791 [pool-2-thread-2] INFO com.crawljax.core.state.StateMachine  - State state85 added to the StateMachine.
+306791 [pool-2-thread-2] INFO com.crawljax.core.Crawler  - New DOM is a new state! crawl depth is now 1
+308883 [pool-2-thread-2] INFO com.crawljax.core.UnfiredCandidateActions  - There are 2 states with unfired actions
+311126 [pool-2-thread-2] INFO com.crawljax.core.Crawler  - Crawl depth is now 1
+312411 [pool-2-thread-2] INFO com.crawljax.core.state.StateMachine  - State state86 added to the StateMachine.
+312411 [pool-2-thread-2] INFO com.crawljax.core.Crawler  - New DOM is a new state! crawl depth is now 2
+314304 [pool-2-thread-2] INFO com.crawljax.core.UnfiredCandidateActions  - There are 2 states with unfired actions
+316691 [pool-2-thread-2] INFO com.crawljax.core.state.StateMachine  - State state87 added to the StateMachine.
+316691 [pool-2-thread-2] INFO com.crawljax.core.Crawler  - New DOM is a new state! crawl depth is now 1
+318398 [pool-2-thread-2] INFO com.crawljax.core.UnfiredCandidateActions  - There are 3 states with unfired actions
+319688 [pool-2-thread-2] INFO com.crawljax.core.state.StateMachine  - State state88 added to the StateMachine.
+319688 [pool-2-thread-2] INFO com.crawljax.core.Crawler  - New DOM is a new state! crawl depth is now 2
+321755 [pool-2-thread-2] INFO com.crawljax.core.UnfiredCandidateActions  - There are 3 states with unfired actions
+324013 [pool-2-thread-2] INFO com.crawljax.core.Crawler  - Crawl depth is now 1
+325280 [pool-2-thread-2] INFO com.crawljax.core.state.StateMachine  - State state89 added to the StateMachine.
+325280 [pool-2-thread-2] INFO com.crawljax.core.Crawler  - New DOM is a new state! crawl depth is now 2
+327307 [pool-2-thread-2] INFO com.crawljax.core.UnfiredCandidateActions  - There are 3 states with unfired actions
+329707 [pool-2-thread-2] INFO com.crawljax.core.state.StateMachine  - State state90 added to the StateMachine.
+329707 [pool-2-thread-2] INFO com.crawljax.core.Crawler  - New DOM is a new state! crawl depth is now 1
+331379 [pool-2-thread-2] INFO com.crawljax.core.UnfiredCandidateActions  - There are 3 states with unfired actions
+333631 [pool-2-thread-2] INFO com.crawljax.core.Crawler  - Crawl depth is now 1
+334949 [pool-2-thread-2] INFO com.crawljax.core.state.StateMachine  - State state91 added to the StateMachine.
+334949 [pool-2-thread-2] INFO com.crawljax.core.Crawler  - New DOM is a new state! crawl depth is now 2
+336701 [pool-2-thread-2] INFO com.crawljax.core.UnfiredCandidateActions  - There are 2 states with unfired actions
+338950 [pool-2-thread-2] INFO com.crawljax.core.Crawler  - Crawl depth is now 1
+341576 [pool-2-thread-2] INFO com.crawljax.core.state.StateMachine  - State state93 added to the StateMachine.
+341576 [pool-2-thread-2] INFO com.crawljax.core.Crawler  - New DOM is a new state! crawl depth is now 2
+343256 [pool-2-thread-2] INFO com.crawljax.core.UnfiredCandidateActions  - There are 2 states with unfired actions
+345753 [pool-2-thread-2] INFO com.crawljax.core.state.StateMachine  - State state94 added to the StateMachine.
+345753 [pool-2-thread-2] INFO com.crawljax.core.Crawler  - New DOM is a new state! crawl depth is now 1
+347512 [pool-2-thread-2] INFO com.crawljax.core.UnfiredCandidateActions  - There are 3 states with unfired actions
+350007 [pool-2-thread-2] INFO com.crawljax.core.UnfiredCandidateActions  - There are 2 states with unfired actions
+353119 [pool-2-thread-2] INFO com.crawljax.core.Crawler  - Crawl depth is now 1
+354430 [pool-2-thread-2] INFO com.crawljax.core.state.StateMachine  - State state96 added to the StateMachine.
+354430 [pool-2-thread-2] INFO com.crawljax.core.Crawler  - New DOM is a new state! crawl depth is now 2
+356103 [pool-2-thread-2] INFO com.crawljax.core.UnfiredCandidateActions  - There are 2 states with unfired actions
+358630 [pool-2-thread-2] INFO com.crawljax.core.state.StateMachine  - State state97 added to the StateMachine.
+358630 [pool-2-thread-2] INFO com.crawljax.core.Crawler  - New DOM is a new state! crawl depth is now 1
+360570 [pool-2-thread-2] INFO com.crawljax.core.UnfiredCandidateActions  - There are 3 states with unfired actions
+361971 [pool-2-thread-2] INFO com.crawljax.core.state.StateMachine  - State state98 added to the StateMachine.
+361971 [pool-2-thread-2] INFO com.crawljax.core.Crawler  - New DOM is a new state! crawl depth is now 2
+363884 [pool-2-thread-2] INFO com.crawljax.core.UnfiredCandidateActions  - There are 3 states with unfired actions
+366180 [pool-2-thread-2] INFO com.crawljax.core.Crawler  - Crawl depth is now 1
+367459 [pool-2-thread-2] INFO com.crawljax.core.state.StateMachine  - State state99 added to the StateMachine.
+367459 [pool-2-thread-2] INFO com.crawljax.core.Crawler  - New DOM is a new state! crawl depth is now 2
+369164 [pool-2-thread-2] INFO com.crawljax.core.UnfiredCandidateActions  - There are 3 states with unfired actions
+371575 [pool-2-thread-2] INFO com.crawljax.core.state.StateMachine  - State state100 added to the StateMachine.
+371576 [pool-2-thread-2] INFO com.crawljax.core.Crawler  - New DOM is a new state! crawl depth is now 1
+373414 [pool-2-thread-2] INFO com.crawljax.core.UnfiredCandidateActions  - There are 4 states with unfired actions
+373521 [pool-2-thread-2] INFO com.crawljax.core.UnfiredCandidateActions  - There are 3 states with unfired actions
+375867 [pool-2-thread-2] INFO com.crawljax.core.Crawler  - Crawl depth is now 1
+377256 [pool-2-thread-2] INFO com.crawljax.core.state.StateMachine  - State state101 added to the StateMachine.
+377256 [pool-2-thread-2] INFO com.crawljax.core.Crawler  - New DOM is a new state! crawl depth is now 2
+379352 [pool-2-thread-2] INFO com.crawljax.core.UnfiredCandidateActions  - There are 4 states with unfired actions
+380683 [pool-2-thread-2] INFO com.crawljax.core.state.StateMachine  - State state102 added to the StateMachine.
+380683 [pool-2-thread-2] INFO com.crawljax.core.Crawler  - New DOM is a new state! crawl depth is now 3
+382483 [pool-2-thread-2] INFO com.crawljax.core.UnfiredCandidateActions  - There are 4 states with unfired actions
+383933 [pool-2-thread-2] INFO com.crawljax.core.state.StateMachine  - CLONE State detected: state103 and state101 are the same.
+384097 [pool-2-thread-2] INFO com.crawljax.core.UnfiredCandidateActions  - There are 3 states with unfired actions
+386371 [pool-2-thread-2] INFO com.crawljax.core.Crawler  - Crawl depth is now 1
+388990 [pool-2-thread-2] INFO com.crawljax.core.state.StateMachine  - State state105 added to the StateMachine.
+388990 [pool-2-thread-2] INFO com.crawljax.core.Crawler  - New DOM is a new state! crawl depth is now 2
+390903 [pool-2-thread-2] INFO com.crawljax.core.UnfiredCandidateActions  - There are 3 states with unfired actions
+393271 [pool-2-thread-2] INFO com.crawljax.core.state.StateMachine  - State state106 added to the StateMachine.
+393271 [pool-2-thread-2] INFO com.crawljax.core.Crawler  - New DOM is a new state! crawl depth is now 1
+394946 [pool-2-thread-2] INFO com.crawljax.core.UnfiredCandidateActions  - There are 4 states with unfired actions
+396230 [pool-2-thread-2] INFO com.crawljax.core.state.StateMachine  - State state107 added to the StateMachine.
+396230 [pool-2-thread-2] INFO com.crawljax.core.Crawler  - New DOM is a new state! crawl depth is now 2
+398198 [pool-2-thread-2] INFO com.crawljax.core.UnfiredCandidateActions  - There are 3 states with unfired actions
+400552 [pool-2-thread-2] INFO com.crawljax.core.Crawler  - Crawl depth is now 1
+403296 [pool-2-thread-2] INFO com.crawljax.core.state.StateMachine  - State state109 added to the StateMachine.
+403296 [pool-2-thread-2] INFO com.crawljax.core.Crawler  - New DOM is a new state! crawl depth is now 2
+405028 [pool-2-thread-2] INFO com.crawljax.core.UnfiredCandidateActions  - There are 3 states with unfired actions
+407327 [pool-2-thread-2] INFO com.crawljax.core.Crawler  - Crawl depth is now 1
+408601 [pool-2-thread-2] INFO com.crawljax.core.state.StateMachine  - State state110 added to the StateMachine.
+408601 [pool-2-thread-2] INFO com.crawljax.core.Crawler  - New DOM is a new state! crawl depth is now 2
+410602 [pool-2-thread-2] INFO com.crawljax.core.UnfiredCandidateActions  - There are 3 states with unfired actions
+413004 [pool-2-thread-2] INFO com.crawljax.core.state.StateMachine  - State state111 added to the StateMachine.
+413004 [pool-2-thread-2] INFO com.crawljax.core.Crawler  - New DOM is a new state! crawl depth is now 1
+414667 [pool-2-thread-2] INFO com.crawljax.core.UnfiredCandidateActions  - There are 3 states with unfired actions
+417232 [pool-2-thread-2] INFO com.crawljax.core.Crawler  - Crawl depth is now 1
+418576 [pool-2-thread-2] INFO com.crawljax.core.state.StateMachine  - State state112 added to the StateMachine.
+418577 [pool-2-thread-2] INFO com.crawljax.core.Crawler  - New DOM is a new state! crawl depth is now 2
+420272 [pool-2-thread-2] INFO com.crawljax.core.UnfiredCandidateActions  - There are 3 states with unfired actions
+422515 [pool-2-thread-2] INFO com.crawljax.core.Crawler  - Crawl depth is now 1
+425139 [pool-2-thread-2] INFO com.crawljax.core.state.StateMachine  - State state114 added to the StateMachine.
+425139 [pool-2-thread-2] INFO com.crawljax.core.Crawler  - New DOM is a new state! crawl depth is now 2
+426811 [pool-2-thread-2] INFO com.crawljax.core.UnfiredCandidateActions  - There are 3 states with unfired actions
+469738 [pool-2-thread-2] INFO com.crawljax.core.UnfiredCandidateActions  - There are 2 states with unfired actions
+472094 [pool-2-thread-2] INFO com.crawljax.core.Crawler  - Crawl depth is now 1
+473448 [pool-2-thread-2] INFO com.crawljax.core.state.StateMachine  - State state147 added to the StateMachine.
+473448 [pool-2-thread-2] INFO com.crawljax.core.Crawler  - New DOM is a new state! crawl depth is now 2
+475174 [pool-2-thread-2] INFO com.crawljax.core.UnfiredCandidateActions  - There are 2 states with unfired actions
+477414 [pool-2-thread-2] INFO com.crawljax.core.Crawler  - Crawl depth is now 1
+480034 [pool-2-thread-2] INFO com.crawljax.core.state.StateMachine  - State state149 added to the StateMachine.
+480034 [pool-2-thread-2] INFO com.crawljax.core.Crawler  - New DOM is a new state! crawl depth is now 2
+481813 [pool-2-thread-2] INFO com.crawljax.core.UnfiredCandidateActions  - There are 2 states with unfired actions
+484215 [pool-2-thread-2] INFO com.crawljax.core.Crawler  - Crawl depth is now 1
+485638 [pool-2-thread-2] INFO com.crawljax.core.state.StateMachine  - State state150 added to the StateMachine.
+485638 [pool-2-thread-2] INFO com.crawljax.core.Crawler  - New DOM is a new state! crawl depth is now 2
+487380 [pool-2-thread-2] INFO com.crawljax.core.UnfiredCandidateActions  - There are 2 states with unfired actions
+489649 [pool-2-thread-2] INFO com.crawljax.core.Crawler  - Crawl depth is now 1
+491056 [pool-2-thread-2] INFO com.crawljax.core.state.StateMachine  - State state151 added to the StateMachine.
+491056 [pool-2-thread-2] INFO com.crawljax.core.Crawler  - New DOM is a new state! crawl depth is now 2
+492797 [pool-2-thread-2] INFO com.crawljax.core.UnfiredCandidateActions  - There are 2 states with unfired actions
+495179 [pool-2-thread-2] INFO com.crawljax.core.Crawler  - Crawl depth is now 1
+496506 [pool-2-thread-2] INFO com.crawljax.core.state.StateMachine  - State state152 added to the StateMachine.
+496506 [pool-2-thread-2] INFO com.crawljax.core.Crawler  - New DOM is a new state! crawl depth is now 2
+498548 [pool-2-thread-2] INFO com.crawljax.core.UnfiredCandidateActions  - There are 2 states with unfired actions
+500821 [pool-2-thread-2] INFO com.crawljax.core.Crawler  - Crawl depth is now 1
+502101 [pool-2-thread-2] INFO com.crawljax.core.state.StateMachine  - State state153 added to the StateMachine.
+502101 [pool-2-thread-2] INFO com.crawljax.core.Crawler  - New DOM is a new state! crawl depth is now 2
+504112 [pool-2-thread-2] INFO com.crawljax.core.UnfiredCandidateActions  - There are 2 states with unfired actions
+506461 [pool-2-thread-2] INFO com.crawljax.core.Crawler  - Crawl depth is now 1
+507785 [pool-2-thread-2] INFO com.crawljax.core.state.StateMachine  - State state154 added to the StateMachine.
+507785 [pool-2-thread-2] INFO com.crawljax.core.Crawler  - New DOM is a new state! crawl depth is now 2
+509493 [pool-2-thread-2] INFO com.crawljax.core.UnfiredCandidateActions  - There are 2 states with unfired actions
+511783 [pool-2-thread-2] INFO com.crawljax.core.Crawler  - Crawl depth is now 1
+513082 [pool-2-thread-2] INFO com.crawljax.core.state.StateMachine  - State state155 added to the StateMachine.
+513082 [pool-2-thread-2] INFO com.crawljax.core.Crawler  - New DOM is a new state! crawl depth is now 2
+514834 [pool-2-thread-2] INFO com.crawljax.core.UnfiredCandidateActions  - There are 2 states with unfired actions
+517206 [pool-2-thread-2] INFO com.crawljax.core.Crawler  - Crawl depth is now 1
+518556 [pool-2-thread-2] INFO com.crawljax.core.state.StateMachine  - State state156 added to the StateMachine.
+518556 [pool-2-thread-2] INFO com.crawljax.core.Crawler  - New DOM is a new state! crawl depth is now 2
+520267 [pool-2-thread-2] INFO com.crawljax.core.UnfiredCandidateActions  - There are 2 states with unfired actions
+522510 [pool-2-thread-2] INFO com.crawljax.core.Crawler  - Crawl depth is now 1
+525215 [pool-2-thread-2] INFO com.crawljax.core.state.StateMachine  - State state158 added to the StateMachine.
+525216 [pool-2-thread-2] INFO com.crawljax.core.Crawler  - New DOM is a new state! crawl depth is now 2
+526913 [pool-2-thread-2] INFO com.crawljax.core.UnfiredCandidateActions  - There are 2 states with unfired actions
+529272 [pool-2-thread-2] INFO com.crawljax.core.Crawler  - Crawl depth is now 1
+530683 [pool-2-thread-2] INFO com.crawljax.core.state.StateMachine  - State state159 added to the StateMachine.
+530683 [pool-2-thread-2] INFO com.crawljax.core.Crawler  - New DOM is a new state! crawl depth is now 2
+532449 [pool-2-thread-2] INFO com.crawljax.core.UnfiredCandidateActions  - There are 2 states with unfired actions
+534694 [pool-2-thread-2] INFO com.crawljax.core.Crawler  - Crawl depth is now 1
+535992 [pool-2-thread-2] INFO com.crawljax.core.state.StateMachine  - State state160 added to the StateMachine.
+535992 [pool-2-thread-2] INFO com.crawljax.core.Crawler  - New DOM is a new state! crawl depth is now 2
+537730 [pool-2-thread-2] INFO com.crawljax.core.UnfiredCandidateActions  - There are 2 states with unfired actions
+540101 [pool-2-thread-2] INFO com.crawljax.core.Crawler  - Crawl depth is now 1
+541493 [pool-2-thread-2] INFO com.crawljax.core.state.StateMachine  - State state161 added to the StateMachine.
+541493 [pool-2-thread-2] INFO com.crawljax.core.Crawler  - New DOM is a new state! crawl depth is now 2
+543361 [pool-2-thread-2] INFO com.crawljax.core.UnfiredCandidateActions  - There are 2 states with unfired actions
+545600 [pool-2-thread-2] INFO com.crawljax.core.Crawler  - Crawl depth is now 1
+546885 [pool-2-thread-2] INFO com.crawljax.core.state.StateMachine  - State state162 added to the StateMachine.
+546885 [pool-2-thread-2] INFO com.crawljax.core.Crawler  - New DOM is a new state! crawl depth is now 2
+548885 [pool-2-thread-2] INFO com.crawljax.core.UnfiredCandidateActions  - There are 2 states with unfired actions
+551259 [pool-2-thread-2] INFO com.crawljax.core.Crawler  - Crawl depth is now 1
+552582 [pool-2-thread-2] INFO com.crawljax.core.state.StateMachine  - State state163 added to the StateMachine.
+552582 [pool-2-thread-2] INFO com.crawljax.core.Crawler  - New DOM is a new state! crawl depth is now 2
+554279 [pool-2-thread-2] INFO com.crawljax.core.UnfiredCandidateActions  - There are 2 states with unfired actions
+556784 [pool-2-thread-2] INFO com.crawljax.core.Crawler  - Crawl depth is now 1
+560689 [pool-2-thread-2] INFO com.crawljax.core.state.StateMachine  - State state166 added to the StateMachine.
+560689 [pool-2-thread-2] INFO com.crawljax.core.Crawler  - New DOM is a new state! crawl depth is now 2
+562636 [pool-2-thread-2] INFO com.crawljax.core.UnfiredCandidateActions  - There are 2 states with unfired actions
+564974 [pool-2-thread-2] INFO com.crawljax.core.Crawler  - Crawl depth is now 1
+566266 [pool-2-thread-2] INFO com.crawljax.core.state.StateMachine  - CLONE State detected: state167 and state101 are the same.
+566270 [pool-2-thread-2] INFO com.crawljax.core.UnfiredCandidateActions  - There are 2 states with unfired actions
+568587 [pool-2-thread-2] INFO com.crawljax.core.Crawler  - Crawl depth is now 1
+571182 [pool-2-thread-2] INFO com.crawljax.core.state.StateMachine  - State state169 added to the StateMachine.
+571182 [pool-2-thread-2] INFO com.crawljax.core.Crawler  - New DOM is a new state! crawl depth is now 2
+572869 [pool-2-thread-2] INFO com.crawljax.core.UnfiredCandidateActions  - There are 2 states with unfired actions
+575252 [pool-2-thread-2] INFO com.crawljax.core.Crawler  - Crawl depth is now 1
+576578 [pool-2-thread-2] INFO com.crawljax.core.state.StateMachine  - CLONE State detected: state170 and state102 are the same.
+576582 [pool-2-thread-2] INFO com.crawljax.core.UnfiredCandidateActions  - There are 2 states with unfired actions
+578829 [pool-2-thread-2] INFO com.crawljax.core.Crawler  - Crawl depth is now 1
+580157 [pool-2-thread-2] INFO com.crawljax.core.state.StateMachine  - State state171 added to the StateMachine.
+580158 [pool-2-thread-2] INFO com.crawljax.core.Crawler  - New DOM is a new state! crawl depth is now 2
+581893 [pool-2-thread-2] INFO com.crawljax.core.UnfiredCandidateActions  - There are 2 states with unfired actions
+584269 [pool-2-thread-2] INFO com.crawljax.core.Crawler  - Crawl depth is now 1
+585571 [pool-2-thread-2] INFO com.crawljax.core.state.StateMachine  - CLONE State detected: state172 and state102 are the same.
+585575 [pool-2-thread-2] INFO com.crawljax.core.UnfiredCandidateActions  - There are 2 states with unfired actions
+587846 [pool-2-thread-2] INFO com.crawljax.core.Crawler  - Crawl depth is now 1
+589147 [pool-2-thread-2] INFO com.crawljax.core.UnfiredCandidateActions  - There are 1 states with unfired actions
+591488 [pool-2-thread-2] INFO com.crawljax.core.Crawler  - Crawl depth is now 1
+592842 [pool-2-thread-2] INFO com.crawljax.core.state.StateMachine  - CLONE State detected: state174 and state102 are the same.
+592845 [pool-2-thread-2] INFO com.crawljax.core.UnfiredCandidateActions  - There are 1 states with unfired actions
+595202 [pool-2-thread-2] INFO com.crawljax.core.Crawler  - Crawl depth is now 1
+596526 [pool-2-thread-2] INFO com.crawljax.core.state.StateMachine  - CLONE State detected: state175 and state102 are the same.
+596529 [pool-2-thread-2] INFO com.crawljax.core.UnfiredCandidateActions  - There are 1 states with unfired actions
+598878 [pool-2-thread-2] INFO com.crawljax.core.Crawler  - Crawl depth is now 1
+600226 [pool-2-thread-2] INFO com.crawljax.core.state.StateMachine  - CLONE State detected: state176 and state101 are the same.
+600230 [pool-2-thread-2] INFO com.crawljax.core.UnfiredCandidateActions  - There are 1 states with unfired actions
+602570 [pool-2-thread-2] INFO com.crawljax.core.Crawler  - Crawl depth is now 1
+603900 [pool-2-thread-2] INFO com.crawljax.core.state.StateMachine  - CLONE State detected: state177 and state102 are the same.
+603903 [pool-2-thread-2] INFO com.crawljax.core.UnfiredCandidateActions  - There are 1 states with unfired actions
+606286 [pool-2-thread-2] INFO com.crawljax.core.Crawler  - Crawl depth is now 1
+607613 [pool-2-thread-2] INFO com.crawljax.core.state.StateMachine  - CLONE State detected: state178 and state102 are the same.
+607616 [pool-2-thread-2] INFO com.crawljax.core.UnfiredCandidateActions  - There are 1 states with unfired actions
+609951 [pool-2-thread-2] INFO com.crawljax.core.Crawler  - Crawl depth is now 1
+611298 [pool-2-thread-2] INFO com.crawljax.core.state.StateMachine  - CLONE State detected: state179 and state102 are the same.
+611301 [pool-2-thread-2] INFO com.crawljax.core.UnfiredCandidateActions  - There are 1 states with unfired actions
+613656 [pool-2-thread-2] INFO com.crawljax.core.Crawler  - Crawl depth is now 1
+614985 [pool-2-thread-2] INFO com.crawljax.core.state.StateMachine  - CLONE State detected: state180 and state102 are the same.
+614988 [pool-2-thread-2] INFO com.crawljax.core.UnfiredCandidateActions  - There are 1 states with unfired actions
+617333 [pool-2-thread-2] INFO com.crawljax.core.Crawler  - Crawl depth is now 1
+625506 [pool-2-thread-2] INFO com.crawljax.core.state.StateMachine  - State state186 added to the StateMachine.
+625506 [pool-2-thread-2] INFO com.crawljax.core.Crawler  - New DOM is a new state! crawl depth is now 2
+627388 [pool-2-thread-2] INFO com.crawljax.core.UnfiredCandidateActions  - There are 2 states with unfired actions
+628685 [pool-2-thread-2] INFO com.crawljax.core.UnfiredCandidateActions  - There are 1 states with unfired actions
+631069 [pool-2-thread-2] INFO com.crawljax.core.Crawler  - Crawl depth is now 1
+632388 [pool-2-thread-2] INFO com.crawljax.core.state.StateMachine  - CLONE State detected: state188 and state186 are the same.
+632392 [pool-2-thread-2] INFO com.crawljax.core.UnfiredCandidateActions  - There are 1 states with unfired actions
+634729 [pool-2-thread-2] INFO com.crawljax.core.Crawler  - Crawl depth is now 1
+636073 [pool-2-thread-2] INFO com.crawljax.core.state.StateMachine  - CLONE State detected: state189 and state186 are the same.
+636077 [pool-2-thread-2] INFO com.crawljax.core.UnfiredCandidateActions  - There are 1 states with unfired actions
+638438 [pool-2-thread-2] INFO com.crawljax.core.Crawler  - Crawl depth is now 1
+639749 [pool-2-thread-2] INFO com.crawljax.core.state.StateMachine  - CLONE State detected: state190 and state186 are the same.
+639752 [pool-2-thread-2] INFO com.crawljax.core.UnfiredCandidateActions  - There are 1 states with unfired actions
+642157 [pool-2-thread-2] INFO com.crawljax.core.Crawler  - Crawl depth is now 1
+643480 [pool-2-thread-2] INFO com.crawljax.core.state.StateMachine  - CLONE State detected: state191 and state186 are the same.
+643483 [pool-2-thread-2] INFO com.crawljax.core.UnfiredCandidateActions  - There are 1 states with unfired actions
+645822 [pool-2-thread-2] INFO com.crawljax.core.Crawler  - Crawl depth is now 1
+647212 [pool-2-thread-2] INFO com.crawljax.core.state.StateMachine  - State state192 added to the StateMachine.
+647212 [pool-2-thread-2] INFO com.crawljax.core.Crawler  - New DOM is a new state! crawl depth is now 2
+649300 [pool-2-thread-2] INFO com.crawljax.core.UnfiredCandidateActions  - There are 2 states with unfired actions
+650651 [pool-2-thread-2] INFO com.crawljax.core.UnfiredCandidateActions  - There are 1 states with unfired actions
+652995 [pool-2-thread-2] INFO com.crawljax.core.Crawler  - Crawl depth is now 1
+654297 [pool-2-thread-2] INFO com.crawljax.core.state.StateMachine  - CLONE State detected: state194 and state192 are the same.
+654301 [pool-2-thread-2] INFO com.crawljax.core.UnfiredCandidateActions  - There are 1 states with unfired actions
+656723 [pool-2-thread-2] INFO com.crawljax.core.Crawler  - Crawl depth is now 1
+658154 [pool-2-thread-2] INFO com.crawljax.core.state.StateMachine  - CLONE State detected: state195 and state102 are the same.
+658157 [pool-2-thread-2] INFO com.crawljax.core.UnfiredCandidateActions  - There are 1 states with unfired actions
+660495 [pool-2-thread-2] INFO com.crawljax.core.Crawler  - Crawl depth is now 1
+661817 [pool-2-thread-2] INFO com.crawljax.core.state.StateMachine  - CLONE State detected: state196 and state102 are the same.
+661821 [pool-2-thread-2] INFO com.crawljax.core.UnfiredCandidateActions  - There are 1 states with unfired actions
+664237 [pool-2-thread-2] INFO com.crawljax.core.Crawler  - Crawl depth is now 1
+665553 [pool-2-thread-2] INFO com.crawljax.core.state.StateMachine  - CLONE State detected: state197 and state102 are the same.
+665557 [pool-2-thread-2] INFO com.crawljax.core.UnfiredCandidateActions  - There are 1 states with unfired actions
+667911 [pool-2-thread-2] INFO com.crawljax.core.Crawler  - Crawl depth is now 1
+669234 [pool-2-thread-2] INFO com.crawljax.core.state.StateMachine  - CLONE State detected: state198 and state102 are the same.
+669237 [pool-2-thread-2] INFO com.crawljax.core.UnfiredCandidateActions  - There are 1 states with unfired actions
+671594 [pool-2-thread-2] INFO com.crawljax.core.Crawler  - Crawl depth is now 1
+672906 [pool-2-thread-2] INFO com.crawljax.core.state.StateMachine  - CLONE State detected: state199 and state102 are the same.
+672910 [pool-2-thread-2] INFO com.crawljax.core.UnfiredCandidateActions  - There are 1 states with unfired actions
+675282 [pool-2-thread-2] INFO com.crawljax.core.Crawler  - Crawl depth is now 1
+676593 [pool-2-thread-2] INFO com.crawljax.core.state.StateMachine  - CLONE State detected: state200 and state102 are the same.
+676596 [pool-2-thread-2] INFO com.crawljax.core.UnfiredCandidateActions  - There are 1 states with unfired actions
+678940 [pool-2-thread-2] INFO com.crawljax.core.Crawler  - Crawl depth is now 1
+680371 [pool-2-thread-2] INFO com.crawljax.core.state.StateMachine  - CLONE State detected: state201 and state102 are the same.
+680375 [pool-2-thread-2] INFO com.crawljax.core.UnfiredCandidateActions  - There are 1 states with unfired actions
+682737 [pool-2-thread-2] INFO com.crawljax.core.Crawler  - Crawl depth is now 1
+685382 [pool-2-thread-2] INFO com.crawljax.core.state.StateMachine  - State state203 added to the StateMachine.
+685382 [pool-2-thread-2] INFO com.crawljax.core.Crawler  - New DOM is a new state! crawl depth is now 2
+687416 [pool-2-thread-2] INFO com.crawljax.core.UnfiredCandidateActions  - There are 1 states with unfired actions
+689784 [pool-2-thread-2] INFO com.crawljax.core.Crawler  - Crawl depth is now 1
+691103 [pool-2-thread-2] INFO com.crawljax.core.state.StateMachine  - State state204 added to the StateMachine.
+691104 [pool-2-thread-2] INFO com.crawljax.core.Crawler  - New DOM is a new state! crawl depth is now 2
+692995 [pool-2-thread-2] INFO com.crawljax.core.UnfiredCandidateActions  - There are 1 states with unfired actions
+695344 [pool-2-thread-2] INFO com.crawljax.core.Crawler  - Crawl depth is now 1
+696682 [pool-2-thread-2] INFO com.crawljax.core.state.StateMachine  - State state205 added to the StateMachine.
+696682 [pool-2-thread-2] INFO com.crawljax.core.Crawler  - New DOM is a new state! crawl depth is now 2
+698353 [pool-2-thread-2] INFO com.crawljax.core.UnfiredCandidateActions  - There are 1 states with unfired actions
+700726 [pool-2-thread-2] INFO com.crawljax.core.Crawler  - Crawl depth is now 1
+702060 [pool-2-thread-2] INFO com.crawljax.core.state.StateMachine  - CLONE State detected: state206 and state102 are the same.
+702063 [pool-2-thread-2] INFO com.crawljax.core.UnfiredCandidateActions  - There are 1 states with unfired actions
+704393 [pool-2-thread-2] INFO com.crawljax.core.Crawler  - Crawl depth is now 1
+705743 [pool-2-thread-2] INFO com.crawljax.core.state.StateMachine  - CLONE State detected: state207 and state101 are the same.
+705746 [pool-2-thread-2] INFO com.crawljax.core.UnfiredCandidateActions  - There are 1 states with unfired actions
+708100 [pool-2-thread-2] INFO com.crawljax.core.Crawler  - Crawl depth is now 1
+709417 [pool-2-thread-2] INFO com.crawljax.core.state.StateMachine  - CLONE State detected: state208 and state102 are the same.
+709421 [pool-2-thread-2] INFO com.crawljax.core.UnfiredCandidateActions  - There are 1 states with unfired actions
+711800 [pool-2-thread-2] INFO com.crawljax.core.Crawler  - Crawl depth is now 1
+714636 [pool-2-thread-2] INFO com.crawljax.core.state.StateMachine  - CLONE State detected: state210 and state186 are the same.
+714641 [pool-2-thread-2] INFO com.crawljax.core.UnfiredCandidateActions  - There are 1 states with unfired actions
+716980 [pool-2-thread-2] INFO com.crawljax.core.Crawler  - Crawl depth is now 1
+718297 [pool-2-thread-2] INFO com.crawljax.core.state.StateMachine  - CLONE State detected: state211 and state186 are the same.
+718302 [pool-2-thread-2] INFO com.crawljax.core.UnfiredCandidateActions  - There are 1 states with unfired actions
+720669 [pool-2-thread-2] INFO com.crawljax.core.Crawler  - Crawl depth is now 1
+721969 [pool-2-thread-2] INFO com.crawljax.core.state.StateMachine  - CLONE State detected: state212 and state192 are the same.
+721973 [pool-2-thread-2] INFO com.crawljax.core.UnfiredCandidateActions  - There are 1 states with unfired actions
+724335 [pool-2-thread-2] INFO com.crawljax.core.Crawler  - Crawl depth is now 1
+725672 [pool-2-thread-2] INFO com.crawljax.core.state.StateMachine  - CLONE State detected: state213 and state186 are the same.
+725676 [pool-2-thread-2] INFO com.crawljax.core.UnfiredCandidateActions  - There are 1 states with unfired actions
+728023 [pool-2-thread-2] INFO com.crawljax.core.Crawler  - Crawl depth is now 1
+729335 [pool-2-thread-2] INFO com.crawljax.core.state.StateMachine  - CLONE State detected: state214 and state192 are the same.
+729338 [pool-2-thread-2] INFO com.crawljax.core.UnfiredCandidateActions  - There are 1 states with unfired actions
+731712 [pool-2-thread-2] INFO com.crawljax.core.Crawler  - Crawl depth is now 1
+733034 [pool-2-thread-2] INFO com.crawljax.core.state.StateMachine  - CLONE State detected: state215 and state102 are the same.
+733037 [pool-2-thread-2] INFO com.crawljax.core.UnfiredCandidateActions  - There are 1 states with unfired actions
+735372 [pool-2-thread-2] INFO com.crawljax.core.Crawler  - Crawl depth is now 1
+738122 [pool-2-thread-2] INFO com.crawljax.core.state.StateMachine  - State state217 added to the StateMachine.
+738122 [pool-2-thread-2] INFO com.crawljax.core.Crawler  - New DOM is a new state! crawl depth is now 2
+739849 [pool-2-thread-2] INFO com.crawljax.core.UnfiredCandidateActions  - There are 1 states with unfired actions
+742181 [pool-2-thread-2] INFO com.crawljax.core.Crawler  - Crawl depth is now 1
+743504 [pool-2-thread-2] INFO com.crawljax.core.state.StateMachine  - CLONE State detected: state218 and state101 are the same.
+743507 [pool-2-thread-2] INFO com.crawljax.core.UnfiredCandidateActions  - There are 1 states with unfired actions
+745901 [pool-2-thread-2] INFO com.crawljax.core.Crawler  - Crawl depth is now 1
+747398 [pool-2-thread-2] INFO com.crawljax.browser.WebDriverBackedEmbeddedBrowser  - Closing the browser...
+747398 [Thread-12] INFO com.crawljax.core.CrawlController  - Received shutdown notice. Reason is Exausted
+747404 [pool-2-thread-2] INFO com.crawljax.browser.WebDriverBackedEmbeddedBrowser  - Interrupted while waiting for the browser to close. It might not close correctly
+747404 [Thread-12] INFO com.crawljax.core.CrawlController  - Shutdown process complete
+747404 [Thread-12] INFO org.zaproxy.zap.extension.spiderAjax.SpiderThread  - Stopping proxy...
+747504 [Thread-12] INFO org.zaproxy.zap.extension.spiderAjax.SpiderThread  - Proxy stopped.
+747504 [Thread-12] INFO org.zaproxy.zap.extension.spiderAjax.SpiderThread  - Finished crawljax targeting http://172.17.0.2/
+747701 [ZAP-ProxyThread-614] INFO org.zaproxy.zap.extension.httpsessions.HttpSessionsSite  - Created a new session as no match was found: HttpSession [name=Session 2, active=false, tokenValues='']
+747706 [ZAP-ProxyThread-615] INFO org.zaproxy.zap.extension.httpsessions.HttpSessionsSite  - Created a new session as no match was found: HttpSession [name=Session 3, active=false, tokenValues='']
+747712 [ZAP-ProxyThread-616] INFO org.zaproxy.zap.extension.httpsessions.HttpSessionsSite  - Created a new session as no match was found: HttpSession [name=Session 4, active=false, tokenValues='']
