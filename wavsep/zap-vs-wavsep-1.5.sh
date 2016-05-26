@@ -9,9 +9,9 @@
 #	-z zap-options		Options to be passed directly to the ZAP command line call 
 #
 # Some example calls:
-# ./zap-vs-wavsep-1.5.sh -d "owasp/zap2docker-weekly" -e "Score 66" -n "wavsep-1.5-weekly-RB-M-M" -t "Rel,Beta"
-# ./zap-vs-wavsep-1.5.sh -d "owasp/zap2docker-weekly" -e "Score 66" -p "St-High-Th-Med" -n "wavsep-1.5-weekly-RB-H-M" -t "Rel,Beta"
-# ./zap-vs-wavsep-1.5.sh -d "owasp/zap2docker-weekly" -e "Score 66" -n "wavsep-1.5-weekly-RBA-M-M" -t "Rel,Beta,Alpha" -z "-addoninstall ascanrulesAlpha"
+# ./zap-vs-wavsep-1.5.sh -d "owasp/zap2docker-weekly" -e "66" -n "wavsep-1.5-weekly-RB-M-M" -t "Rel,Beta"
+# ./zap-vs-wavsep-1.5.sh -d "owasp/zap2docker-weekly" -e "66" -p "St-High-Th-Med" -n "wavsep-1.5-weekly-RB-H-M" -t "Rel,Beta"
+# ./zap-vs-wavsep-1.5.sh -d "owasp/zap2docker-weekly" -e "66" -n "wavsep-1.5-weekly-RBA-M-M" -t "Rel,Beta,Alpha" -z "-addoninstall ascanrulesAlpha"
 
 USAGE="Usage: $0 [-a] -d docker-image [-e expected-score] -n name [-t text] [-z zap-options]"
 
@@ -146,8 +146,18 @@ echo "<td>$text</td>" >> ${name}.summary
 echo "<td>$policy</td>" >> ${name}.summary
 
 echo "<td>" `date --rfc-3339 date` "</td>" >> ${name}.summary
+
+# The score and expected columns
 SC=$(cat ~/wrk/summary.txt | grep Score | awk -F ' ' '{print $2}')
 echo "<td><a href=\"reports/${name}.html\">${SC} &#37;</a></td>" >> ${name}.summary
+if [ "$SC" -eq "$expected" ]; then
+  echo "<td>${expected} &#37;</td>" >> ${name}.summary
+elif [ "$SC" -gt "$expected" ]; then
+  echo "<td><p style=\"color:green\">${expected} &#37;</p></td>" >> ${name}.summary
+else
+  echo "<td><p style=\"color:red\">${expected} &#37;</p></td>" >> ${name}.summary
+fi
+
 echo "<td>" `cat ~/wrk/summary.txt | grep urls | awk -F ' ' '{print $2}'` "</td>" >> ${name}.summary
 echo "<td>" `cat ~/wrk/summary.txt | grep Took | awk -F ' ' '{print $2}'` "</td>" >> ${name}.summary
 

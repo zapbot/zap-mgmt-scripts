@@ -71,6 +71,7 @@ def main(argv):
 			'Application Error Disclosure' : 'AppError',\
 			'Anti CSRF Tokens Scanner' : 'ACSRF',\
 			'Buffer Overflow' : 'Buffer',\
+			'Cookie set without HttpOnly flag' : 'HttpOnly',\
 			'Cookie No HttpOnly Flag' : 'HttpOnly',\
 			'Cookie Slack Detector' : 'CookieSlack',\
 			'Cross Site Request Forgery' : 'CSRF',\
@@ -85,6 +86,7 @@ def main(argv):
 			'Loosely Scoped Cookie' : 'CookieLoose',\
 			'None. Warning only.' : 'NoCSRF2',\
 			'Password Autocomplete in Browser' : 'Auto',\
+			'Password Autocomplete in browser' : 'Auto',\
 			'Path Traversal' : 'PathTrav',\
 			'Private IP Disclosure' : 'PrivIP',\
 			'Remote File Inclusion' : 'RFI',\

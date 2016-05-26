@@ -109,10 +109,19 @@ echo "<td>" `cat result | grep ZAP | awk -F ' ' '{print $2}'` "</td>" >> ${name}
 echo "<td>wivet</td>" >> ${name}.summary
 echo "<td>${text}</td>" >> ${name}.summary
 echo "<td>-</td>" >> ${name}.summary
-
 echo "<td>" `date --rfc-3339 date` "</td>" >> ${name}.summary
+
+# The score and expected columns
 SC=$(cat result | grep Score | awk -F ' ' '{print $2}')
 echo "<td><a href=\"reports/${name}.html\">${SC} &#37;</a></td>" >> ${name}.summary
+if [ "$SC" -eq "$expected" ]; then
+  echo "<td>${expected} &#37;</td>" >> ${name}.summary
+elif [ "$SC" -gt "$expected" ]; then
+  echo "<td><p style=\"color:green\">${expected} &#37;</p></td>" >> ${name}.summary
+else
+  echo "<td><p style=\"color:red\">${expected} &#37;</p></td>" >> ${name}.summary
+fi
+
 echo "<td>" `cat result | grep Pages | awk -F ' ' '{print $2}'` "</td>" >> ${name}.summary
 echo "<td>" `cat result | grep Time | awk -F ' ' '{print $2}'` "</td>" >> ${name}.summary
 
