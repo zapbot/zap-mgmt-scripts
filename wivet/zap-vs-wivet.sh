@@ -117,9 +117,9 @@ echo "<td><a href=\"reports/${name}.html\">${SC} &#37;</a></td>" >> ${name}.summ
 if [ "$SC" -eq "$expected" ]; then
   echo "<td>${expected} &#37;</td>" >> ${name}.summary
 elif [ "$SC" -gt "$expected" ]; then
-  echo "<td><p style=\"color:green\">${expected} &#37;</p></td>" >> ${name}.summary
+  echo "<td><span style=\"color:green\">${expected} &#37;</span></td>" >> ${name}.summary
 else
-  echo "<td><p style=\"color:red\">${expected} &#37;</p></td>" >> ${name}.summary
+  echo "<td><span style=\"color:red\">${expected} &#37;</span></td>" >> ${name}.summary
 fi
 
 echo "<td>" `cat result | grep Pages | awk -F ' ' '{print $2}'` "</td>" >> ${name}.summary
