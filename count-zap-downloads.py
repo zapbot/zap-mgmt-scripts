@@ -13,9 +13,8 @@ WIN = 'ZAP_2.4.3_Windows.exe'
 
 counts = {}
 files = sorted(glob.glob('../zap-mgmt-scripts_gh-pages/stats/releases-*'))
-# Just show the last 30 days to prevent the chart getting too big
-
-files = files[-31:]
+# Option to just show the last 90 days to prevent the chart getting too big, currently disabled
+#files = files[-91:]
 first = 1
 for file in files:
   with open(file) as stats_file:
