@@ -6,8 +6,13 @@
     <title>ZAP Scan Results</title>
     <link rel="stylesheet" href="stylesheets/styles.css">
     <link rel="stylesheet" href="stylesheets/github-dark.css">
+    <!--link rel="stylesheet" href="stylesheets/tablesort.css"-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
     <script src="javascripts/respond.js"></script>
+    <script src="javascripts/tablesort.min.js"></script>
+    <script src='javascripts/tablesort.number.js'></script>
+    <script src='javascripts/tablesort.date.js'></script>
+    
     <!--[if lt IE 9]>
       <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
@@ -37,19 +42,20 @@
 
         <h1>
 <a id="zap-results" class="anchor" href="#zap-scans" aria-hidden="true"><span class="octicon octicon-link"></span></a>Results</h1>
+Sortable - click on headers
 
-<table>
+<table id="table-id">
 
-<tr>
+<tr class='no-sort'>
 <th><b>ZAP</b></th>
 <th><b>Target</b></th>
 <th><b>Add-ons</b></th>
 <th><b>Profile</b></th>
-<th><b>Date</b></th>
+<th class='sort-default' data-sort-method='date'><b>Date</b></th>
 <th><b>Score</b></th>
 <th><b>Expected</b></th>
-<th><b>URLs</b></th>
-<th><b>Time</b></th>
-<th><b>Errors</b></th>
+<th data-sort-method='number'><b>URLs</b></th>
+<th data-sort-method='semisep'><b>Time</b></th>
+<th data-sort-method='number'><b>Errors</b></th>
 </tr>
 
