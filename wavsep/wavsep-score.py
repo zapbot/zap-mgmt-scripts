@@ -244,7 +244,6 @@ def main(argv):
 	alertOtherCount = {}
 
 	zapVersion = zap.core.version
-	devVersion = zapVersion.startswith("D")
 
 	totalAlerts = 0
 	offset = 0
@@ -521,7 +520,7 @@ def main(argv):
 	progress = zap.ascan.scan_progress()
 	# Loop through first time for the chart
 	for plugin in progress[1]['HostProcess']:
-		reportFile.write("      ['" + plugin['Plugin'][0] + "', " + plugin['Plugin'][4 if devVersion else 3] + "],\n")
+		reportFile.write("      ['" + plugin['Plugin'][0] + "', " + plugin['Plugin'][4] + "],\n")
 
 	# The end of the first chart
 	reportFile.write("    ]);\n")
@@ -541,7 +540,7 @@ def main(argv):
 
 	# Loop through 2nd time for the 2nd chart
 	for plugin in progress[1]['HostProcess']:
-		reportFile.write("      ['" + plugin['Plugin'][0] + "', " + plugin['Plugin'][5 if devVersion else 4] + "],\n")
+		reportFile.write("      ['" + plugin['Plugin'][0] + "', " + plugin['Plugin'][5] + "],\n")
 
 	# The end of the chart script
 	reportFile.write("    ]);\n")
@@ -560,8 +559,7 @@ def main(argv):
 
 	reportFile.write("<table border=\"1\">\n")
 	reportFile.write("<tr><th>Plugin</th><th>ms</th><th>Reqs</th>")
-	if devVersion:
-		reportFile.write("<th>Quality</th>")
+	reportFile.write("<th>Quality</th>")
 	reportFile.write("</tr>\n")
 
 	# Loop through second time for the table
@@ -570,21 +568,19 @@ def main(argv):
 		reportFile.write("<tr>")
 		reportFile.write("<td>" + plugin['Plugin'][0] + "</td>")
 		# Convert ms into something more readable
-		t = int(plugin['Plugin'][4 if devVersion else 3])
+		t = int(plugin['Plugin'][4])
 		totalTime += t
 		s, ms = divmod(t, 1000)
 		m, s = divmod(s, 60)
 		h, m = divmod(m, 60)
 		time = "%d:%02d:%02d.%03d" % (h, m, s, ms)
 		reportFile.write("<td>" + time + "</td>")
-		reportFile.write("<td>" + plugin['Plugin'][5 if devVersion else 4] + "</td>")
-		if devVersion:
-			reportFile.write("<td>" + plugin['Plugin'][2] + "</td>")
+		reportFile.write("<td>" + plugin['Plugin'][5] + "</td>")
+		reportFile.write("<td>" + plugin['Plugin'][2] + "</td>")
 		reportFile.write("</tr>\n")
 
 	reportFile.write("<tr><td></td><td></td><td></td>")
-	if devVersion:
-		reportFile.write("<td></td>")
+	reportFile.write("<td></td>")
 	reportFile.write("</tr>")
 	reportFile.write("<tr>")
 	reportFile.write("<td>Total</td>")
@@ -595,8 +591,7 @@ def main(argv):
 	time = "%d:%02d:%02d" % (h, m, s)
 	reportFile.write("<td>" + time + "</td>")
 	reportFile.write("<td>-</td>")
-	if devVersion:
-		reportFile.write("<td>-</td>")
+	reportFile.write("<td>-</td>")
 	reportFile.write("</tr>\n")
 
 	reportFile.write("</table><br/>\n")
