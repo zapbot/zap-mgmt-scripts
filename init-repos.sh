@@ -41,5 +41,11 @@ cd zap-core-help
 git remote add upstream https://github.com/zaproxy/zap-core-help.git
 cd ..
 
+# zaproxy coverity_scan
+git clone --branch coverity_scan https://github.com/zapbot/zaproxy.git zaproxy_coverity
+cd zaproxy_coverity
+git remote add upstream https://github.com/zaproxy/zaproxy.git
+cd ..
+
 
 

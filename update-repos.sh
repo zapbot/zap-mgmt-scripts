@@ -34,3 +34,10 @@ git fetch upstream
 git checkout -B alpha upstream/alpha
 git push origin alpha --force
 cd ..
+
+# zaproxy coverity_scan
+cd zaproxy_coverity
+git fetch upstream
+git checkout -B alpha upstream/coverity_scan
+git push origin coverity_scan --force
+cd ..
