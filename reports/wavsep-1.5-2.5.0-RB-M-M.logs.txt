@@ -1,1009 +1,378 @@
 Found Java version 1.7.0_95
 Available memory: 3952 MB
 Setting jvm heap size: -Xmx512m
-229 [main] INFO org.zaproxy.zap.DaemonBootstrap  - OWASP ZAP 2.5.0 started.
-273 [main] INFO org.parosproxy.paros.common.AbstractParam  - Setting config database.recoverylog = false was null
-273 [main] INFO org.parosproxy.paros.common.AbstractParam  - Setting config api.disablekey = true was null
-276 [main] INFO org.parosproxy.paros.network.SSLConnector  - Reading supported SSL/TLS protocols...
-276 [main] INFO org.parosproxy.paros.network.SSLConnector  - Using a SSLEngine...
-494 [main] INFO org.parosproxy.paros.network.SSLConnector  - Done reading supported SSL/TLS protocols: [SSLv2Hello, SSLv3, TLSv1, TLSv1.1, TLSv1.2]
-498 [main] INFO org.parosproxy.paros.extension.option.OptionsParamCertificate  - Unsafe SSL renegotiation disabled.
-789 [main] INFO hsqldb.db..ENGINE  - open start - state not modified
-922 [main] INFO hsqldb.db..ENGINE  - dataFileCache open start
-1299 [main] INFO hsqldb.db..ENGINE  - dataFileCache open end
-1390 [ZAP-daemon] INFO org.zaproxy.zap.control.ExtensionFactory  - Loading extensions
-2152 [ZAP-daemon] INFO org.zaproxy.zap.control.ExtensionFactory  - Extensions loaded
-2539 [ZAP-daemon] INFO org.parosproxy.paros.extension.filter.FilterFactory  - loaded filter Change user agent to other browsers. 
-2539 [ZAP-daemon] INFO org.parosproxy.paros.extension.filter.FilterFactory  - loaded filter Detect insecure or potentially malicious content in HTTP responses.
-2539 [ZAP-daemon] INFO org.parosproxy.paros.extension.filter.FilterFactory  - loaded filter Detect and alert 'Set-cookie' attempt in HTTP response for modification.
-2539 [ZAP-daemon] INFO org.parosproxy.paros.extension.filter.FilterFactory  - loaded filter Avoid browser cache (strip off IfModifiedSince)
-2539 [ZAP-daemon] INFO org.parosproxy.paros.extension.filter.FilterFactory  - loaded filter Log cookies sent by browser.
-2539 [ZAP-daemon] INFO org.parosproxy.paros.extension.filter.FilterFactory  - loaded filter Log unique GET queries into file:filter/get.xls
-2539 [ZAP-daemon] INFO org.parosproxy.paros.extension.filter.FilterFactory  - loaded filter Log unique POST queries into file:  filter/post.xls
-2539 [ZAP-daemon] INFO org.parosproxy.paros.extension.filter.FilterFactory  - loaded filter Log request and response into file: filter/message.txt
-2540 [ZAP-daemon] INFO org.parosproxy.paros.extension.filter.FilterFactory  - loaded filter Replace HTTP request body using defined pattern.
-2540 [ZAP-daemon] INFO org.parosproxy.paros.extension.filter.FilterFactory  - loaded filter Replace HTTP request header using defined pattern.
-2540 [ZAP-daemon] INFO org.parosproxy.paros.extension.filter.FilterFactory  - loaded filter Replace HTTP response body using defined pattern.
-2540 [ZAP-daemon] INFO org.parosproxy.paros.extension.filter.FilterFactory  - loaded filter Replace HTTP response header using defined pattern.
-2540 [ZAP-daemon] INFO org.parosproxy.paros.extension.filter.FilterFactory  - loaded filter Send ZAP session request ID
-2653 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Allows ZAP to check for updates
-2656 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing ExtensionViewOption
-2656 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing ExtensionEdit
-2656 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing ExtensionFilter
-2656 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Provides a rest based API for controlling and accessing ZAP
-2751 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing ExtensionState
-2751 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing ExtensionHistory
-2753 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Show hidden fields and enable disabled fields
-2754 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Search messages for strings and regular expressions 
-2755 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Encode/Decode/Hash...
-2755 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Allows you to intercept and modify requests and responses
-2755 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Passive scanner
-2795 [ZAP-daemon] INFO org.zaproxy.zap.extension.pscan.ExtensionPassiveScan  - loaded passive scan rule: Script passive scan rules
-2795 [ZAP-daemon] INFO org.zaproxy.zap.extension.pscan.ExtensionPassiveScan  - loaded passive scan rule: Stats Passive Scan Rule
-2796 [ZAP-daemon] INFO org.zaproxy.zap.extension.pscan.ExtensionPassiveScan  - loaded passive scan rule: Application Error Disclosure
-2796 [ZAP-daemon] INFO org.zaproxy.zap.extension.pscan.ExtensionPassiveScan  - loaded passive scan rule: Incomplete or No Cache-control and Pragma HTTP Header Set
-2796 [ZAP-daemon] INFO org.zaproxy.zap.extension.pscan.ExtensionPassiveScan  - loaded passive scan rule: Content-Type Header Missing
-2796 [ZAP-daemon] INFO org.zaproxy.zap.extension.pscan.ExtensionPassiveScan  - loaded passive scan rule: Cookie No HttpOnly Flag
-2796 [ZAP-daemon] INFO org.zaproxy.zap.extension.pscan.ExtensionPassiveScan  - loaded passive scan rule: Cookie Without Secure Flag
-2796 [ZAP-daemon] INFO org.zaproxy.zap.extension.pscan.ExtensionPassiveScan  - loaded passive scan rule: Cross-Domain JavaScript Source File Inclusion
-2797 [ZAP-daemon] INFO org.zaproxy.zap.extension.pscan.ExtensionPassiveScan  - loaded passive scan rule: Web Browser XSS Protection Not Enabled
-2797 [ZAP-daemon] INFO org.zaproxy.zap.extension.pscan.ExtensionPassiveScan  - loaded passive scan rule: Secure Pages Include Mixed Content
-2797 [ZAP-daemon] INFO org.zaproxy.zap.extension.pscan.ExtensionPassiveScan  - loaded passive scan rule: Password Autocomplete in Browser
-2797 [ZAP-daemon] INFO org.zaproxy.zap.extension.pscan.ExtensionPassiveScan  - loaded passive scan rule: Private IP Disclosure
-2797 [ZAP-daemon] INFO org.zaproxy.zap.extension.pscan.ExtensionPassiveScan  - loaded passive scan rule: Session ID in URL Rewrite
-2798 [ZAP-daemon] INFO org.zaproxy.zap.extension.pscan.ExtensionPassiveScan  - loaded passive scan rule: X-Content-Type-Options Header Missing
-2798 [ZAP-daemon] INFO org.zaproxy.zap.extension.pscan.ExtensionPassiveScan  - loaded passive scan rule: X-Frame-Options Header Not Set
-2810 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Allows you to view and manage alerts
-2811 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Active scanner, heavily based on the original Paros active scanner, but with additional tests added
-2814 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Spider used for automatically finding URIs on a site
-2818 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing A set of common popup menus for miscellaneous tasks
-2818 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Forced browsing of files and directories using code from the OWASP DirBuster tool
-2819 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing ExtensionManualRequest
-2819 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Compares 2 sessions and generates an HTML file showing the differences
-2819 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Invoke external applications passing context related information such as URLs and parameters
-2819 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Handles anti cross site request forgery (CSRF) tokens
-2821 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing ExtensionAuthentication
-3454 [ZAP-daemon] INFO org.zaproxy.zap.extension.authentication.ExtensionAuthentication  - Loaded authentication method types: [Form-based Authentication, HTTP/NTLM Authentication, Manual Authentication, Script-based Authentication]
-3455 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Creates a dynamic SSL certificate to allow SSL communications to be intercepted without warnings being generated by the browser
-3455 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Logs errors to the Output tab in development mode only
-3455 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing ExtensionUserManagement
-3456 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Summarise and analyse FORM and URL parameters as well as cookies
-3456 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Script integration
-3467 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Scripting console, supports all JSR 223 scripting languages
-3467 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing ExtensionForcedUser
-3467 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Extension handling HTTP sessions
-3468 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Zest is a specialized scripting language from Mozilla specifically designed to be used in security tools
-3542 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing ExtensionDiff
-3542 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing ExtensionRequestPostTableView
-3542 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing ExtensionSessionManagement
-3666 [ZAP-daemon] INFO org.zaproxy.zap.extension.sessions.ExtensionSessionManagement  - Loaded session management method types: [Cookie-based Session Management, HTTP Authentication Session Management]
-3667 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing ExtensionHttpPanelRequestFormTableView
-3667 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Capture messages from WebSockets with the ability to set breakpoints.
-3671 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Summarise and analyse FORM and URL parameters as well as cookies
-3671 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing ExtensionAuthorization
-3671 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing AJAX Spider, uses Crawljax
-3672 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Handles adding Global Excluded URLs
-3672 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Adds menu item to refresh the Sites tree
-3672 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Adds support for configurable keyboard shortcuts for all of the ZAP menus.
-3672 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing OWASP ZAP User Guide
-3672 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing ExtensionReport
-3672 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Allows you to configure which extensions are loaded when ZAP starts 
-3673 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing ExtensionHttpPanelComponentonentAll
-3673 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing ExtensionHttpPanelHexView
-3673 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing ExtensionHttpPanelImageView
-3673 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing ExtensionHttpPanelLargeRequestView
-3673 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing ExtensionHttpPanelLargeResponseView
-3673 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing ExtensionHttpPanelRequestQueryCookieTableView
-3673 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing ExtensionHttpPanelSyntaxHighlightTextView
-3673 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Statistics
-3674 [ZAP-daemon] INFO org.zaproxy.zap.extension.stats.ExtensionStats  - Start recording in memory stats
-3674 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Translations of the core language files
-3674 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing ExtensionSaveRawHttpMessage
-3674 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Provides the foundation for concrete message types (for example, HTTP, WebSockets) expose fuzzer implementations.
-3675 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Allows to fuzz HTTP messages.
-3675 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Allows to fuzz WebSocket messages.
-3676 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Tips and Tricks
-3676 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing The ZAP Getting Started Guide
-3676 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Active Scan Rules
-3676 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Context alert rules filter
-3677 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Provides WebDrivers to control several browsers using Selenium and includes HtmlUnit browser.
-3677 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Quick Start panel 
-3678 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing The Online menu links
-3678 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Passive Scan Rules
-3679 [Thread-4] INFO org.zaproxy.zap.extension.dynssl.ExtensionDynSSL  - Creating new root CA certificate
-4376 [Thread-4] INFO org.zaproxy.zap.extension.dynssl.ExtensionDynSSL  - New root CA certificate created
-15597 [ZAP-daemon] INFO org.parosproxy.paros.CommandLine  - Add-on downloaded to: /home/zap/.ZAP/plugin/selenium-release-6.zap
-15645 [ZAP-daemon] INFO org.zaproxy.zap.extension.autoupdate.ExtensionAutoUpdate  - Installing new addon selenium v6
-15733 [ZAP-daemon] INFO org.parosproxy.paros.CommandLine  - Add-on update check complete
-15734 [ZAP-daemon] INFO org.parosproxy.paros.CommandLine  - Downloading add-on from: https://github.com/zaproxy/zap-extensions/releases/download/2.5/ascanrulesBeta-beta-20.zap
-18136 [ZAP-daemon] INFO org.parosproxy.paros.CommandLine  - Add-on downloaded to: /home/zap/.ZAP/plugin/selenium-release-6.zap
-18136 [ZAP-daemon] INFO org.parosproxy.paros.CommandLine  - Add-on downloaded to: /home/zap/.ZAP/plugin/ascanrulesBeta-beta-20.zap
-18141 [ZAP-daemon] INFO org.zaproxy.zap.extension.autoupdate.ExtensionAutoUpdate  - Installing new addon ascanrulesBeta v20
-18227 [ZAP-daemon] INFO org.zaproxy.zap.DaemonBootstrap  - ZAP is now listening on 0.0.0.0:8090
-20559 [ZAP-ProxyThread-1] INFO org.zaproxy.zap.extension.httpsessions.ExtensionHttpSessions  - Added new session token for site '172.17.0.2:8080': JSESSIONID
-20561 [ZAP-ProxyThread-1] INFO org.zaproxy.zap.extension.httpsessions.HttpSessionsSite  - Created a new session as no match was found: HttpSession [name=Session 0, active=false, tokenValues='']
-20676 [ZAP-ProxyThread-2] INFO org.zaproxy.zap.extension.httpsessions.HttpSessionsSite  - Created a new session as no match was found: HttpSession [name=Session 1, active=false, tokenValues='']
-20762 [ZAP-ProxyThread-3] INFO org.zaproxy.zap.extension.httpsessions.HttpSessionsSite  - Created a new session as no match was found: HttpSession [name=Session 2, active=false, tokenValues='']
-21018 [ZAP-ProxyThread-6] INFO org.zaproxy.zap.extension.httpsessions.HttpSessionsSite  - Created a new session as no match was found: HttpSession [name=Session 3, active=false, tokenValues='']
-23026 [ZAP-ProxyThread-7] INFO org.zaproxy.zap.extension.httpsessions.HttpSessionsSite  - Created a new session as no match was found: HttpSession [name=Session 4, active=false, tokenValues='']
-25095 [ZAP-ProxyThread-9] INFO org.zaproxy.zap.extension.httpsessions.HttpSessionsSite  - Created a new session as no match was found: HttpSession [name=Session 5, active=false, tokenValues='']
-27139 [Thread-18] INFO org.zaproxy.zap.extension.spider.SpiderThread  - Starting spidering scan on SpiderApi-0 at Mon Jul 11 16:06:15 UTC 2016
-27140 [Thread-18] INFO org.zaproxy.zap.spider.Spider  - Spider initializing...
-27156 [Thread-18] INFO org.zaproxy.zap.spider.Spider  - Starting spider...
-76994 [pool-1-thread-2] WARN org.zaproxy.zap.spider.URLCanonicalizer  - Error while Processing URL in the spidering process (on base http://172.17.0.2:8080/wavsep/active/Unvalidated-Redirect/Redirect-Detection-Evaluation-GET-302Redirect/Case03-Redirect-RedirectMethod-FilenameContext-Unrestricted-HttpURL-DefaultInvalidInput-AnyPathReq-Read.jsp?target=httk://google.com): unknown protocol: httk
-77105 [pool-1-thread-1] WARN org.zaproxy.zap.spider.URLCanonicalizer  - Error while Processing URL in the spidering process (on base http://172.17.0.2:8080/wavsep/active/Unvalidated-Redirect/Redirect-Detection-Evaluation-GET-302Redirect/Case07-Redirect-RedirectMethod-FilenameContext-Unrestricted-HttpURL-DefaultEmptyInput-PartialPathReq-Read.jsp?target): Expected authority at index 7: http://
-90217 [pool-1-thread-2] INFO org.zaproxy.zap.spider.Spider  - Spidering process is complete. Shutting down...
-90217 [Thread-19] INFO org.zaproxy.zap.extension.spider.SpiderThread  - Spider scanning complete: true
-97350 [ZAP-ProxyThread-36] INFO org.parosproxy.paros.core.scanner.PluginFactory  - loaded plugin Path Traversal
-97351 [ZAP-ProxyThread-36] INFO org.parosproxy.paros.core.scanner.PluginFactory  - loaded plugin Remote File Inclusion
-97351 [ZAP-ProxyThread-36] INFO org.parosproxy.paros.core.scanner.PluginFactory  - loaded plugin Server Side Include
-97352 [ZAP-ProxyThread-36] INFO org.parosproxy.paros.core.scanner.PluginFactory  - loaded plugin Cross Site Scripting (Reflected)
-97352 [ZAP-ProxyThread-36] INFO org.parosproxy.paros.core.scanner.PluginFactory  - loaded plugin Cross Site Scripting (Persistent)
-97353 [ZAP-ProxyThread-36] INFO org.parosproxy.paros.core.scanner.PluginFactory  - loaded plugin SQL Injection
-97353 [ZAP-ProxyThread-36] INFO org.parosproxy.paros.core.scanner.PluginFactory  - loaded plugin Server Side Code Injection
-97354 [ZAP-ProxyThread-36] INFO org.parosproxy.paros.core.scanner.PluginFactory  - loaded plugin Remote OS Command Injection
-97354 [ZAP-ProxyThread-36] INFO org.parosproxy.paros.core.scanner.PluginFactory  - loaded plugin Directory Browsing
-97355 [ZAP-ProxyThread-36] INFO org.parosproxy.paros.core.scanner.PluginFactory  - loaded plugin External Redirect
-97356 [ZAP-ProxyThread-36] INFO org.parosproxy.paros.core.scanner.PluginFactory  - loaded plugin Buffer Overflow
-97356 [ZAP-ProxyThread-36] INFO org.parosproxy.paros.core.scanner.PluginFactory  - loaded plugin Format String Error
-97357 [ZAP-ProxyThread-36] INFO org.parosproxy.paros.core.scanner.PluginFactory  - loaded plugin CRLF Injection
-97357 [ZAP-ProxyThread-36] INFO org.parosproxy.paros.core.scanner.PluginFactory  - loaded plugin Parameter Tampering
-97358 [ZAP-ProxyThread-36] INFO org.parosproxy.paros.core.scanner.PluginFactory  - loaded plugin Cross Site Scripting (Persistent) - Prime
-97358 [ZAP-ProxyThread-36] INFO org.parosproxy.paros.core.scanner.PluginFactory  - loaded plugin Cross Site Scripting (Persistent) - Spider
-97359 [ZAP-ProxyThread-36] INFO org.parosproxy.paros.core.scanner.PluginFactory  - loaded plugin Script Active Scan Rules
-97360 [ZAP-ProxyThread-36] INFO org.parosproxy.paros.core.scanner.PluginFactory  - loaded plugin Source Code Disclosure - SVN
-97360 [ZAP-ProxyThread-36] INFO org.parosproxy.paros.core.scanner.PluginFactory  - loaded plugin Source Code Disclosure - /WEB-INF folder
-97360 [ZAP-ProxyThread-36] INFO org.parosproxy.paros.core.scanner.PluginFactory  - loaded plugin Remote Code Execution - Shell Shock
-97361 [ZAP-ProxyThread-36] INFO org.parosproxy.paros.core.scanner.PluginFactory  - loaded plugin Anti CSRF Tokens Scanner
-97361 [ZAP-ProxyThread-36] INFO org.parosproxy.paros.core.scanner.PluginFactory  - loaded plugin Heartbleed OpenSSL Vulnerability
-97362 [ZAP-ProxyThread-36] INFO org.parosproxy.paros.core.scanner.PluginFactory  - loaded plugin Cross-Domain Misconfiguration
-97362 [ZAP-ProxyThread-36] INFO org.parosproxy.paros.core.scanner.PluginFactory  - loaded plugin Source Code Disclosure - CVE-2012-1823
-97363 [ZAP-ProxyThread-36] INFO org.parosproxy.paros.core.scanner.PluginFactory  - loaded plugin Remote Code Execution - CVE-2012-1823
-97363 [ZAP-ProxyThread-36] INFO org.parosproxy.paros.core.scanner.PluginFactory  - loaded plugin Session Fixation
-97363 [ZAP-ProxyThread-36] INFO org.parosproxy.paros.core.scanner.PluginFactory  - loaded plugin SQL Injection - MySQL
-97364 [ZAP-ProxyThread-36] INFO org.parosproxy.paros.core.scanner.PluginFactory  - loaded plugin SQL Injection - Hypersonic SQL
-97364 [ZAP-ProxyThread-36] INFO org.parosproxy.paros.core.scanner.PluginFactory  - loaded plugin SQL Injection - Oracle
-97365 [ZAP-ProxyThread-36] INFO org.parosproxy.paros.core.scanner.PluginFactory  - loaded plugin SQL Injection - PostgreSQL
-97365 [ZAP-ProxyThread-36] INFO org.parosproxy.paros.core.scanner.PluginFactory  - loaded plugin XPath Injection
-97366 [ZAP-ProxyThread-36] INFO org.parosproxy.paros.core.scanner.PluginFactory  - loaded plugin XML External Entity Attack
-97366 [ZAP-ProxyThread-36] INFO org.parosproxy.paros.core.scanner.PluginFactory  - loaded plugin Generic Padding Oracle
-97367 [ZAP-ProxyThread-36] INFO org.parosproxy.paros.core.scanner.PluginFactory  - loaded plugin Expression Language Injection
-97367 [ZAP-ProxyThread-36] INFO org.parosproxy.paros.core.scanner.PluginFactory  - loaded plugin Backup File Disclosure
-97367 [ZAP-ProxyThread-36] INFO org.parosproxy.paros.core.scanner.PluginFactory  - loaded plugin Integer Overflow Error
-97368 [ZAP-ProxyThread-36] INFO org.parosproxy.paros.core.scanner.PluginFactory  - loaded plugin Insecure HTTP Method
-97368 [ZAP-ProxyThread-36] INFO org.parosproxy.paros.core.scanner.PluginFactory  - loaded plugin HTTP Parameter Pollution scanner
-97369 [ZAP-ProxyThread-36] INFO org.parosproxy.paros.core.scanner.PluginFactory  - loaded plugin Possible Username Enumeration
-97371 [ZAP-ProxyThread-36] INFO org.parosproxy.paros.core.scanner.Scanner  - scanner started
-97373 [Thread-20] INFO org.parosproxy.paros.core.scanner.PluginFactory  - loaded plugin Path Traversal
-97373 [Thread-20] INFO org.parosproxy.paros.core.scanner.PluginFactory  - loaded plugin Remote File Inclusion
-97374 [Thread-20] INFO org.parosproxy.paros.core.scanner.PluginFactory  - loaded plugin Server Side Include
-97374 [Thread-20] INFO org.parosproxy.paros.core.scanner.PluginFactory  - loaded plugin Cross Site Scripting (Reflected)
-97375 [Thread-20] INFO org.parosproxy.paros.core.scanner.PluginFactory  - loaded plugin Cross Site Scripting (Persistent)
-97375 [Thread-20] INFO org.parosproxy.paros.core.scanner.PluginFactory  - loaded plugin SQL Injection
-97376 [Thread-20] INFO org.parosproxy.paros.core.scanner.PluginFactory  - loaded plugin Server Side Code Injection
-97376 [Thread-20] INFO org.parosproxy.paros.core.scanner.PluginFactory  - loaded plugin Remote OS Command Injection
-97377 [Thread-20] INFO org.parosproxy.paros.core.scanner.PluginFactory  - loaded plugin Directory Browsing
-97377 [Thread-20] INFO org.parosproxy.paros.core.scanner.PluginFactory  - loaded plugin External Redirect
-97378 [Thread-20] INFO org.parosproxy.paros.core.scanner.PluginFactory  - loaded plugin Buffer Overflow
-97378 [Thread-20] INFO org.parosproxy.paros.core.scanner.PluginFactory  - loaded plugin Format String Error
-97379 [Thread-20] INFO org.parosproxy.paros.core.scanner.PluginFactory  - loaded plugin CRLF Injection
-97379 [Thread-20] INFO org.parosproxy.paros.core.scanner.PluginFactory  - loaded plugin Parameter Tampering
-97380 [Thread-20] INFO org.parosproxy.paros.core.scanner.PluginFactory  - loaded plugin Cross Site Scripting (Persistent) - Prime
-97380 [Thread-20] INFO org.parosproxy.paros.core.scanner.PluginFactory  - loaded plugin Cross Site Scripting (Persistent) - Spider
-97381 [Thread-20] INFO org.parosproxy.paros.core.scanner.PluginFactory  - loaded plugin Script Active Scan Rules
-97381 [Thread-20] INFO org.parosproxy.paros.core.scanner.PluginFactory  - loaded plugin Source Code Disclosure - SVN
-97382 [Thread-20] INFO org.parosproxy.paros.core.scanner.PluginFactory  - loaded plugin Source Code Disclosure - /WEB-INF folder
-97382 [Thread-20] INFO org.parosproxy.paros.core.scanner.PluginFactory  - loaded plugin Remote Code Execution - Shell Shock
-97383 [Thread-20] INFO org.parosproxy.paros.core.scanner.PluginFactory  - loaded plugin Anti CSRF Tokens Scanner
-97383 [Thread-20] INFO org.parosproxy.paros.core.scanner.PluginFactory  - loaded plugin Heartbleed OpenSSL Vulnerability
-97384 [Thread-20] INFO org.parosproxy.paros.core.scanner.PluginFactory  - loaded plugin Cross-Domain Misconfiguration
-97384 [Thread-20] INFO org.parosproxy.paros.core.scanner.PluginFactory  - loaded plugin Source Code Disclosure - CVE-2012-1823
-97385 [Thread-20] INFO org.parosproxy.paros.core.scanner.PluginFactory  - loaded plugin Remote Code Execution - CVE-2012-1823
-97385 [Thread-20] INFO org.parosproxy.paros.core.scanner.PluginFactory  - loaded plugin Session Fixation
-97385 [Thread-20] INFO org.parosproxy.paros.core.scanner.PluginFactory  - loaded plugin SQL Injection - MySQL
-97386 [Thread-20] INFO org.parosproxy.paros.core.scanner.PluginFactory  - loaded plugin SQL Injection - Hypersonic SQL
-97386 [Thread-20] INFO org.parosproxy.paros.core.scanner.PluginFactory  - loaded plugin SQL Injection - Oracle
-97387 [Thread-20] INFO org.parosproxy.paros.core.scanner.PluginFactory  - loaded plugin SQL Injection - PostgreSQL
-97387 [Thread-20] INFO org.parosproxy.paros.core.scanner.PluginFactory  - loaded plugin XPath Injection
-97388 [Thread-20] INFO org.parosproxy.paros.core.scanner.PluginFactory  - loaded plugin XML External Entity Attack
-97388 [Thread-20] INFO org.parosproxy.paros.core.scanner.PluginFactory  - loaded plugin Generic Padding Oracle
-97389 [Thread-20] INFO org.parosproxy.paros.core.scanner.PluginFactory  - loaded plugin Expression Language Injection
-97389 [Thread-20] INFO org.parosproxy.paros.core.scanner.PluginFactory  - loaded plugin Backup File Disclosure
-97390 [Thread-20] INFO org.parosproxy.paros.core.scanner.PluginFactory  - loaded plugin Integer Overflow Error
-97390 [Thread-20] INFO org.parosproxy.paros.core.scanner.PluginFactory  - loaded plugin Insecure HTTP Method
-97391 [Thread-20] INFO org.parosproxy.paros.core.scanner.PluginFactory  - loaded plugin HTTP Parameter Pollution scanner
-97391 [Thread-20] INFO org.parosproxy.paros.core.scanner.PluginFactory  - loaded plugin Possible Username Enumeration
-97398 [Thread-21] INFO org.parosproxy.paros.core.scanner.HostProcess  - Scanning 1768 node(s) from http://172.17.0.2:8080
-97399 [Thread-21] INFO org.parosproxy.paros.core.scanner.HostProcess  - start host http://172.17.0.2:8080 | TestPathTraversal strength MEDIUM threshold MEDIUM
-177567 [ZAP-ActiveScanner-0] WARN org.zaproxy.zap.extension.ascanrules.TestPathTraversal  - Error scanning parameters for Path Traversal: Invalid redirect location: c:\Windows\system.ini
-org.apache.commons.httpclient.InvalidRedirectLocationException: Invalid redirect location: c:\Windows\system.ini
-	at org.apache.commons.httpclient.HttpMethodDirector.processRedirectResponse(Unknown Source)
-	at org.apache.commons.httpclient.HttpMethodDirector.executeMethod(Unknown Source)
-	at org.apache.commons.httpclient.HttpClient.executeMethod(HttpClient.java:397)
-	at org.parosproxy.paros.network.HttpSender.executeMethod(Unknown Source)
-	at org.parosproxy.paros.network.HttpSender.runMethod(Unknown Source)
-	at org.parosproxy.paros.network.HttpSender.send(Unknown Source)
-	at org.parosproxy.paros.network.HttpSender.sendAuthenticated(Unknown Source)
-	at org.parosproxy.paros.network.HttpSender.sendAndReceive(Unknown Source)
-	at org.parosproxy.paros.core.scanner.AbstractPlugin.sendAndReceive(Unknown Source)
-	at org.parosproxy.paros.core.scanner.AbstractPlugin.sendAndReceive(Unknown Source)
-	at org.parosproxy.paros.core.scanner.AbstractPlugin.sendAndReceive(Unknown Source)
-	at org.zaproxy.zap.extension.ascanrules.TestPathTraversal.sendAndCheckPayload(TestPathTraversal.java:459)
-	at org.zaproxy.zap.extension.ascanrules.TestPathTraversal.scan(TestPathTraversal.java:287)
-	at org.parosproxy.paros.core.scanner.AbstractAppParamPlugin.scan(Unknown Source)
-	at org.parosproxy.paros.core.scanner.AbstractAppParamPlugin.scanVariant(Unknown Source)
-	at org.parosproxy.paros.core.scanner.AbstractAppParamPlugin.scan(Unknown Source)
-	at org.parosproxy.paros.core.scanner.AbstractPlugin.run(Unknown Source)
+255 [main] INFO org.zaproxy.zap.DaemonBootstrap  - OWASP ZAP 2.5.0 started.
+296 [main] INFO org.parosproxy.paros.common.AbstractParam  - Setting config database.recoverylog = false was null
+297 [main] INFO org.parosproxy.paros.common.AbstractParam  - Setting config api.disablekey = true was null
+299 [main] INFO org.parosproxy.paros.network.SSLConnector  - Reading supported SSL/TLS protocols...
+299 [main] INFO org.parosproxy.paros.network.SSLConnector  - Using a SSLEngine...
+526 [main] INFO org.parosproxy.paros.network.SSLConnector  - Done reading supported SSL/TLS protocols: [SSLv2Hello, SSLv3, TLSv1, TLSv1.1, TLSv1.2]
+532 [main] INFO org.parosproxy.paros.extension.option.OptionsParamCertificate  - Unsafe SSL renegotiation disabled.
+820 [main] INFO hsqldb.db..ENGINE  - open start - state not modified
+969 [main] INFO hsqldb.db..ENGINE  - dataFileCache open start
+978 [main] INFO hsqldb.db..ENGINE  - dataFileCache open end
+1045 [ZAP-daemon] INFO org.zaproxy.zap.control.ExtensionFactory  - Loading extensions
+1842 [ZAP-daemon] INFO org.zaproxy.zap.control.ExtensionFactory  - Extensions loaded
+2212 [ZAP-daemon] INFO org.parosproxy.paros.extension.filter.FilterFactory  - loaded filter Change user agent to other browsers. 
+2212 [ZAP-daemon] INFO org.parosproxy.paros.extension.filter.FilterFactory  - loaded filter Detect insecure or potentially malicious content in HTTP responses.
+2212 [ZAP-daemon] INFO org.parosproxy.paros.extension.filter.FilterFactory  - loaded filter Detect and alert 'Set-cookie' attempt in HTTP response for modification.
+2213 [ZAP-daemon] INFO org.parosproxy.paros.extension.filter.FilterFactory  - loaded filter Avoid browser cache (strip off IfModifiedSince)
+2213 [ZAP-daemon] INFO org.parosproxy.paros.extension.filter.FilterFactory  - loaded filter Log cookies sent by browser.
+2213 [ZAP-daemon] INFO org.parosproxy.paros.extension.filter.FilterFactory  - loaded filter Log unique GET queries into file:filter/get.xls
+2213 [ZAP-daemon] INFO org.parosproxy.paros.extension.filter.FilterFactory  - loaded filter Log unique POST queries into file:  filter/post.xls
+2213 [ZAP-daemon] INFO org.parosproxy.paros.extension.filter.FilterFactory  - loaded filter Log request and response into file: filter/message.txt
+2213 [ZAP-daemon] INFO org.parosproxy.paros.extension.filter.FilterFactory  - loaded filter Replace HTTP request body using defined pattern.
+2213 [ZAP-daemon] INFO org.parosproxy.paros.extension.filter.FilterFactory  - loaded filter Replace HTTP request header using defined pattern.
+2213 [ZAP-daemon] INFO org.parosproxy.paros.extension.filter.FilterFactory  - loaded filter Replace HTTP response body using defined pattern.
+2214 [ZAP-daemon] INFO org.parosproxy.paros.extension.filter.FilterFactory  - loaded filter Replace HTTP response header using defined pattern.
+2214 [ZAP-daemon] INFO org.parosproxy.paros.extension.filter.FilterFactory  - loaded filter Send ZAP session request ID
+2326 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Allows ZAP to check for updates
+2330 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing ExtensionViewOption
+2330 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing ExtensionEdit
+2330 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing ExtensionFilter
+2330 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Provides a rest based API for controlling and accessing ZAP
+2423 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing ExtensionState
+2423 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing ExtensionHistory
+2425 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Show hidden fields and enable disabled fields
+2426 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Search messages for strings and regular expressions 
+2427 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Encode/Decode/Hash...
+2427 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Allows you to intercept and modify requests and responses
+2427 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Passive scanner
+2470 [ZAP-daemon] INFO org.zaproxy.zap.extension.pscan.ExtensionPassiveScan  - loaded passive scan rule: Script passive scan rules
+2470 [ZAP-daemon] INFO org.zaproxy.zap.extension.pscan.ExtensionPassiveScan  - loaded passive scan rule: Stats Passive Scan Rule
+2470 [ZAP-daemon] INFO org.zaproxy.zap.extension.pscan.ExtensionPassiveScan  - loaded passive scan rule: Application Error Disclosure
+2470 [ZAP-daemon] INFO org.zaproxy.zap.extension.pscan.ExtensionPassiveScan  - loaded passive scan rule: Incomplete or No Cache-control and Pragma HTTP Header Set
+2471 [ZAP-daemon] INFO org.zaproxy.zap.extension.pscan.ExtensionPassiveScan  - loaded passive scan rule: Content-Type Header Missing
+2471 [ZAP-daemon] INFO org.zaproxy.zap.extension.pscan.ExtensionPassiveScan  - loaded passive scan rule: Cookie No HttpOnly Flag
+2471 [ZAP-daemon] INFO org.zaproxy.zap.extension.pscan.ExtensionPassiveScan  - loaded passive scan rule: Cookie Without Secure Flag
+2471 [ZAP-daemon] INFO org.zaproxy.zap.extension.pscan.ExtensionPassiveScan  - loaded passive scan rule: Cross-Domain JavaScript Source File Inclusion
+2471 [ZAP-daemon] INFO org.zaproxy.zap.extension.pscan.ExtensionPassiveScan  - loaded passive scan rule: Web Browser XSS Protection Not Enabled
+2472 [ZAP-daemon] INFO org.zaproxy.zap.extension.pscan.ExtensionPassiveScan  - loaded passive scan rule: Secure Pages Include Mixed Content
+2472 [ZAP-daemon] INFO org.zaproxy.zap.extension.pscan.ExtensionPassiveScan  - loaded passive scan rule: Password Autocomplete in Browser
+2472 [ZAP-daemon] INFO org.zaproxy.zap.extension.pscan.ExtensionPassiveScan  - loaded passive scan rule: Private IP Disclosure
+2472 [ZAP-daemon] INFO org.zaproxy.zap.extension.pscan.ExtensionPassiveScan  - loaded passive scan rule: Session ID in URL Rewrite
+2472 [ZAP-daemon] INFO org.zaproxy.zap.extension.pscan.ExtensionPassiveScan  - loaded passive scan rule: X-Content-Type-Options Header Missing
+2472 [ZAP-daemon] INFO org.zaproxy.zap.extension.pscan.ExtensionPassiveScan  - loaded passive scan rule: X-Frame-Options Header Not Set
+2485 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Allows you to view and manage alerts
+2485 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Active scanner, heavily based on the original Paros active scanner, but with additional tests added
+2489 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Spider used for automatically finding URIs on a site
+2493 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing A set of common popup menus for miscellaneous tasks
+2493 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Forced browsing of files and directories using code from the OWASP DirBuster tool
+2493 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing ExtensionManualRequest
+2493 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Compares 2 sessions and generates an HTML file showing the differences
+2494 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Invoke external applications passing context related information such as URLs and parameters
+2494 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Handles anti cross site request forgery (CSRF) tokens
+2495 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing ExtensionAuthentication
+3130 [ZAP-daemon] INFO org.zaproxy.zap.extension.authentication.ExtensionAuthentication  - Loaded authentication method types: [Form-based Authentication, HTTP/NTLM Authentication, Manual Authentication, Script-based Authentication]
+3131 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Creates a dynamic SSL certificate to allow SSL communications to be intercepted without warnings being generated by the browser
+3131 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Logs errors to the Output tab in development mode only
+3131 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing ExtensionUserManagement
+3132 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Summarise and analyse FORM and URL parameters as well as cookies
+3132 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Script integration
+3139 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Scripting console, supports all JSR 223 scripting languages
+3140 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing ExtensionForcedUser
+3140 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Extension handling HTTP sessions
+3141 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Zest is a specialized scripting language from Mozilla specifically designed to be used in security tools
+3206 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing ExtensionDiff
+3206 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing ExtensionRequestPostTableView
+3206 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing ExtensionSessionManagement
+3305 [ZAP-daemon] INFO org.zaproxy.zap.extension.sessions.ExtensionSessionManagement  - Loaded session management method types: [Cookie-based Session Management, HTTP Authentication Session Management]
+3305 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing ExtensionHttpPanelRequestFormTableView
+3305 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Capture messages from WebSockets with the ability to set breakpoints.
+3309 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Summarise and analyse FORM and URL parameters as well as cookies
+3309 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing ExtensionAuthorization
+3309 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing AJAX Spider, uses Crawljax
+3310 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Handles adding Global Excluded URLs
+3310 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Adds menu item to refresh the Sites tree
+3310 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Adds support for configurable keyboard shortcuts for all of the ZAP menus.
+3311 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing OWASP ZAP User Guide
+3311 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing ExtensionReport
+3311 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Allows you to configure which extensions are loaded when ZAP starts 
+3311 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing ExtensionHttpPanelComponentonentAll
+3311 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing ExtensionHttpPanelHexView
+3311 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing ExtensionHttpPanelImageView
+3311 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing ExtensionHttpPanelLargeRequestView
+3311 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing ExtensionHttpPanelLargeResponseView
+3311 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing ExtensionHttpPanelRequestQueryCookieTableView
+3311 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing ExtensionHttpPanelSyntaxHighlightTextView
+3311 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Statistics
+3312 [ZAP-daemon] INFO org.zaproxy.zap.extension.stats.ExtensionStats  - Start recording in memory stats
+3312 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Translations of the core language files
+3312 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing ExtensionSaveRawHttpMessage
+3312 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Provides the foundation for concrete message types (for example, HTTP, WebSockets) expose fuzzer implementations.
+3314 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Allows to fuzz HTTP messages.
+3314 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Allows to fuzz WebSocket messages.
+3314 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Tips and Tricks
+3314 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing The ZAP Getting Started Guide
+3314 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Active Scan Rules
+3315 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Context alert rules filter
+3315 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Provides WebDrivers to control several browsers using Selenium and includes HtmlUnit browser.
+3316 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Quick Start panel 
+3316 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing The Online menu links
+3316 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Passive Scan Rules
+3317 [Thread-4] INFO org.zaproxy.zap.extension.dynssl.ExtensionDynSSL  - Creating new root CA certificate
+3737 [Thread-4] INFO org.zaproxy.zap.extension.dynssl.ExtensionDynSSL  - New root CA certificate created
+19876 [ZAP-daemon] INFO org.parosproxy.paros.CommandLine  - Add-on downloaded to: /home/zap/.ZAP/plugin/ascanrules-release-24.zap
+19876 [ZAP-daemon] INFO org.parosproxy.paros.CommandLine  - Add-on downloaded to: /home/zap/.ZAP/plugin/pscanrules-release-17.zap
+19876 [ZAP-daemon] INFO org.parosproxy.paros.CommandLine  - Add-on downloaded to: /home/zap/.ZAP/plugin/fuzz-beta-6.zap
+19876 [ZAP-daemon] INFO org.parosproxy.paros.CommandLine  - Add-on downloaded to: /home/zap/.ZAP/plugin/selenium-release-6.zap
+19954 [ZAP-ProxyThread-1] INFO org.zaproxy.zap.extension.httpsessions.ExtensionHttpSessions  - Added new session token for site '172.17.0.2:8080': JSESSIONID
+19956 [ZAP-ProxyThread-1] INFO org.zaproxy.zap.extension.httpsessions.HttpSessionsSite  - Created a new session as no match was found: HttpSession [name=Session 0, active=false, tokenValues='']
+19970 [ZAP-daemon] INFO org.zaproxy.zap.extension.autoupdate.ExtensionAutoUpdate  - Installing new addon ascanrules v24
+20089 [ZAP-ProxyThread-2] INFO org.zaproxy.zap.extension.httpsessions.HttpSessionsSite  - Created a new session as no match was found: HttpSession [name=Session 1, active=false, tokenValues='']
+20199 [ZAP-daemon] ERROR org.zaproxy.zap.control.AddOnInstaller  - An error occurred while uninstalling the extension "ExtensionWebSocketFuzzer" bundled in the add-on "websocket":
+java.lang.NullPointerException
+	at org.zaproxy.zap.extension.script.ExtensionScript.removeScripType(Unknown Source)
+	at org.zaproxy.zap.extension.websocket.fuzz.ExtensionWebSocketFuzzer.unload(ExtensionWebSocketFuzzer.java:152)
+	at org.zaproxy.zap.control.AddOnInstaller.uninstallAddOnExtension(Unknown Source)
+	at org.zaproxy.zap.control.AddOnLoader.unloadDependentExtensions(Unknown Source)
+	at org.zaproxy.zap.control.AddOnLoader.removeAddOnImpl(Unknown Source)
+	at org.zaproxy.zap.control.AddOnLoader.removeAddOn(Unknown Source)
+	at org.zaproxy.zap.extension.autoupdate.ExtensionAutoUpdate.uninstall(Unknown Source)
+	at org.zaproxy.zap.extension.autoupdate.ExtensionAutoUpdate.uninstallAddOns(Unknown Source)
+	at org.zaproxy.zap.extension.autoupdate.ExtensionAutoUpdate.uninstallAddOn(Unknown Source)
+	at org.zaproxy.zap.extension.autoupdate.ExtensionAutoUpdate.install(Unknown Source)
+	at org.zaproxy.zap.extension.autoupdate.ExtensionAutoUpdate.installNewExtensions(Unknown Source)
+	at org.zaproxy.zap.extension.autoupdate.ExtensionAutoUpdate.waitAndInstallDownloads(Unknown Source)
+	at org.zaproxy.zap.extension.autoupdate.ExtensionAutoUpdate.execute(Unknown Source)
+	at org.parosproxy.paros.extension.ExtensionLoader.runCommandLine(Unknown Source)
+	at org.parosproxy.paros.control.Control.runCommandLine(Unknown Source)
+	at org.zaproxy.zap.DaemonBootstrap$1.run(Unknown Source)
 	at java.lang.Thread.run(Thread.java:745)
-Caused by: org.apache.commons.httpclient.URIException: incorrect path
-	at org.apache.commons.httpclient.URI.setRawPath(URI.java:2862)
-	at org.apache.commons.httpclient.URI.parseUriReference(URI.java:2023)
-	at org.apache.commons.httpclient.URI.<init>(URI.java:147)
-	... 18 more
-190278 [ZAP-ActiveScanner-0] WARN org.zaproxy.zap.extension.ascanrules.TestPathTraversal  - Error scanning parameters for Path Traversal: Invalid redirect location: c:\Windows\system.ini
-org.apache.commons.httpclient.InvalidRedirectLocationException: Invalid redirect location: c:\Windows\system.ini
-	at org.apache.commons.httpclient.HttpMethodDirector.processRedirectResponse(Unknown Source)
-	at org.apache.commons.httpclient.HttpMethodDirector.executeMethod(Unknown Source)
-	at org.apache.commons.httpclient.HttpClient.executeMethod(HttpClient.java:397)
-	at org.parosproxy.paros.network.HttpSender.executeMethod(Unknown Source)
-	at org.parosproxy.paros.network.HttpSender.runMethod(Unknown Source)
-	at org.parosproxy.paros.network.HttpSender.send(Unknown Source)
-	at org.parosproxy.paros.network.HttpSender.sendAuthenticated(Unknown Source)
-	at org.parosproxy.paros.network.HttpSender.sendAndReceive(Unknown Source)
-	at org.parosproxy.paros.core.scanner.AbstractPlugin.sendAndReceive(Unknown Source)
-	at org.parosproxy.paros.core.scanner.AbstractPlugin.sendAndReceive(Unknown Source)
-	at org.parosproxy.paros.core.scanner.AbstractPlugin.sendAndReceive(Unknown Source)
-	at org.zaproxy.zap.extension.ascanrules.TestPathTraversal.sendAndCheckPayload(TestPathTraversal.java:459)
-	at org.zaproxy.zap.extension.ascanrules.TestPathTraversal.scan(TestPathTraversal.java:287)
-	at org.parosproxy.paros.core.scanner.AbstractAppParamPlugin.scan(Unknown Source)
-	at org.parosproxy.paros.core.scanner.AbstractAppParamPlugin.scanVariant(Unknown Source)
-	at org.parosproxy.paros.core.scanner.AbstractAppParamPlugin.scan(Unknown Source)
-	at org.parosproxy.paros.core.scanner.AbstractPlugin.run(Unknown Source)
+20220 [ZAP-daemon] ERROR org.zaproxy.zap.control.AddOnInstaller  - An error occurred while uninstalling the extension "org.zaproxy.zap.extension.fuzz.httpfuzzer.ExtensionHttpFuzzer" bundled in the add-on "fuzz":
+java.lang.NullPointerException
+	at org.zaproxy.zap.extension.script.ExtensionScript.removeScripType(Unknown Source)
+	at org.zaproxy.zap.extension.fuzz.httpfuzzer.ExtensionHttpFuzzer.unload(ExtensionHttpFuzzer.java:174)
+	at org.zaproxy.zap.control.AddOnInstaller.uninstallAddOnExtension(Unknown Source)
+	at org.zaproxy.zap.control.AddOnInstaller.uninstallAddOnExtensions(Unknown Source)
+	at org.zaproxy.zap.control.AddOnInstaller.uninstall(Unknown Source)
+	at org.zaproxy.zap.control.AddOnLoader.removeAddOnImpl(Unknown Source)
+	at org.zaproxy.zap.control.AddOnLoader.removeAddOn(Unknown Source)
+	at org.zaproxy.zap.extension.autoupdate.ExtensionAutoUpdate.uninstall(Unknown Source)
+	at org.zaproxy.zap.extension.autoupdate.ExtensionAutoUpdate.uninstallAddOns(Unknown Source)
+	at org.zaproxy.zap.extension.autoupdate.ExtensionAutoUpdate.uninstallAddOn(Unknown Source)
+	at org.zaproxy.zap.extension.autoupdate.ExtensionAutoUpdate.install(Unknown Source)
+	at org.zaproxy.zap.extension.autoupdate.ExtensionAutoUpdate.installNewExtensions(Unknown Source)
+	at org.zaproxy.zap.extension.autoupdate.ExtensionAutoUpdate.waitAndInstallDownloads(Unknown Source)
+	at org.zaproxy.zap.extension.autoupdate.ExtensionAutoUpdate.execute(Unknown Source)
+	at org.parosproxy.paros.extension.ExtensionLoader.runCommandLine(Unknown Source)
+	at org.parosproxy.paros.control.Control.runCommandLine(Unknown Source)
+	at org.zaproxy.zap.DaemonBootstrap$1.run(Unknown Source)
 	at java.lang.Thread.run(Thread.java:745)
-Caused by: org.apache.commons.httpclient.URIException: incorrect path
-	at org.apache.commons.httpclient.URI.setRawPath(URI.java:2862)
-	at org.apache.commons.httpclient.URI.parseUriReference(URI.java:2023)
-	at org.apache.commons.httpclient.URI.<init>(URI.java:147)
-	... 18 more
-222277 [ZAP-ActiveScanner-0] WARN org.zaproxy.zap.extension.ascanrules.TestPathTraversal  - Error scanning parameters for Path Traversal: Invalid redirect location: c:\Windows\system.ini
-org.apache.commons.httpclient.InvalidRedirectLocationException: Invalid redirect location: c:\Windows\system.ini
-	at org.apache.commons.httpclient.HttpMethodDirector.processRedirectResponse(Unknown Source)
-	at org.apache.commons.httpclient.HttpMethodDirector.executeMethod(Unknown Source)
-	at org.apache.commons.httpclient.HttpClient.executeMethod(HttpClient.java:397)
-	at org.parosproxy.paros.network.HttpSender.executeMethod(Unknown Source)
-	at org.parosproxy.paros.network.HttpSender.runMethod(Unknown Source)
-	at org.parosproxy.paros.network.HttpSender.send(Unknown Source)
-	at org.parosproxy.paros.network.HttpSender.sendAuthenticated(Unknown Source)
-	at org.parosproxy.paros.network.HttpSender.sendAndReceive(Unknown Source)
-	at org.parosproxy.paros.core.scanner.AbstractPlugin.sendAndReceive(Unknown Source)
-	at org.parosproxy.paros.core.scanner.AbstractPlugin.sendAndReceive(Unknown Source)
-	at org.parosproxy.paros.core.scanner.AbstractPlugin.sendAndReceive(Unknown Source)
-	at org.zaproxy.zap.extension.ascanrules.TestPathTraversal.sendAndCheckPayload(TestPathTraversal.java:459)
-	at org.zaproxy.zap.extension.ascanrules.TestPathTraversal.scan(TestPathTraversal.java:287)
-	at org.parosproxy.paros.core.scanner.AbstractAppParamPlugin.scan(Unknown Source)
-	at org.parosproxy.paros.core.scanner.AbstractAppParamPlugin.scanVariant(Unknown Source)
-	at org.parosproxy.paros.core.scanner.AbstractAppParamPlugin.scan(Unknown Source)
-	at org.parosproxy.paros.core.scanner.AbstractPlugin.run(Unknown Source)
+20227 [ZAP-daemon] ERROR org.zaproxy.zap.control.AddOnInstaller  - An error occurred while uninstalling the extension "ExtensionFuzz" bundled in the add-on "fuzz":
+java.lang.NullPointerException
+	at org.zaproxy.zap.extension.script.ExtensionScript.removeScripType(Unknown Source)
+	at org.zaproxy.zap.extension.fuzz.ExtensionFuzz.unload(ExtensionFuzz.java:319)
+	at org.zaproxy.zap.control.AddOnInstaller.uninstallAddOnExtension(Unknown Source)
+	at org.zaproxy.zap.control.AddOnInstaller.uninstallAddOnExtensions(Unknown Source)
+	at org.zaproxy.zap.control.AddOnInstaller.uninstall(Unknown Source)
+	at org.zaproxy.zap.control.AddOnLoader.removeAddOnImpl(Unknown Source)
+	at org.zaproxy.zap.control.AddOnLoader.removeAddOn(Unknown Source)
+	at org.zaproxy.zap.extension.autoupdate.ExtensionAutoUpdate.uninstall(Unknown Source)
+	at org.zaproxy.zap.extension.autoupdate.ExtensionAutoUpdate.uninstallAddOns(Unknown Source)
+	at org.zaproxy.zap.extension.autoupdate.ExtensionAutoUpdate.uninstallAddOn(Unknown Source)
+	at org.zaproxy.zap.extension.autoupdate.ExtensionAutoUpdate.install(Unknown Source)
+	at org.zaproxy.zap.extension.autoupdate.ExtensionAutoUpdate.installNewExtensions(Unknown Source)
+	at org.zaproxy.zap.extension.autoupdate.ExtensionAutoUpdate.waitAndInstallDownloads(Unknown Source)
+	at org.zaproxy.zap.extension.autoupdate.ExtensionAutoUpdate.execute(Unknown Source)
+	at org.parosproxy.paros.extension.ExtensionLoader.runCommandLine(Unknown Source)
+	at org.parosproxy.paros.control.Control.runCommandLine(Unknown Source)
+	at org.zaproxy.zap.DaemonBootstrap$1.run(Unknown Source)
 	at java.lang.Thread.run(Thread.java:745)
-Caused by: org.apache.commons.httpclient.URIException: incorrect path
-	at org.apache.commons.httpclient.URI.setRawPath(URI.java:2862)
-	at org.apache.commons.httpclient.URI.parseUriReference(URI.java:2023)
-	at org.apache.commons.httpclient.URI.<init>(URI.java:147)
-	... 18 more
-222476 [ZAP-ActiveScanner-0] WARN org.zaproxy.zap.extension.ascanrules.TestPathTraversal  - Error scanning parameters for Path Traversal: Invalid redirect location: c:\Windows\system.ini
-org.apache.commons.httpclient.InvalidRedirectLocationException: Invalid redirect location: c:\Windows\system.ini
-	at org.apache.commons.httpclient.HttpMethodDirector.processRedirectResponse(Unknown Source)
-	at org.apache.commons.httpclient.HttpMethodDirector.executeMethod(Unknown Source)
-	at org.apache.commons.httpclient.HttpClient.executeMethod(HttpClient.java:397)
-	at org.parosproxy.paros.network.HttpSender.executeMethod(Unknown Source)
-	at org.parosproxy.paros.network.HttpSender.runMethod(Unknown Source)
-	at org.parosproxy.paros.network.HttpSender.send(Unknown Source)
-	at org.parosproxy.paros.network.HttpSender.sendAuthenticated(Unknown Source)
-	at org.parosproxy.paros.network.HttpSender.sendAndReceive(Unknown Source)
-	at org.parosproxy.paros.core.scanner.AbstractPlugin.sendAndReceive(Unknown Source)
-	at org.parosproxy.paros.core.scanner.AbstractPlugin.sendAndReceive(Unknown Source)
-	at org.parosproxy.paros.core.scanner.AbstractPlugin.sendAndReceive(Unknown Source)
-	at org.zaproxy.zap.extension.ascanrules.TestPathTraversal.sendAndCheckPayload(TestPathTraversal.java:459)
-	at org.zaproxy.zap.extension.ascanrules.TestPathTraversal.scan(TestPathTraversal.java:287)
-	at org.parosproxy.paros.core.scanner.AbstractAppParamPlugin.scan(Unknown Source)
-	at org.parosproxy.paros.core.scanner.AbstractAppParamPlugin.scanVariant(Unknown Source)
-	at org.parosproxy.paros.core.scanner.AbstractAppParamPlugin.scan(Unknown Source)
-	at org.parosproxy.paros.core.scanner.AbstractPlugin.run(Unknown Source)
-	at java.lang.Thread.run(Thread.java:745)
-Caused by: org.apache.commons.httpclient.URIException: incorrect path
-	at org.apache.commons.httpclient.URI.setRawPath(URI.java:2862)
-	at org.apache.commons.httpclient.URI.parseUriReference(URI.java:2023)
-	at org.apache.commons.httpclient.URI.<init>(URI.java:147)
-	... 18 more
-222477 [ZAP-ActiveScanner-1] WARN org.zaproxy.zap.extension.ascanrules.TestPathTraversal  - Error scanning parameters for Path Traversal: Invalid redirect location: c:\Windows\system.ini
-org.apache.commons.httpclient.InvalidRedirectLocationException: Invalid redirect location: c:\Windows\system.ini
-	at org.apache.commons.httpclient.HttpMethodDirector.processRedirectResponse(Unknown Source)
-	at org.apache.commons.httpclient.HttpMethodDirector.executeMethod(Unknown Source)
-	at org.apache.commons.httpclient.HttpClient.executeMethod(HttpClient.java:397)
-	at org.parosproxy.paros.network.HttpSender.executeMethod(Unknown Source)
-	at org.parosproxy.paros.network.HttpSender.runMethod(Unknown Source)
-	at org.parosproxy.paros.network.HttpSender.send(Unknown Source)
-	at org.parosproxy.paros.network.HttpSender.sendAuthenticated(Unknown Source)
-	at org.parosproxy.paros.network.HttpSender.sendAndReceive(Unknown Source)
-	at org.parosproxy.paros.core.scanner.AbstractPlugin.sendAndReceive(Unknown Source)
-	at org.parosproxy.paros.core.scanner.AbstractPlugin.sendAndReceive(Unknown Source)
-	at org.parosproxy.paros.core.scanner.AbstractPlugin.sendAndReceive(Unknown Source)
-	at org.zaproxy.zap.extension.ascanrules.TestPathTraversal.sendAndCheckPayload(TestPathTraversal.java:459)
-	at org.zaproxy.zap.extension.ascanrules.TestPathTraversal.scan(TestPathTraversal.java:287)
-	at org.parosproxy.paros.core.scanner.AbstractAppParamPlugin.scan(Unknown Source)
-	at org.parosproxy.paros.core.scanner.AbstractAppParamPlugin.scanVariant(Unknown Source)
-	at org.parosproxy.paros.core.scanner.AbstractAppParamPlugin.scan(Unknown Source)
-	at org.parosproxy.paros.core.scanner.AbstractPlugin.run(Unknown Source)
-	at java.lang.Thread.run(Thread.java:745)
-Caused by: org.apache.commons.httpclient.URIException: incorrect path
-	at org.apache.commons.httpclient.URI.setRawPath(URI.java:2862)
-	at org.apache.commons.httpclient.URI.parseUriReference(URI.java:2023)
-	at org.apache.commons.httpclient.URI.<init>(URI.java:147)
-	... 18 more
-222679 [ZAP-ActiveScanner-1] WARN org.zaproxy.zap.extension.ascanrules.TestPathTraversal  - Error scanning parameters for Path Traversal: Invalid redirect location: c:\Windows\system.ini
-org.apache.commons.httpclient.InvalidRedirectLocationException: Invalid redirect location: c:\Windows\system.ini
-	at org.apache.commons.httpclient.HttpMethodDirector.processRedirectResponse(Unknown Source)
-	at org.apache.commons.httpclient.HttpMethodDirector.executeMethod(Unknown Source)
-	at org.apache.commons.httpclient.HttpClient.executeMethod(HttpClient.java:397)
-	at org.parosproxy.paros.network.HttpSender.executeMethod(Unknown Source)
-	at org.parosproxy.paros.network.HttpSender.runMethod(Unknown Source)
-	at org.parosproxy.paros.network.HttpSender.send(Unknown Source)
-	at org.parosproxy.paros.network.HttpSender.sendAuthenticated(Unknown Source)
-	at org.parosproxy.paros.network.HttpSender.sendAndReceive(Unknown Source)
-	at org.parosproxy.paros.core.scanner.AbstractPlugin.sendAndReceive(Unknown Source)
-	at org.parosproxy.paros.core.scanner.AbstractPlugin.sendAndReceive(Unknown Source)
-	at org.parosproxy.paros.core.scanner.AbstractPlugin.sendAndReceive(Unknown Source)
-	at org.zaproxy.zap.extension.ascanrules.TestPathTraversal.sendAndCheckPayload(TestPathTraversal.java:459)
-	at org.zaproxy.zap.extension.ascanrules.TestPathTraversal.scan(TestPathTraversal.java:287)
-	at org.parosproxy.paros.core.scanner.AbstractAppParamPlugin.scan(Unknown Source)
-	at org.parosproxy.paros.core.scanner.AbstractAppParamPlugin.scanVariant(Unknown Source)
-	at org.parosproxy.paros.core.scanner.AbstractAppParamPlugin.scan(Unknown Source)
-	at org.parosproxy.paros.core.scanner.AbstractPlugin.run(Unknown Source)
-	at java.lang.Thread.run(Thread.java:745)
-Caused by: org.apache.commons.httpclient.URIException: incorrect path
-	at org.apache.commons.httpclient.URI.setRawPath(URI.java:2862)
-	at org.apache.commons.httpclient.URI.parseUriReference(URI.java:2023)
-	at org.apache.commons.httpclient.URI.<init>(URI.java:147)
-	... 18 more
-222682 [ZAP-ActiveScanner-0] WARN org.zaproxy.zap.extension.ascanrules.TestPathTraversal  - Error scanning parameters for Path Traversal: Invalid redirect location: http://c:\Windows\system.ini
-org.apache.commons.httpclient.InvalidRedirectLocationException: Invalid redirect location: http://c:\Windows\system.ini
-	at org.apache.commons.httpclient.HttpMethodDirector.processRedirectResponse(Unknown Source)
-	at org.apache.commons.httpclient.HttpMethodDirector.executeMethod(Unknown Source)
-	at org.apache.commons.httpclient.HttpClient.executeMethod(HttpClient.java:397)
-	at org.parosproxy.paros.network.HttpSender.executeMethod(Unknown Source)
-	at org.parosproxy.paros.network.HttpSender.runMethod(Unknown Source)
-	at org.parosproxy.paros.network.HttpSender.send(Unknown Source)
-	at org.parosproxy.paros.network.HttpSender.sendAuthenticated(Unknown Source)
-	at org.parosproxy.paros.network.HttpSender.sendAndReceive(Unknown Source)
-	at org.parosproxy.paros.core.scanner.AbstractPlugin.sendAndReceive(Unknown Source)
-	at org.parosproxy.paros.core.scanner.AbstractPlugin.sendAndReceive(Unknown Source)
-	at org.parosproxy.paros.core.scanner.AbstractPlugin.sendAndReceive(Unknown Source)
-	at org.zaproxy.zap.extension.ascanrules.TestPathTraversal.sendAndCheckPayload(TestPathTraversal.java:459)
-	at org.zaproxy.zap.extension.ascanrules.TestPathTraversal.scan(TestPathTraversal.java:287)
-	at org.parosproxy.paros.core.scanner.AbstractAppParamPlugin.scan(Unknown Source)
-	at org.parosproxy.paros.core.scanner.AbstractAppParamPlugin.scanVariant(Unknown Source)
-	at org.parosproxy.paros.core.scanner.AbstractAppParamPlugin.scan(Unknown Source)
-	at org.parosproxy.paros.core.scanner.AbstractPlugin.run(Unknown Source)
-	at java.lang.Thread.run(Thread.java:745)
-Caused by: org.apache.commons.httpclient.URIException: invalid port number
-	at org.apache.commons.httpclient.URI.parseAuthority(URI.java:2248)
-	at org.apache.commons.httpclient.URI.parseUriReference(URI.java:1978)
-	at org.apache.commons.httpclient.URI.<init>(URI.java:147)
-	... 18 more
-222879 [ZAP-ActiveScanner-1] WARN org.zaproxy.zap.extension.ascanrules.TestPathTraversal  - Error scanning parameters for Path Traversal: Invalid redirect location: c:\Windows\system.ini
-org.apache.commons.httpclient.InvalidRedirectLocationException: Invalid redirect location: c:\Windows\system.ini
-	at org.apache.commons.httpclient.HttpMethodDirector.processRedirectResponse(Unknown Source)
-	at org.apache.commons.httpclient.HttpMethodDirector.executeMethod(Unknown Source)
-	at org.apache.commons.httpclient.HttpClient.executeMethod(HttpClient.java:397)
-	at org.parosproxy.paros.network.HttpSender.executeMethod(Unknown Source)
-	at org.parosproxy.paros.network.HttpSender.runMethod(Unknown Source)
-	at org.parosproxy.paros.network.HttpSender.send(Unknown Source)
-	at org.parosproxy.paros.network.HttpSender.sendAuthenticated(Unknown Source)
-	at org.parosproxy.paros.network.HttpSender.sendAndReceive(Unknown Source)
-	at org.parosproxy.paros.core.scanner.AbstractPlugin.sendAndReceive(Unknown Source)
-	at org.parosproxy.paros.core.scanner.AbstractPlugin.sendAndReceive(Unknown Source)
-	at org.parosproxy.paros.core.scanner.AbstractPlugin.sendAndReceive(Unknown Source)
-	at org.zaproxy.zap.extension.ascanrules.TestPathTraversal.sendAndCheckPayload(TestPathTraversal.java:459)
-	at org.zaproxy.zap.extension.ascanrules.TestPathTraversal.scan(TestPathTraversal.java:287)
-	at org.parosproxy.paros.core.scanner.AbstractAppParamPlugin.scan(Unknown Source)
-	at org.parosproxy.paros.core.scanner.AbstractAppParamPlugin.scanVariant(Unknown Source)
-	at org.parosproxy.paros.core.scanner.AbstractAppParamPlugin.scan(Unknown Source)
-	at org.parosproxy.paros.core.scanner.AbstractPlugin.run(Unknown Source)
-	at java.lang.Thread.run(Thread.java:745)
-Caused by: org.apache.commons.httpclient.URIException: incorrect path
-	at org.apache.commons.httpclient.URI.setRawPath(URI.java:2862)
-	at org.apache.commons.httpclient.URI.parseUriReference(URI.java:2023)
-	at org.apache.commons.httpclient.URI.<init>(URI.java:147)
-	... 18 more
-222879 [ZAP-ActiveScanner-0] WARN org.zaproxy.zap.extension.ascanrules.TestPathTraversal  - Error scanning parameters for Path Traversal: Invalid redirect location: c:\Windows\system.ini
-org.apache.commons.httpclient.InvalidRedirectLocationException: Invalid redirect location: c:\Windows\system.ini
-	at org.apache.commons.httpclient.HttpMethodDirector.processRedirectResponse(Unknown Source)
-	at org.apache.commons.httpclient.HttpMethodDirector.executeMethod(Unknown Source)
-	at org.apache.commons.httpclient.HttpClient.executeMethod(HttpClient.java:397)
-	at org.parosproxy.paros.network.HttpSender.executeMethod(Unknown Source)
-	at org.parosproxy.paros.network.HttpSender.runMethod(Unknown Source)
-	at org.parosproxy.paros.network.HttpSender.send(Unknown Source)
-	at org.parosproxy.paros.network.HttpSender.sendAuthenticated(Unknown Source)
-	at org.parosproxy.paros.network.HttpSender.sendAndReceive(Unknown Source)
-	at org.parosproxy.paros.core.scanner.AbstractPlugin.sendAndReceive(Unknown Source)
-	at org.parosproxy.paros.core.scanner.AbstractPlugin.sendAndReceive(Unknown Source)
-	at org.parosproxy.paros.core.scanner.AbstractPlugin.sendAndReceive(Unknown Source)
-	at org.zaproxy.zap.extension.ascanrules.TestPathTraversal.sendAndCheckPayload(TestPathTraversal.java:459)
-	at org.zaproxy.zap.extension.ascanrules.TestPathTraversal.scan(TestPathTraversal.java:287)
-	at org.parosproxy.paros.core.scanner.AbstractAppParamPlugin.scan(Unknown Source)
-	at org.parosproxy.paros.core.scanner.AbstractAppParamPlugin.scanVariant(Unknown Source)
-	at org.parosproxy.paros.core.scanner.AbstractAppParamPlugin.scan(Unknown Source)
-	at org.parosproxy.paros.core.scanner.AbstractPlugin.run(Unknown Source)
-	at java.lang.Thread.run(Thread.java:745)
-Caused by: org.apache.commons.httpclient.URIException: incorrect path
-	at org.apache.commons.httpclient.URI.setRawPath(URI.java:2862)
-	at org.apache.commons.httpclient.URI.parseUriReference(URI.java:2023)
-	at org.apache.commons.httpclient.URI.<init>(URI.java:147)
-	... 18 more
-223081 [ZAP-ActiveScanner-0] WARN org.zaproxy.zap.extension.ascanrules.TestPathTraversal  - Error scanning parameters for Path Traversal: Invalid redirect location: http://c:\Windows\system.ini
-org.apache.commons.httpclient.InvalidRedirectLocationException: Invalid redirect location: http://c:\Windows\system.ini
-	at org.apache.commons.httpclient.HttpMethodDirector.processRedirectResponse(Unknown Source)
-	at org.apache.commons.httpclient.HttpMethodDirector.executeMethod(Unknown Source)
-	at org.apache.commons.httpclient.HttpClient.executeMethod(HttpClient.java:397)
-	at org.parosproxy.paros.network.HttpSender.executeMethod(Unknown Source)
-	at org.parosproxy.paros.network.HttpSender.runMethod(Unknown Source)
-	at org.parosproxy.paros.network.HttpSender.send(Unknown Source)
-	at org.parosproxy.paros.network.HttpSender.sendAuthenticated(Unknown Source)
-	at org.parosproxy.paros.network.HttpSender.sendAndReceive(Unknown Source)
-	at org.parosproxy.paros.core.scanner.AbstractPlugin.sendAndReceive(Unknown Source)
-	at org.parosproxy.paros.core.scanner.AbstractPlugin.sendAndReceive(Unknown Source)
-	at org.parosproxy.paros.core.scanner.AbstractPlugin.sendAndReceive(Unknown Source)
-	at org.zaproxy.zap.extension.ascanrules.TestPathTraversal.sendAndCheckPayload(TestPathTraversal.java:459)
-	at org.zaproxy.zap.extension.ascanrules.TestPathTraversal.scan(TestPathTraversal.java:287)
-	at org.parosproxy.paros.core.scanner.AbstractAppParamPlugin.scan(Unknown Source)
-	at org.parosproxy.paros.core.scanner.AbstractAppParamPlugin.scanVariant(Unknown Source)
-	at org.parosproxy.paros.core.scanner.AbstractAppParamPlugin.scan(Unknown Source)
-	at org.parosproxy.paros.core.scanner.AbstractPlugin.run(Unknown Source)
-	at java.lang.Thread.run(Thread.java:745)
-Caused by: org.apache.commons.httpclient.URIException: invalid port number
-	at org.apache.commons.httpclient.URI.parseAuthority(URI.java:2248)
-	at org.apache.commons.httpclient.URI.parseUriReference(URI.java:1978)
-	at org.apache.commons.httpclient.URI.<init>(URI.java:147)
-	... 18 more
-223081 [ZAP-ActiveScanner-1] WARN org.zaproxy.zap.extension.ascanrules.TestPathTraversal  - Error scanning parameters for Path Traversal: Invalid redirect location: http://c:\Windows\system.ini
-org.apache.commons.httpclient.InvalidRedirectLocationException: Invalid redirect location: http://c:\Windows\system.ini
-	at org.apache.commons.httpclient.HttpMethodDirector.processRedirectResponse(Unknown Source)
-	at org.apache.commons.httpclient.HttpMethodDirector.executeMethod(Unknown Source)
-	at org.apache.commons.httpclient.HttpClient.executeMethod(HttpClient.java:397)
-	at org.parosproxy.paros.network.HttpSender.executeMethod(Unknown Source)
-	at org.parosproxy.paros.network.HttpSender.runMethod(Unknown Source)
-	at org.parosproxy.paros.network.HttpSender.send(Unknown Source)
-	at org.parosproxy.paros.network.HttpSender.sendAuthenticated(Unknown Source)
-	at org.parosproxy.paros.network.HttpSender.sendAndReceive(Unknown Source)
-	at org.parosproxy.paros.core.scanner.AbstractPlugin.sendAndReceive(Unknown Source)
-	at org.parosproxy.paros.core.scanner.AbstractPlugin.sendAndReceive(Unknown Source)
-	at org.parosproxy.paros.core.scanner.AbstractPlugin.sendAndReceive(Unknown Source)
-	at org.zaproxy.zap.extension.ascanrules.TestPathTraversal.sendAndCheckPayload(TestPathTraversal.java:459)
-	at org.zaproxy.zap.extension.ascanrules.TestPathTraversal.scan(TestPathTraversal.java:287)
-	at org.parosproxy.paros.core.scanner.AbstractAppParamPlugin.scan(Unknown Source)
-	at org.parosproxy.paros.core.scanner.AbstractAppParamPlugin.scanVariant(Unknown Source)
-	at org.parosproxy.paros.core.scanner.AbstractAppParamPlugin.scan(Unknown Source)
-	at org.parosproxy.paros.core.scanner.AbstractPlugin.run(Unknown Source)
-	at java.lang.Thread.run(Thread.java:745)
-Caused by: org.apache.commons.httpclient.URIException: invalid port number
-	at org.apache.commons.httpclient.URI.parseAuthority(URI.java:2248)
-	at org.apache.commons.httpclient.URI.parseUriReference(URI.java:1978)
-	at org.apache.commons.httpclient.URI.<init>(URI.java:147)
-	... 18 more
-223281 [ZAP-ActiveScanner-0] WARN org.zaproxy.zap.extension.ascanrules.TestPathTraversal  - Error scanning parameters for Path Traversal: Invalid redirect location: http://c:\Windows\system.ini
-org.apache.commons.httpclient.InvalidRedirectLocationException: Invalid redirect location: http://c:\Windows\system.ini
-	at org.apache.commons.httpclient.HttpMethodDirector.processRedirectResponse(Unknown Source)
-	at org.apache.commons.httpclient.HttpMethodDirector.executeMethod(Unknown Source)
-	at org.apache.commons.httpclient.HttpClient.executeMethod(HttpClient.java:397)
-	at org.parosproxy.paros.network.HttpSender.executeMethod(Unknown Source)
-	at org.parosproxy.paros.network.HttpSender.runMethod(Unknown Source)
-	at org.parosproxy.paros.network.HttpSender.send(Unknown Source)
-	at org.parosproxy.paros.network.HttpSender.sendAuthenticated(Unknown Source)
-	at org.parosproxy.paros.network.HttpSender.sendAndReceive(Unknown Source)
-	at org.parosproxy.paros.core.scanner.AbstractPlugin.sendAndReceive(Unknown Source)
-	at org.parosproxy.paros.core.scanner.AbstractPlugin.sendAndReceive(Unknown Source)
-	at org.parosproxy.paros.core.scanner.AbstractPlugin.sendAndReceive(Unknown Source)
-	at org.zaproxy.zap.extension.ascanrules.TestPathTraversal.sendAndCheckPayload(TestPathTraversal.java:459)
-	at org.zaproxy.zap.extension.ascanrules.TestPathTraversal.scan(TestPathTraversal.java:287)
-	at org.parosproxy.paros.core.scanner.AbstractAppParamPlugin.scan(Unknown Source)
-	at org.parosproxy.paros.core.scanner.AbstractAppParamPlugin.scanVariant(Unknown Source)
-	at org.parosproxy.paros.core.scanner.AbstractAppParamPlugin.scan(Unknown Source)
-	at org.parosproxy.paros.core.scanner.AbstractPlugin.run(Unknown Source)
-	at java.lang.Thread.run(Thread.java:745)
-Caused by: org.apache.commons.httpclient.URIException: invalid port number
-	at org.apache.commons.httpclient.URI.parseAuthority(URI.java:2248)
-	at org.apache.commons.httpclient.URI.parseUriReference(URI.java:1978)
-	at org.apache.commons.httpclient.URI.<init>(URI.java:147)
-	... 18 more
-223282 [ZAP-ActiveScanner-1] WARN org.zaproxy.zap.extension.ascanrules.TestPathTraversal  - Error scanning parameters for Path Traversal: Invalid redirect location: http://c:\Windows\system.ini
-org.apache.commons.httpclient.InvalidRedirectLocationException: Invalid redirect location: http://c:\Windows\system.ini
-	at org.apache.commons.httpclient.HttpMethodDirector.processRedirectResponse(Unknown Source)
-	at org.apache.commons.httpclient.HttpMethodDirector.executeMethod(Unknown Source)
-	at org.apache.commons.httpclient.HttpClient.executeMethod(HttpClient.java:397)
-	at org.parosproxy.paros.network.HttpSender.executeMethod(Unknown Source)
-	at org.parosproxy.paros.network.HttpSender.runMethod(Unknown Source)
-	at org.parosproxy.paros.network.HttpSender.send(Unknown Source)
-	at org.parosproxy.paros.network.HttpSender.sendAuthenticated(Unknown Source)
-	at org.parosproxy.paros.network.HttpSender.sendAndReceive(Unknown Source)
-	at org.parosproxy.paros.core.scanner.AbstractPlugin.sendAndReceive(Unknown Source)
-	at org.parosproxy.paros.core.scanner.AbstractPlugin.sendAndReceive(Unknown Source)
-	at org.parosproxy.paros.core.scanner.AbstractPlugin.sendAndReceive(Unknown Source)
-	at org.zaproxy.zap.extension.ascanrules.TestPathTraversal.sendAndCheckPayload(TestPathTraversal.java:459)
-	at org.zaproxy.zap.extension.ascanrules.TestPathTraversal.scan(TestPathTraversal.java:287)
-	at org.parosproxy.paros.core.scanner.AbstractAppParamPlugin.scan(Unknown Source)
-	at org.parosproxy.paros.core.scanner.AbstractAppParamPlugin.scanVariant(Unknown Source)
-	at org.parosproxy.paros.core.scanner.AbstractAppParamPlugin.scan(Unknown Source)
-	at org.parosproxy.paros.core.scanner.AbstractPlugin.run(Unknown Source)
-	at java.lang.Thread.run(Thread.java:745)
-Caused by: org.apache.commons.httpclient.URIException: invalid port number
-	at org.apache.commons.httpclient.URI.parseAuthority(URI.java:2248)
-	at org.apache.commons.httpclient.URI.parseUriReference(URI.java:1978)
-	at org.apache.commons.httpclient.URI.<init>(URI.java:147)
-	... 18 more
-223482 [ZAP-ActiveScanner-0] WARN org.zaproxy.zap.extension.ascanrules.TestPathTraversal  - Error scanning parameters for Path Traversal: Invalid redirect location: c:\Windows\system.ini
-org.apache.commons.httpclient.InvalidRedirectLocationException: Invalid redirect location: c:\Windows\system.ini
-	at org.apache.commons.httpclient.HttpMethodDirector.processRedirectResponse(Unknown Source)
-	at org.apache.commons.httpclient.HttpMethodDirector.executeMethod(Unknown Source)
-	at org.apache.commons.httpclient.HttpClient.executeMethod(HttpClient.java:397)
-	at org.parosproxy.paros.network.HttpSender.executeMethod(Unknown Source)
-	at org.parosproxy.paros.network.HttpSender.runMethod(Unknown Source)
-	at org.parosproxy.paros.network.HttpSender.send(Unknown Source)
-	at org.parosproxy.paros.network.HttpSender.sendAuthenticated(Unknown Source)
-	at org.parosproxy.paros.network.HttpSender.sendAndReceive(Unknown Source)
-	at org.parosproxy.paros.core.scanner.AbstractPlugin.sendAndReceive(Unknown Source)
-	at org.parosproxy.paros.core.scanner.AbstractPlugin.sendAndReceive(Unknown Source)
-	at org.parosproxy.paros.core.scanner.AbstractPlugin.sendAndReceive(Unknown Source)
-	at org.zaproxy.zap.extension.ascanrules.TestPathTraversal.sendAndCheckPayload(TestPathTraversal.java:459)
-	at org.zaproxy.zap.extension.ascanrules.TestPathTraversal.scan(TestPathTraversal.java:287)
-	at org.parosproxy.paros.core.scanner.AbstractAppParamPlugin.scan(Unknown Source)
-	at org.parosproxy.paros.core.scanner.AbstractAppParamPlugin.scanVariant(Unknown Source)
-	at org.parosproxy.paros.core.scanner.AbstractAppParamPlugin.scan(Unknown Source)
-	at org.parosproxy.paros.core.scanner.AbstractPlugin.run(Unknown Source)
-	at java.lang.Thread.run(Thread.java:745)
-Caused by: org.apache.commons.httpclient.URIException: incorrect path
-	at org.apache.commons.httpclient.URI.setRawPath(URI.java:2862)
-	at org.apache.commons.httpclient.URI.parseUriReference(URI.java:2023)
-	at org.apache.commons.httpclient.URI.<init>(URI.java:147)
-	... 18 more
-223486 [ZAP-ActiveScanner-1] WARN org.zaproxy.zap.extension.ascanrules.TestPathTraversal  - Error scanning parameters for Path Traversal: Invalid redirect location: c:\Windows\system.ini
-org.apache.commons.httpclient.InvalidRedirectLocationException: Invalid redirect location: c:\Windows\system.ini
-	at org.apache.commons.httpclient.HttpMethodDirector.processRedirectResponse(Unknown Source)
-	at org.apache.commons.httpclient.HttpMethodDirector.executeMethod(Unknown Source)
-	at org.apache.commons.httpclient.HttpClient.executeMethod(HttpClient.java:397)
-	at org.parosproxy.paros.network.HttpSender.executeMethod(Unknown Source)
-	at org.parosproxy.paros.network.HttpSender.runMethod(Unknown Source)
-	at org.parosproxy.paros.network.HttpSender.send(Unknown Source)
-	at org.parosproxy.paros.network.HttpSender.sendAuthenticated(Unknown Source)
-	at org.parosproxy.paros.network.HttpSender.sendAndReceive(Unknown Source)
-	at org.parosproxy.paros.core.scanner.AbstractPlugin.sendAndReceive(Unknown Source)
-	at org.parosproxy.paros.core.scanner.AbstractPlugin.sendAndReceive(Unknown Source)
-	at org.parosproxy.paros.core.scanner.AbstractPlugin.sendAndReceive(Unknown Source)
-	at org.zaproxy.zap.extension.ascanrules.TestPathTraversal.sendAndCheckPayload(TestPathTraversal.java:459)
-	at org.zaproxy.zap.extension.ascanrules.TestPathTraversal.scan(TestPathTraversal.java:287)
-	at org.parosproxy.paros.core.scanner.AbstractAppParamPlugin.scan(Unknown Source)
-	at org.parosproxy.paros.core.scanner.AbstractAppParamPlugin.scanVariant(Unknown Source)
-	at org.parosproxy.paros.core.scanner.AbstractAppParamPlugin.scan(Unknown Source)
-	at org.parosproxy.paros.core.scanner.AbstractPlugin.run(Unknown Source)
-	at java.lang.Thread.run(Thread.java:745)
-Caused by: org.apache.commons.httpclient.URIException: incorrect path
-	at org.apache.commons.httpclient.URI.setRawPath(URI.java:2862)
-	at org.apache.commons.httpclient.URI.parseUriReference(URI.java:2023)
-	at org.apache.commons.httpclient.URI.<init>(URI.java:147)
-	... 18 more
-223489 [ZAP-ActiveScanner-0] WARN org.zaproxy.zap.extension.ascanrules.TestPathTraversal  - Error scanning parameters for Path Traversal: Invalid redirect location: c:\Windows\system.ini
-org.apache.commons.httpclient.InvalidRedirectLocationException: Invalid redirect location: c:\Windows\system.ini
-	at org.apache.commons.httpclient.HttpMethodDirector.processRedirectResponse(Unknown Source)
-	at org.apache.commons.httpclient.HttpMethodDirector.executeMethod(Unknown Source)
-	at org.apache.commons.httpclient.HttpClient.executeMethod(HttpClient.java:397)
-	at org.parosproxy.paros.network.HttpSender.executeMethod(Unknown Source)
-	at org.parosproxy.paros.network.HttpSender.runMethod(Unknown Source)
-	at org.parosproxy.paros.network.HttpSender.send(Unknown Source)
-	at org.parosproxy.paros.network.HttpSender.sendAuthenticated(Unknown Source)
-	at org.parosproxy.paros.network.HttpSender.sendAndReceive(Unknown Source)
-	at org.parosproxy.paros.core.scanner.AbstractPlugin.sendAndReceive(Unknown Source)
-	at org.parosproxy.paros.core.scanner.AbstractPlugin.sendAndReceive(Unknown Source)
-	at org.parosproxy.paros.core.scanner.AbstractPlugin.sendAndReceive(Unknown Source)
-	at org.zaproxy.zap.extension.ascanrules.TestPathTraversal.sendAndCheckPayload(TestPathTraversal.java:459)
-	at org.zaproxy.zap.extension.ascanrules.TestPathTraversal.scan(TestPathTraversal.java:287)
-	at org.parosproxy.paros.core.scanner.AbstractAppParamPlugin.scan(Unknown Source)
-	at org.parosproxy.paros.core.scanner.AbstractAppParamPlugin.scanVariant(Unknown Source)
-	at org.parosproxy.paros.core.scanner.AbstractAppParamPlugin.scan(Unknown Source)
-	at org.parosproxy.paros.core.scanner.AbstractPlugin.run(Unknown Source)
-	at java.lang.Thread.run(Thread.java:745)
-Caused by: org.apache.commons.httpclient.URIException: incorrect path
-	at org.apache.commons.httpclient.URI.setRawPath(URI.java:2862)
-	at org.apache.commons.httpclient.URI.parseUriReference(URI.java:2023)
-	at org.apache.commons.httpclient.URI.<init>(URI.java:147)
-	... 18 more
-223690 [ZAP-ActiveScanner-0] WARN org.zaproxy.zap.extension.ascanrules.TestPathTraversal  - Error scanning parameters for Path Traversal: Invalid redirect location: c:\Windows\system.ini
-org.apache.commons.httpclient.InvalidRedirectLocationException: Invalid redirect location: c:\Windows\system.ini
-	at org.apache.commons.httpclient.HttpMethodDirector.processRedirectResponse(Unknown Source)
-	at org.apache.commons.httpclient.HttpMethodDirector.executeMethod(Unknown Source)
-	at org.apache.commons.httpclient.HttpClient.executeMethod(HttpClient.java:397)
-	at org.parosproxy.paros.network.HttpSender.executeMethod(Unknown Source)
-	at org.parosproxy.paros.network.HttpSender.runMethod(Unknown Source)
-	at org.parosproxy.paros.network.HttpSender.send(Unknown Source)
-	at org.parosproxy.paros.network.HttpSender.sendAuthenticated(Unknown Source)
-	at org.parosproxy.paros.network.HttpSender.sendAndReceive(Unknown Source)
-	at org.parosproxy.paros.core.scanner.AbstractPlugin.sendAndReceive(Unknown Source)
-	at org.parosproxy.paros.core.scanner.AbstractPlugin.sendAndReceive(Unknown Source)
-	at org.parosproxy.paros.core.scanner.AbstractPlugin.sendAndReceive(Unknown Source)
-	at org.zaproxy.zap.extension.ascanrules.TestPathTraversal.sendAndCheckPayload(TestPathTraversal.java:459)
-	at org.zaproxy.zap.extension.ascanrules.TestPathTraversal.scan(TestPathTraversal.java:287)
-	at org.parosproxy.paros.core.scanner.AbstractAppParamPlugin.scan(Unknown Source)
-	at org.parosproxy.paros.core.scanner.AbstractAppParamPlugin.scanVariant(Unknown Source)
-	at org.parosproxy.paros.core.scanner.AbstractAppParamPlugin.scan(Unknown Source)
-	at org.parosproxy.paros.core.scanner.AbstractPlugin.run(Unknown Source)
-	at java.lang.Thread.run(Thread.java:745)
-Caused by: org.apache.commons.httpclient.URIException: incorrect path
-	at org.apache.commons.httpclient.URI.setRawPath(URI.java:2862)
-	at org.apache.commons.httpclient.URI.parseUriReference(URI.java:2023)
-	at org.apache.commons.httpclient.URI.<init>(URI.java:147)
-	... 18 more
-224093 [ZAP-ActiveScanner-1] WARN org.zaproxy.zap.extension.ascanrules.TestPathTraversal  - Error scanning parameters for Path Traversal: Failed to set URI: unsupported protocol: 'c'
-org.apache.commons.httpclient.URIException: Failed to set URI: unsupported protocol: 'c'
-	at org.parosproxy.paros.network.HttpMethodHelper.createRequestMethod(Unknown Source)
-	at org.parosproxy.paros.network.HttpSender.runMethod(Unknown Source)
-	at org.parosproxy.paros.network.HttpSender.send(Unknown Source)
-	at org.parosproxy.paros.network.HttpSender.sendAuthenticated(Unknown Source)
-	at org.parosproxy.paros.network.HttpSender.sendAndReceive(Unknown Source)
-	at org.parosproxy.paros.core.scanner.AbstractPlugin.sendAndReceive(Unknown Source)
-	at org.parosproxy.paros.core.scanner.AbstractPlugin.sendAndReceive(Unknown Source)
-	at org.parosproxy.paros.core.scanner.AbstractPlugin.sendAndReceive(Unknown Source)
-	at org.zaproxy.zap.extension.ascanrules.TestPathTraversal.sendAndCheckPayload(TestPathTraversal.java:459)
-	at org.zaproxy.zap.extension.ascanrules.TestPathTraversal.scan(TestPathTraversal.java:287)
-	at org.parosproxy.paros.core.scanner.AbstractAppParamPlugin.scan(Unknown Source)
-	at org.parosproxy.paros.core.scanner.AbstractAppParamPlugin.scanVariant(Unknown Source)
-	at org.parosproxy.paros.core.scanner.AbstractAppParamPlugin.scan(Unknown Source)
-	at org.parosproxy.paros.core.scanner.AbstractPlugin.run(Unknown Source)
-	at java.lang.Thread.run(Thread.java:745)
-224093 [ZAP-ActiveScanner-0] WARN org.zaproxy.zap.extension.ascanrules.TestPathTraversal  - Error scanning parameters for Path Traversal: Failed to set URI: unsupported protocol: 'c'
-org.apache.commons.httpclient.URIException: Failed to set URI: unsupported protocol: 'c'
-	at org.parosproxy.paros.network.HttpMethodHelper.createRequestMethod(Unknown Source)
-	at org.parosproxy.paros.network.HttpSender.runMethod(Unknown Source)
-	at org.parosproxy.paros.network.HttpSender.send(Unknown Source)
-	at org.parosproxy.paros.network.HttpSender.sendAuthenticated(Unknown Source)
-	at org.parosproxy.paros.network.HttpSender.sendAndReceive(Unknown Source)
-	at org.parosproxy.paros.core.scanner.AbstractPlugin.sendAndReceive(Unknown Source)
-	at org.parosproxy.paros.core.scanner.AbstractPlugin.sendAndReceive(Unknown Source)
-	at org.parosproxy.paros.core.scanner.AbstractPlugin.sendAndReceive(Unknown Source)
-	at org.zaproxy.zap.extension.ascanrules.TestPathTraversal.sendAndCheckPayload(TestPathTraversal.java:459)
-	at org.zaproxy.zap.extension.ascanrules.TestPathTraversal.scan(TestPathTraversal.java:287)
-	at org.parosproxy.paros.core.scanner.AbstractAppParamPlugin.scan(Unknown Source)
-	at org.parosproxy.paros.core.scanner.AbstractAppParamPlugin.scanVariant(Unknown Source)
-	at org.parosproxy.paros.core.scanner.AbstractAppParamPlugin.scan(Unknown Source)
-	at org.parosproxy.paros.core.scanner.AbstractPlugin.run(Unknown Source)
-	at java.lang.Thread.run(Thread.java:745)
-224294 [ZAP-ActiveScanner-0] WARN org.zaproxy.zap.extension.ascanrules.TestPathTraversal  - Error scanning parameters for Path Traversal: Failed to set URI: unsupported protocol: 'c'
-org.apache.commons.httpclient.URIException: Failed to set URI: unsupported protocol: 'c'
-	at org.parosproxy.paros.network.HttpMethodHelper.createRequestMethod(Unknown Source)
-	at org.parosproxy.paros.network.HttpSender.runMethod(Unknown Source)
-	at org.parosproxy.paros.network.HttpSender.send(Unknown Source)
-	at org.parosproxy.paros.network.HttpSender.sendAuthenticated(Unknown Source)
-	at org.parosproxy.paros.network.HttpSender.sendAndReceive(Unknown Source)
-	at org.parosproxy.paros.core.scanner.AbstractPlugin.sendAndReceive(Unknown Source)
-	at org.parosproxy.paros.core.scanner.AbstractPlugin.sendAndReceive(Unknown Source)
-	at org.parosproxy.paros.core.scanner.AbstractPlugin.sendAndReceive(Unknown Source)
-	at org.zaproxy.zap.extension.ascanrules.TestPathTraversal.sendAndCheckPayload(TestPathTraversal.java:459)
-	at org.zaproxy.zap.extension.ascanrules.TestPathTraversal.scan(TestPathTraversal.java:287)
-	at org.parosproxy.paros.core.scanner.AbstractAppParamPlugin.scan(Unknown Source)
-	at org.parosproxy.paros.core.scanner.AbstractAppParamPlugin.scanVariant(Unknown Source)
-	at org.parosproxy.paros.core.scanner.AbstractAppParamPlugin.scan(Unknown Source)
-	at org.parosproxy.paros.core.scanner.AbstractPlugin.run(Unknown Source)
-	at java.lang.Thread.run(Thread.java:745)
-224297 [ZAP-ActiveScanner-1] WARN org.zaproxy.zap.extension.ascanrules.TestPathTraversal  - Error scanning parameters for Path Traversal: invalid port number
-org.apache.commons.httpclient.URIException: invalid port number
-	at org.apache.commons.httpclient.URI.parseAuthority(URI.java:2248)
-	at org.apache.commons.httpclient.URI.parseUriReference(URI.java:1978)
-	at org.apache.commons.httpclient.URI.<init>(URI.java:167)
-	at org.apache.commons.httpclient.URI.<init>(URI.java:455)
-	at org.parosproxy.paros.network.HttpSender.sendAndReceive(Unknown Source)
-	at org.parosproxy.paros.core.scanner.AbstractPlugin.sendAndReceive(Unknown Source)
-	at org.parosproxy.paros.core.scanner.AbstractPlugin.sendAndReceive(Unknown Source)
-	at org.parosproxy.paros.core.scanner.AbstractPlugin.sendAndReceive(Unknown Source)
-	at org.zaproxy.zap.extension.ascanrules.TestPathTraversal.sendAndCheckPayload(TestPathTraversal.java:459)
-	at org.zaproxy.zap.extension.ascanrules.TestPathTraversal.scan(TestPathTraversal.java:287)
-	at org.parosproxy.paros.core.scanner.AbstractAppParamPlugin.scan(Unknown Source)
-	at org.parosproxy.paros.core.scanner.AbstractAppParamPlugin.scanVariant(Unknown Source)
-	at org.parosproxy.paros.core.scanner.AbstractAppParamPlugin.scan(Unknown Source)
-	at org.parosproxy.paros.core.scanner.AbstractPlugin.run(Unknown Source)
-	at java.lang.Thread.run(Thread.java:745)
-224495 [ZAP-ActiveScanner-0] WARN org.zaproxy.zap.extension.ascanrules.TestPathTraversal  - Error scanning parameters for Path Traversal: Failed to set URI: unsupported protocol: 'c'
-org.apache.commons.httpclient.URIException: Failed to set URI: unsupported protocol: 'c'
-	at org.parosproxy.paros.network.HttpMethodHelper.createRequestMethod(Unknown Source)
-	at org.parosproxy.paros.network.HttpSender.runMethod(Unknown Source)
-	at org.parosproxy.paros.network.HttpSender.send(Unknown Source)
-	at org.parosproxy.paros.network.HttpSender.sendAuthenticated(Unknown Source)
-	at org.parosproxy.paros.network.HttpSender.sendAndReceive(Unknown Source)
-	at org.parosproxy.paros.core.scanner.AbstractPlugin.sendAndReceive(Unknown Source)
-	at org.parosproxy.paros.core.scanner.AbstractPlugin.sendAndReceive(Unknown Source)
-	at org.parosproxy.paros.core.scanner.AbstractPlugin.sendAndReceive(Unknown Source)
-	at org.zaproxy.zap.extension.ascanrules.TestPathTraversal.sendAndCheckPayload(TestPathTraversal.java:459)
-	at org.zaproxy.zap.extension.ascanrules.TestPathTraversal.scan(TestPathTraversal.java:287)
-	at org.parosproxy.paros.core.scanner.AbstractAppParamPlugin.scan(Unknown Source)
-	at org.parosproxy.paros.core.scanner.AbstractAppParamPlugin.scanVariant(Unknown Source)
-	at org.parosproxy.paros.core.scanner.AbstractAppParamPlugin.scan(Unknown Source)
-	at org.parosproxy.paros.core.scanner.AbstractPlugin.run(Unknown Source)
-	at java.lang.Thread.run(Thread.java:745)
-224496 [ZAP-ActiveScanner-1] WARN org.zaproxy.zap.extension.ascanrules.TestPathTraversal  - Error scanning parameters for Path Traversal: Failed to set URI: unsupported protocol: 'c'
-org.apache.commons.httpclient.URIException: Failed to set URI: unsupported protocol: 'c'
-	at org.parosproxy.paros.network.HttpMethodHelper.createRequestMethod(Unknown Source)
-	at org.parosproxy.paros.network.HttpSender.runMethod(Unknown Source)
-	at org.parosproxy.paros.network.HttpSender.send(Unknown Source)
-	at org.parosproxy.paros.network.HttpSender.sendAuthenticated(Unknown Source)
-	at org.parosproxy.paros.network.HttpSender.sendAndReceive(Unknown Source)
-	at org.parosproxy.paros.core.scanner.AbstractPlugin.sendAndReceive(Unknown Source)
-	at org.parosproxy.paros.core.scanner.AbstractPlugin.sendAndReceive(Unknown Source)
-	at org.parosproxy.paros.core.scanner.AbstractPlugin.sendAndReceive(Unknown Source)
-	at org.zaproxy.zap.extension.ascanrules.TestPathTraversal.sendAndCheckPayload(TestPathTraversal.java:459)
-	at org.zaproxy.zap.extension.ascanrules.TestPathTraversal.scan(TestPathTraversal.java:287)
-	at org.parosproxy.paros.core.scanner.AbstractAppParamPlugin.scan(Unknown Source)
-	at org.parosproxy.paros.core.scanner.AbstractAppParamPlugin.scanVariant(Unknown Source)
-	at org.parosproxy.paros.core.scanner.AbstractAppParamPlugin.scan(Unknown Source)
-	at org.parosproxy.paros.core.scanner.AbstractPlugin.run(Unknown Source)
-	at java.lang.Thread.run(Thread.java:745)
-224696 [ZAP-ActiveScanner-0] WARN org.zaproxy.zap.extension.ascanrules.TestPathTraversal  - Error scanning parameters for Path Traversal: Failed to set URI: unsupported protocol: 'c'
-org.apache.commons.httpclient.URIException: Failed to set URI: unsupported protocol: 'c'
-	at org.parosproxy.paros.network.HttpMethodHelper.createRequestMethod(Unknown Source)
-	at org.parosproxy.paros.network.HttpSender.runMethod(Unknown Source)
-	at org.parosproxy.paros.network.HttpSender.send(Unknown Source)
-	at org.parosproxy.paros.network.HttpSender.sendAuthenticated(Unknown Source)
-	at org.parosproxy.paros.network.HttpSender.sendAndReceive(Unknown Source)
-	at org.parosproxy.paros.core.scanner.AbstractPlugin.sendAndReceive(Unknown Source)
-	at org.parosproxy.paros.core.scanner.AbstractPlugin.sendAndReceive(Unknown Source)
-	at org.parosproxy.paros.core.scanner.AbstractPlugin.sendAndReceive(Unknown Source)
-	at org.zaproxy.zap.extension.ascanrules.TestPathTraversal.sendAndCheckPayload(TestPathTraversal.java:459)
-	at org.zaproxy.zap.extension.ascanrules.TestPathTraversal.scan(TestPathTraversal.java:287)
-	at org.parosproxy.paros.core.scanner.AbstractAppParamPlugin.scan(Unknown Source)
-	at org.parosproxy.paros.core.scanner.AbstractAppParamPlugin.scanVariant(Unknown Source)
-	at org.parosproxy.paros.core.scanner.AbstractAppParamPlugin.scan(Unknown Source)
-	at org.parosproxy.paros.core.scanner.AbstractPlugin.run(Unknown Source)
-	at java.lang.Thread.run(Thread.java:745)
-224699 [ZAP-ActiveScanner-1] WARN org.zaproxy.zap.extension.ascanrules.TestPathTraversal  - Error scanning parameters for Path Traversal: invalid port number
-org.apache.commons.httpclient.URIException: invalid port number
-	at org.apache.commons.httpclient.URI.parseAuthority(URI.java:2248)
-	at org.apache.commons.httpclient.URI.parseUriReference(URI.java:1978)
-	at org.apache.commons.httpclient.URI.<init>(URI.java:167)
-	at org.apache.commons.httpclient.URI.<init>(URI.java:455)
-	at org.parosproxy.paros.network.HttpSender.sendAndReceive(Unknown Source)
-	at org.parosproxy.paros.core.scanner.AbstractPlugin.sendAndReceive(Unknown Source)
-	at org.parosproxy.paros.core.scanner.AbstractPlugin.sendAndReceive(Unknown Source)
-	at org.parosproxy.paros.core.scanner.AbstractPlugin.sendAndReceive(Unknown Source)
-	at org.zaproxy.zap.extension.ascanrules.TestPathTraversal.sendAndCheckPayload(TestPathTraversal.java:459)
-	at org.zaproxy.zap.extension.ascanrules.TestPathTraversal.scan(TestPathTraversal.java:287)
-	at org.parosproxy.paros.core.scanner.AbstractAppParamPlugin.scan(Unknown Source)
-	at org.parosproxy.paros.core.scanner.AbstractAppParamPlugin.scanVariant(Unknown Source)
-	at org.parosproxy.paros.core.scanner.AbstractAppParamPlugin.scan(Unknown Source)
-	at org.parosproxy.paros.core.scanner.AbstractPlugin.run(Unknown Source)
-	at java.lang.Thread.run(Thread.java:745)
-224900 [ZAP-ActiveScanner-0] WARN org.zaproxy.zap.extension.ascanrules.TestPathTraversal  - Error scanning parameters for Path Traversal: invalid port number
-org.apache.commons.httpclient.URIException: invalid port number
-	at org.apache.commons.httpclient.URI.parseAuthority(URI.java:2248)
-	at org.apache.commons.httpclient.URI.parseUriReference(URI.java:1978)
-	at org.apache.commons.httpclient.URI.<init>(URI.java:167)
-	at org.apache.commons.httpclient.URI.<init>(URI.java:455)
-	at org.parosproxy.paros.network.HttpSender.sendAndReceive(Unknown Source)
-	at org.parosproxy.paros.core.scanner.AbstractPlugin.sendAndReceive(Unknown Source)
-	at org.parosproxy.paros.core.scanner.AbstractPlugin.sendAndReceive(Unknown Source)
-	at org.parosproxy.paros.core.scanner.AbstractPlugin.sendAndReceive(Unknown Source)
-	at org.zaproxy.zap.extension.ascanrules.TestPathTraversal.sendAndCheckPayload(TestPathTraversal.java:459)
-	at org.zaproxy.zap.extension.ascanrules.TestPathTraversal.scan(TestPathTraversal.java:287)
-	at org.parosproxy.paros.core.scanner.AbstractAppParamPlugin.scan(Unknown Source)
-	at org.parosproxy.paros.core.scanner.AbstractAppParamPlugin.scanVariant(Unknown Source)
-	at org.parosproxy.paros.core.scanner.AbstractAppParamPlugin.scan(Unknown Source)
-	at org.parosproxy.paros.core.scanner.AbstractPlugin.run(Unknown Source)
-	at java.lang.Thread.run(Thread.java:745)
-224900 [ZAP-ActiveScanner-1] WARN org.zaproxy.zap.extension.ascanrules.TestPathTraversal  - Error scanning parameters for Path Traversal: invalid port number
-org.apache.commons.httpclient.URIException: invalid port number
-	at org.apache.commons.httpclient.URI.parseAuthority(URI.java:2248)
-	at org.apache.commons.httpclient.URI.parseUriReference(URI.java:1978)
-	at org.apache.commons.httpclient.URI.<init>(URI.java:167)
-	at org.apache.commons.httpclient.URI.<init>(URI.java:455)
-	at org.parosproxy.paros.network.HttpSender.sendAndReceive(Unknown Source)
-	at org.parosproxy.paros.core.scanner.AbstractPlugin.sendAndReceive(Unknown Source)
-	at org.parosproxy.paros.core.scanner.AbstractPlugin.sendAndReceive(Unknown Source)
-	at org.parosproxy.paros.core.scanner.AbstractPlugin.sendAndReceive(Unknown Source)
-	at org.zaproxy.zap.extension.ascanrules.TestPathTraversal.sendAndCheckPayload(TestPathTraversal.java:459)
-	at org.zaproxy.zap.extension.ascanrules.TestPathTraversal.scan(TestPathTraversal.java:287)
-	at org.parosproxy.paros.core.scanner.AbstractAppParamPlugin.scan(Unknown Source)
-	at org.parosproxy.paros.core.scanner.AbstractAppParamPlugin.scanVariant(Unknown Source)
-	at org.parosproxy.paros.core.scanner.AbstractAppParamPlugin.scan(Unknown Source)
-	at org.parosproxy.paros.core.scanner.AbstractPlugin.run(Unknown Source)
-	at java.lang.Thread.run(Thread.java:745)
-225099 [ZAP-ActiveScanner-1] WARN org.zaproxy.zap.extension.ascanrules.TestPathTraversal  - Error scanning parameters for Path Traversal: Failed to set URI: unsupported protocol: 'c'
-org.apache.commons.httpclient.URIException: Failed to set URI: unsupported protocol: 'c'
-	at org.parosproxy.paros.network.HttpMethodHelper.createRequestMethod(Unknown Source)
-	at org.parosproxy.paros.network.HttpSender.runMethod(Unknown Source)
-	at org.parosproxy.paros.network.HttpSender.send(Unknown Source)
-	at org.parosproxy.paros.network.HttpSender.sendAuthenticated(Unknown Source)
-	at org.parosproxy.paros.network.HttpSender.sendAndReceive(Unknown Source)
-	at org.parosproxy.paros.core.scanner.AbstractPlugin.sendAndReceive(Unknown Source)
-	at org.parosproxy.paros.core.scanner.AbstractPlugin.sendAndReceive(Unknown Source)
-	at org.parosproxy.paros.core.scanner.AbstractPlugin.sendAndReceive(Unknown Source)
-	at org.zaproxy.zap.extension.ascanrules.TestPathTraversal.sendAndCheckPayload(TestPathTraversal.java:459)
-	at org.zaproxy.zap.extension.ascanrules.TestPathTraversal.scan(TestPathTraversal.java:287)
-	at org.parosproxy.paros.core.scanner.AbstractAppParamPlugin.scan(Unknown Source)
-	at org.parosproxy.paros.core.scanner.AbstractAppParamPlugin.scanVariant(Unknown Source)
-	at org.parosproxy.paros.core.scanner.AbstractAppParamPlugin.scan(Unknown Source)
-	at org.parosproxy.paros.core.scanner.AbstractPlugin.run(Unknown Source)
-	at java.lang.Thread.run(Thread.java:745)
-225101 [ZAP-ActiveScanner-0] WARN org.zaproxy.zap.extension.ascanrules.TestPathTraversal  - Error scanning parameters for Path Traversal: invalid port number
-org.apache.commons.httpclient.URIException: invalid port number
-	at org.apache.commons.httpclient.URI.parseAuthority(URI.java:2248)
-	at org.apache.commons.httpclient.URI.parseUriReference(URI.java:1978)
-	at org.apache.commons.httpclient.URI.<init>(URI.java:167)
-	at org.apache.commons.httpclient.URI.<init>(URI.java:455)
-	at org.parosproxy.paros.network.HttpSender.sendAndReceive(Unknown Source)
-	at org.parosproxy.paros.core.scanner.AbstractPlugin.sendAndReceive(Unknown Source)
-	at org.parosproxy.paros.core.scanner.AbstractPlugin.sendAndReceive(Unknown Source)
-	at org.parosproxy.paros.core.scanner.AbstractPlugin.sendAndReceive(Unknown Source)
-	at org.zaproxy.zap.extension.ascanrules.TestPathTraversal.sendAndCheckPayload(TestPathTraversal.java:459)
-	at org.zaproxy.zap.extension.ascanrules.TestPathTraversal.scan(TestPathTraversal.java:287)
-	at org.parosproxy.paros.core.scanner.AbstractAppParamPlugin.scan(Unknown Source)
-	at org.parosproxy.paros.core.scanner.AbstractAppParamPlugin.scanVariant(Unknown Source)
-	at org.parosproxy.paros.core.scanner.AbstractAppParamPlugin.scan(Unknown Source)
-	at org.parosproxy.paros.core.scanner.AbstractPlugin.run(Unknown Source)
-	at java.lang.Thread.run(Thread.java:745)
-225299 [ZAP-ActiveScanner-0] WARN org.zaproxy.zap.extension.ascanrules.TestPathTraversal  - Error scanning parameters for Path Traversal: Failed to set URI: unsupported protocol: 'c'
-org.apache.commons.httpclient.URIException: Failed to set URI: unsupported protocol: 'c'
-	at org.parosproxy.paros.network.HttpMethodHelper.createRequestMethod(Unknown Source)
-	at org.parosproxy.paros.network.HttpSender.runMethod(Unknown Source)
-	at org.parosproxy.paros.network.HttpSender.send(Unknown Source)
-	at org.parosproxy.paros.network.HttpSender.sendAuthenticated(Unknown Source)
-	at org.parosproxy.paros.network.HttpSender.sendAndReceive(Unknown Source)
-	at org.parosproxy.paros.core.scanner.AbstractPlugin.sendAndReceive(Unknown Source)
-	at org.parosproxy.paros.core.scanner.AbstractPlugin.sendAndReceive(Unknown Source)
-	at org.parosproxy.paros.core.scanner.AbstractPlugin.sendAndReceive(Unknown Source)
-	at org.zaproxy.zap.extension.ascanrules.TestPathTraversal.sendAndCheckPayload(TestPathTraversal.java:459)
-	at org.zaproxy.zap.extension.ascanrules.TestPathTraversal.scan(TestPathTraversal.java:287)
-	at org.parosproxy.paros.core.scanner.AbstractAppParamPlugin.scan(Unknown Source)
-	at org.parosproxy.paros.core.scanner.AbstractAppParamPlugin.scanVariant(Unknown Source)
-	at org.parosproxy.paros.core.scanner.AbstractAppParamPlugin.scan(Unknown Source)
-	at org.parosproxy.paros.core.scanner.AbstractPlugin.run(Unknown Source)
-	at java.lang.Thread.run(Thread.java:745)
-225299 [ZAP-ActiveScanner-1] WARN org.zaproxy.zap.extension.ascanrules.TestPathTraversal  - Error scanning parameters for Path Traversal: Failed to set URI: unsupported protocol: 'c'
-org.apache.commons.httpclient.URIException: Failed to set URI: unsupported protocol: 'c'
-	at org.parosproxy.paros.network.HttpMethodHelper.createRequestMethod(Unknown Source)
-	at org.parosproxy.paros.network.HttpSender.runMethod(Unknown Source)
-	at org.parosproxy.paros.network.HttpSender.send(Unknown Source)
-	at org.parosproxy.paros.network.HttpSender.sendAuthenticated(Unknown Source)
-	at org.parosproxy.paros.network.HttpSender.sendAndReceive(Unknown Source)
-	at org.parosproxy.paros.core.scanner.AbstractPlugin.sendAndReceive(Unknown Source)
-	at org.parosproxy.paros.core.scanner.AbstractPlugin.sendAndReceive(Unknown Source)
-	at org.parosproxy.paros.core.scanner.AbstractPlugin.sendAndReceive(Unknown Source)
-	at org.zaproxy.zap.extension.ascanrules.TestPathTraversal.sendAndCheckPayload(TestPathTraversal.java:459)
-	at org.zaproxy.zap.extension.ascanrules.TestPathTraversal.scan(TestPathTraversal.java:287)
-	at org.parosproxy.paros.core.scanner.AbstractAppParamPlugin.scan(Unknown Source)
-	at org.parosproxy.paros.core.scanner.AbstractAppParamPlugin.scanVariant(Unknown Source)
-	at org.parosproxy.paros.core.scanner.AbstractAppParamPlugin.scan(Unknown Source)
-	at org.parosproxy.paros.core.scanner.AbstractPlugin.run(Unknown Source)
-	at java.lang.Thread.run(Thread.java:745)
-225500 [ZAP-ActiveScanner-0] WARN org.zaproxy.zap.extension.ascanrules.TestPathTraversal  - Error scanning parameters for Path Traversal: Failed to set URI: unsupported protocol: 'c'
-org.apache.commons.httpclient.URIException: Failed to set URI: unsupported protocol: 'c'
-	at org.parosproxy.paros.network.HttpMethodHelper.createRequestMethod(Unknown Source)
-	at org.parosproxy.paros.network.HttpSender.runMethod(Unknown Source)
-	at org.parosproxy.paros.network.HttpSender.send(Unknown Source)
-	at org.parosproxy.paros.network.HttpSender.sendAuthenticated(Unknown Source)
-	at org.parosproxy.paros.network.HttpSender.sendAndReceive(Unknown Source)
-	at org.parosproxy.paros.core.scanner.AbstractPlugin.sendAndReceive(Unknown Source)
-	at org.parosproxy.paros.core.scanner.AbstractPlugin.sendAndReceive(Unknown Source)
-	at org.parosproxy.paros.core.scanner.AbstractPlugin.sendAndReceive(Unknown Source)
-	at org.zaproxy.zap.extension.ascanrules.TestPathTraversal.sendAndCheckPayload(TestPathTraversal.java:459)
-	at org.zaproxy.zap.extension.ascanrules.TestPathTraversal.scan(TestPathTraversal.java:287)
-	at org.parosproxy.paros.core.scanner.AbstractAppParamPlugin.scan(Unknown Source)
-	at org.parosproxy.paros.core.scanner.AbstractAppParamPlugin.scanVariant(Unknown Source)
-	at org.parosproxy.paros.core.scanner.AbstractAppParamPlugin.scan(Unknown Source)
-	at org.parosproxy.paros.core.scanner.AbstractPlugin.run(Unknown Source)
-	at java.lang.Thread.run(Thread.java:745)
-226713 [ZAP-ActiveScanner-0] WARN org.zaproxy.zap.extension.ascanrules.TestPathTraversal  - Error scanning parameters for Path Traversal: Invalid redirect location: http://172.17.0.2:8080/wavsep/active/Unvalidated-Redirect/Redirect-FalsePositives-GET/c:\Windows\system.ini
-org.apache.commons.httpclient.InvalidRedirectLocationException: Invalid redirect location: http://172.17.0.2:8080/wavsep/active/Unvalidated-Redirect/Redirect-FalsePositives-GET/c:\Windows\system.ini
-	at org.apache.commons.httpclient.HttpMethodDirector.processRedirectResponse(Unknown Source)
-	at org.apache.commons.httpclient.HttpMethodDirector.executeMethod(Unknown Source)
-	at org.apache.commons.httpclient.HttpClient.executeMethod(HttpClient.java:397)
-	at org.parosproxy.paros.network.HttpSender.executeMethod(Unknown Source)
-	at org.parosproxy.paros.network.HttpSender.runMethod(Unknown Source)
-	at org.parosproxy.paros.network.HttpSender.send(Unknown Source)
-	at org.parosproxy.paros.network.HttpSender.sendAuthenticated(Unknown Source)
-	at org.parosproxy.paros.network.HttpSender.sendAndReceive(Unknown Source)
-	at org.parosproxy.paros.core.scanner.AbstractPlugin.sendAndReceive(Unknown Source)
-	at org.parosproxy.paros.core.scanner.AbstractPlugin.sendAndReceive(Unknown Source)
-	at org.parosproxy.paros.core.scanner.AbstractPlugin.sendAndReceive(Unknown Source)
-	at org.zaproxy.zap.extension.ascanrules.TestPathTraversal.sendAndCheckPayload(TestPathTraversal.java:459)
-	at org.zaproxy.zap.extension.ascanrules.TestPathTraversal.scan(TestPathTraversal.java:287)
-	at org.parosproxy.paros.core.scanner.AbstractAppParamPlugin.scan(Unknown Source)
-	at org.parosproxy.paros.core.scanner.AbstractAppParamPlugin.scanVariant(Unknown Source)
-	at org.parosproxy.paros.core.scanner.AbstractAppParamPlugin.scan(Unknown Source)
-	at org.parosproxy.paros.core.scanner.AbstractPlugin.run(Unknown Source)
-	at java.lang.Thread.run(Thread.java:745)
-Caused by: org.apache.commons.httpclient.URIException: escaped absolute path not valid
-	at org.apache.commons.httpclient.URI.setRawPath(URI.java:2837)
-	at org.apache.commons.httpclient.URI.parseUriReference(URI.java:2023)
-	at org.apache.commons.httpclient.URI.<init>(URI.java:147)
-	... 18 more
-232044 [Thread-21] INFO org.parosproxy.paros.core.scanner.HostProcess  - completed host/plugin http://172.17.0.2:8080 | TestPathTraversal in 134.644s
-232044 [Thread-21] INFO org.parosproxy.paros.core.scanner.HostProcess  - start host http://172.17.0.2:8080 | TestRemoteFileInclude strength MEDIUM threshold MEDIUM
-331861 [ZAP-ActiveScanner-1] ERROR org.zaproxy.zap.extension.ascanrules.TestRemoteFileInclude  - Error scanning parameters for Path Traversal: Connection reset Caused by: null
-367440 [ZAP-ActiveScanner-0] ERROR org.zaproxy.zap.extension.ascanrules.TestRemoteFileInclude  - Error scanning parameters for Path Traversal: Failed to set URI: unsupported protocol: 'www.google.com' Caused by: null
-367440 [ZAP-ActiveScanner-1] ERROR org.zaproxy.zap.extension.ascanrules.TestRemoteFileInclude  - Error scanning parameters for Path Traversal: Failed to set URI: unsupported protocol: 'www.google.com' Caused by: null
-367638 [ZAP-ActiveScanner-0] ERROR org.zaproxy.zap.extension.ascanrules.TestRemoteFileInclude  - Error scanning parameters for Path Traversal: Failed to set URI: unsupported protocol: 'www.google.com' Caused by: null
-367860 [ZAP-ActiveScanner-0] ERROR org.zaproxy.zap.extension.ascanrules.TestRemoteFileInclude  - Error scanning parameters for Path Traversal: Failed to set URI: unsupported protocol: 'www.google.com' Caused by: null
-367860 [ZAP-ActiveScanner-1] ERROR org.zaproxy.zap.extension.ascanrules.TestRemoteFileInclude  - Error scanning parameters for Path Traversal: Failed to set URI: unsupported protocol: 'www.google.com' Caused by: null
-368059 [ZAP-ActiveScanner-0] ERROR org.zaproxy.zap.extension.ascanrules.TestRemoteFileInclude  - Error scanning parameters for Path Traversal: Failed to set URI: unsupported protocol: 'www.google.com' Caused by: null
-375102 [Thread-21] INFO org.parosproxy.paros.core.scanner.HostProcess  - completed host/plugin http://172.17.0.2:8080 | TestRemoteFileInclude in 143.058s
-375103 [Thread-21] INFO org.parosproxy.paros.core.scanner.HostProcess  - start host http://172.17.0.2:8080 | TestServerSideInclude strength MEDIUM threshold MEDIUM
-520648 [Thread-21] INFO org.parosproxy.paros.core.scanner.HostProcess  - completed host/plugin http://172.17.0.2:8080 | TestServerSideInclude in 145.544s
-520648 [Thread-21] INFO org.parosproxy.paros.core.scanner.HostProcess  - start host http://172.17.0.2:8080 | TestCrossSiteScriptV2 strength MEDIUM threshold MEDIUM
-659784 [Thread-21] INFO org.parosproxy.paros.core.scanner.HostProcess  - completed host/plugin http://172.17.0.2:8080 | TestCrossSiteScriptV2 in 139.136s
-659784 [Thread-21] INFO org.parosproxy.paros.core.scanner.HostProcess  - start host http://172.17.0.2:8080 | TestSQLInjection strength MEDIUM threshold MEDIUM
-795547 [Thread-21] INFO org.parosproxy.paros.core.scanner.HostProcess  - completed host/plugin http://172.17.0.2:8080 | TestSQLInjection in 135.763s
-795547 [Thread-21] INFO org.parosproxy.paros.core.scanner.HostProcess  - start host http://172.17.0.2:8080 | CodeInjectionPlugin strength MEDIUM threshold MEDIUM
-935455 [Thread-21] INFO org.parosproxy.paros.core.scanner.HostProcess  - completed host/plugin http://172.17.0.2:8080 | CodeInjectionPlugin in 139.908s
-935455 [Thread-21] INFO org.parosproxy.paros.core.scanner.HostProcess  - start host http://172.17.0.2:8080 | CommandInjectionPlugin strength MEDIUM threshold MEDIUM
-1065793 [Thread-21] INFO org.parosproxy.paros.core.scanner.HostProcess  - completed host/plugin http://172.17.0.2:8080 | CommandInjectionPlugin in 130.338s
-1065793 [Thread-21] INFO org.parosproxy.paros.core.scanner.HostProcess  - start host http://172.17.0.2:8080 | TestDirectoryBrowsing strength MEDIUM threshold MEDIUM
-1243035 [Thread-21] INFO org.parosproxy.paros.core.scanner.HostProcess  - completed host/plugin http://172.17.0.2:8080 | TestDirectoryBrowsing in 177.242s
-1243036 [Thread-21] INFO org.parosproxy.paros.core.scanner.HostProcess  - start host http://172.17.0.2:8080 | TestExternalRedirect strength MEDIUM threshold MEDIUM
-1386283 [Thread-21] INFO org.parosproxy.paros.core.scanner.HostProcess  - completed host/plugin http://172.17.0.2:8080 | TestExternalRedirect in 143.247s
-1386284 [Thread-21] INFO org.parosproxy.paros.core.scanner.HostProcess  - start host http://172.17.0.2:8080 | BufferOverflow strength MEDIUM threshold MEDIUM
-1529140 [Thread-21] INFO org.parosproxy.paros.core.scanner.HostProcess  - completed host/plugin http://172.17.0.2:8080 | BufferOverflow in 142.856s
-1529141 [Thread-21] INFO org.parosproxy.paros.core.scanner.HostProcess  - start host http://172.17.0.2:8080 | FormatString strength MEDIUM threshold MEDIUM
-1673436 [Thread-21] INFO org.parosproxy.paros.core.scanner.HostProcess  - completed host/plugin http://172.17.0.2:8080 | FormatString in 144.295s
-1673436 [Thread-21] INFO org.parosproxy.paros.core.scanner.HostProcess  - start host http://172.17.0.2:8080 | TestInjectionCRLF strength MEDIUM threshold MEDIUM
-1818420 [Thread-21] INFO org.parosproxy.paros.core.scanner.HostProcess  - completed host/plugin http://172.17.0.2:8080 | TestInjectionCRLF in 144.984s
-1818420 [Thread-21] INFO org.parosproxy.paros.core.scanner.HostProcess  - start host http://172.17.0.2:8080 | TestParameterTamper strength MEDIUM threshold MEDIUM
-1962668 [Thread-21] INFO org.parosproxy.paros.core.scanner.HostProcess  - completed host/plugin http://172.17.0.2:8080 | TestParameterTamper in 144.248s
-1962669 [Thread-21] INFO org.parosproxy.paros.core.scanner.HostProcess  - start host http://172.17.0.2:8080 | TestPersistentXSSPrime strength MEDIUM threshold MEDIUM
-2106694 [Thread-21] INFO org.parosproxy.paros.core.scanner.HostProcess  - completed host/plugin http://172.17.0.2:8080 | TestPersistentXSSPrime in 144.025s
-2106694 [Thread-21] INFO org.parosproxy.paros.core.scanner.HostProcess  - start host http://172.17.0.2:8080 | TestPersistentXSSSpider strength MEDIUM threshold MEDIUM
-2283764 [Thread-21] INFO org.parosproxy.paros.core.scanner.HostProcess  - completed host/plugin http://172.17.0.2:8080 | TestPersistentXSSSpider in 177.07s
-2283764 [Thread-21] INFO org.parosproxy.paros.core.scanner.HostProcess  - start host http://172.17.0.2:8080 | TestPersistentXSSAttack strength MEDIUM threshold MEDIUM
-2395468 [Thread-21] INFO org.parosproxy.paros.core.scanner.HostProcess  - completed host/plugin http://172.17.0.2:8080 | TestPersistentXSSAttack in 111.704s
-2395468 [Thread-21] INFO org.parosproxy.paros.core.scanner.HostProcess  - start host http://172.17.0.2:8080 | ScriptsActiveScanner strength MEDIUM threshold MEDIUM
-2395469 [Thread-21] INFO org.parosproxy.paros.core.scanner.HostProcess  - skipped plugin http://172.17.0.2:8080 | ScriptsActiveScanner in 0.001s
-2395469 [Thread-21] INFO org.parosproxy.paros.core.scanner.HostProcess  - start host http://172.17.0.2:8080 | SourceCodeDisclosureSVN strength MEDIUM threshold MEDIUM
-2564422 [Thread-21] INFO org.parosproxy.paros.core.scanner.HostProcess  - completed host/plugin http://172.17.0.2:8080 | SourceCodeDisclosureSVN in 168.953s
-2564422 [Thread-21] INFO org.parosproxy.paros.core.scanner.HostProcess  - start host http://172.17.0.2:8080 | SourceCodeDisclosureWEBINF strength MEDIUM threshold MEDIUM
-2564422 [Thread-21] INFO org.parosproxy.paros.core.scanner.HostProcess  - start host http://172.17.0.2:8080 | ShellShockScanner strength MEDIUM threshold MEDIUM
-2564433 [ZAP-ActiveScanner-0] INFO org.parosproxy.paros.core.scanner.HostProcess  - completed host/plugin http://172.17.0.2:8080 | SourceCodeDisclosureWEBINF in 0.011s
-2707753 [Thread-21] INFO org.parosproxy.paros.core.scanner.HostProcess  - completed host/plugin http://172.17.0.2:8080 | ShellShockScanner in 143.331s
-2707753 [Thread-21] INFO org.parosproxy.paros.core.scanner.HostProcess  - start host http://172.17.0.2:8080 | Csrftokenscan strength MEDIUM threshold MEDIUM
-2775645 [Thread-21] INFO org.parosproxy.paros.core.scanner.HostProcess  - completed host/plugin http://172.17.0.2:8080 | Csrftokenscan in 67.892s
-2775645 [Thread-21] INFO org.parosproxy.paros.core.scanner.HostProcess  - start host http://172.17.0.2:8080 | HeartBleedActiveScanner strength MEDIUM threshold MEDIUM
-2775647 [Thread-21] INFO org.parosproxy.paros.core.scanner.HostProcess  - start host http://172.17.0.2:8080 | CrossDomainScanner strength MEDIUM threshold MEDIUM
-2775648 [Thread-21] INFO org.parosproxy.paros.core.scanner.HostProcess  - start host http://172.17.0.2:8080 | SourceCodeDisclosureCVE20121823 strength MEDIUM threshold MEDIUM
-2775649 [ZAP-ActiveScanner-0] INFO org.parosproxy.paros.core.scanner.HostProcess  - completed host/plugin http://172.17.0.2:8080 | HeartBleedActiveScanner in 0.004s
-2775664 [ZAP-ActiveScanner-1] INFO org.parosproxy.paros.core.scanner.HostProcess  - completed host/plugin http://172.17.0.2:8080 | CrossDomainScanner in 0.017s
-2944867 [Thread-21] INFO org.parosproxy.paros.core.scanner.HostProcess  - completed host/plugin http://172.17.0.2:8080 | SourceCodeDisclosureCVE20121823 in 169.22s
-2944867 [Thread-21] INFO org.parosproxy.paros.core.scanner.HostProcess  - start host http://172.17.0.2:8080 | RemoteCodeExecutionCVE20121823 strength MEDIUM threshold MEDIUM
-3122515 [Thread-21] INFO org.parosproxy.paros.core.scanner.HostProcess  - completed host/plugin http://172.17.0.2:8080 | RemoteCodeExecutionCVE20121823 in 177.648s
-3122515 [Thread-21] INFO org.parosproxy.paros.core.scanner.HostProcess  - start host http://172.17.0.2:8080 | SessionFixation strength MEDIUM threshold MEDIUM
-3123878 [Thread-21] INFO org.parosproxy.paros.core.scanner.HostProcess  - completed host/plugin http://172.17.0.2:8080 | SessionFixation in 1.363s
-3123878 [Thread-21] INFO org.parosproxy.paros.core.scanner.HostProcess  - start host http://172.17.0.2:8080 | SQLInjectionMySQL strength MEDIUM threshold MEDIUM
-4124763 [Thread-21] INFO org.parosproxy.paros.core.scanner.HostProcess  - completed host/plugin http://172.17.0.2:8080 | SQLInjectionMySQL in 1000.885s
-4124764 [Thread-21] INFO org.parosproxy.paros.core.scanner.HostProcess  - start host http://172.17.0.2:8080 | SQLInjectionHypersonic strength MEDIUM threshold MEDIUM
-4269344 [Thread-21] INFO org.parosproxy.paros.core.scanner.HostProcess  - completed host/plugin http://172.17.0.2:8080 | SQLInjectionHypersonic in 144.58s
-4269344 [Thread-21] INFO org.parosproxy.paros.core.scanner.HostProcess  - start host http://172.17.0.2:8080 | SQLInjectionOracle strength MEDIUM threshold MEDIUM
-4411922 [Thread-21] INFO org.parosproxy.paros.core.scanner.HostProcess  - completed host/plugin http://172.17.0.2:8080 | SQLInjectionOracle in 142.578s
-4411922 [Thread-21] INFO org.parosproxy.paros.core.scanner.HostProcess  - start host http://172.17.0.2:8080 | SQLInjectionPostgresql strength MEDIUM threshold MEDIUM
-4553044 [Thread-21] INFO org.parosproxy.paros.core.scanner.HostProcess  - completed host/plugin http://172.17.0.2:8080 | SQLInjectionPostgresql in 141.122s
-4553044 [Thread-21] INFO org.parosproxy.paros.core.scanner.HostProcess  - start host http://172.17.0.2:8080 | XpathInjectionPlugin strength MEDIUM threshold MEDIUM
-4695470 [Thread-21] INFO org.parosproxy.paros.core.scanner.HostProcess  - completed host/plugin http://172.17.0.2:8080 | XpathInjectionPlugin in 142.426s
-4695470 [Thread-21] INFO org.parosproxy.paros.core.scanner.HostProcess  - start host http://172.17.0.2:8080 | XXEPlugin strength MEDIUM threshold MEDIUM
-4696169 [Thread-21] INFO org.parosproxy.paros.core.scanner.HostProcess  - completed host/plugin http://172.17.0.2:8080 | XXEPlugin in 0.699s
-4696169 [Thread-21] INFO org.parosproxy.paros.core.scanner.HostProcess  - start host http://172.17.0.2:8080 | PaddingOraclePlugin strength MEDIUM threshold MEDIUM
-4816639 [Thread-21] INFO org.parosproxy.paros.core.scanner.HostProcess  - completed host/plugin http://172.17.0.2:8080 | PaddingOraclePlugin in 120.47s
-4816639 [Thread-21] INFO org.parosproxy.paros.core.scanner.HostProcess  - start host http://172.17.0.2:8080 | ExpressionLanguageInjectionPlugin strength MEDIUM threshold MEDIUM
-4959642 [Thread-21] INFO org.parosproxy.paros.core.scanner.HostProcess  - completed host/plugin http://172.17.0.2:8080 | ExpressionLanguageInjectionPlugin in 143.002s
-4959642 [Thread-21] INFO org.parosproxy.paros.core.scanner.HostProcess  - start host http://172.17.0.2:8080 | BackupFileDisclosure strength MEDIUM threshold MEDIUM
-5122415 [Thread-21] INFO org.parosproxy.paros.core.scanner.HostProcess  - completed host/plugin http://172.17.0.2:8080 | BackupFileDisclosure in 162.773s
-5122415 [Thread-21] INFO org.parosproxy.paros.core.scanner.HostProcess  - start host http://172.17.0.2:8080 | IntegerOverflow strength MEDIUM threshold MEDIUM
-5262003 [Thread-21] INFO org.parosproxy.paros.core.scanner.HostProcess  - completed host/plugin http://172.17.0.2:8080 | IntegerOverflow in 139.588s
-5262003 [Thread-21] INFO org.parosproxy.paros.core.scanner.HostProcess  - start host http://172.17.0.2:8080 | InsecureHTTPMethod strength MEDIUM threshold MEDIUM
-5439360 [Thread-21] INFO org.parosproxy.paros.core.scanner.HostProcess  - completed host/plugin http://172.17.0.2:8080 | InsecureHTTPMethod in 177.357s
-5439360 [Thread-21] INFO org.parosproxy.paros.core.scanner.HostProcess  - start host http://172.17.0.2:8080 | HPP strength MEDIUM threshold MEDIUM
-5501726 [Thread-21] INFO org.parosproxy.paros.core.scanner.HostProcess  - completed host/plugin http://172.17.0.2:8080 | HPP in 62.366s
-5501726 [Thread-21] INFO org.parosproxy.paros.core.scanner.HostProcess  - start host http://172.17.0.2:8080 | UsernameEnumeration strength MEDIUM threshold MEDIUM
-5501726 [Thread-21] INFO org.zaproxy.zap.extension.ascanrulesBeta.UsernameEnumeration  - There does not appear to be any configured contexts using Form-based Authentication. Further attempts during the current scan will be skipped.
-5501727 [Thread-21] INFO org.parosproxy.paros.core.scanner.HostProcess  - skipped plugin http://172.17.0.2:8080 | UsernameEnumeration in 0.001s
-5501727 [Thread-21] INFO org.parosproxy.paros.core.scanner.HostProcess  - completed host http://172.17.0.2:8080 in 5404.335s
-5501727 [Thread-20] INFO org.parosproxy.paros.core.scanner.Scanner  - scanner completed in 5404.356s
+20254 [ZAP-daemon] WARN org.zaproxy.zap.extension.autoupdate.ExtensionAutoUpdate  - It's recommended to restart ZAP. Not all add-ons were successfully uninstalled: [[id=fuzz, fileVersion=5, version=2.0.1]]
+20278 [ZAP-daemon] INFO org.zaproxy.zap.extension.autoupdate.ExtensionAutoUpdate  - Installing new addon pscanrules v17
+20297 [ZAP-daemon] INFO org.zaproxy.zap.extension.pscan.ExtensionPassiveScan  - loaded passive scan rule: Application Error Disclosure
+20297 [ZAP-daemon] INFO org.zaproxy.zap.extension.pscan.ExtensionPassiveScan  - loaded passive scan rule: Incomplete or No Cache-control and Pragma HTTP Header Set
+20297 [ZAP-daemon] INFO org.zaproxy.zap.extension.pscan.ExtensionPassiveScan  - loaded passive scan rule: Content-Type Header Missing
+20297 [ZAP-daemon] INFO org.zaproxy.zap.extension.pscan.ExtensionPassiveScan  - loaded passive scan rule: Cookie No HttpOnly Flag
+20298 [ZAP-daemon] INFO org.zaproxy.zap.extension.pscan.ExtensionPassiveScan  - loaded passive scan rule: Cookie Without Secure Flag
+20298 [ZAP-daemon] INFO org.zaproxy.zap.extension.pscan.ExtensionPassiveScan  - loaded passive scan rule: Cross-Domain JavaScript Source File Inclusion
+20298 [ZAP-daemon] INFO org.zaproxy.zap.extension.pscan.ExtensionPassiveScan  - loaded passive scan rule: Web Browser XSS Protection Not Enabled
+20298 [ZAP-daemon] INFO org.zaproxy.zap.extension.pscan.ExtensionPassiveScan  - loaded passive scan rule: Secure Pages Include Mixed Content
+20298 [ZAP-daemon] INFO org.zaproxy.zap.extension.pscan.ExtensionPassiveScan  - loaded passive scan rule: Password Autocomplete in Browser
+20298 [ZAP-daemon] INFO org.zaproxy.zap.extension.pscan.ExtensionPassiveScan  - loaded passive scan rule: Private IP Disclosure
+20299 [ZAP-daemon] INFO org.zaproxy.zap.extension.pscan.ExtensionPassiveScan  - loaded passive scan rule: Session ID in URL Rewrite
+20303 [ZAP-daemon] INFO org.zaproxy.zap.extension.pscan.ExtensionPassiveScan  - loaded passive scan rule: X-Content-Type-Options Header Missing
+20303 [ZAP-daemon] INFO org.zaproxy.zap.extension.pscan.ExtensionPassiveScan  - loaded passive scan rule: X-Frame-Options Header Scanner
+20394 [ZAP-ProxyThread-3] INFO org.zaproxy.zap.extension.httpsessions.HttpSessionsSite  - Created a new session as no match was found: HttpSession [name=Session 2, active=false, tokenValues='']
+20408 [ZAP-daemon] INFO org.zaproxy.zap.extension.autoupdate.ExtensionAutoUpdate  - Installing new addon selenium v6
+20510 [ZAP-daemon] INFO org.parosproxy.paros.CommandLine  - Add-on update check complete
+20511 [ZAP-daemon] INFO org.parosproxy.paros.CommandLine  - Downloading add-on from: https://github.com/zaproxy/zap-extensions/releases/download/2.5/ascanrulesBeta-beta-20.zap
+20758 [ZAP-ProxyThread-6] INFO org.zaproxy.zap.extension.httpsessions.HttpSessionsSite  - Created a new session as no match was found: HttpSession [name=Session 3, active=false, tokenValues='']
+22767 [ZAP-ProxyThread-7] INFO org.zaproxy.zap.extension.httpsessions.HttpSessionsSite  - Created a new session as no match was found: HttpSession [name=Session 4, active=false, tokenValues='']
+24314 [ZAP-daemon] INFO org.parosproxy.paros.CommandLine  - Add-on downloaded to: /home/zap/.ZAP/plugin/ascanrules-release-24.zap
+24314 [ZAP-daemon] INFO org.parosproxy.paros.CommandLine  - Add-on downloaded to: /home/zap/.ZAP/plugin/pscanrules-release-17.zap
+24314 [ZAP-daemon] INFO org.parosproxy.paros.CommandLine  - Add-on downloaded to: /home/zap/.ZAP/plugin/fuzz-beta-6.zap
+24314 [ZAP-daemon] INFO org.parosproxy.paros.CommandLine  - Add-on downloaded to: /home/zap/.ZAP/plugin/selenium-release-6.zap
+24314 [ZAP-daemon] INFO org.parosproxy.paros.CommandLine  - Add-on downloaded to: /home/zap/.ZAP/plugin/ascanrulesBeta-beta-20.zap
+24319 [ZAP-daemon] INFO org.zaproxy.zap.extension.autoupdate.ExtensionAutoUpdate  - Installing new addon ascanrulesBeta v20
+24350 [ZAP-daemon] INFO org.zaproxy.zap.DaemonBootstrap  - ZAP is now listening on 0.0.0.0:8090
+24837 [ZAP-ProxyThread-9] INFO org.zaproxy.zap.extension.httpsessions.HttpSessionsSite  - Created a new session as no match was found: HttpSession [name=Session 5, active=false, tokenValues='']
+26883 [Thread-21] INFO org.zaproxy.zap.extension.spider.SpiderThread  - Starting spidering scan on SpiderApi-0 at Mon Jul 18 16:04:08 UTC 2016
+26894 [Thread-21] INFO org.zaproxy.zap.spider.Spider  - Spider initializing...
+26937 [Thread-21] INFO org.zaproxy.zap.spider.Spider  - Starting spider...
+85278 [pool-1-thread-2] WARN org.zaproxy.zap.spider.URLCanonicalizer  - Error while Processing URL in the spidering process (on base http://172.17.0.2:8080/wavsep/active/Unvalidated-Redirect/Redirect-Detection-Evaluation-GET-302Redirect/Case03-Redirect-RedirectMethod-FilenameContext-Unrestricted-HttpURL-DefaultInvalidInput-AnyPathReq-Read.jsp?target=httk://google.com): unknown protocol: httk
+85401 [pool-1-thread-1] WARN org.zaproxy.zap.spider.URLCanonicalizer  - Error while Processing URL in the spidering process (on base http://172.17.0.2:8080/wavsep/active/Unvalidated-Redirect/Redirect-Detection-Evaluation-GET-302Redirect/Case07-Redirect-RedirectMethod-FilenameContext-Unrestricted-HttpURL-DefaultEmptyInput-PartialPathReq-Read.jsp?target): Expected authority at index 7: http://
+90687 [pool-1-thread-2] INFO org.zaproxy.zap.spider.Spider  - Spidering process is complete. Shutting down...
+90691 [Thread-22] INFO org.zaproxy.zap.extension.spider.SpiderThread  - Spider scanning complete: true
+97133 [ZAP-ProxyThread-36] INFO org.parosproxy.paros.core.scanner.PluginFactory  - loaded plugin Path Traversal
+97134 [ZAP-ProxyThread-36] INFO org.parosproxy.paros.core.scanner.PluginFactory  - loaded plugin Remote File Inclusion
+97134 [ZAP-ProxyThread-36] INFO org.parosproxy.paros.core.scanner.PluginFactory  - loaded plugin Server Side Include
+97135 [ZAP-ProxyThread-36] INFO org.parosproxy.paros.core.scanner.PluginFactory  - loaded plugin Cross Site Scripting (Reflected)
+97135 [ZAP-ProxyThread-36] INFO org.parosproxy.paros.core.scanner.PluginFactory  - loaded plugin Cross Site Scripting (Persistent)
+97136 [ZAP-ProxyThread-36] INFO org.parosproxy.paros.core.scanner.PluginFactory  - loaded plugin SQL Injection
+97136 [ZAP-ProxyThread-36] INFO org.parosproxy.paros.core.scanner.PluginFactory  - loaded plugin Server Side Code Injection
+97137 [ZAP-ProxyThread-36] INFO org.parosproxy.paros.core.scanner.PluginFactory  - loaded plugin Remote OS Command Injection
+97137 [ZAP-ProxyThread-36] INFO org.parosproxy.paros.core.scanner.PluginFactory  - loaded plugin Directory Browsing
+97138 [ZAP-ProxyThread-36] INFO org.parosproxy.paros.core.scanner.PluginFactory  - loaded plugin External Redirect
+97138 [ZAP-ProxyThread-36] INFO org.parosproxy.paros.core.scanner.PluginFactory  - loaded plugin Buffer Overflow
+97138 [ZAP-ProxyThread-36] INFO org.parosproxy.paros.core.scanner.PluginFactory  - loaded plugin Format String Error
+97139 [ZAP-ProxyThread-36] INFO org.parosproxy.paros.core.scanner.PluginFactory  - loaded plugin CRLF Injection
+97139 [ZAP-ProxyThread-36] INFO org.parosproxy.paros.core.scanner.PluginFactory  - loaded plugin Parameter Tampering
+97140 [ZAP-ProxyThread-36] INFO org.parosproxy.paros.core.scanner.PluginFactory  - loaded plugin Cross Site Scripting (Persistent) - Prime
+97140 [ZAP-ProxyThread-36] INFO org.parosproxy.paros.core.scanner.PluginFactory  - loaded plugin Cross Site Scripting (Persistent) - Spider
+97141 [ZAP-ProxyThread-36] INFO org.parosproxy.paros.core.scanner.PluginFactory  - loaded plugin Script Active Scan Rules
+97141 [ZAP-ProxyThread-36] INFO org.parosproxy.paros.core.scanner.PluginFactory  - loaded plugin Source Code Disclosure - SVN
+97142 [ZAP-ProxyThread-36] INFO org.parosproxy.paros.core.scanner.PluginFactory  - loaded plugin Source Code Disclosure - /WEB-INF folder
+97142 [ZAP-ProxyThread-36] INFO org.parosproxy.paros.core.scanner.PluginFactory  - loaded plugin Remote Code Execution - Shell Shock
+97143 [ZAP-ProxyThread-36] INFO org.parosproxy.paros.core.scanner.PluginFactory  - loaded plugin Anti CSRF Tokens Scanner
+97143 [ZAP-ProxyThread-36] INFO org.parosproxy.paros.core.scanner.PluginFactory  - loaded plugin Heartbleed OpenSSL Vulnerability
+97143 [ZAP-ProxyThread-36] INFO org.parosproxy.paros.core.scanner.PluginFactory  - loaded plugin Cross-Domain Misconfiguration
+97144 [ZAP-ProxyThread-36] INFO org.parosproxy.paros.core.scanner.PluginFactory  - loaded plugin Source Code Disclosure - CVE-2012-1823
+97144 [ZAP-ProxyThread-36] INFO org.parosproxy.paros.core.scanner.PluginFactory  - loaded plugin Remote Code Execution - CVE-2012-1823
+97145 [ZAP-ProxyThread-36] INFO org.parosproxy.paros.core.scanner.PluginFactory  - loaded plugin Session Fixation
+97145 [ZAP-ProxyThread-36] INFO org.parosproxy.paros.core.scanner.PluginFactory  - loaded plugin SQL Injection - MySQL
+97146 [ZAP-ProxyThread-36] INFO org.parosproxy.paros.core.scanner.PluginFactory  - loaded plugin SQL Injection - Hypersonic SQL
+97146 [ZAP-ProxyThread-36] INFO org.parosproxy.paros.core.scanner.PluginFactory  - loaded plugin SQL Injection - Oracle
+97146 [ZAP-ProxyThread-36] INFO org.parosproxy.paros.core.scanner.PluginFactory  - loaded plugin SQL Injection - PostgreSQL
+97147 [ZAP-ProxyThread-36] INFO org.parosproxy.paros.core.scanner.PluginFactory  - loaded plugin XPath Injection
+97147 [ZAP-ProxyThread-36] INFO org.parosproxy.paros.core.scanner.PluginFactory  - loaded plugin XML External Entity Attack
+97148 [ZAP-ProxyThread-36] INFO org.parosproxy.paros.core.scanner.PluginFactory  - loaded plugin Generic Padding Oracle
+97148 [ZAP-ProxyThread-36] INFO org.parosproxy.paros.core.scanner.PluginFactory  - loaded plugin Expression Language Injection
+97148 [ZAP-ProxyThread-36] INFO org.parosproxy.paros.core.scanner.PluginFactory  - loaded plugin Backup File Disclosure
+97149 [ZAP-ProxyThread-36] INFO org.parosproxy.paros.core.scanner.PluginFactory  - loaded plugin Integer Overflow Error
+97149 [ZAP-ProxyThread-36] INFO org.parosproxy.paros.core.scanner.PluginFactory  - loaded plugin Insecure HTTP Method
+97150 [ZAP-ProxyThread-36] INFO org.parosproxy.paros.core.scanner.PluginFactory  - loaded plugin HTTP Parameter Pollution scanner
+97150 [ZAP-ProxyThread-36] INFO org.parosproxy.paros.core.scanner.PluginFactory  - loaded plugin Possible Username Enumeration
+97152 [ZAP-ProxyThread-36] INFO org.parosproxy.paros.core.scanner.Scanner  - scanner started
+97154 [Thread-23] INFO org.parosproxy.paros.core.scanner.PluginFactory  - loaded plugin Path Traversal
+97155 [Thread-23] INFO org.parosproxy.paros.core.scanner.PluginFactory  - loaded plugin Remote File Inclusion
+97155 [Thread-23] INFO org.parosproxy.paros.core.scanner.PluginFactory  - loaded plugin Server Side Include
+97156 [Thread-23] INFO org.parosproxy.paros.core.scanner.PluginFactory  - loaded plugin Cross Site Scripting (Reflected)
+97156 [Thread-23] INFO org.parosproxy.paros.core.scanner.PluginFactory  - loaded plugin Cross Site Scripting (Persistent)
+97157 [Thread-23] INFO org.parosproxy.paros.core.scanner.PluginFactory  - loaded plugin SQL Injection
+97157 [Thread-23] INFO org.parosproxy.paros.core.scanner.PluginFactory  - loaded plugin Server Side Code Injection
+97158 [Thread-23] INFO org.parosproxy.paros.core.scanner.PluginFactory  - loaded plugin Remote OS Command Injection
+97158 [Thread-23] INFO org.parosproxy.paros.core.scanner.PluginFactory  - loaded plugin Directory Browsing
+97158 [Thread-23] INFO org.parosproxy.paros.core.scanner.PluginFactory  - loaded plugin External Redirect
+97159 [Thread-23] INFO org.parosproxy.paros.core.scanner.PluginFactory  - loaded plugin Buffer Overflow
+97159 [Thread-23] INFO org.parosproxy.paros.core.scanner.PluginFactory  - loaded plugin Format String Error
+97160 [Thread-23] INFO org.parosproxy.paros.core.scanner.PluginFactory  - loaded plugin CRLF Injection
+97160 [Thread-23] INFO org.parosproxy.paros.core.scanner.PluginFactory  - loaded plugin Parameter Tampering
+97161 [Thread-23] INFO org.parosproxy.paros.core.scanner.PluginFactory  - loaded plugin Cross Site Scripting (Persistent) - Prime
+97161 [Thread-23] INFO org.parosproxy.paros.core.scanner.PluginFactory  - loaded plugin Cross Site Scripting (Persistent) - Spider
+97162 [Thread-23] INFO org.parosproxy.paros.core.scanner.PluginFactory  - loaded plugin Script Active Scan Rules
+97162 [Thread-23] INFO org.parosproxy.paros.core.scanner.PluginFactory  - loaded plugin Source Code Disclosure - SVN
+97163 [Thread-23] INFO org.parosproxy.paros.core.scanner.PluginFactory  - loaded plugin Source Code Disclosure - /WEB-INF folder
+97163 [Thread-23] INFO org.parosproxy.paros.core.scanner.PluginFactory  - loaded plugin Remote Code Execution - Shell Shock
+97164 [Thread-23] INFO org.parosproxy.paros.core.scanner.PluginFactory  - loaded plugin Anti CSRF Tokens Scanner
+97164 [Thread-23] INFO org.parosproxy.paros.core.scanner.PluginFactory  - loaded plugin Heartbleed OpenSSL Vulnerability
+97164 [Thread-23] INFO org.parosproxy.paros.core.scanner.PluginFactory  - loaded plugin Cross-Domain Misconfiguration
+97165 [Thread-23] INFO org.parosproxy.paros.core.scanner.PluginFactory  - loaded plugin Source Code Disclosure - CVE-2012-1823
+97165 [Thread-23] INFO org.parosproxy.paros.core.scanner.PluginFactory  - loaded plugin Remote Code Execution - CVE-2012-1823
+97166 [Thread-23] INFO org.parosproxy.paros.core.scanner.PluginFactory  - loaded plugin Session Fixation
+97166 [Thread-23] INFO org.parosproxy.paros.core.scanner.PluginFactory  - loaded plugin SQL Injection - MySQL
+97167 [Thread-23] INFO org.parosproxy.paros.core.scanner.PluginFactory  - loaded plugin SQL Injection - Hypersonic SQL
+97167 [Thread-23] INFO org.parosproxy.paros.core.scanner.PluginFactory  - loaded plugin SQL Injection - Oracle
+97168 [Thread-23] INFO org.parosproxy.paros.core.scanner.PluginFactory  - loaded plugin SQL Injection - PostgreSQL
+97168 [Thread-23] INFO org.parosproxy.paros.core.scanner.PluginFactory  - loaded plugin XPath Injection
+97169 [Thread-23] INFO org.parosproxy.paros.core.scanner.PluginFactory  - loaded plugin XML External Entity Attack
+97169 [Thread-23] INFO org.parosproxy.paros.core.scanner.PluginFactory  - loaded plugin Generic Padding Oracle
+97169 [Thread-23] INFO org.parosproxy.paros.core.scanner.PluginFactory  - loaded plugin Expression Language Injection
+97170 [Thread-23] INFO org.parosproxy.paros.core.scanner.PluginFactory  - loaded plugin Backup File Disclosure
+97170 [Thread-23] INFO org.parosproxy.paros.core.scanner.PluginFactory  - loaded plugin Integer Overflow Error
+97171 [Thread-23] INFO org.parosproxy.paros.core.scanner.PluginFactory  - loaded plugin Insecure HTTP Method
+97171 [Thread-23] INFO org.parosproxy.paros.core.scanner.PluginFactory  - loaded plugin HTTP Parameter Pollution scanner
+97172 [Thread-23] INFO org.parosproxy.paros.core.scanner.PluginFactory  - loaded plugin Possible Username Enumeration
+97179 [Thread-24] INFO org.parosproxy.paros.core.scanner.HostProcess  - Scanning 1777 node(s) from http://172.17.0.2:8080
+97179 [Thread-24] INFO org.parosproxy.paros.core.scanner.HostProcess  - start host http://172.17.0.2:8080 | TestPathTraversal strength MEDIUM threshold MEDIUM
+231887 [Thread-24] INFO org.parosproxy.paros.core.scanner.HostProcess  - completed host/plugin http://172.17.0.2:8080 | TestPathTraversal in 134.708s
+231887 [Thread-24] INFO org.parosproxy.paros.core.scanner.HostProcess  - start host http://172.17.0.2:8080 | TestRemoteFileInclude strength MEDIUM threshold MEDIUM
+376903 [Thread-24] INFO org.parosproxy.paros.core.scanner.HostProcess  - completed host/plugin http://172.17.0.2:8080 | TestRemoteFileInclude in 145.016s
+376903 [Thread-24] INFO org.parosproxy.paros.core.scanner.HostProcess  - start host http://172.17.0.2:8080 | TestServerSideInclude strength MEDIUM threshold MEDIUM
+524771 [Thread-24] INFO org.parosproxy.paros.core.scanner.HostProcess  - completed host/plugin http://172.17.0.2:8080 | TestServerSideInclude in 147.868s
+524771 [Thread-24] INFO org.parosproxy.paros.core.scanner.HostProcess  - start host http://172.17.0.2:8080 | TestCrossSiteScriptV2 strength MEDIUM threshold MEDIUM
+666443 [Thread-24] INFO org.parosproxy.paros.core.scanner.HostProcess  - completed host/plugin http://172.17.0.2:8080 | TestCrossSiteScriptV2 in 141.672s
+666443 [Thread-24] INFO org.parosproxy.paros.core.scanner.HostProcess  - start host http://172.17.0.2:8080 | TestSQLInjection strength MEDIUM threshold MEDIUM
+798047 [Thread-24] INFO org.parosproxy.paros.core.scanner.HostProcess  - completed host/plugin http://172.17.0.2:8080 | TestSQLInjection in 131.604s
+798047 [Thread-24] INFO org.parosproxy.paros.core.scanner.HostProcess  - start host http://172.17.0.2:8080 | CodeInjectionPlugin strength MEDIUM threshold MEDIUM
+941297 [Thread-24] INFO org.parosproxy.paros.core.scanner.HostProcess  - completed host/plugin http://172.17.0.2:8080 | CodeInjectionPlugin in 143.25s
+941297 [Thread-24] INFO org.parosproxy.paros.core.scanner.HostProcess  - start host http://172.17.0.2:8080 | CommandInjectionPlugin strength MEDIUM threshold MEDIUM
+1080837 [Thread-24] INFO org.parosproxy.paros.core.scanner.HostProcess  - completed host/plugin http://172.17.0.2:8080 | CommandInjectionPlugin in 139.54s
+1080837 [Thread-24] INFO org.parosproxy.paros.core.scanner.HostProcess  - start host http://172.17.0.2:8080 | TestDirectoryBrowsing strength MEDIUM threshold MEDIUM
+1259262 [Thread-24] INFO org.parosproxy.paros.core.scanner.HostProcess  - completed host/plugin http://172.17.0.2:8080 | TestDirectoryBrowsing in 178.425s
+1259262 [Thread-24] INFO org.parosproxy.paros.core.scanner.HostProcess  - start host http://172.17.0.2:8080 | TestExternalRedirect strength MEDIUM threshold MEDIUM
+1402201 [Thread-24] INFO org.parosproxy.paros.core.scanner.HostProcess  - completed host/plugin http://172.17.0.2:8080 | TestExternalRedirect in 142.939s
+1402201 [Thread-24] INFO org.parosproxy.paros.core.scanner.HostProcess  - start host http://172.17.0.2:8080 | BufferOverflow strength MEDIUM threshold MEDIUM
+1547248 [Thread-24] INFO org.parosproxy.paros.core.scanner.HostProcess  - completed host/plugin http://172.17.0.2:8080 | BufferOverflow in 145.047s
+1547248 [Thread-24] INFO org.parosproxy.paros.core.scanner.HostProcess  - start host http://172.17.0.2:8080 | FormatString strength MEDIUM threshold MEDIUM
+1691907 [Thread-24] INFO org.parosproxy.paros.core.scanner.HostProcess  - completed host/plugin http://172.17.0.2:8080 | FormatString in 144.659s
+1691907 [Thread-24] INFO org.parosproxy.paros.core.scanner.HostProcess  - start host http://172.17.0.2:8080 | TestInjectionCRLF strength MEDIUM threshold MEDIUM
+1834410 [Thread-24] INFO org.parosproxy.paros.core.scanner.HostProcess  - completed host/plugin http://172.17.0.2:8080 | TestInjectionCRLF in 142.503s
+1834410 [Thread-24] INFO org.parosproxy.paros.core.scanner.HostProcess  - start host http://172.17.0.2:8080 | TestParameterTamper strength MEDIUM threshold MEDIUM
+1976659 [Thread-24] INFO org.parosproxy.paros.core.scanner.HostProcess  - completed host/plugin http://172.17.0.2:8080 | TestParameterTamper in 142.249s
+1976659 [Thread-24] INFO org.parosproxy.paros.core.scanner.HostProcess  - start host http://172.17.0.2:8080 | TestPersistentXSSPrime strength MEDIUM threshold MEDIUM
+2120974 [Thread-24] INFO org.parosproxy.paros.core.scanner.HostProcess  - completed host/plugin http://172.17.0.2:8080 | TestPersistentXSSPrime in 144.315s
+2120974 [Thread-24] INFO org.parosproxy.paros.core.scanner.HostProcess  - start host http://172.17.0.2:8080 | TestPersistentXSSSpider strength MEDIUM threshold MEDIUM
+2298924 [Thread-24] INFO org.parosproxy.paros.core.scanner.HostProcess  - completed host/plugin http://172.17.0.2:8080 | TestPersistentXSSSpider in 177.95s
+2298924 [Thread-24] INFO org.parosproxy.paros.core.scanner.HostProcess  - start host http://172.17.0.2:8080 | TestPersistentXSSAttack strength MEDIUM threshold MEDIUM
+2416807 [Thread-24] INFO org.parosproxy.paros.core.scanner.HostProcess  - completed host/plugin http://172.17.0.2:8080 | TestPersistentXSSAttack in 117.883s
+2416807 [Thread-24] INFO org.parosproxy.paros.core.scanner.HostProcess  - start host http://172.17.0.2:8080 | ScriptsActiveScanner strength MEDIUM threshold MEDIUM
+2416807 [Thread-24] INFO org.parosproxy.paros.core.scanner.HostProcess  - skipped plugin http://172.17.0.2:8080 | ScriptsActiveScanner in 0s
+2416808 [Thread-24] INFO org.parosproxy.paros.core.scanner.HostProcess  - start host http://172.17.0.2:8080 | SourceCodeDisclosureSVN strength MEDIUM threshold MEDIUM
+2586726 [Thread-24] INFO org.parosproxy.paros.core.scanner.HostProcess  - completed host/plugin http://172.17.0.2:8080 | SourceCodeDisclosureSVN in 169.918s
+2586726 [Thread-24] INFO org.parosproxy.paros.core.scanner.HostProcess  - start host http://172.17.0.2:8080 | SourceCodeDisclosureWEBINF strength MEDIUM threshold MEDIUM
+2586727 [Thread-24] INFO org.parosproxy.paros.core.scanner.HostProcess  - start host http://172.17.0.2:8080 | ShellShockScanner strength MEDIUM threshold MEDIUM
+2586738 [ZAP-ActiveScanner-0] INFO org.parosproxy.paros.core.scanner.HostProcess  - completed host/plugin http://172.17.0.2:8080 | SourceCodeDisclosureWEBINF in 0.012s
+2734918 [Thread-24] INFO org.parosproxy.paros.core.scanner.HostProcess  - completed host/plugin http://172.17.0.2:8080 | ShellShockScanner in 148.191s
+2734918 [Thread-24] INFO org.parosproxy.paros.core.scanner.HostProcess  - start host http://172.17.0.2:8080 | Csrftokenscan strength MEDIUM threshold MEDIUM
+2802449 [Thread-24] INFO org.parosproxy.paros.core.scanner.HostProcess  - completed host/plugin http://172.17.0.2:8080 | Csrftokenscan in 67.531s
+2802450 [Thread-24] INFO org.parosproxy.paros.core.scanner.HostProcess  - start host http://172.17.0.2:8080 | HeartBleedActiveScanner strength MEDIUM threshold MEDIUM
+2802451 [Thread-24] INFO org.parosproxy.paros.core.scanner.HostProcess  - start host http://172.17.0.2:8080 | CrossDomainScanner strength MEDIUM threshold MEDIUM
+2802451 [Thread-24] INFO org.parosproxy.paros.core.scanner.HostProcess  - start host http://172.17.0.2:8080 | SourceCodeDisclosureCVE20121823 strength MEDIUM threshold MEDIUM
+2802453 [ZAP-ActiveScanner-0] INFO org.parosproxy.paros.core.scanner.HostProcess  - completed host/plugin http://172.17.0.2:8080 | HeartBleedActiveScanner in 0.004s
+2802469 [ZAP-ActiveScanner-1] INFO org.parosproxy.paros.core.scanner.HostProcess  - completed host/plugin http://172.17.0.2:8080 | CrossDomainScanner in 0.018s
+2972764 [Thread-24] INFO org.parosproxy.paros.core.scanner.HostProcess  - completed host/plugin http://172.17.0.2:8080 | SourceCodeDisclosureCVE20121823 in 170.313s
+2972765 [Thread-24] INFO org.parosproxy.paros.core.scanner.HostProcess  - start host http://172.17.0.2:8080 | RemoteCodeExecutionCVE20121823 strength MEDIUM threshold MEDIUM
+3151204 [Thread-24] INFO org.parosproxy.paros.core.scanner.HostProcess  - completed host/plugin http://172.17.0.2:8080 | RemoteCodeExecutionCVE20121823 in 178.438s
+3151204 [Thread-24] INFO org.parosproxy.paros.core.scanner.HostProcess  - start host http://172.17.0.2:8080 | SessionFixation strength MEDIUM threshold MEDIUM
+3152191 [Thread-24] INFO org.parosproxy.paros.core.scanner.HostProcess  - completed host/plugin http://172.17.0.2:8080 | SessionFixation in 0.987s
+3152191 [Thread-24] INFO org.parosproxy.paros.core.scanner.HostProcess  - start host http://172.17.0.2:8080 | SQLInjectionMySQL strength MEDIUM threshold MEDIUM
+4162534 [Thread-24] INFO org.parosproxy.paros.core.scanner.HostProcess  - completed host/plugin http://172.17.0.2:8080 | SQLInjectionMySQL in 1010.343s
+4162535 [Thread-24] INFO org.parosproxy.paros.core.scanner.HostProcess  - start host http://172.17.0.2:8080 | SQLInjectionHypersonic strength MEDIUM threshold MEDIUM
+4306062 [Thread-24] INFO org.parosproxy.paros.core.scanner.HostProcess  - completed host/plugin http://172.17.0.2:8080 | SQLInjectionHypersonic in 143.527s
+4306062 [Thread-24] INFO org.parosproxy.paros.core.scanner.HostProcess  - start host http://172.17.0.2:8080 | SQLInjectionOracle strength MEDIUM threshold MEDIUM
+4452560 [Thread-24] INFO org.parosproxy.paros.core.scanner.HostProcess  - completed host/plugin http://172.17.0.2:8080 | SQLInjectionOracle in 146.498s
+4452560 [Thread-24] INFO org.parosproxy.paros.core.scanner.HostProcess  - start host http://172.17.0.2:8080 | SQLInjectionPostgresql strength MEDIUM threshold MEDIUM
+4595374 [Thread-24] INFO org.parosproxy.paros.core.scanner.HostProcess  - completed host/plugin http://172.17.0.2:8080 | SQLInjectionPostgresql in 142.814s
+4595374 [Thread-24] INFO org.parosproxy.paros.core.scanner.HostProcess  - start host http://172.17.0.2:8080 | XpathInjectionPlugin strength MEDIUM threshold MEDIUM
+4742806 [Thread-24] INFO org.parosproxy.paros.core.scanner.HostProcess  - completed host/plugin http://172.17.0.2:8080 | XpathInjectionPlugin in 147.432s
+4742807 [Thread-24] INFO org.parosproxy.paros.core.scanner.HostProcess  - start host http://172.17.0.2:8080 | XXEPlugin strength MEDIUM threshold MEDIUM
+4743524 [Thread-24] INFO org.parosproxy.paros.core.scanner.HostProcess  - completed host/plugin http://172.17.0.2:8080 | XXEPlugin in 0.717s
+4743524 [Thread-24] INFO org.parosproxy.paros.core.scanner.HostProcess  - start host http://172.17.0.2:8080 | PaddingOraclePlugin strength MEDIUM threshold MEDIUM
+4864581 [Thread-24] INFO org.parosproxy.paros.core.scanner.HostProcess  - completed host/plugin http://172.17.0.2:8080 | PaddingOraclePlugin in 121.057s
+4864582 [Thread-24] INFO org.parosproxy.paros.core.scanner.HostProcess  - start host http://172.17.0.2:8080 | ExpressionLanguageInjectionPlugin strength MEDIUM threshold MEDIUM
+5011637 [Thread-24] INFO org.parosproxy.paros.core.scanner.HostProcess  - completed host/plugin http://172.17.0.2:8080 | ExpressionLanguageInjectionPlugin in 147.055s
+5011637 [Thread-24] INFO org.parosproxy.paros.core.scanner.HostProcess  - start host http://172.17.0.2:8080 | BackupFileDisclosure strength MEDIUM threshold MEDIUM
+5175821 [Thread-24] INFO org.parosproxy.paros.core.scanner.HostProcess  - completed host/plugin http://172.17.0.2:8080 | BackupFileDisclosure in 164.183s
+5175821 [Thread-24] INFO org.parosproxy.paros.core.scanner.HostProcess  - start host http://172.17.0.2:8080 | IntegerOverflow strength MEDIUM threshold MEDIUM
+5320209 [Thread-24] INFO org.parosproxy.paros.core.scanner.HostProcess  - completed host/plugin http://172.17.0.2:8080 | IntegerOverflow in 144.388s
+5320209 [Thread-24] INFO org.parosproxy.paros.core.scanner.HostProcess  - start host http://172.17.0.2:8080 | InsecureHTTPMethod strength MEDIUM threshold MEDIUM
+5498557 [Thread-24] INFO org.parosproxy.paros.core.scanner.HostProcess  - completed host/plugin http://172.17.0.2:8080 | InsecureHTTPMethod in 178.348s
+5498557 [Thread-24] INFO org.parosproxy.paros.core.scanner.HostProcess  - start host http://172.17.0.2:8080 | HPP strength MEDIUM threshold MEDIUM
+5560749 [Thread-24] INFO org.parosproxy.paros.core.scanner.HostProcess  - completed host/plugin http://172.17.0.2:8080 | HPP in 62.192s
+5560749 [Thread-24] INFO org.parosproxy.paros.core.scanner.HostProcess  - start host http://172.17.0.2:8080 | UsernameEnumeration strength MEDIUM threshold MEDIUM
+5560749 [Thread-24] INFO org.zaproxy.zap.extension.ascanrulesBeta.UsernameEnumeration  - There does not appear to be any configured contexts using Form-based Authentication. Further attempts during the current scan will be skipped.
+5560749 [Thread-24] INFO org.parosproxy.paros.core.scanner.HostProcess  - skipped plugin http://172.17.0.2:8080 | UsernameEnumeration in 0s
+5560749 [Thread-24] INFO org.parosproxy.paros.core.scanner.HostProcess  - completed host http://172.17.0.2:8080 in 5463.577s
+5560750 [Thread-23] INFO org.parosproxy.paros.core.scanner.Scanner  - scanner completed in 5463.598s
