@@ -3,7 +3,7 @@
 
 import glob,json,os,sys
 
-TAG = '2.4'
+TAG = '2.5'
 
 # Number of days to chart
 days = 7
