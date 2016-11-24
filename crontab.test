@@ -10,8 +10,12 @@
 0 11 * * 3 cd /home/ubuntu/zap-mgmt-scripts;/usr/bin/git pull;./stop-delete-docker.sh;sleep 30;wavsep/zap-vs-wavsep-1.5.sh -d "owasp/zap2docker-stable" -a -e "66" -p "St-High-Th-Med" -n "wavsep-1.5-2.5.0-All-H-M" -t "All" -z "-addoninstallall -config database.recoverylog=false" > /home/ubuntu/wrk/test.out
 0 22 * * 3 cd /home/ubuntu/zap-mgmt-scripts;/usr/bin/git pull;./stop-delete-docker.sh;sleep 30;wavsep/zap-vs-wavsep-1.5.sh -d "owasp/zap2docker-weekly" -a -e "66" -p "St-High-Th-Med" -n "wavsep-1.5-weekly-All-H-M" -t "All" -z "-addoninstallall -config database.recoverylog=false" > /home/ubuntu/wrk/test.out
 # Thursday - wivet
-0 11 * * 4 cd /home/ubuntu/zap-mgmt-scripts;/usr/bin/git pull;./stop-delete-docker.sh;sleep 30;wivet/zap-vs-wivet.sh -d "owasp/zap2docker-stable" -e "82" -n "wivet-2.5.0" -t "Ajax" -z "-addoninstall selenium -addonupdate" > /home/ubuntu/wrk/test.out
-0 22 * * 4 cd /home/ubuntu/zap-mgmt-scripts;/usr/bin/git pull;./stop-delete-docker.sh;sleep 30;wivet/zap-vs-wivet.sh -d "owasp/zap2docker-weekly" -e "82" -n "wivet-weekly" -t "Ajax" > /home/ubuntu/wrk/test.out
+# Dont use '-z "-addoninstall selenium -addonupdate"' until latest version of selenium works with FX 
+0 11 * * 4 cd /home/ubuntu/zap-mgmt-scripts;/usr/bin/git pull;./stop-delete-docker.sh;sleep 30;wivet/zap-vs-wivet.sh -d "owasp/zap2docker-stable" -e "82" -n "wivet-2.5.0" -t "Ajax"  > /home/ubuntu/wrk/test.out
+# Use htmlunit until latest version of selenium works with FX
+# 0 22 * * 4 cd /home/ubuntu/zap-mgmt-scripts;/usr/bin/git pull;./stop-delete-docker.sh;sleep 30;wivet/zap-vs-wivet.sh -d "owasp/zap2docker-weekly" -e "82" -n "wivet-weekly" -t "Ajax" > /home/ubuntu/wrk/test.out
+0 22 * * 4 cd /home/ubuntu/zap-mgmt-scripts;/usr/bin/git pull;./stop-delete-docker.sh;sleep 30;wivet/zap-vs-wivet.sh -d "owasp/zap2docker-weekly" -e "82" -n "wivet-weekly" -t "Ajax" -z "ajaxSpider.browserId=htmlunit" > /home/ubuntu/wrk/test.out
+#
 # Friday - all add-ons, Insane strength
 0 11 * * 5 cd /home/ubuntu/zap-mgmt-scripts;/usr/bin/git pull;./stop-delete-docker.sh;sleep 30;wavsep/zap-vs-wavsep-1.5.sh -d "owasp/zap2docker-stable" -a -e "66" -p "St-Ins-Th-Med" -n "wavsep-1.5-2.5.0-All-I-M" -t "All" -z "-addoninstallall -config database.recoverylog=false" > /home/ubuntu/wrk/test.out
 0 22 * * 5 cd /home/ubuntu/zap-mgmt-scripts;/usr/bin/git pull;./stop-delete-docker.sh;sleep 30;wavsep/zap-vs-wavsep-1.5.sh -d "owasp/zap2docker-weekly" -a -e "66" -p "St-Ins-Th-Med" -n "wavsep-1.5-weekly-All-I-M" -t "All" -z "-addoninstallall -config database.recoverylog=false" > /home/ubuntu/wrk/test.out
