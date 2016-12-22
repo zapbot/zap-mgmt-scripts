@@ -1,0 +1,87 @@
+Save your @zaproxy session at the start of a test rather than at the end - its stored in a db which will be updated all of the time
+Try different UI layouts via the buttons on the main @zaproxy toolbar
+Right click everywhere. Highlight text and right click it. A lot of @zaproxy functionality is context sensitive as best accessed this way
+Use keyboard shortcuts to speed up your testing - define your own combinations via 'Options / Keyboard' + generate shortcut cheatsheets
+If you are getting too many false positives try changing the threshold for that scan rule to High. But also report the problem to us!
+Still using Filters? These are being phased out and will be removed in the future. Use scripts instead - they are much more powerful
+Add your target app to a Context using the 'right click' menu: 'Include in Context' then you can tell @zaproxy more about the target
+Click on the 'gear' icon on the right hand side of many tabs to quickly access the setting for that feature
+There are lots of resources linked off the 'Online' menu, including the @zaproxy Homepage, User and Developer groups
+Want to chat to someone about ZAP? Many of the @zaproxy core developers hang out on irc://irc.mozilla.org #websectools
+. @zaproxy has help pages accessible via the 'Help / OWASP ZAP User Guide' menu. The F1 key will also bring up context help pages
+New to @zaproxy? Look at the 'Getting Started with ZAP' included with ZAP
+The majority of ZAP's tabs are now hidden by default so that the UI is less cluttered - use the buttons to show, pin and hide them
+You can reorder table columns by dragging and dropping them + select which columns are shown via the icon just above the scroll bar
+Pages found by the spiders and forced browser are flagged in the Sites tree with a relevant icon, this disappears when you visit that page
+POST requests have a 'right click' menu for generating an anti CSRF test form
+The 'Show / enable' fields 'lightbulb' button on the main toolbar will make hidden fields visible and allow you to edit disabled fields
+Does your application use anti CSRF tokens? Make sure you have configured @zaproxy to handle them via the 'Options / Active Scan' screen
+You can compare 2 requests or responses by selecting them both, 'right clicking' and selecting one of the 'Compare 2..' menu items
+You can tell @zaproxy to access an app using a specific user: add your app to a Context and then define the authentication and user details
+The Search tab allows you to find string in Fuzz results - it supports regex expressions and inverse matching
+You can search for text in any text area, including the Request and Response tabs, using the 'right click' 'Find...' menu
+You can change the syntax highlighting used for the Request, Response and Script Console tabs via the 'right click' 'Syntax' menus
+You can tell @zaproxy to load all of the scripts in a set of directories via the Scripts Option page. See the help for details
+You can export all of the URLs recorded by @zaproxy using the top level menu: "Report / Export All URLs to a File..."
+You can invoke 3rd party tools like sqlmap and nmap from within ZAP, passing across a wide range of contextual information
+Run @zaproxy using Docker : see https://github.com/zaproxy/zaproxy/wiki/Docker
+Install the beta active and passive scan rules to find more potential issues. There are also alpha active and passive rules
+You can script @zaproxy using python and ruby - download them from the Marketplace from within ZAP
+Install the SAML Add-on from the @zaproxy Marketplace to detect, show, edit and fuzz SAML requests
+There are a lots of fuzzing files in the @zaproxy Marketplace in the 'Directory List *', 'Fuzzdb files' + 'SVN Digger files' add-ons
+There is a repo of @zaproxy scripts at https://github.com/zaproxy/community-scripts you can clone it and add them add all via the options
+Install the sequence add-on from the @zaproxy Marketplace to scan pages that must be visited in a specific order
+Install the accessControl add-on from the @zaproxy Marketplace to automate testing of your application's access control
+You can import URLs contained in a text file using the importurls add-on available on the @zaproxy Marketplace
+Zest scripts are a great way to automate tasks. Zest is ZAP's graphical macro language + provides features like conditionals and loops
+Use the 'Record a new Zest script...' button on the main toolbar to quickly record a new Zest script
+Did you know @zaproxy can display, intercept and even fuzz client side messages including postMessages?
+Did you know @zaproxy can automatically check for updates? Turn it on via the 'Options / Check for Updates' screen
+
+Somethings not working. What should I do? https://github.com/zaproxy/zaproxy/wiki/FAQhelp
+Where can I ask @zaproxy related questions? https://github.com/zaproxy/zaproxy/wiki/FAQquestions
+What does @zaproxy test for? https://github.com/zaproxy/zaproxy/wiki/FAQzaptests
+How do you configure @zaproxy to test an application on localhost? https://github.com/zaproxy/zaproxy/wiki/FAQlocalhost
+Why is @zaproxy not available in my language? https://github.com/zaproxy/zaproxy/wiki/FAQwhynolang
+How can I use the @zaproxy API in my own regression tests? https://github.com/zaproxy/zaproxy/wiki/FAQhowtousezapapi
+Is there any danger when scanning with @zaproxy against a live website? https://github.com/zaproxy/zaproxy/wiki/FAQsafetouseonlive
+How can I use @zaproxy with a Java app which connects to a web service over SSL? https://github.com/zaproxy/zaproxy/wiki/FAQjavaappssl
+Where is @zaproxy installed? https://github.com/zaproxy/zaproxy/wiki/FAQinstall
+How can you start ZAP? https://github.com/zaproxy/zaproxy/wiki/FAQrun
+What is the default directory that @zaproxy uses? https://github.com/zaproxy/zaproxy/wiki/FAQconfig
+What are the command line options? https://github.com/zaproxy/zaproxy/wiki/FAQcmdline
+Can @zaproxy be used to test Windows 8 Metro apps? https://github.com/zaproxy/zaproxy/wiki/FAQmetro
+Can @zaproxy be used to test mobile apps? https://github.com/zaproxy/zaproxy/wiki/FAQmobile
+How can I add an application icon for @zaproxy to Fedora / Gnome 3? https://github.com/zaproxy/zaproxy/wiki/FAQlinuxgnomeicon
+What should I do if @zaproxy doesn't detect a known problem? https://github.com/zaproxy/zaproxy/wiki/FAQdetectfailed
+How can @zaproxy automatically authenticate via forms? https://github.com/zaproxy/zaproxy/wiki/FAQformauth
+How do you configure @zaproxy logging? https://github.com/zaproxy/zaproxy/wiki/FAQlogging
+Where does @zaproxy put its logs? https://github.com/zaproxy/zaproxy/wiki/FAQlogging
+What versions of Java are supported? https://github.com/zaproxy/zaproxy/wiki/FAQjavaVersions
+How can you easily maximize a tab? https://github.com/zaproxy/zaproxy/wiki/FAQmaxtabs
+How can you speed up scans? https://github.com/zaproxy/zaproxy/wiki/FAQscanSpeed
+Why are there missing History Ids? https://github.com/zaproxy/zaproxy/wiki/FAQhistoryIdsMissing
+What operating systems are supported? https://github.com/zaproxy/zaproxy/wiki/FAQwhatOSs
+What vulnerability classifications are supported? https://github.com/zaproxy/zaproxy/wiki/FAQwhatClassification
+Why am I getting blank @zaproxy windows on Linux? https://github.com/zaproxy/zaproxy/wiki/FAQlinuxBlank
+How do you add a script to @zaproxy from the command line? https://github.com/zaproxy/zaproxy/wiki/FAQscriptCmdLine
+How do you find out what key to use to set a config value on the command line? https://github.com/zaproxy/zaproxy/wiki/FAQconfigValues
+How to connect to an HTTPS site that reports a handshake failure? https://github.com/zaproxy/zaproxy/wiki/FAQsslHandshake
+Why has the Quick Scan Attack reported an invalid URL? https://github.com/zaproxy/zaproxy/wiki/FAQquickScanFailed
+How can @zaproxy test sites that use certificate pinning? https://github.com/zaproxy/zaproxy/wiki/FAQcertpinning
+Why is an API key created by default from @zaproxy 2.4.1? https://github.com/zaproxy/zaproxy/wiki/FAQapikey
+How can you use @zaproxy to scan APIs? https://github.com/zaproxy/zaproxy/wiki/FAQscanapis
+How can I prevent @zaproxy from sending me 1000s of emails via a 'Contact Us' form? https://github.com/zaproxy/zaproxy/wiki/FAQpreventSpam
+How do I get a specific feature implemented in ZAP? https://github.com/zaproxy/zaproxy/wiki/FAQnewfeature
+How do I report a False Negative? https://github.com/zaproxy/zaproxy/wiki/FAQreportFN
+Why don't you rewrite @zaproxy in <my favorite language>? https://github.com/zaproxy/zaproxy/wiki/FAQrewrite
+
+Want to make @zaproxy better? We're always looking for new contributors: https://github.com/zaproxy/zaproxy/blob/develop/CONTRIBUTING.md
+New to @zaproxy? See the Getting Started Guide: https://github.com/zaproxy/zaproxy/releases/download/2.5.0/ZAPGettingStartedGuide-2.5.pdf
+Help translate @zaproxy via @crowdin https://crowdin.com/project/owasp-zap
+Found a vulnerability in @zaproxy? Please report via https://bugcrowd.com/owaspzap - we even pay for RCEs!
+Help @zaproxy development by donating to ZAP via the Donate button on https://www.owasp.org/index.php/ZAP
+Pro version? No chance - @zaproxy will always remain free and open source
+Tutorial @zaproxy videos are available on https://www.youtube.com/playlist?list=PLEBitBW-Hlsv8cEIUntAO8st2UGhmrjUB
+Want @zaproxy gear? https://github.com/zaproxy/zap-swag includes links to online stores AND all of the official artwork
+
