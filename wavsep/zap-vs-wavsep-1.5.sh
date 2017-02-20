@@ -188,6 +188,9 @@ mv report.html ~/zap-mgmt-scripts_gh-pages/reports/${name}.html
 
 cd ~/zap-mgmt-scripts_gh-pages
 git pull
+# Always truncate log so it doesnt exceed github max of 100Mb
+truncate -s "<50M" $LOG
+
 git add reports
 
 cat scan.head reports/*.summary scan.tail > scans.html
