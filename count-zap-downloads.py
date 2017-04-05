@@ -4,17 +4,19 @@
 import glob,json,os,sys
 
 # The file names
-REL = '2.5.0'
-CORE = 'ZAP_2.5.0_Core.tar.gz'
-CROSS = 'ZAP_2.5.0_Cross_Platform.zip'
-LINUX = 'ZAP_2.5.0_Linux.tar.gz'
-MAC = 'ZAP_2.5.0_Mac_OS_X.dmg'
-WIN = 'ZAP_2.5.0_Windows.exe'
+REL = '2.6.0'
+CORE = 'ZAP_2.6.0_Core.tar.gz'
+CROSS = 'ZAP_2.6.0_Crossplatform.zip'
+LINUX = 'ZAP_2.6.0_Linux.tar.gz'
+UNIX = 'ZAP_2_6_0_unix.sh'
+MAC = 'ZAP_2_6_0_macos.dmg'
+WIN32 = 'ZAP_2_6_0_windows-x32.exe'
+WIN64 = 'ZAP_2_6_0_windows.exe'
 
 counts = {}
 files = sorted(glob.glob('../zap-mgmt-scripts_gh-pages/stats/releases-*'))
-# Option to just show the last 90 days to prevent the chart getting too big, currently disabled
-#files = files[-91:]
+# Option to just show the last 180 days to prevent the chart getting too big
+files = files[-180:]
 first = 1
 for file in files:
   with open(file) as stats_file:
@@ -35,5 +37,6 @@ for file in files:
         # Ignore the first as its just for getting a baseline
         first = 0
       else:
-        print "        ['%s', %d, %d, %d, %d, %d, '']," % (file[-15:-5], assets[WIN], assets[LINUX], assets[MAC], assets[CROSS], assets[CORE])
+        print "        ['%s', %d, %d, %d, %d, %d, %d, %d, '']," % (file[-15:-5], 
+          assets[WIN64], assets[WIN32], assets[UNIX], assets[LINUX], assets[MAC], assets[CROSS], assets[CORE])
     
