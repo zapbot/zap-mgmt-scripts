@@ -1,238 +1,277 @@
 Found Java version 1.8.0_121
 Available memory: 3950 MB
 Setting jvm heap size: -Xmx987m
-141 [main] INFO org.zaproxy.zap.DaemonBootstrap  - OWASP ZAP D-2017-04-10 started 17/04/17 22:02:38 with home /home/zap/.ZAP_D/
-177 [main] INFO org.parosproxy.paros.common.AbstractParam  - Setting config api.disablekey = true was null
-178 [main] INFO org.parosproxy.paros.common.AbstractParam  - Setting config api.addrs.addr.name = .* was null
-178 [main] INFO org.parosproxy.paros.common.AbstractParam  - Setting config api.addrs.addr.regex = true was null
-178 [main] INFO org.parosproxy.paros.common.AbstractParam  - Setting config database.recoverylog = false was null
-185 [main] INFO org.parosproxy.paros.network.SSLConnector  - Reading supported SSL/TLS protocols...
-185 [main] INFO org.parosproxy.paros.network.SSLConnector  - Using a SSLEngine...
-257 [main] INFO org.parosproxy.paros.network.SSLConnector  - Done reading supported SSL/TLS protocols: [SSLv2Hello, SSLv3, TLSv1, TLSv1.1, TLSv1.2]
-261 [main] INFO org.parosproxy.paros.extension.option.OptionsParamCertificate  - Unsafe SSL renegotiation disabled.
-536 [main] INFO hsqldb.db..ENGINE  - open start - state not modified
-628 [main] INFO hsqldb.db..ENGINE  - dataFileCache open start
-636 [main] INFO hsqldb.db..ENGINE  - dataFileCache open end
-694 [ZAP-daemon] INFO org.zaproxy.zap.control.ExtensionFactory  - Loading extensions
-2152 [ZAP-daemon] INFO org.zaproxy.zap.control.ExtensionFactory  - Installed add-ons: [[id=websocket, version=12.0.0], [id=onlineMenu, version=5.0.0], [id=invoke, version=6.0.0], [id=replacer, version=2.0.0], [id=fuzz, version=8.0.0], [id=tips, version=6.0.0], [id=pscanrulesBeta, version=15.0.0], [id=diff, version=7.0.0], [id=bruteforce, version=6.0.0], [id=webdrivermacos, version=2.0.0], [id=quickstart, version=19.0.0], [id=coreLang, version=11.0.0], [id=formhandler, version=1.0.0], [id=portscan, version=8.0.0], [id=spiderAjax, version=17.0.0], [id=scripts, version=19.0.0], [id=ascanrules, version=26.0.0], [id=pscanrules, version=19.0.0], [id=selenium, version=10.0.0], [id=zest, version=23.0.0], [id=webdriverwindows, version=2.0.0], [id=help, version=7.0.0], [id=ascanrulesBeta, version=22.0.0], [id=directorylistv1, version=3.0.0], [id=saverawmessage, version=3.0.0], [id=plugnhack, version=10.0.0], [id=accessControl, version=2.0.0], [id=soap, version=3.0.0], [id=alertFilters, version=4.0.0], [id=openapi, version=1.0.0], [id=sequence, version=4.0.0], [id=reveal, version=2.0.0], [id=webdriverlinux, version=2.0.0], [id=gettingStarted, version=6.0.0]]
-2461 [ZAP-daemon] INFO org.zaproxy.zap.control.ExtensionFactory  - Extensions loaded
-2684 [ZAP-daemon] INFO org.parosproxy.paros.extension.filter.FilterFactory  - loaded filter Change user agent to other browsers. 
-2685 [ZAP-daemon] INFO org.parosproxy.paros.extension.filter.FilterFactory  - loaded filter Detect insecure or potentially malicious content in HTTP responses.
-2685 [ZAP-daemon] INFO org.parosproxy.paros.extension.filter.FilterFactory  - loaded filter Detect and alert 'Set-cookie' attempt in HTTP response for modification.
-2685 [ZAP-daemon] INFO org.parosproxy.paros.extension.filter.FilterFactory  - loaded filter Avoid browser cache (strip off IfModifiedSince)
-2685 [ZAP-daemon] INFO org.parosproxy.paros.extension.filter.FilterFactory  - loaded filter Log cookies sent by browser.
-2685 [ZAP-daemon] INFO org.parosproxy.paros.extension.filter.FilterFactory  - loaded filter Log unique GET queries into file:filter/get.xls
-2686 [ZAP-daemon] INFO org.parosproxy.paros.extension.filter.FilterFactory  - loaded filter Log unique POST queries into file:  filter/post.xls
-2686 [ZAP-daemon] INFO org.parosproxy.paros.extension.filter.FilterFactory  - loaded filter Log request and response into file: filter/message.txt
-2686 [ZAP-daemon] INFO org.parosproxy.paros.extension.filter.FilterFactory  - loaded filter Replace HTTP request body using defined pattern.
-2686 [ZAP-daemon] INFO org.parosproxy.paros.extension.filter.FilterFactory  - loaded filter Replace HTTP request header using defined pattern.
-2687 [ZAP-daemon] INFO org.parosproxy.paros.extension.filter.FilterFactory  - loaded filter Replace HTTP response body using defined pattern.
-2687 [ZAP-daemon] INFO org.parosproxy.paros.extension.filter.FilterFactory  - loaded filter Replace HTTP response header using defined pattern.
-2687 [ZAP-daemon] INFO org.parosproxy.paros.extension.filter.FilterFactory  - loaded filter Send ZAP session request ID
-2810 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Allows ZAP to check for updates
-2814 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing ExtensionViewOption
-2815 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing ExtensionEdit
-2815 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing ExtensionFilter
-2815 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Provides a rest based API for controlling and accessing ZAP
-2856 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing ExtensionState
-2856 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing ExtensionReport
-2856 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing ExtensionHistory
-2858 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Show hidden fields and enable disabled fields
-2858 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Search messages for strings and regular expressions 
-2859 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Encode/Decode/Hash...
-2859 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Allows you to intercept and modify requests and responses
-2860 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Passive scanner
-2922 [ZAP-daemon] INFO org.zaproxy.zap.extension.pscan.ExtensionPassiveScan  - loaded passive scan rule: Script Passive Scan Rules
-2922 [ZAP-daemon] INFO org.zaproxy.zap.extension.pscan.ExtensionPassiveScan  - loaded passive scan rule: Stats Passive Scan Rule
-2923 [ZAP-daemon] INFO org.zaproxy.zap.extension.pscan.ExtensionPassiveScan  - loaded passive scan rule: Charset Mismatch
-2923 [ZAP-daemon] INFO org.zaproxy.zap.extension.pscan.ExtensionPassiveScan  - loaded passive scan rule: Loosely Scoped Cookie
-2923 [ZAP-daemon] INFO org.zaproxy.zap.extension.pscan.ExtensionPassiveScan  - loaded passive scan rule: Absence of Anti-CSRF Tokens
-2923 [ZAP-daemon] INFO org.zaproxy.zap.extension.pscan.ExtensionPassiveScan  - loaded passive scan rule: Information Disclosure - Debug Error Messages
-2923 [ZAP-daemon] INFO org.zaproxy.zap.extension.pscan.ExtensionPassiveScan  - loaded passive scan rule: Information Disclosure - Sensitive Informations in URL
-2923 [ZAP-daemon] INFO org.zaproxy.zap.extension.pscan.ExtensionPassiveScan  - loaded passive scan rule: Information Disclosure - Sensitive Information in HTTP Referrer Header
-2923 [ZAP-daemon] INFO org.zaproxy.zap.extension.pscan.ExtensionPassiveScan  - loaded passive scan rule: Information Disclosure - Suspicious Comments
-2923 [ZAP-daemon] INFO org.zaproxy.zap.extension.pscan.ExtensionPassiveScan  - loaded passive scan rule: Weak Authentication Method
-2924 [ZAP-daemon] INFO org.zaproxy.zap.extension.pscan.ExtensionPassiveScan  - loaded passive scan rule: Insecure JSF ViewState
-2924 [ZAP-daemon] INFO org.zaproxy.zap.extension.pscan.ExtensionPassiveScan  - loaded passive scan rule: HTTP Parameter Override
-2924 [ZAP-daemon] INFO org.zaproxy.zap.extension.pscan.ExtensionPassiveScan  - loaded passive scan rule: Viewstate Scanner
-2924 [ZAP-daemon] INFO org.zaproxy.zap.extension.pscan.ExtensionPassiveScan  - loaded passive scan rule: Application Error Disclosure
-2924 [ZAP-daemon] INFO org.zaproxy.zap.extension.pscan.ExtensionPassiveScan  - loaded passive scan rule: Incomplete or No Cache-control and Pragma HTTP Header Set
-2924 [ZAP-daemon] INFO org.zaproxy.zap.extension.pscan.ExtensionPassiveScan  - loaded passive scan rule: Content-Type Header Missing
-2924 [ZAP-daemon] INFO org.zaproxy.zap.extension.pscan.ExtensionPassiveScan  - loaded passive scan rule: Cookie No HttpOnly Flag
-2924 [ZAP-daemon] INFO org.zaproxy.zap.extension.pscan.ExtensionPassiveScan  - loaded passive scan rule: Cookie Without Secure Flag
-2925 [ZAP-daemon] INFO org.zaproxy.zap.extension.pscan.ExtensionPassiveScan  - loaded passive scan rule: Cross-Domain JavaScript Source File Inclusion
-2925 [ZAP-daemon] INFO org.zaproxy.zap.extension.pscan.ExtensionPassiveScan  - loaded passive scan rule: Web Browser XSS Protection Not Enabled
-2925 [ZAP-daemon] INFO org.zaproxy.zap.extension.pscan.ExtensionPassiveScan  - loaded passive scan rule: Secure Pages Include Mixed Content
-2925 [ZAP-daemon] INFO org.zaproxy.zap.extension.pscan.ExtensionPassiveScan  - loaded passive scan rule: Password Autocomplete in Browser
-2925 [ZAP-daemon] INFO org.zaproxy.zap.extension.pscan.ExtensionPassiveScan  - loaded passive scan rule: Private IP Disclosure
-2925 [ZAP-daemon] INFO org.zaproxy.zap.extension.pscan.ExtensionPassiveScan  - loaded passive scan rule: Session ID in URL Rewrite
-2925 [ZAP-daemon] INFO org.zaproxy.zap.extension.pscan.ExtensionPassiveScan  - loaded passive scan rule: X-Content-Type-Options Header Missing
-2925 [ZAP-daemon] INFO org.zaproxy.zap.extension.pscan.ExtensionPassiveScan  - loaded passive scan rule: X-Frame-Options Header Scanner
-2926 [ZAP-daemon] INFO org.zaproxy.zap.extension.pscan.ExtensionPassiveScan  - loaded passive scan rule: WSDL File Passive Scanner
-2937 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Allows you to view and manage alerts
-2937 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Active scanner, heavily based on the original Paros active scanner, but with additional tests added
-2943 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing ExtensionSequence
-2943 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Spider used for automatically finding URIs on a site
-2948 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing A set of common popup menus for miscellaneous tasks
-2948 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Forced browsing of files and directories using code from the OWASP DirBuster tool
-2948 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Simple but effective port scanner
-2949 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing ExtensionManualRequest
-2949 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Compares 2 sessions and generates an HTML file showing the differences
-2949 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Invoke external applications passing context related information such as URLs and parameters
-2950 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Handles anti cross site request forgery (CSRF) tokens
-2951 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing ExtensionAuthentication
-2965 [ZAP-daemon] INFO org.zaproxy.zap.extension.authentication.ExtensionAuthentication  - Loaded authentication method types: [Form-based Authentication, HTTP/NTLM Authentication, Manual Authentication, Script-based Authentication]
-2966 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Creates a dynamic SSL certificate to allow SSL communications to be intercepted without warnings being generated by the browser
-2966 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Logs errors to the Output tab in development mode only
-2966 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing ExtensionUserManagement
-2968 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Summarise and analyse FORM and URL parameters as well as cookies
-2968 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Script integration
-2977 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Scripting console, supports all JSR 223 scripting languages
-2977 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing ExtensionForcedUser
-2977 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Extension handling HTTP sessions
-2979 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Zest is a specialized scripting language from Mozilla specifically designed to be used in security tools
-3180 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing ExtensionDiff
-3180 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing ExtensionRequestPostTableView
-3183 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Simple browser configuration
-3183 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing ExtensionSessionManagement
-3185 [ZAP-daemon] INFO org.zaproxy.zap.extension.sessions.ExtensionSessionManagement  - Loaded session management method types: [Cookie-based Session Management, HTTP Authentication Session Management]
-3185 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing ExtensionHttpPanelRequestFormTableView
-3186 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Capture messages from WebSockets with the ability to set breakpoints.
-3190 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Allows you to import a WSDL file containing operations which ZAP will access, adding them to the Sites tree.
-3190 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Core UI related functionality.
-3191 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing ExtensionAuthorization
-3191 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing AJAX Spider, uses Crawljax
-3192 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Add-on that adds a set of tools for testing access control in web applications.
-3192 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Handles adding Global Excluded URLs
-3192 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Adds menu item to refresh the Sites tree
-3192 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Adds support for configurable keyboard shortcuts for all of the ZAP menus.
-3192 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing OWASP ZAP User Guide
-3193 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Provides a URL suitable for calling from target sites
-3194 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Allows you to configure which extensions are loaded when ZAP starts 
-3194 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing ExtensionHttpPanelComponentonentAll
-3194 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing ExtensionHttpPanelHexView
-3197 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing ExtensionHttpPanelImageView
-3197 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing ExtensionHttpPanelLargeRequestView
-3197 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing ExtensionHttpPanelLargeResponseView
-3197 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing ExtensionHttpPanelRequestQueryCookieTableView
-3197 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing ExtensionHttpPanelSyntaxHighlightTextView
-3197 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Active and passive rule configuration
-3199 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Statistics
-3200 [ZAP-daemon] INFO org.zaproxy.zap.extension.stats.ExtensionStats  - Start recording in memory stats
-3201 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Allows to fuzz WebSocket messages.
-3201 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing The Online menu links
-3201 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Easy way to replace strings in requests and responses
-3203 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Provides the foundation for concrete message types (for example, HTTP, WebSockets) expose fuzzer implementations.
-3204 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Allows to fuzz HTTP messages.
-3204 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Tips and Tricks
-3205 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Passive Scan Rules - beta
-3208 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Quick Start panel 
-3208 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Translations of the core language files
-3209 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing This extension allows a user to change the default values used by ZAP Spiders.
-3211 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Active Scan Rules
-3211 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Passive Scan Rules
-3211 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Provides WebDrivers to control several browsers using Selenium and includes HtmlUnit browser.
-3215 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Active Scan Rules - beta
-3215 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing ExtensionSaveRawHttpMessage
-3215 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Context alert rules filter
-3216 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Allows you to spider and import OpenAPI (Swagger) definitions 
-3222 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing The ZAP Getting Started Guide
-3368 [ZAP-daemon] INFO org.zaproxy.zap.extension.callback.ExtensionCallback  - Started callback server on 0.0.0.0:35902
-3369 [ZAP-daemon] INFO org.zaproxy.zap.extension.dynssl.ExtensionDynSSL  - Creating new root CA certificate
-4411 [ZAP-daemon] INFO org.zaproxy.zap.extension.dynssl.ExtensionDynSSL  - New root CA certificate created
-4416 [ZAP-daemon] INFO org.zaproxy.zap.DaemonBootstrap  - ZAP is now listening on 0.0.0.0:8090
-20289 [ZAP-ProxyThread-1] INFO org.zaproxy.zap.extension.httpsessions.ExtensionHttpSessions  - Added new session token for site '172.17.0.2:8080': JSESSIONID
-27008 [ZAP-SpiderInitThread-0] INFO org.zaproxy.zap.extension.spider.SpiderThread  - Starting spidering scan on http://172.17...dex-active.jsp at Mon Apr 17 22:03:05 UTC 2017
-27010 [ZAP-SpiderInitThread-0] INFO org.zaproxy.zap.spider.Spider  - Spider initializing...
-27027 [ZAP-SpiderInitThread-0] INFO org.zaproxy.zap.spider.Spider  - Starting spider...
-86442 [ZAP-SpiderThreadPool-0-thread-2] WARN org.zaproxy.zap.spider.URLCanonicalizer  - Error while Processing URL [httk://google.com] in the spidering process (on base http://172.17.0.2:8080/wavsep/active/Unvalidated-Redirect/Redirect-Detection-Evaluation-GET-302Redirect/Case03-Redirect-RedirectMethod-FilenameContext-Unrestricted-HttpURL-DefaultInvalidInput-AnyPathReq-Read.jsp?target=httk://google.com): unknown protocol: httk
-86571 [ZAP-SpiderThreadPool-0-thread-1] WARN org.zaproxy.zap.spider.URLCanonicalizer  - Error while Processing URL [http://] in the spidering process (on base http://172.17.0.2:8080/wavsep/active/Unvalidated-Redirect/Redirect-Detection-Evaluation-GET-302Redirect/Case07-Redirect-RedirectMethod-FilenameContext-Unrestricted-HttpURL-DefaultEmptyInput-PartialPathReq-Read.jsp?target): Expected authority at index 7: http://
-92119 [ZAP-SpiderThreadPool-0-thread-1] INFO org.zaproxy.zap.spider.Spider  - Spidering process is complete. Shutting down...
-92121 [ZAP-SpiderShutdownThread-0] INFO org.zaproxy.zap.extension.spider.SpiderThread  - Spider scanning complete: true
-97227 [ZAP-ProxyThread-36] INFO org.parosproxy.paros.core.scanner.Scanner  - scanner started
-97249 [Thread-17] INFO org.parosproxy.paros.core.scanner.HostProcess  - Scanning 1752 node(s) from http://172.17.0.2:8080
-97257 [Thread-17] INFO org.parosproxy.paros.core.scanner.HostProcess  - start host http://172.17.0.2:8080 | TestPathTraversal strength MEDIUM threshold MEDIUM
-277053 [Thread-17] INFO org.parosproxy.paros.core.scanner.HostProcess  - completed host/plugin http://172.17.0.2:8080 | TestPathTraversal in 179.797s with 52809 message(s) sent
-277053 [Thread-17] INFO org.parosproxy.paros.core.scanner.HostProcess  - start host http://172.17.0.2:8080 | TestRemoteFileInclude strength MEDIUM threshold MEDIUM
-455505 [Thread-17] INFO org.parosproxy.paros.core.scanner.HostProcess  - completed host/plugin http://172.17.0.2:8080 | TestRemoteFileInclude in 178.452s with 21072 message(s) sent
-455506 [Thread-17] INFO org.parosproxy.paros.core.scanner.HostProcess  - start host http://172.17.0.2:8080 | TestServerSideInclude strength MEDIUM threshold MEDIUM
-631801 [Thread-17] INFO org.parosproxy.paros.core.scanner.HostProcess  - completed host/plugin http://172.17.0.2:8080 | TestServerSideInclude in 176.296s with 8556 message(s) sent
-631801 [Thread-17] INFO org.parosproxy.paros.core.scanner.HostProcess  - start host http://172.17.0.2:8080 | TestCrossSiteScriptV2 strength MEDIUM threshold MEDIUM
-807688 [Thread-17] INFO org.parosproxy.paros.core.scanner.HostProcess  - completed host/plugin http://172.17.0.2:8080 | TestCrossSiteScriptV2 in 175.887s with 6312 message(s) sent
-807688 [Thread-17] INFO org.parosproxy.paros.core.scanner.HostProcess  - start host http://172.17.0.2:8080 | TestSQLInjection strength MEDIUM threshold MEDIUM
-998666 [Thread-17] INFO org.parosproxy.paros.core.scanner.HostProcess  - completed host/plugin http://172.17.0.2:8080 | TestSQLInjection in 190.978s with 52886 message(s) sent
-998666 [Thread-17] INFO org.parosproxy.paros.core.scanner.HostProcess  - start host http://172.17.0.2:8080 | CodeInjectionPlugin strength MEDIUM threshold MEDIUM
-1175015 [Thread-17] INFO org.parosproxy.paros.core.scanner.HostProcess  - completed host/plugin http://172.17.0.2:8080 | CodeInjectionPlugin in 176.349s with 17384 message(s) sent
-1175015 [Thread-17] INFO org.parosproxy.paros.core.scanner.HostProcess  - start host http://172.17.0.2:8080 | CommandInjectionPlugin strength MEDIUM threshold MEDIUM
-1356744 [Thread-17] INFO org.parosproxy.paros.core.scanner.HostProcess  - completed host/plugin http://172.17.0.2:8080 | CommandInjectionPlugin in 181.729s with 69536 message(s) sent
-1356745 [Thread-17] INFO org.parosproxy.paros.core.scanner.HostProcess  - start host http://172.17.0.2:8080 | TestDirectoryBrowsing strength MEDIUM threshold MEDIUM
-1527011 [Thread-17] INFO org.parosproxy.paros.core.scanner.HostProcess  - completed host/plugin http://172.17.0.2:8080 | TestDirectoryBrowsing in 170.266s with 1752 message(s) sent
-1527011 [Thread-17] INFO org.parosproxy.paros.core.scanner.HostProcess  - start host http://172.17.0.2:8080 | TestExternalRedirect strength MEDIUM threshold MEDIUM
-1704191 [Thread-17] INFO org.parosproxy.paros.core.scanner.HostProcess  - completed host/plugin http://172.17.0.2:8080 | TestExternalRedirect in 177.18s with 19086 message(s) sent
-1704191 [Thread-17] INFO org.parosproxy.paros.core.scanner.HostProcess  - start host http://172.17.0.2:8080 | BufferOverflow strength MEDIUM threshold MEDIUM
-1875164 [Thread-17] INFO org.parosproxy.paros.core.scanner.HostProcess  - completed host/plugin http://172.17.0.2:8080 | BufferOverflow in 170.973s with 2039 message(s) sent
-1875165 [Thread-17] INFO org.parosproxy.paros.core.scanner.HostProcess  - start host http://172.17.0.2:8080 | FormatString strength MEDIUM threshold MEDIUM
-2046467 [Thread-17] INFO org.parosproxy.paros.core.scanner.HostProcess  - completed host/plugin http://172.17.0.2:8080 | FormatString in 171.303s with 6073 message(s) sent
-2046467 [Thread-17] INFO org.parosproxy.paros.core.scanner.HostProcess  - start host http://172.17.0.2:8080 | TestInjectionCRLF strength MEDIUM threshold MEDIUM
-2222434 [Thread-17] INFO org.parosproxy.paros.core.scanner.HostProcess  - completed host/plugin http://172.17.0.2:8080 | TestInjectionCRLF in 175.967s with 15211 message(s) sent
-2222434 [Thread-17] INFO org.parosproxy.paros.core.scanner.HostProcess  - start host http://172.17.0.2:8080 | TestParameterTamper strength MEDIUM threshold MEDIUM
-2397964 [Thread-17] INFO org.parosproxy.paros.core.scanner.HostProcess  - completed host/plugin http://172.17.0.2:8080 | TestParameterTamper in 175.53s with 13434 message(s) sent
-2397966 [Thread-17] INFO org.parosproxy.paros.core.scanner.HostProcess  - start host http://172.17.0.2:8080 | TestPersistentXSSPrime strength MEDIUM threshold MEDIUM
-2571264 [Thread-17] INFO org.parosproxy.paros.core.scanner.HostProcess  - completed host/plugin http://172.17.0.2:8080 | TestPersistentXSSPrime in 173.298s with 2173 message(s) sent
-2571265 [Thread-17] INFO org.parosproxy.paros.core.scanner.HostProcess  - start host http://172.17.0.2:8080 | TestPersistentXSSSpider strength MEDIUM threshold MEDIUM
-2743146 [Thread-17] INFO org.parosproxy.paros.core.scanner.HostProcess  - completed host/plugin http://172.17.0.2:8080 | TestPersistentXSSSpider in 171.881s with 1752 message(s) sent
-2743146 [Thread-17] INFO org.parosproxy.paros.core.scanner.HostProcess  - start host http://172.17.0.2:8080 | TestPersistentXSSAttack strength MEDIUM threshold MEDIUM
-2839983 [Thread-17] INFO org.parosproxy.paros.core.scanner.HostProcess  - completed host/plugin http://172.17.0.2:8080 | TestPersistentXSSAttack in 96.837s with 0 message(s) sent
-2839984 [Thread-17] INFO org.parosproxy.paros.core.scanner.HostProcess  - start host http://172.17.0.2:8080 | ScriptsActiveScanner strength MEDIUM threshold MEDIUM
-2839984 [Thread-17] INFO org.parosproxy.paros.core.scanner.HostProcess  - skipped plugin [no scripts enabled] http://172.17.0.2:8080 | ScriptsActiveScanner in 0s with 0 message(s) sent
-2839984 [Thread-17] INFO org.parosproxy.paros.core.scanner.HostProcess  - start host http://172.17.0.2:8080 | SourceCodeDisclosureSVN strength MEDIUM threshold MEDIUM
-2999478 [Thread-17] INFO org.parosproxy.paros.core.scanner.HostProcess  - completed host/plugin http://172.17.0.2:8080 | SourceCodeDisclosureSVN in 159.494s with 1656 message(s) sent
-2999479 [Thread-17] INFO org.parosproxy.paros.core.scanner.HostProcess  - start host http://172.17.0.2:8080 | SourceCodeDisclosureWEBINF strength MEDIUM threshold MEDIUM
-2999479 [Thread-17] INFO org.parosproxy.paros.core.scanner.HostProcess  - start host http://172.17.0.2:8080 | ShellShockScanner strength MEDIUM threshold MEDIUM
-2999487 [ZAP-ActiveScanner-0] INFO org.parosproxy.paros.core.scanner.HostProcess  - completed host/plugin http://172.17.0.2:8080 | SourceCodeDisclosureWEBINF in 0.007s with 4 message(s) sent
-3174902 [Thread-17] INFO org.parosproxy.paros.core.scanner.HostProcess  - completed host/plugin http://172.17.0.2:8080 | ShellShockScanner in 175.423s with 4346 message(s) sent
-3174902 [Thread-17] INFO org.parosproxy.paros.core.scanner.HostProcess  - start host http://172.17.0.2:8080 | Csrftokenscan strength MEDIUM threshold MEDIUM
-3238029 [Thread-17] INFO org.parosproxy.paros.core.scanner.HostProcess  - completed host/plugin http://172.17.0.2:8080 | Csrftokenscan in 63.127s with 608 message(s) sent
-3238029 [Thread-17] INFO org.parosproxy.paros.core.scanner.HostProcess  - start host http://172.17.0.2:8080 | HeartBleedActiveScanner strength MEDIUM threshold MEDIUM
-3238032 [Thread-17] INFO org.parosproxy.paros.core.scanner.HostProcess  - start host http://172.17.0.2:8080 | CrossDomainScanner strength MEDIUM threshold MEDIUM
-3238035 [Thread-17] INFO org.parosproxy.paros.core.scanner.HostProcess  - start host http://172.17.0.2:8080 | SourceCodeDisclosureCVE20121823 strength MEDIUM threshold MEDIUM
-3238038 [ZAP-ActiveScanner-0] INFO org.parosproxy.paros.core.scanner.HostProcess  - completed host/plugin http://172.17.0.2:8080 | HeartBleedActiveScanner in 0.009s with 0 message(s) sent
-3238056 [ZAP-ActiveScanner-1] INFO org.parosproxy.paros.core.scanner.HostProcess  - completed host/plugin http://172.17.0.2:8080 | CrossDomainScanner in 0.024s with 2 message(s) sent
-3401926 [Thread-17] INFO org.parosproxy.paros.core.scanner.HostProcess  - completed host/plugin http://172.17.0.2:8080 | SourceCodeDisclosureCVE20121823 in 163.891s with 1655 message(s) sent
-3401927 [Thread-17] INFO org.parosproxy.paros.core.scanner.HostProcess  - start host http://172.17.0.2:8080 | RemoteCodeExecutionCVE20121823 strength MEDIUM threshold MEDIUM
-3577309 [Thread-17] INFO org.parosproxy.paros.core.scanner.HostProcess  - completed host/plugin http://172.17.0.2:8080 | RemoteCodeExecutionCVE20121823 in 175.382s with 3504 message(s) sent
-3577309 [Thread-17] INFO org.parosproxy.paros.core.scanner.HostProcess  - start host http://172.17.0.2:8080 | SessionFixation strength MEDIUM threshold MEDIUM
-3578409 [Thread-17] INFO org.parosproxy.paros.core.scanner.HostProcess  - completed host/plugin http://172.17.0.2:8080 | SessionFixation in 1.1s with 0 message(s) sent
-3578409 [Thread-17] INFO org.parosproxy.paros.core.scanner.HostProcess  - start host http://172.17.0.2:8080 | SQLInjectionMySQL strength MEDIUM threshold MEDIUM
-5056925 [Thread-17] INFO org.parosproxy.paros.core.scanner.HostProcess  - completed host/plugin http://172.17.0.2:8080 | SQLInjectionMySQL in 1478.516s with 14596 message(s) sent
-5056925 [Thread-17] INFO org.parosproxy.paros.core.scanner.HostProcess  - start host http://172.17.0.2:8080 | SQLInjectionHypersonic strength MEDIUM threshold MEDIUM
-5233068 [Thread-17] INFO org.parosproxy.paros.core.scanner.HostProcess  - completed host/plugin http://172.17.0.2:8080 | SQLInjectionHypersonic in 176.143s with 13038 message(s) sent
-5233068 [Thread-17] INFO org.parosproxy.paros.core.scanner.HostProcess  - start host http://172.17.0.2:8080 | SQLInjectionOracle strength MEDIUM threshold MEDIUM
-5409398 [Thread-17] INFO org.parosproxy.paros.core.scanner.HostProcess  - completed host/plugin http://172.17.0.2:8080 | SQLInjectionOracle in 176.33s with 13038 message(s) sent
-5409399 [Thread-17] INFO org.parosproxy.paros.core.scanner.HostProcess  - start host http://172.17.0.2:8080 | SQLInjectionPostgresql strength MEDIUM threshold MEDIUM
-5585321 [Thread-17] INFO org.parosproxy.paros.core.scanner.HostProcess  - completed host/plugin http://172.17.0.2:8080 | SQLInjectionPostgresql in 175.922s with 13038 message(s) sent
-5585321 [Thread-17] INFO org.parosproxy.paros.core.scanner.HostProcess  - start host http://172.17.0.2:8080 | XpathInjectionPlugin strength MEDIUM threshold MEDIUM
-5761216 [Thread-17] INFO org.parosproxy.paros.core.scanner.HostProcess  - completed host/plugin http://172.17.0.2:8080 | XpathInjectionPlugin in 175.895s with 6519 message(s) sent
-5761216 [Thread-17] INFO org.parosproxy.paros.core.scanner.HostProcess  - start host http://172.17.0.2:8080 | XXEPlugin strength MEDIUM threshold MEDIUM
-5762035 [Thread-17] INFO org.parosproxy.paros.core.scanner.HostProcess  - completed host/plugin http://172.17.0.2:8080 | XXEPlugin in 0.819s with 0 message(s) sent
-5762035 [Thread-17] INFO org.parosproxy.paros.core.scanner.HostProcess  - start host http://172.17.0.2:8080 | PaddingOraclePlugin strength MEDIUM threshold MEDIUM
-5853757 [Thread-17] INFO org.parosproxy.paros.core.scanner.HostProcess  - completed host/plugin http://172.17.0.2:8080 | PaddingOraclePlugin in 91.721s with 2 message(s) sent
-5853757 [Thread-17] INFO org.parosproxy.paros.core.scanner.HostProcess  - start host http://172.17.0.2:8080 | ExpressionLanguageInjectionPlugin strength MEDIUM threshold MEDIUM
-6027635 [Thread-17] INFO org.parosproxy.paros.core.scanner.HostProcess  - completed host/plugin http://172.17.0.2:8080 | ExpressionLanguageInjectionPlugin in 173.878s with 2139 message(s) sent
-6027635 [Thread-17] INFO org.parosproxy.paros.core.scanner.HostProcess  - start host http://172.17.0.2:8080 | BackupFileDisclosure strength MEDIUM threshold MEDIUM
-6194671 [Thread-17] INFO org.parosproxy.paros.core.scanner.HostProcess  - completed host/plugin http://172.17.0.2:8080 | BackupFileDisclosure in 167.036s with 58826 message(s) sent
-6194671 [Thread-17] INFO org.parosproxy.paros.core.scanner.HostProcess  - start host http://172.17.0.2:8080 | IntegerOverflow strength MEDIUM threshold MEDIUM
-6367403 [Thread-17] INFO org.parosproxy.paros.core.scanner.HostProcess  - completed host/plugin http://172.17.0.2:8080 | IntegerOverflow in 172.732s with 8064 message(s) sent
-6367404 [Thread-17] INFO org.parosproxy.paros.core.scanner.HostProcess  - start host http://172.17.0.2:8080 | InsecureHTTPMethod strength MEDIUM threshold MEDIUM
-6537690 [Thread-17] INFO org.parosproxy.paros.core.scanner.HostProcess  - completed host/plugin http://172.17.0.2:8080 | InsecureHTTPMethod in 170.287s with 1752 message(s) sent
-6537691 [Thread-17] INFO org.parosproxy.paros.core.scanner.HostProcess  - start host http://172.17.0.2:8080 | HPP strength MEDIUM threshold MEDIUM
-6596405 [Thread-17] INFO org.parosproxy.paros.core.scanner.HostProcess  - completed host/plugin http://172.17.0.2:8080 | HPP in 58.714s with 559 message(s) sent
-6596405 [Thread-17] INFO org.parosproxy.paros.core.scanner.HostProcess  - start host http://172.17.0.2:8080 | UsernameEnumeration strength MEDIUM threshold MEDIUM
-6596406 [Thread-17] INFO org.zaproxy.zap.extension.ascanrulesBeta.UsernameEnumeration  - There does not appear to be any configured contexts using Form-based Authentication. Further attempts during the current scan will be skipped.
-6596406 [Thread-17] INFO org.parosproxy.paros.core.scanner.HostProcess  - skipped plugin http://172.17.0.2:8080 | UsernameEnumeration in 0.001s with 0 message(s) sent
-6596406 [Thread-17] INFO org.parosproxy.paros.core.scanner.HostProcess  - start host http://172.17.0.2:8080 | SOAPActionSpoofingActiveScanner strength MEDIUM threshold MEDIUM
-6597553 [Thread-17] INFO org.parosproxy.paros.core.scanner.HostProcess  - completed host/plugin http://172.17.0.2:8080 | SOAPActionSpoofingActiveScanner in 1.147s with 0 message(s) sent
-6597553 [Thread-17] INFO org.parosproxy.paros.core.scanner.HostProcess  - start host http://172.17.0.2:8080 | SOAPXMLInjectionActiveScanner strength MEDIUM threshold MEDIUM
-6688481 [Thread-17] INFO org.parosproxy.paros.core.scanner.HostProcess  - completed host/plugin http://172.17.0.2:8080 | SOAPXMLInjectionActiveScanner in 90.928s with 0 message(s) sent
-6688481 [Thread-17] INFO org.parosproxy.paros.core.scanner.HostProcess  - completed host http://172.17.0.2:8080 in 6591.24s
-6688481 [Thread-16] INFO org.parosproxy.paros.core.scanner.Scanner  - scanner completed in 6591.254s
+137 [main] INFO org.zaproxy.zap.DaemonBootstrap  - OWASP ZAP D-2017-04-18 started 24/04/17 22:02:38 with home /home/zap/.ZAP_D/
+159 [main] INFO org.parosproxy.paros.common.AbstractParam  - Setting config api.disablekey = true was null
+159 [main] INFO org.parosproxy.paros.common.AbstractParam  - Setting config api.addrs.addr.name = .* was null
+159 [main] INFO org.parosproxy.paros.common.AbstractParam  - Setting config api.addrs.addr.regex = true was null
+160 [main] INFO org.parosproxy.paros.common.AbstractParam  - Setting config database.recoverylog = false was null
+164 [main] INFO org.parosproxy.paros.network.SSLConnector  - Reading supported SSL/TLS protocols...
+164 [main] INFO org.parosproxy.paros.network.SSLConnector  - Using a SSLEngine...
+236 [main] INFO org.parosproxy.paros.network.SSLConnector  - Done reading supported SSL/TLS protocols: [SSLv2Hello, SSLv3, TLSv1, TLSv1.1, TLSv1.2]
+240 [main] INFO org.parosproxy.paros.extension.option.OptionsParamCertificate  - Unsafe SSL renegotiation disabled.
+521 [main] INFO hsqldb.db..ENGINE  - open start - state not modified
+626 [main] INFO hsqldb.db..ENGINE  - dataFileCache open start
+634 [main] INFO hsqldb.db..ENGINE  - dataFileCache open end
+675 [ZAP-daemon] INFO org.zaproxy.zap.control.ExtensionFactory  - Loading extensions
+2094 [ZAP-daemon] INFO org.zaproxy.zap.control.ExtensionFactory  - Installed add-ons: [[id=websocket, version=12.0.0], [id=onlineMenu, version=5.0.0], [id=invoke, version=6.0.0], [id=replacer, version=2.0.0], [id=fuzz, version=8.0.0], [id=tips, version=6.0.0], [id=pscanrulesBeta, version=15.0.0], [id=diff, version=7.0.0], [id=bruteforce, version=6.0.0], [id=webdrivermacos, version=2.0.0], [id=quickstart, version=19.0.0], [id=coreLang, version=11.0.0], [id=formhandler, version=1.0.0], [id=portscan, version=8.0.0], [id=spiderAjax, version=17.0.0], [id=scripts, version=19.0.0], [id=ascanrules, version=26.0.0], [id=pscanrules, version=19.0.0], [id=selenium, version=10.0.0], [id=zest, version=23.0.0], [id=webdriverwindows, version=2.0.0], [id=help, version=7.0.0], [id=ascanrulesBeta, version=22.0.0], [id=directorylistv1, version=3.0.0], [id=saverawmessage, version=3.0.0], [id=plugnhack, version=10.0.0], [id=accessControl, version=2.0.0], [id=soap, version=3.0.0], [id=alertFilters, version=4.0.0], [id=openapi, version=2.0.0], [id=sequence, version=4.0.0], [id=reveal, version=2.0.0], [id=webdriverlinux, version=2.0.0], [id=gettingStarted, version=6.0.0]]
+2369 [ZAP-daemon] INFO org.zaproxy.zap.control.ExtensionFactory  - Extensions loaded
+2592 [ZAP-daemon] INFO org.parosproxy.paros.extension.filter.FilterFactory  - loaded filter Change user agent to other browsers. 
+2592 [ZAP-daemon] INFO org.parosproxy.paros.extension.filter.FilterFactory  - loaded filter Detect insecure or potentially malicious content in HTTP responses.
+2592 [ZAP-daemon] INFO org.parosproxy.paros.extension.filter.FilterFactory  - loaded filter Detect and alert 'Set-cookie' attempt in HTTP response for modification.
+2592 [ZAP-daemon] INFO org.parosproxy.paros.extension.filter.FilterFactory  - loaded filter Avoid browser cache (strip off IfModifiedSince)
+2592 [ZAP-daemon] INFO org.parosproxy.paros.extension.filter.FilterFactory  - loaded filter Log cookies sent by browser.
+2592 [ZAP-daemon] INFO org.parosproxy.paros.extension.filter.FilterFactory  - loaded filter Log unique GET queries into file:filter/get.xls
+2593 [ZAP-daemon] INFO org.parosproxy.paros.extension.filter.FilterFactory  - loaded filter Log unique POST queries into file:  filter/post.xls
+2593 [ZAP-daemon] INFO org.parosproxy.paros.extension.filter.FilterFactory  - loaded filter Log request and response into file: filter/message.txt
+2594 [ZAP-daemon] INFO org.parosproxy.paros.extension.filter.FilterFactory  - loaded filter Replace HTTP request body using defined pattern.
+2594 [ZAP-daemon] INFO org.parosproxy.paros.extension.filter.FilterFactory  - loaded filter Replace HTTP request header using defined pattern.
+2594 [ZAP-daemon] INFO org.parosproxy.paros.extension.filter.FilterFactory  - loaded filter Replace HTTP response body using defined pattern.
+2594 [ZAP-daemon] INFO org.parosproxy.paros.extension.filter.FilterFactory  - loaded filter Replace HTTP response header using defined pattern.
+2594 [ZAP-daemon] INFO org.parosproxy.paros.extension.filter.FilterFactory  - loaded filter Send ZAP session request ID
+2717 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Allows ZAP to check for updates
+2722 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Options Extension
+2722 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Edit Menu Extension
+2722 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Filter Extension
+2722 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Provides a rest based API for controlling and accessing ZAP
+2776 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Menu Reset Session State Extension
+2777 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Report Extension
+2777 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing History Extension
+2778 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Show hidden fields and enable disabled fields
+2778 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Search messages for strings and regular expressions
+2779 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Encode/Decode/Hash...
+2779 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Allows you to intercept and modify requests and responses
+2780 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Passive scanner
+2839 [ZAP-daemon] INFO org.zaproxy.zap.extension.pscan.ExtensionPassiveScan  - loaded passive scan rule: Script Passive Scan Rules
+2839 [ZAP-daemon] INFO org.zaproxy.zap.extension.pscan.ExtensionPassiveScan  - loaded passive scan rule: Stats Passive Scan Rule
+2839 [ZAP-daemon] INFO org.zaproxy.zap.extension.pscan.ExtensionPassiveScan  - loaded passive scan rule: Charset Mismatch
+2839 [ZAP-daemon] INFO org.zaproxy.zap.extension.pscan.ExtensionPassiveScan  - loaded passive scan rule: Loosely Scoped Cookie
+2839 [ZAP-daemon] INFO org.zaproxy.zap.extension.pscan.ExtensionPassiveScan  - loaded passive scan rule: Absence of Anti-CSRF Tokens
+2840 [ZAP-daemon] INFO org.zaproxy.zap.extension.pscan.ExtensionPassiveScan  - loaded passive scan rule: Information Disclosure - Debug Error Messages
+2840 [ZAP-daemon] INFO org.zaproxy.zap.extension.pscan.ExtensionPassiveScan  - loaded passive scan rule: Information Disclosure - Sensitive Informations in URL
+2840 [ZAP-daemon] INFO org.zaproxy.zap.extension.pscan.ExtensionPassiveScan  - loaded passive scan rule: Information Disclosure - Sensitive Information in HTTP Referrer Header
+2840 [ZAP-daemon] INFO org.zaproxy.zap.extension.pscan.ExtensionPassiveScan  - loaded passive scan rule: Information Disclosure - Suspicious Comments
+2840 [ZAP-daemon] INFO org.zaproxy.zap.extension.pscan.ExtensionPassiveScan  - loaded passive scan rule: Weak Authentication Method
+2840 [ZAP-daemon] INFO org.zaproxy.zap.extension.pscan.ExtensionPassiveScan  - loaded passive scan rule: Insecure JSF ViewState
+2840 [ZAP-daemon] INFO org.zaproxy.zap.extension.pscan.ExtensionPassiveScan  - loaded passive scan rule: HTTP Parameter Override
+2840 [ZAP-daemon] INFO org.zaproxy.zap.extension.pscan.ExtensionPassiveScan  - loaded passive scan rule: Viewstate Scanner
+2841 [ZAP-daemon] INFO org.zaproxy.zap.extension.pscan.ExtensionPassiveScan  - loaded passive scan rule: Application Error Disclosure
+2841 [ZAP-daemon] INFO org.zaproxy.zap.extension.pscan.ExtensionPassiveScan  - loaded passive scan rule: Incomplete or No Cache-control and Pragma HTTP Header Set
+2845 [ZAP-daemon] INFO org.zaproxy.zap.extension.pscan.ExtensionPassiveScan  - loaded passive scan rule: Content-Type Header Missing
+2845 [ZAP-daemon] INFO org.zaproxy.zap.extension.pscan.ExtensionPassiveScan  - loaded passive scan rule: Cookie No HttpOnly Flag
+2845 [ZAP-daemon] INFO org.zaproxy.zap.extension.pscan.ExtensionPassiveScan  - loaded passive scan rule: Cookie Without Secure Flag
+2845 [ZAP-daemon] INFO org.zaproxy.zap.extension.pscan.ExtensionPassiveScan  - loaded passive scan rule: Cross-Domain JavaScript Source File Inclusion
+2845 [ZAP-daemon] INFO org.zaproxy.zap.extension.pscan.ExtensionPassiveScan  - loaded passive scan rule: Web Browser XSS Protection Not Enabled
+2846 [ZAP-daemon] INFO org.zaproxy.zap.extension.pscan.ExtensionPassiveScan  - loaded passive scan rule: Secure Pages Include Mixed Content
+2846 [ZAP-daemon] INFO org.zaproxy.zap.extension.pscan.ExtensionPassiveScan  - loaded passive scan rule: Password Autocomplete in Browser
+2846 [ZAP-daemon] INFO org.zaproxy.zap.extension.pscan.ExtensionPassiveScan  - loaded passive scan rule: Private IP Disclosure
+2846 [ZAP-daemon] INFO org.zaproxy.zap.extension.pscan.ExtensionPassiveScan  - loaded passive scan rule: Session ID in URL Rewrite
+2846 [ZAP-daemon] INFO org.zaproxy.zap.extension.pscan.ExtensionPassiveScan  - loaded passive scan rule: X-Content-Type-Options Header Missing
+2846 [ZAP-daemon] INFO org.zaproxy.zap.extension.pscan.ExtensionPassiveScan  - loaded passive scan rule: X-Frame-Options Header Scanner
+2846 [ZAP-daemon] INFO org.zaproxy.zap.extension.pscan.ExtensionPassiveScan  - loaded passive scan rule: WSDL File Passive Scanner
+2856 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Allows you to view and manage alerts
+2856 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Active scanner, heavily based on the original Paros active scanner, but with additional tests added
+2865 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing ExtensionSequence
+2865 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Spider used for automatically finding URIs on a site
+2871 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing A set of common popup menus for miscellaneous tasks
+2871 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Forced browsing of files and directories using code from the OWASP DirBuster tool
+2872 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Simple but effective port scanner
+2873 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Manual Request Editor Extension
+2873 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Compares 2 sessions and generates an HTML file showing the differences
+2873 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Invoke external applications passing context related information such as URLs and parameters
+2873 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Handles anti cross site request forgery (CSRF) tokens
+2874 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Authentication Extension
+2893 [ZAP-daemon] INFO org.zaproxy.zap.extension.authentication.ExtensionAuthentication  - Loaded authentication method types: [Form-based Authentication, HTTP/NTLM Authentication, Manual Authentication, Script-based Authentication]
+2894 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Creates a dynamic SSL certificate to allow SSL communications to be intercepted without warnings being generated by the browser
+2894 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Logs errors to the Output tab in development mode only
+2894 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Users Extension
+2896 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Summarise and analyse FORM and URL parameters as well as cookies
+2896 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Script integration
+2905 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Scripting console, supports all JSR 223 scripting languages
+2905 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Forced User Extension
+2905 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Extension handling HTTP sessions
+2907 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Zest is a specialized scripting language from Mozilla specifically designed to be used in security tools
+3172 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing ExtensionDiff
+3173 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing HTTP Panel Post Table View Extension
+3173 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Simple browser configuration
+3173 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Session Management Extension
+3175 [ZAP-daemon] INFO org.zaproxy.zap.extension.sessions.ExtensionSessionManagement  - Loaded session management method types: [Cookie-based Session Management, HTTP Authentication Session Management]
+3175 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing HTTP Panel Form Table View Extension
+3176 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Capture messages from WebSockets with the ability to set breakpoints.
+3179 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Allows you to import a WSDL file containing operations which ZAP will access, adding them to the Sites tree.
+3180 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Core UI related functionality.
+3181 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Authorization Extension
+3181 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing AJAX Spider, uses Crawljax
+3182 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Add-on that adds a set of tools for testing access control in web applications.
+3182 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Handles adding Global Excluded URLs
+3182 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Adds menu item to refresh the Sites tree
+3182 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Adds support for configurable keyboard shortcuts for all of the ZAP menus.
+3182 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing OWASP ZAP User Guide
+3182 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Provides a URL suitable for calling from target sites
+3184 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Allows you to configure which extensions are loaded when ZAP starts
+3184 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Combined HTTP Panels Extension
+3184 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing HTTP Panel Hex View Extension
+3184 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing HTTP Panel Image View Extension
+3184 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing HTTP Panel Large Request View Extension
+3184 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing HTTP Panel Large Response View Extension
+3184 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing HTTP Panel Query Table View Extension
+3184 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing HTTP Panel Syntax Highlighter View Extension
+3184 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Active and passive rule configuration
+3186 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Statistics
+3186 [ZAP-daemon] INFO org.zaproxy.zap.extension.stats.ExtensionStats  - Start recording in memory stats
+3187 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Allows to fuzz WebSocket messages.
+3188 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing The Online menu links
+3188 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Easy way to replace strings in requests and responses
+3189 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Provides the foundation for concrete message types (for example, HTTP, WebSockets) expose fuzzer implementations.
+3190 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Allows to fuzz HTTP messages.
+3190 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Tips and Tricks
+3190 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Passive Scan Rules - beta
+3191 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Quick Start panel 
+3191 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Translations of the core language files
+3191 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing This extension allows a user to change the default values used by ZAP Spiders.
+3192 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Active Scan Rules
+3193 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Passive Scan Rules
+3193 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Provides WebDrivers to control several browsers using Selenium and includes HtmlUnit browser.
+3197 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Active Scan Rules - beta
+3197 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing ExtensionSaveRawHttpMessage
+3197 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Context alert rules filter
+3197 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Allows you to spider and import OpenAPI (Swagger) definitions 
+3204 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing The ZAP Getting Started Guide
+3345 [ZAP-daemon] INFO org.zaproxy.zap.extension.callback.ExtensionCallback  - Started callback server on 0.0.0.0:36078
+3345 [ZAP-daemon] INFO org.zaproxy.zap.extension.dynssl.ExtensionDynSSL  - Creating new root CA certificate
+3785 [ZAP-daemon] INFO org.zaproxy.zap.extension.dynssl.ExtensionDynSSL  - New root CA certificate created
+3790 [ZAP-daemon] INFO org.zaproxy.zap.DaemonBootstrap  - ZAP is now listening on 0.0.0.0:8090
+20362 [ZAP-ProxyThread-1] INFO org.zaproxy.zap.extension.httpsessions.ExtensionHttpSessions  - Added new session token for site '172.17.0.2:8080': JSESSIONID
+27028 [ZAP-SpiderInitThread-0] INFO org.zaproxy.zap.extension.spider.SpiderThread  - Starting spidering scan on http://172.17...dex-active.jsp at Mon Apr 24 22:03:05 UTC 2017
+27029 [ZAP-SpiderInitThread-0] INFO org.zaproxy.zap.spider.Spider  - Spider initializing...
+27046 [ZAP-SpiderInitThread-0] INFO org.zaproxy.zap.spider.Spider  - Starting spider...
+82790 [ZAP-SpiderThreadPool-0-thread-1] WARN org.zaproxy.zap.spider.URLCanonicalizer  - Error while Processing URL [httk://google.com] in the spidering process (on base http://172.17.0.2:8080/wavsep/active/Unvalidated-Redirect/Redirect-Detection-Evaluation-GET-302Redirect/Case03-Redirect-RedirectMethod-FilenameContext-Unrestricted-HttpURL-DefaultInvalidInput-AnyPathReq-Read.jsp?target=httk://google.com): unknown protocol: httk
+82906 [ZAP-SpiderThreadPool-0-thread-1] WARN org.zaproxy.zap.spider.URLCanonicalizer  - Error while Processing URL [http://] in the spidering process (on base http://172.17.0.2:8080/wavsep/active/Unvalidated-Redirect/Redirect-Detection-Evaluation-GET-302Redirect/Case07-Redirect-RedirectMethod-FilenameContext-Unrestricted-HttpURL-DefaultEmptyInput-PartialPathReq-Read.jsp?target): Expected authority at index 7: http://
+90199 [ZAP-SpiderThreadPool-0-thread-1] INFO org.zaproxy.zap.spider.Spider  - Spidering process is complete. Shutting down...
+90209 [ZAP-SpiderShutdownThread-0] INFO org.zaproxy.zap.extension.spider.SpiderThread  - Spider scanning complete: true
+97376 [ZAP-ProxyThread-36] INFO org.parosproxy.paros.core.scanner.Scanner  - scanner started
+97409 [Thread-17] INFO org.parosproxy.paros.core.scanner.HostProcess  - Scanning 1766 node(s) from http://172.17.0.2:8080
+97410 [Thread-17] INFO org.parosproxy.paros.core.scanner.HostProcess  - start host http://172.17.0.2:8080 | TestPathTraversal strength MEDIUM threshold MEDIUM
+206373 [ZAP-ActiveScanner-1] INFO org.zaproxy.zap.extension.httpsessions.ExtensionHttpSessions  - Added new session token for site '172.17.0.2:80': JSESSIONID
+265963 [ZAP-ActiveScanner-1] INFO org.zaproxy.zap.extension.httpsessions.ExtensionHttpSessions  - Added new session token for site 'c:80': JSESSIONID
+265984 [ZAP-ActiveScanner-1] INFO org.zaproxy.zap.extension.httpsessions.ExtensionHttpSessions  - Added new session token for site '..:80': JSESSIONID
+265994 [ZAP-ActiveScanner-1] INFO org.zaproxy.zap.extension.httpsessions.ExtensionHttpSessions  - Added new session token for site ':80': JSESSIONID
+266010 [ZAP-ActiveScanner-1] INFO org.zaproxy.zap.extension.httpsessions.ExtensionHttpSessions  - Added new session token for site 'Windows:80': JSESSIONID
+266026 [ZAP-ActiveScanner-1] INFO org.zaproxy.zap.extension.httpsessions.ExtensionHttpSessions  - Added new session token for site 'etc:80': JSESSIONID
+266036 [ZAP-ActiveScanner-1] INFO org.zaproxy.zap.extension.httpsessions.ExtensionHttpSessions  - Added new session token for site 'WEB-INF:80': JSESSIONID
+266065 [ZAP-ActiveScanner-1] INFO org.zaproxy.zap.extension.httpsessions.ExtensionHttpSessions  - Added new session token for site 'thishouldnotexistandhopefullyitwillnot:80': JSESSIONID
+269578 [ZAP-ActiveScanner-1] INFO org.zaproxy.zap.extension.httpsessions.ExtensionHttpSessions  - Added new session token for site 'ZAP:80': JSESSIONID
+277482 [Thread-17] INFO org.parosproxy.paros.core.scanner.HostProcess  - completed host/plugin http://172.17.0.2:8080 | TestPathTraversal in 180.073s with 53185 message(s) sent
+277482 [Thread-17] INFO org.parosproxy.paros.core.scanner.HostProcess  - start host http://172.17.0.2:8080 | TestRemoteFileInclude strength MEDIUM threshold MEDIUM
+385477 [ZAP-ActiveScanner-1] INFO org.zaproxy.zap.extension.httpsessions.ExtensionHttpSessions  - Added new session token for site 'www.google.com:80': JSESSIONID
+385513 [ZAP-ActiveScanner-1] INFO org.zaproxy.zap.extension.httpsessions.ExtensionHttpSessions  - Added new session token for site 'www.google.com:443': JSESSIONID
+444815 [ZAP-ActiveScanner-1] INFO org.zaproxy.zap.extension.httpsessions.ExtensionHttpSessions  - Added new session token for site 'http:80': JSESSIONID
+457697 [Thread-17] INFO org.parosproxy.paros.core.scanner.HostProcess  - completed host/plugin http://172.17.0.2:8080 | TestRemoteFileInclude in 180.215s with 21229 message(s) sent
+457697 [Thread-17] INFO org.parosproxy.paros.core.scanner.HostProcess  - start host http://172.17.0.2:8080 | TestServerSideInclude strength MEDIUM threshold MEDIUM
+635431 [Thread-17] INFO org.parosproxy.paros.core.scanner.HostProcess  - completed host/plugin http://172.17.0.2:8080 | TestServerSideInclude in 177.733s with 8624 message(s) sent
+635431 [Thread-17] INFO org.parosproxy.paros.core.scanner.HostProcess  - start host http://172.17.0.2:8080 | TestCrossSiteScriptV2 strength MEDIUM threshold MEDIUM
+801475 [ZAP-ActiveScanner-1] INFO org.zaproxy.zap.extension.httpsessions.ExtensionHttpSessions  - Added new session token for site '0W45pz4p:80': JSESSIONID
+812943 [Thread-17] INFO org.parosproxy.paros.core.scanner.HostProcess  - completed host/plugin http://172.17.0.2:8080 | TestCrossSiteScriptV2 in 177.512s with 6356 message(s) sent
+812943 [Thread-17] INFO org.parosproxy.paros.core.scanner.HostProcess  - start host http://172.17.0.2:8080 | TestSQLInjection strength MEDIUM threshold MEDIUM
+1005837 [Thread-17] INFO org.parosproxy.paros.core.scanner.HostProcess  - completed host/plugin http://172.17.0.2:8080 | TestSQLInjection in 192.894s with 53331 message(s) sent
+1005839 [Thread-17] INFO org.parosproxy.paros.core.scanner.HostProcess  - start host http://172.17.0.2:8080 | CodeInjectionPlugin strength MEDIUM threshold MEDIUM
+1183985 [Thread-17] INFO org.parosproxy.paros.core.scanner.HostProcess  - completed host/plugin http://172.17.0.2:8080 | CodeInjectionPlugin in 178.146s with 17528 message(s) sent
+1183985 [Thread-17] INFO org.parosproxy.paros.core.scanner.HostProcess  - start host http://172.17.0.2:8080 | CommandInjectionPlugin strength MEDIUM threshold MEDIUM
+1366049 [Thread-17] INFO org.parosproxy.paros.core.scanner.HostProcess  - completed host/plugin http://172.17.0.2:8080 | CommandInjectionPlugin in 182.064s with 70112 message(s) sent
+1366050 [Thread-17] INFO org.parosproxy.paros.core.scanner.HostProcess  - start host http://172.17.0.2:8080 | TestDirectoryBrowsing strength MEDIUM threshold MEDIUM
+1537365 [Thread-17] INFO org.parosproxy.paros.core.scanner.HostProcess  - completed host/plugin http://172.17.0.2:8080 | TestDirectoryBrowsing in 171.315s with 1766 message(s) sent
+1537365 [Thread-17] INFO org.parosproxy.paros.core.scanner.HostProcess  - start host http://172.17.0.2:8080 | TestExternalRedirect strength MEDIUM threshold MEDIUM
+1715085 [Thread-17] INFO org.parosproxy.paros.core.scanner.HostProcess  - completed host/plugin http://172.17.0.2:8080 | TestExternalRedirect in 177.72s with 19249 message(s) sent
+1715085 [Thread-17] INFO org.parosproxy.paros.core.scanner.HostProcess  - start host http://172.17.0.2:8080 | BufferOverflow strength MEDIUM threshold MEDIUM
+1875658 [ZAP-ActiveScanner-1] INFO org.zaproxy.zap.extension.httpsessions.ExtensionHttpSessions  - Added new session token for site 'xQUIXamABOkNtEUhMneNXLaoMxsYdHIjhkHuMebNoEBfPfbWMiVXLEEDkDZGpyMCsfDaWEvRUvUDDybgPXCWcoasvVbJoVYLaNyslWgmqqBKtGBaFYWoZcgpZIiWGqWAxLDhWqKSgXwjIDghPxItMGpFlYMegTObkfYljGeLVThrjxMfAweIrRehSslVtTjPOuEAHVxJfqmStaREybUqoTPkyPaLXGBenHLwhrgPqByjmWryINmJMsWrRvKACVkdTEwcRhLctLegEXlDvRsKlWkFnakgPGNoowiwTAHIBJkAYkluheAPnQnVLdjZgMNVdfgAsXeJaGGypbhyArpskPXrhPNvOsaOqqSUmbrWIrYZnZtrCGxhahtNwUITbQDYaNGJlUqJeORorcWaSrrZGcwIkCtrbSnKiSuavPDJeYEpLApRtxkilXCymgWlaQtHpHtQWjIcZwxCjjSIqrrBWgyJnZBarHqQsSEMqoHfdlAXYsmbAYCMKoZuSnoPqXaGmYQiwXkilwRpHZjMMASQKuYUnlXvxsYAYkRtkCHtvEMdgdfwWKFTnJqQxGXbVfwdOmMJCUtfZrOwnubIQGNTQKJvLUcEbhJiaXnWGUNrkeEbVfbbyTjrgIuTqpNkMiMgKaoYUPoIotZrVVCThZteHRlRKELDIuOPihEJgcWSchviCqrNbOdQiGTbOylRTSuWtkcBDqkdmXpsGeafYLJwSKCdDmLSxdFgQDcqAaqQtUErQSmtTSinUWrNOMriLxwuTfousunJKvDWacHTavJMRlUPeWiPKDwZYQQyhGjwAyCXFPmpVhJmEKsEbYLhGmjKrAyjExQBtyYqlOOheusOiPnseLXMJpJZeegZLgsqnuUBBtdiXcyVJtScGSjUHmKjsCdXoesjDapipeZsjWsQnXRJMRQhOXAiZSSlbMrxOphUNeWfbyecUBlgECGNJpdCAcWWUVcufVlSelTavcHOiBaNeDAdNETZaMnBJCnBWuHMNvmULTOFCtufUmyfqUHvXjoIeDZXUTGJUMoNIwHaLVvrQZYGfadwmAJbBcCHUhoASdAtHtqIbEbOeoggwonCjBUffxcIokXEJbcIJVIyNAXgMupNpvejgBngAQUGapUILMDXUpuDWDksdDyiQasgLpFDODkiwMJepCYWjGUSUNhLYbEkBmCpPRKwleglFVjJNAOLiZgiVkcvLFMarfeiFTNZJUjSVlOtxTyaZnYXKnlisZqDryWkAIMuEnqLmMdDpCjVWyZqhAxemBIGyImhWAIqkQKoNpnqGPpDwboIlSJVmARLQkgZtpOOSeoZPtjepinQIgJXlqpeQOIUqbKlVhjvtqRNMTSEPcmFNIefOHaWceRZCXXplIxLUcBUJXVvPevSeWYspffveTFgIoyZAsLAAkSYLfoWHdRXeGVItqUYZOUCXKVaqBlaFKZIoTlOmrCcsJpbtYewgobdEBqsdWgcWBiXkPHksNxIGHqEGSIausKTogjXoIkYeCYeMOgrZCcDMLBWvliUJcdXQsLrssQtdqEoXDCwErNwDcVVpPPWJaAQDGEdHPgtmiOhNZUfyxBgxIVwlOxnijbsQqPEVwSfNyDwfOMeWlVjplpjGYyKHUXyMvQbWurbrtZdOgScuqFeNIGofHAIiDSXrdtCSGqZjJqHqiLqxSpkqZmunYmtNBldYSxbAPSTfmBZydRwtfBvdnPSGWjhLwUXwCLeNBrjnpIygEiTXXvjVvfZMiUiDyRdTORbUiHhGvnugMMmdXqfRuVBUDbfTflXHRCBBEkHtqEogksDyUyjWwSXArfhbewdBrCjOLGacRbDlNeURnaURcbkbXMtAlCJwLRyBHIuTQfQCNVfWSLqNITGKPOhPcvTAZtgXxxyYoklVkiZfueocPDRKTVLIqWtwjlaRtvcjEnIqeZgwSBMuLgOKntvWRkjdOQPpVGutoWiLxunDkjWURFtChOVsVxhQZtqMcqmhGwUAGrDPPZHtiGaiOTXaEVEckhnWqUaiKWyqNpeTWlBlgwvnCVOBmhtDtIWURqosZwuWBSPUQHuOoMMNkFsWTyasyOLPiUHviGXVqTKGhdwsaTs:80': JSESSIONID
+1875859 [ZAP-ActiveScanner-0] INFO org.zaproxy.zap.extension.httpsessions.ExtensionHttpSessions  - Added new session token for site 'HmYlcjRGQHXiBVweIfTrAhEpWPtBxkiIdCbHZJoeSmRIOGeJtUGVVFkYuhVNZTpYhYUEhQcqHxlMfcwZrOaemJgPVYUgAwwyLSEYKwbSuTnISoOgowxQpwdyKfEsDnvngcfRvjLNyTomaLkRLSWuSHuGgRaPqCFlJSPySioKYBvTarsUvRlpvhWYoxmrWbDvPKSRTgLBOZWsPJhgJOCDEwFAmeydHBwGqATtbXZWCcIHkAdsrewvocbfTbeJRYvhZBxioAgUskySBAZJtIXPQJlujXhmJyaYyTxYFqwvCHvtsMjsoDGiqoUVGYQPlYHWqJmfcrEwvQoKqUTlCVZbtgTfbHecvnKYavBbbAmEnQDkVGRdgrKtwQhWmgfHyYHlgLAALwNvmYaWKotsFNZWXHlodQUJxKBPoBCJfqGIfPhmTwCrKhwQhRLIgdJGVxVmYKvwidLgWyevExFpjvXuXHbjZWLmaQLTiMSEovTEeUgfLchBZyqnJKcALlXxqGEnETAJqlXNJyHTGNuyfDBsOPfLBlTpLoBNloKySqiwFDiFcOMASPGJeeHulBPYLfIZXUkSDLgrIlboPDSDNhBrQoYUkgxKEGqmNxtfVrdDMZXQMnoiZAncZCwofORcEmGLiPnEtiLZmOYaQOdJGhSBbkWPjIhJkNLhUOjcCKcNvmEcsVMyBBtvklqhNdrAZSIVIyKawcgNOkBLYLOLrBWEaIuyDnGXBQFKOUaaADxpIMoHNWZPxCPDEJvEimKjdSvqtBIarQBAjltmsjRWyFRPOMotxCLlvZuFvvcCVYjndPpyQeyXmdxWLdsfJhysHpEKYpbqNLfMrUkDtUYaZKOBySaqiywTdjAoWuaCAUPEEpvyplsuZnCEDTcaqsmbrvSBkdkAojjLfEULKlyElZkQgkfjELlJHRpYJUctJhoGYhnXOgFRGxuNIieLYVwAdplhIEfheVPiNHhOWFvmDgNMxBflkVELJOmFuaMwMfpmQBKKEyyTATkSwSddlAiFmIINOelgsDCBoFBOQhUJGkTriCBHdTjlgFunrylyvAcNKOiyXIcgEGtjtVkXeDWmKRGyQGgNGfWIZPDGrnnNShDHAKijLcMturQrEKruIdifjJPtWOnXxLdHqhAGdXHsqHBYbSgXwBnlnRRstqACWmhZYXoMZjyXQqvnmqkNLCrshuBatQwVBKZTXUSFXaVdGcOVNSiNGDJHeUsMMTYxAivgkSNeRqLGvGqVSCPRSOlAeqkCAAYTjvpgqwitKttEdHxvpohHIdxBgBWyEIbdjIZcuAPTieBiBmtsjmOZBOsZMgQegTWXrZLpfnqfIiqrerPUFrytFIbajhQkTWhHngYPoWbsRZOiaFSIarJNtGRXRKoSUeFuCAqlWVVACbhYBsuOOIlvknwELdBaZtmeHegFoHsjtyqlekdHtgreXPHtPpHinHoZUrhpeWmObMZlpwZywHUbuuBjFiUvQONLpvbafdWhXAIPEgKFNBaVEpmSAlLThqihAEEGvbURlJvoSXwhwTCuZjKmSxtldpQrBobSmsTpVOYNSAVGccyHvFFZUAlCMyjwUQyrfWVjuObLJoeuLlrLppoArjYNLGCVTHsiFjvMlPhrWCwfwVhWhaJyMsCOrFrSeURxAfFnOCgLnTFNyCBRsndBRlPBlNXpRxtbdQMpoWLlBGWdSUViJUFfQCmSBoqPjwopTbFoubrcZWMUyhBaDdBxKJsnUFUjjPbHiBlhpJmIcHiHxpcgndATLAbcPAxmOJBQHsdrHDSdROWnfvKVYXxmlCjjZTHnBCAMiTmvhaaLyjmHNkESFpKFOXxMyrYIBEcmHxIIQkCjTQYSCofhNeBuqrhABiHlDTRftDiPOPPyiVBwrucNmfrvJJWUjTCjKyaqtkrCPIjRQxxikZHfXIlhNEONQIpjjBDKenMHdISdxBWXPvPLRqqdstnaHYZmVyMGnGQINvLLYwXrtBMeusUPsxXsqMDusbldUlkRgofXIIfstEagleHpvTgXClgFcZZVGlXnWdAOPkotUYwgkjEIFwoFySIWdMiDoXDmHFSNwZvSvBCLGAwClEQIZDDeoHTr:80': JSESSIONID
+1875859 [ZAP-ActiveScanner-1] INFO org.zaproxy.zap.extension.httpsessions.ExtensionHttpSessions  - Added new session token for site 'aAsdNPeCbrOFcVEHKEPYoRmvGiKXXPfRkZKeCXCeplaqbEogjCGqEiQoofaagnbvRPEqxtLnMiDrHdilWshhDBMUCcgyaRtdkZktgyQvFtpYZGZFHlQLAmPPDjGfDqwfPFioYmtDunJcHCvuQeJgmMpCojFJjbYlbVRYXICoPfpoRATtrYpWLHHOfCASwpxDhMBMaIrfkWSnIUDKJnECvdULMOTuaKGdYPZQViZQJEcLYmWsUgTZAjMsgVNXmRkyPByKyjRNLZXRVqXEXUbObWnujSOHvyyosnOXwUIdEVQGlTDimPXpSBIIWaHEtpZKYDEfeGuNKPCiFjpsAnaVNoDmLvdiYDBnEFiPbfwvklBxPpWIgRoJAskVhuXjWbHxryteokcQslowPbGXNdBtSYmEmZEjiVjdEvDsuBGmQnODJsobxRBDsXNqOVifuyDwDhFqRVRLZGVOoeBVrdmCwACuueCkGssLKaptqVvjiVFcEAYsADvwBUQRjTChEtGHWYxYetFxtwSMeEesqbBrQKUyLXERoKCjkvRgryqagtWLJwJYkoVyEWSYMEKwExWltbGBHkBVeAmbKOfSYGosAlvElxJXewCwLtDVMtoOZyZgtQdLVQcUGIntrbGxXsGRLqkwENFuTwGfTCgWoxDwrDYTJLhhbhUoPbCZCUpkKmuolhTjMkLLaKOOcufsEHuBZGjCqwvVTlLWhiAXnigpGQwwLRyJEhgiRoXdeyhfOwfaRnEwxmhZOWQMAjxMPkyEflTNBjqgUfpNbultpYHeIGgNorMZaFLWZIueZtNJVhPARlkwBAjVfiNxPYPoiNpTuxQBDFITdinUDCwaSSifOkefNtyMlTLvqeZIakKJAlTGgJdAVKRceDudHcuhDVoYBshoFqRRgCNWQsoBjSHWklkjpHuyYtkBQOWLVvBFhFpPyIIiXgvTmGYVYPjCRDwpkbtRaPVDEQngmhpFMPaEPixqFOrotCYVHQxRITHUofECRZcIRWLAdBeUdZbScNnxSvUuhsZKKamnkshvlhGXrHYKDrupNyoZWSmByMDvNfXgDbYjawtIOVIJVPweQYHFfxfImsMEKPRiZUaAcexivTNCTXGoWpDuEcOkAngnLhVnNUgQgpgyrNlcGCyAFMdEOGjDDxBSJqJdhguEbRGnbmPkxxRDtcgLtSHdmHPWrtpYhBYYQbAwnmUjQhEDEBTjgidldjRriVtlLdcZXowBFiHbcyQQBjJiaZqVlfHBEwwbdWnDxDchprRpqvjkvcShQEBqpxYiEtVOZKfxPxxKKUErwuDYBgWoXagsUNgmfxjUUCAODPsfFTXYarJLfFYSBMBjZodrKftQjVaFnwtLEvHGUBjJYCfotMyZlBCQnbInPemoDyjrbJcCKrYiXAYaVoppiocmRFBAEPnoaHxeJdxSkGvoExRrPiUXGBmrhEUGvMZmZQwsKmHDFwJcmhkqSvRWwEqPShVpYisjoWUCJvHqSWOOuQkxogYonrDSTTVhToWcdoBJeQumyMGiIjMfpaejpHmGBAGSnMjnuqhmIcogFoxgDgFvqXFinMJMCqDWrXIMOwavQrmcZbTORSBiSjDiaMQLEgSHejijkDdtdJBpVLixrbUjMXHJQkjjPfsWrdagEOCLakwLiqMouxFtHlIjjWrxAQUPciMwkOCLtUBigVdIOPvNgKaKYscAXSkwprTMlWmSYaEZoyTPeqPxJTwaqHZMIwygdKDrXdjgtcpTXoSjTeOWfqnNVkCbDVMsmtOxXmyrrWKqfbkpSbBHiAfMTSXxLcuvGOFOBUuTMebmGxwJAkDDoSiSbfsFxKqZPAAcwuKvawVhDHXRsMLYYRZMmIxFiIgwUdMMRDVfWggjCLYJxpmRlxuxjfjDonyuHXjIBVTQEyHGWtfvGNTWFROjCyfxtTaSvfQwTRXtpNOClMkYCIsooEetqXbAocThtDprPlkkIpcuOCZSCHKMBSwErsZFtsAwraTFoyqfKnPORFfjjoDJofcObgVEXMAHtaHXiFcqlZjmRvFkQNaWuvmPamnSupdyjsLPdRjvIHiDIdIurCVJWAIIDuSvvsZLoAXnEvZO:80': JSESSIONID
+1876060 [ZAP-ActiveScanner-0] INFO org.zaproxy.zap.extension.httpsessions.ExtensionHttpSessions  - Added new session token for site 'elYpIRwWLDQhRGukLekbFNKuKYRdfcNKVupTxBmpjWqDTOJyJZoQPpoxtOHiEpCugpGNNWwwHtYVnDWnfLdogxHiDgMBQQQlGWhEEsNiOZtctAmLbtSdytjJAkdhNWmdHNyHiKkmqJACVxbbVniywLECUWOXqUJDcZDBtydBuBucvBAMcHlJmbblRJexGGqajLLMNZPuTKeObABmXiMfMIMDNtNJEObpYRSVfHtOsZKqLakEmjhJCJEqwAGmdbFjJoWTrVshIEpJpwXfNiZDOyhkSbGWmKPhdKaZLfKqFCCHAIUjqXptICXdFCcxKOlYbOWGqMYpPLuBgMLbVScGuVFObAEKaAUotSiMbueOsilxxWEVwjYfHZlUXCfIFdlwpaHNwVUoVRyKYpYGmQHgdbLcZaHSIDDPfnFMKuoEVoeXJHFBLKoWlATfEqwUhaySBYxlCVMbXkdmvNhdhrdgsDrcraSajKPFsBDIsoYpxODRaJpnsneocRaTHHBZKpXcGdHTftJXydGBjCBqbSnMkshJgQjteNvjduqkApbkZKGmtsIPrvLKdPoaXwADSUBTsLDnUAYoIblMHYsMsLdXMWwsqsZoxYdeBJlYmUicsCWbXPSNfVJOBetFWAHjHDIilEHxlXTujTojlsNeGwDRyQdTNxtEidNsAjBiyeTqWmLfPEHYePlrHVNsZqvPVrpHBvuBWLaZiKEclvRbpiEpZWdwRGTUCNqCfJxOxPFtksjlNblicPuTtFUtFtTfAxZMKCepTjTSseDsKQuqknCjGdVZSrgTOpfCHLggwVSgXQfhTnvyFrDDrHRsbFZdnMPfkaanhKemTtXeHtOmhGdkTMrTguXPlBcXhFdBKpbNBxjDPuMIpxqKKoeqQljHgxPqBfouBxVHJybUkduTwuxVuedpeIbfblrwaOpTnixXejBLejCUQNsKJhWNaHrQbAZJVBFmmAhSptpBDaCWCxpqSletEriTkfZBQPHnIQBWRSNBhyqbGqNbbYUEQitqXYHSGlafMgRcGfdPUrhryRjaOyRDIoGWAoGtegLmeCRSWCsyWKGyeOftnXLMwIkKKIhAplbFwgNovlULFRsVmRfZkKjelsJPaNYFFRhVJFviycLFvNyHAwgJWYGeiNnuudkTnyBsemxysyOqvbqJjZgqFMSAWjerfZQrgcHGCPPJwWWZTJtctUnvAMlsplNmhObCIablvdiUXobXjbElYZySsVbsQBHtofEBqmCyRltrJYTyyfmLevlKQyNuiIVsGIZYxZcqMbVPcJJAKjmxvVfqKCSHVnCSOmyfHAeEuTgubMuGbnCGpQIpQglEXGSeLBkNdUqycjMHGbRdUhLuCVlAEHHdLoOXLxDhqYlCZQsVxIVvmfRyjmjnZeBMCeEfaSdRmQnRgnTavoqMXODoTYtnWcoqAObygiaDhwpUdygRgjukmOOUyFByblAwAhMYumHKqLasHRpWCiAyuCJGksQWCWVDeGRJrOkjpliknUBQdsvBrbvNDNTYylXOmUmlfCdESclLNtcbCCDUtjEqycGENFJJtTbumStLZYEKkVJSEikvwUZnSrskRQGxZUZjPqyrLEyYiRnHpQYJdwspDotXvCXMicVqegcJsUfKeWRNoSdhHmaKiWrLfqWfZRiDCwAKbgQMrnSkGiZvNVhvAPFysSdcKahAAfLCVWXbEnILWLFDDOfrhTMDLoUeRSrKrgMcGIIKWjrjWWwoLmHjvFJhFjIlDCAqKslqjiZiGVnrRZBtCTmYYwghLloaeDDTeGSQhjQuolccpAynSOrcyCMmoOxvsKoSIgCjTONREVOnMNVHMWPwRNkeyfBpFUSKaWNXoNSNqVkAyMMSTSmSdKZXLQUhUXsuUghbxZPxlwsQyqhbZHPPfIuHjhoBqdxlgyKVmftkQPkQrVfCJhfbSngGVUsQkVaRhtSDbjTXbcFtqyIwclrqMsFhKHXaZaWTsfflTwuEYUrMSIIgDKbxVQTCSCKfpPqdWlClDlpdlEqkrafVxCOyvVGMWeuMarpEAhuBGXXvxeMqKBhBYAqAmJoOuqFTLXwoVSlTgRYYawUnpLGvXbiZhSvr:80': JSESSIONID
+1876462 [ZAP-ActiveScanner-0] INFO org.zaproxy.zap.extension.httpsessions.ExtensionHttpSessions  - Added new session token for site 'iedFJxuNrWISHAEaIufoBqmktAubLrKxAnoGjrgobBHOJhKZIwTqqmfxRIhEdSoTXJYIQLVyrSiSPLWSmUDanFLACqWHSMUVTumxQRPcEXcjkbhIctNTiDTklkftHyiqcHnerLuoPZotetvPPTbJVprrrbEgVujVjdbPbRXTggHYnodkSRhxnbYIDIDXMHoiUIvkSpWTYIDSSfcUrhnjdsixcfeRTnZWxurdQcypZYtSfIavssrtkFURLTOGtBgfBPStfLfKZpsjpEfSQdrfkMZObeAcVemATwOHFvRykOEYoTLfEpPVwCiDgIdyIUtfIpUDAEZuFwZODuGnRTdUjjxTqABWJBOPHwDxQoyQDFGJwgFmgiLIhkghwvUWoyQJUenptlfJJfMqcgQDClHAhmGZmMDtSpXiMakoOOhhJUYpykUnCYLfxIBViYZbFeJkaIUfTxtHcsWITYdtgjbaOdsNCxQCJqcywXgVhWHMSUciiurMFNphvRVTxmFkMovTIsKbKPQefthBTxnHNmWekaJSqyYPvKpeSetBRpGVXBiZBFuUlvCefPdUusRtAxSYmprdwOiQkpNbnsVLaLiSFynUmhrCNAcshEvbwYnFYCyFOylVuuTTQqywhOjtCsYsCeEUfMrCxKGPYTUHkcSMDHqmpxiPlRgAcqnvgBqooQNpDFCvWODyEDLQdLqdLKvdZeTjwNbapsArVdBiQYTlSyQHVpCbfhJeHIZBYZqjMryGRpGXxJdkgCQMbFgIYaOJBgmbFRKqgvKeFuWobWDslFDCxMyVHoOiVBDhCalNCvjZVvOmIJKWuEaTneGPxoUlKhejBHrsCDVwjwcQQKJDPqjwJANnREnxXHfmrPLTLoRGrEeetivYCjRrTLRAhhUnSTlJsikIkSvuhlMhPXtlFKJHOXgYhUKdqDyNOwWktkPRocqPRgAsdqusdVOFYCdhrgBaRcmPFJjNpJcSmrXOqGJYnxrVQAFWqEtsiSTpGymOibOitpBKjOSXSxECUXGQhkTsByKoKEmvrXOJsdmmfTiCtYIdlUyvBYyRpvuAbnOlsRtkpiiZxCbBiwfjYjXcrgTXcXUlCgcXOyVmLdvRbTRGhSULIthJxPBUtFOyZWVHIxxkqdGDNkuKIwbQBxXDeDYloaDXpBXlyiJIPxxEHdPxDalJFAHywnUgcsGgWaRuKnYtDnJwgHFClZSlGOPHjqTeEFgIXhYnNfnoGvivjyiUhXHSUtmukvIUMSuBYTJaytrqyBkaCDZXcJXOtXhMEsnwbWIfOSVmMfRmiexXGiIJaHDQrBHVeSZgdCbFuVSyXPEmknpdmcphbafTcOKnaTaDmuNMTnALBQyFBWMaUOLXOAPOAytRZewgUIbfaNqWCOSmdVldfvTqivQxMRrbcmEnvmvOMMKPnfqYxUTEEjOGleuNwtkmIHEgviRqIAQRIChpMgUGnFbignsitBAukvBPlYlxiZgWAPfKucYwejWyvILNZWttlPuZPdRoAwfoEcjeIhhnvmpuwMKKWZLOhJGTMIYsvpQyRRBHTyZqIJjbMavqglibaAcJWturgyirdJEUVtRLlhttYZWNekIrDdCmTvawcoYWDddFXhNMZsCAYodFlyPkMgkTSYRCmGGkqGnZkiQBAqmGPTkOfMljtTjkalmPCYeqVXrNSHIPMZjSvwZbwloQJPlLhnVqkMxidCwcsDdEecdxovqaApxNhwxWVAjYdHgXmdRGkIHXBUEXodnFdQkCbaCIjLDXIEySrvUfAuONIVPZfVbbcXkiCAUMfnbvXcJpSPwgJFrMGpaHksDqFSmUPSmAXlVgNybCuCvHbFcYusEguyyqLiEBWcbWOWcgEGwMqsllnWnFAqXxKtJeXXmxCZBZfShvdxNZTElDEnlldVOTaZUVBDuvtoVgtvrpOnMfVCLbOiZPONcShNkQhcAPsKRDgoabqimrJRGPGRLDmgDtbnoNLnuSKaGJOWafUiOFmfITMsGmGZhdWSIOKOPNhGYbLjFAWvKXboyyksadBrkcSywDRahBwKiFunoTZctUqvwipATajPrValxXatAyQMZdtBdIUlCyhWNHxIHI:80': JSESSIONID
+1879091 [ZAP-ActiveScanner-1] INFO org.zaproxy.zap.extension.httpsessions.ExtensionHttpSessions  - Added new session token for site 'dICMQBRlGcmayZHWZBeMjvDwpFdGqycTToDeWvHWIcQhLuPsSMkCYKKsTrcAXgQsSSsHFsOiHAgeNtHPvQAoXVdlccexgMtBQhcWHifToNFBOOGRpAImWNhoBwqJyuvEGQphWmtFarNylIkifjdCYpaJYXrwXJkDmEQCcUBwDvkAoDFflHfLkTVvmnGfVvJsGUcvvWvxiFdruNAbjtgUHljWjPfNqsSnhfXKXKKOjLyCJTGMqjThISIqWINPKrKphdeUhvBQYbbReGsacpglfkLEJjLDXVkcZiyiQgOXEegdqsrPkSXyiCCXjsbUkmJYPYgIDJFtRthtSXabgbDsLAYKMaxfDrmhTVTYSUHynKAgexajDFqwGHpfBEUWCITJoyOgQHrOFOYKYoDaYstUOLUrIuoyuOvRyXLeYMxIxaTpDPYvilTrdZDwxBZNugdlqmvWBXGATbeGBwvkdWgrOXwmJkhhOlZYcgBojpwpUUGMywQWEaFPWnIcmZITqmyWcvbURNgPSkgthKXHwxNTSwIlfuVHtUsrrLwlnXoIimOSwNWiOKKrROmgrPEiiBRrdTjpUoAyWaxSOARnppqjPSyJjTgdMqUOOZGfIdMwFaATmpJIvPRAXDewWhTkkTfwRLxTAxgehtaJDqfkJnaeYEqhkQsEXsmojUZHAIlhtdcQomQpAQZUvHfOQolEjyIyCGpMuIhlqjZFWCqyVlkWrpvROvudDjUOtuCPmvVgjmgPRqXaqSBxfabgFRrmyOjxdpmsaSNsILOtftCGlTrgmtXBVmOlTWssdscVhWUKEJfXPvFIKKjLqidARmHjyuoyrtoWbabuHoXcxPwyUTotNTPnmdCLitDGHjTsclVTNuMYBMuxooSYLXdpFJaomugKSkgcRsPrVrKHcuQkhCYfnwiegpwCUBxcefBDAwHLdUwgjVkWWUwTFMhcZiAIfrDEiaDHcRCdKNLHHoRJouquFUdnFOxpCWKjhecngChqQjYCkMYwRRWIyvDvRjGAdflkZDwHmnOTSVTyJTumOxsvfWTVFTurRwEDMMWjlmdVrgNdjwgLwlMEJyNVITnGIAWlYDFnDpKGrFbQRbbtqDYtFeGfOJcxeyKRKdGTyyIhWeVkRqlQsbKqZQDYEfJdJvUHHKJlgoIrBpPBKBtOfrbjaDWZRHpXJnOaeHwteTKpVmLLSorAbMvXyyTGoHahySQeUVVsLNptUDncpRwdASGqmUpqcCDMnjrrmGviWkOPrXujlGWZbMiLUfgyExfnlNIcSyAefvHayDHdoPyPSnohqoOGuiiOwyrkqahnnnOYqkRAiiJJloKNAVoiQiQjgRmTiucYasJSgQNKQsGDXGViTWGLIYpJjVvkhVXOWYfrVVajYmTdcGbnTCAViSuZGTjSDakKHCIccXmyHfocApnJdKSFCqEgGZuZAcIRsfmpDSJtIlNPcXPDbEyyFBiPTBkiXpQkPGUNXJXfTvpbGuoAkNhbhbwJaqoPVSUoHLMVGkEUhfdQktStkNLxAoVSlcNZSdMoJaxeSqdUIcVGCoOtJikuaglcMMXaRBLQygtYtMZfMCdoQHYtdqHnSOjnDJorZwNUSXYiWQfhUmugJjVAwLEGqVCAqNQsMAvZJYcOOXGtJdUIqPRUqqxpgAqDcQtHwvokAfuGHLujxnnokDeXGNpJsnDgXjlsTIbouqTEiyfIabMjXIJFhaeOQIqnZNpqUtFyHwlkriwUmIVwtioKASWisvrIyELEVGWmuLAfGgbuAVXiwqJAHXAeOHipQKJTvSwIOERDZKsiEVfdvsKvGfDuqxoFieUmkBOgjHvElZjesMkdQpQloDqyITiXKKwXrycsecvKTeHFUJfmTSBrOfYBVQZxmTgjcAIabkqTcRXxpqFVIxLfTByUUcjfMDnGmDXJvDKCNtJkNvNOrNHxumYdamrJwspVibttBqixbYkZiIpQHdUTfLRcOQtpvjkfwxvWTGJoAYUPQvQJNSlWxXjgYhGwnWyGmbPLvooNayhpPxCovWITrpWGjgKIPlAVDRcuFmVdPbgdASRrWCiChtlliUgFoBdCsfTFZJTrRMOFaRumEBPL:80': JSESSIONID
+1879286 [ZAP-ActiveScanner-1] INFO org.zaproxy.zap.extension.httpsessions.ExtensionHttpSessions  - Added new session token for site 'vTTqYbfyXOmDRFUSHpxHZtwElZWvScoDLQWgAJjTsKtmeBZSWTWfRCrxktfZvvIdmwbnqMuQqVGsOZnlmceZSXBNwjVtgWEePUiIiMXWXlegldkoDRwcoFKXuBMZcBWNVgxlFeqDHkSDjeItvDUhcgIPfRLwMPIswDIfqQAdRPLHsPbownwOwGjkFIviuvCfrIXxuOFWvjrnivEMTITjSKiUWCRDjhwGlGxinTIcpSyAbnUkJDermxbXwklRYCGWbRiHLuqnahJpqfmZXJEvSFfkxTuKGBeUwTDHnosOiqeYQcAoRfuLQlFLFPjriyCwMmQIOaDGoBJEeVwetJUyxNgeiorAcouOyqASorjUWDbRpVFAyYdYvXPuatuRbuEhNWSsDHPGeuGqwOZfRiINHoIHjmGnWpRQlQRpNVHsLVIKIJoptWlFJfFqLCYmYrrSkFCBMeNBUMgDnTjhrHpfqpdmqtPOUbiKfUgdiaYgxSEJmDSgcSnBQUmiLglLNJTqKqkDtQKMQWeCesMgAjieMRSOYxOIxFUdNFvqCBOkhxLaICwJsfDoYPKQtXOpdjBXagdlrBqtxPwmysWsDGHyPYbDsnHSgToCQLbFoAPnpbdihqYLaNlWLnqmXAFchUTaRpECWdfvLcBZRraNTZIfKDtlJcfexeYKBBVdQMFsBLHVfVDEXByFCLMCZUkfsVosDFEfUHbrqQoEKgdcowjBycDnFiOpdJFgxHQdNNENLooWvpWNpYsANuXGEZXclnXCQSVgqIOaInbIBoREREElgBEfsOySSyBWApiQQtaBRLTuPxICHtUnLEvsTVbfRXaqKNNhwuSWJUaweXVESJxRmytSsxThCNvnEtGtOidTllDKnWnMevUeYtFndteQqLxoMQoUuAcvCFZFMLMphCtCphQuLIhFxFaZRHxqjioSLxJIxjLMqDqbTLwdhkFMiQdyvXEEREHgVeQxTsuGgShyDrYtCWWwweAHsGJtNVPTPUrwwskTDVLIyuiOmLhemmOnqppJmsrIdHApgsKpjwqiqHrDKJNGFRdBHqlkQxfAIgMZxtXEvZbSgoPmtrLGdvOUWaDBTKHCHkXoYHKEScurSAUjAsYJRkvSJvEPNBJpFcsNXFqnpPPsnZiiDUtoingelKJGTSodXsUWuHxQujsfEUtvLukXiqrAiJNyEbIJIMeQDialMTrNokaUMcWClgryKBfUQLWtmriUJJvrAJRCZSakPcUypyTcdGLAvpJvaTaYHWdkxkHUNmGaeAOrYlUDqNZJavJIPqJOhRpjcphWshYiBmjUQBkimaToavLylkHEEXBpNmxrVJiNVsnubDDqPIqZRWNEsLRCPnIqkAuUCTCHGOoxmBcdyGGmBvFWsurDNoBHktNqVjoIHLSTJaBMffxflqZZBScxKokFqfEkPYXnwlNiqwWklNMBQIdNEtcvHlhRDIMbYPBmycKOjVEphNRrZEaYgWYNGVPdWkdKvUQLGatToeNqVtfyKlclmTqFUYKlEnKEUATQhGUoBSosHtjCJynZBxjjujiVKOowYjvurZJoAIqWFyVfoyKRhZxYuVLLBfPDuMfhipNUtVbwSNHyrygLTINZDkJiBgoKpwZupgBmoOnlEqRfCyHCKctTLVCDNBAFQRPiBJLSVCgAMORiwTnVvboYWVftSweZKnChddjnIQvCtWntMAjHYSlcTQErgPfNFLyjodqJIgBOQqPZJsBRAZjxukDXTTggvaviXtddIFgOUyvfyfsQCqPAIBEwHeJaHBYlDQtrnVtSDZPyIxkrDKbOjiqSSWOwQeRbDgMVlJRdWuEVABlUjucQsTWvFMWcusCHqfpjwtgCNCCYpNcpEcFDrwgNNaiEEKJtahWyuKmuEdQNTELQyccvjMlFPAwGaJTbggesEokuCSmSItSZXRJUbstfeahvINptPRNQXuMQeCDWhDixTxvolQQGGinwPiMTTlYvIXGKsedUTWEFLbXrRBqNodmdQihoybnaIqvvWltKfqrhnOjVleXguoIkTuVXoErfLQoiCCFcXlXpfYYskQBkUssXDROsMNOjDhRQWRjEYjGBvAWwmkOPlgGs:80': JSESSIONID
+1879286 [ZAP-ActiveScanner-0] INFO org.zaproxy.zap.extension.httpsessions.ExtensionHttpSessions  - Added new session token for site 'pBKHyagGWjEKqYCkAwpFLwillyNJjpmNTbiKyPPsvGAKfTwanhiSFXvEnNlNtlCsQnbUfVSmZvDBlqeKrRHPQEucSrswSnjIDQhTXYPNMvCFrBJfkcirYNFylfNjxswIqbMZOcTalPLrNjvXvSwhoxbZDjNEAaAFpREdheXrvWHLbNsFQmvuEUuKtYZOORyKtsNTGTxZUSCdayIWWTpAvqbJaUyRQpqKqBufiRkaFbPhBilDjLnhQelneNrxEqBnwoCbZhyqpkAWgTnQileNcMEDDTjnibWfYMMbMVkpNHsDoTeBhvCkYPUHYGxlpODSsvFWpSeAnRhPkogaIZLqNZTesLgdwdciOwFKGViqiJVyHtJqhmCswsWCbkftjkRaAkaRHuyPdksIECsDsKTLcIKqHNZsiacyCIdCsdLPjAdLIiEooOJpKCUjXZXBGegFECALYKoIytPPSXBHHACXWcFuGYSTtoTJBWaItbSdqxYvWieeTsfDDGMZbAIIMPMchQtFFUpgCNrqKPFmjmwMfLyfJuJRpdeCjIxxnQjxlrHrCqBZTmwfnNGOBjQBmvjscaGKblvKGADyhMCANgvKXpgVxfYpyxBJnjBdMHNKKCWSUuFtuNoVJZSygZLwGRkSaTrUIjRwjsbUtHYQoRCchJthffQqkDhZDMLyQcNIHoNTLgymriJxhbnQZDkfLXQIFufTFwuAQabCvLXiUNGriModDccJlWnOttgeMCDHduDYvaCaPvHmxfVJJniEpoFeQXmseVTfxHFwKPInctqnYZvetfqUEqYAjJnKFTvnTuBxDbvvTmZuhtuiDwRnbgANdUKqMnROswUWlbWLAxsOtRhGPaeoKRODGjwfTsRNXPuyHyIJRfMpgcsyxAUZbpOuLoFilEsNpjotierugHOFkGsQaQTBiqtmHgeQxytcANIPoRUoUumlVHUumFsONbGtgppkpiQpBVwamMgMTNUqwNPwbQUefWNkJfqCbSuSKnFuQlDYKfnkBbgllaIOqbVQPXtkRSLUadFCvLNWtFmNBOhwNqUNjMBICQivfWAHcgroFRCKxithTLZTfkcpBSisIMrTeVdpgaSuEQegZfEPNdqODvvWrJQYvcKtjIOwSmsNnVXNKUcDCwWXmcUujFTCEWMYmabTGYPtyXYeBYxHdTSEDVWCuHjVaxBpfyABjtyaIaYdQZfhfFqSXjdinQAHSZqxhWxrFAkGqQuaIDFAEDQgWdOBKATaDqdKXiZZyyEHWcKorcrMOXonboEdGVhmDRLrmXHhSeUvGFTkpdYaBAXlvvZMDbVyshNqQZaqbdaXwcNwvLlTKkaGkpZfrOYWIAQybQXPMQRbdUeLTwCvbLFwyrVZCxVHhpJbeCHmfLXGsMMKRdXyYbaDuRFofJkfImgMSLrpsMOMBXomEgPtRafrYGFPScDLqeODebACBjxeunxOsgsEmlsWciBNWZJwjtMdgCUxJcHYJIOAcOkHFSnegeRrchLUirTEwOnUiyKDyuQBEujAfNmjchPqptUQbrXSCGCZjkRWxfEfMGQFBoIkxrEneaRKwmenHmnohHEgvjvWDyjtfcroNMkFXmfufkKUyjjBQDggHdvWbNFoUqZKXFmmVPpGDNYWxHeDayQJjfcjDeCimpBqmgLZSZCqHMffgFQlxLTjogQOwsCidShNMEWmOTYGayjEqhrMkvndXOEieRftkaTLZQvhjHVjbaXnDEZWvZOPGTlPluKngaKjtMZfwNfADetnPyQEgugaAEAafjABIJDoKHVducLljLMryETjggnQHLNbrlKhpCLYawvQUTtwhWkptOeRpPKsRIFbGuWawUDYWPbBXBnTZYsdKLigAtrRamkaDuMFhOoQrcwUONlrcpcHdBjJJnlrxnKgGtOwyqvbBnNVQdisSapbwIpmxQboqPVHiQQcSppawtcxAKtkWrRnenEYoBnWmUmjClgPcWQfoDNpLMkKhLEpPUsMoEcDuFWLusbuJsAGqSxjuaOGgRjIaNlmKhwdHuTioTvwqehMevUHjAZovwuiJbDmYpLxRPaVCUiRPFTYmhcKyyMtBpryBygoRpiHDoiJbKPR:80': JSESSIONID
+1879487 [ZAP-ActiveScanner-0] INFO org.zaproxy.zap.extension.httpsessions.ExtensionHttpSessions  - Added new session token for site 'gLPChiHeAdOLEDhbZajTQietBiVvYqDbTvNkUIqrutQPLwXlHxynLHEFQbLryAwDqTVKmtrdDhtJfDjYtdiRaEoIgcOnUlfdgsPOnjRGLJPcoXfKExxGfGpkEqLvvDCJrQhXsRQRiJSfUlVRcCXTjrZdLTqlLBaAmkJMgQEPEHRlCnJOcqIISxggHMUgHXkVAFHoHFNZAIKfSEqAVYcUMIuHcSuAnWEGmfSlHQeGvFYpLtKpRbmxdUGBLAKJEGhrsknADZhelgZHdsLvvKNjycDJKAxfRGujoGSqblJoRnGuttIyfLqlNqOyVtYoyAOJJrVnSDTNnUQsqjgnuUxxWwBbwbqhOomlLXhVrpmXHMorvnrSIxVpyOmNuxaJmEgqWyyHHepLBnNsXHcckcnwIdxNZtNpspCSlgrVakYPQGQrqdNmgAQOfJDaeQImrRmKLVPDGtAYfxOmyLeZDChQPOSHcCriVPOYAeBBeElbtmkgUdsIwjxvxkNKoFeFFfNhbKQkByKqwYwGkjYZiCYGOBTCpAvrvDErUQuNtDpkmvSIWIkalhnbSPOURHUIVoiZYZaLciWtTouOWXsLpeqERyEPOfuBblUoUnnJttLKUYUxPwgPJZnlichBhTEQSMQWhfknNmeusXnTCrrWXocIoxsMWAtiOWcmFohfIdymEGygAHEBQvxFoonevHFFngQykXunfGQkHInIRqHFlWbcPHEBpgvNaCVRJIdArdAKxNCTryiHjLxrCglhsWbmDPugupCEoRsKvIphiHDwfAdveZJsxVjtveEOnOgwJRObfywRwGGuYeOMHFAbdlfitwUQMfvulrcFoFjKhNrrZZSxrlXDgsdShxSUhYVNIRkDHmciBeaKRCQiMHHolabanvIUqgJmbbMwAeGCyubNhANGULITWmUZariAIAvfdBIYYPxepqrUcctcGjhBSMYhHZiitOdkaaWbQkYvFExPPEUDQWIrYMHtKahUQvyYbhRonBDlnWwNyLdikbvVksUREBYcCQyZFGrePRvXemNlxhMsekqxhaVmLESWFDMJqCTZtJVsalCNOWNesoyQIntJniQsslFWXBWtVErTFTpjbBqsiKPAmwxCFpvDcptYudStslAWHGTbkNxWGrDBaLmcYJnEoGAHgDoUbiXdVZwhjKFfFdaUIPAdtPTroVrOtSISlAWXEOwJeUCJZPRvpMewuZFWkLFWIGjFKveakIZnIFrkVIiJFjFqDrjhANAbMvvasZmlygKcSdVSByXMYyyAkAJvpmnkailVZfOlPAcTDfXEQblZGlEGWGxuSuRyRocDSmnLapuMXdndkOiNWJWqkoQiPnuvWuNaoPoxpRWwgCsRFaBpFkCPJDMWSEehYZeHpdowyOyBOEcyEYsNTqnQLkGDdbKHjLWbuWGqWPJjWdASeREgCuXpLsyvDXXUYvHkbXGSnvVBsvLIkNfwYmIQSDhSCptTVTRSTeiqEeASxPiUuuapFhJbWHycNlSXOvHRQthjYBOtVDEdytyBtdGjKDhVHjoOtvnOGmIxQvlZLOAZbTtYDVPSETawCictCHTFihBBNynkCGVvpRrvLtoAJkumYtwMEJRgmaNAgEsFcEHhdmuyAojjUdQjmmesyPOxFcQMxREOuqFAsbhvRQEDnNeSKcjHJWvuxnwRwHHfhiMQNUbkkJyRXcqFEguewPSSlRiAyqcoaJavmhHMYmLPyZjURJiYMSqBhfDmVahOwyXgkEFeyOKBXxJmBiAdbQAJTLcDJpkhdhwqtVfplnhTBTpmuCNcxCHiIFtgjXXUhJUqxuLJFqDHrmWQRKweydSCrExpxcRIDQwgEuqlWGLnSJYnvTcJGkDjVPJAhBbFQLILudfDTefTIGWpiITgUgTeNerosxBWHgbfGFqZRYcWCjrgLZwShNKFApWGcDHSwbLCStWZhSpEgVNNYDEyKJAbbBBLcEaTUsGTvFIBdYufVovTqoCufdbsJGQOPVkauMqjLWJZUxLjAjsaCUlgkjnhxmCXuGLFXlijnbciMFhTjQOMEKcwJSpMNShjgrTGSuluvOveOAVEaIipjwpQptfyeAVFQhShBpnk:80': JSESSIONID
+1879894 [ZAP-ActiveScanner-0] INFO org.zaproxy.zap.extension.httpsessions.ExtensionHttpSessions  - Added new session token for site 'rLZkEPlcZanRJXVFOwumtOvrjChrCfjNnjQKtZhgIqYngbxwZZNUVSiJTQTMYYSSbEthpmbXcCkVWrnOJMNysEGlNTBQudxVjqnBesxfbviIZLgEHeNkgmnsmBxNLYKatGFdeCYZdODWgVUVIyBtDlCKPZwafPgTWBXobGflmcqXmnJWvZYUpNReWvdvdvJvlCVGbUSvSngddilPjdbXDjVixjwNKNSuZLGhBIlTLJKOfBjfXXHWDEOAxHjpMHRLdZLEyjdfbAsdaFiXyxdFXwmkZECdoWlgnJsSJhjcZepajZVUTUbKymbXQcIhpKHYlXPsQOkJeCSjnIbvmSdNvQIUIAxZeKZuAZQxPmriGaPITrGmpsJQvqlCPkOeQDXGBdxBwLvyJgmEyWTEapsvIXLScbbOdDfXwokDLkuCOGHpkKtYJEsmpEclpdOWsjLWlEohljoGWfLoTtWlXVddnZoqJSKPRoFQWGYKqjFqggpKtgnXQNqVhoMcgHdEBSdbKgOefnyOsUYVAVoxSyfnorsxXvJkRksQfflAuOejNVYdntDpGakffoXijyNAckFOmwkqURjuUYRYTXDuUSBlbdrobLkRmLTPmOLMjAYZBrNqdaudnakUbghWYEEmrhjvHTImxjirtFCFUtFclEkyoLfaiwMBYsheuqLnmjXseLOGELSFkbXQZlVmGwYHMjHGahGHAlDieLjPfLJZEgXXxjJVwIiLoQVUOlEHVaFASichrNNcBRnRkWHbtDraISBCpwBRCeiclhVlMEwkIXKDhWbdUtYmrvVKBQnsMpIblvjelUtsBfsQANxTHTvITyDAXNwTDcbVDtaYEtVEAHwBXNZguQBbKOlysvTrTjiGdJlowpQVZmLymSrDmycfhFbGSnZAngRGUlEHBuuVTdWhqyaAHpXCLENkWrNmEFpKQXZemObpuBbPoAocxyaWPbqsVRmsuJGueGOAtYJodvqvceEYIQEmrUdtHqjRPpubUFQDPBwwxiWZQVwFXobUBcuSXkagjYKVLZDMwoESuwSkEIARmBgGMUZfhscVkiAqSOyWERYcZbjEQyQLOVAOinWijDbSwaNSESUHlKHAEkdSfTxpCOiCnnZgPVkEYXuZJexyuLpuBIHCgtMrapdJkTuyLrjYqWyjdEqYQwOBPHJHLrXCvXGXapyIkXiOxwfFXRBLGTYfmWPIHFvefOInwvegriAOmTwALHMNExhCpEgUfboMSISOZGCImQEypKvZOOYdbUXKoSmRqHdEyWoPdIrXAQnXrSaObgVshPqtDSrtXIHqahBAANXsiFgWiVaXoefGWDGxaIGBMpchbiKcWNqAafkRAvcUrTryflAKRmBounpYetnkKLBIHqwlcoRsmEDlufrYgMFSdvJKGClRIVZcxYMOiRQVLoclrifPUItPvZNjVmPuOkqVrAqkgmGRmMuyInukkejOwOTLkXmUvsJiwbldnydWTIUcOAvGJZRNKZjuYDxsaXYxQZrAWMgVRkmLtGPfcBHLnwKZRsMWXLgLghXcdWGRtXnyiOJVvkeiPIAFMdKSpYudmjuBexravXmUjJWBniHRatRjnyFMrRrQQWDtlLZIjcukOFwPXejGLoVcWPRBlQGuAxPZKCjKcZFXLWpThAPhwYfunBWPuLJoJqkDifENLdxhfElvBgSQyayEFMGbGrsbQgjnwbAUyrJoHTNFIOpAHvkNqXmPVCJhpVdpAOeWSQKdJTmayIiqHivGVjLhAIJGDGxbnTASZQYurhWOSqDqRngaJLyvaocsNneveBnthyhPDQhVpocBpJfFODhJLckGcSRdeYFhAIZfhKZxLiurpbCVKbrWxlCuMGpaqsKKmWKndHQgBHLZMLSOkBgMbKCJewhKKjguUehSyDbYoSrNxToWpwnjDdMFshpfYYQtxRQfYIkhONuocAqSQXNEVUqErVhEpxOmSMqjAhJhAWhRlHwMHSWQAxLQXvBVOZlHpdSVtPALdJSsIZmwYtygEKsgwqbFOyJTOCmdTJmWdmDGtNhMflYjjdFFIWqlEhKylIuaDAEaXIgOKYIOMbgQYKBeAQdqYfndMhPoFwaMSrae:80': JSESSIONID
+1887140 [Thread-17] INFO org.parosproxy.paros.core.scanner.HostProcess  - completed host/plugin http://172.17.0.2:8080 | BufferOverflow in 172.055s with 2047 message(s) sent
+1887140 [Thread-17] INFO org.parosproxy.paros.core.scanner.HostProcess  - start host http://172.17.0.2:8080 | FormatString strength MEDIUM threshold MEDIUM
+2061738 [Thread-17] INFO org.parosproxy.paros.core.scanner.HostProcess  - completed host/plugin http://172.17.0.2:8080 | FormatString in 174.598s with 6095 message(s) sent
+2061738 [Thread-17] INFO org.parosproxy.paros.core.scanner.HostProcess  - start host http://172.17.0.2:8080 | TestInjectionCRLF strength MEDIUM threshold MEDIUM
+2239107 [Thread-17] INFO org.parosproxy.paros.core.scanner.HostProcess  - completed host/plugin http://172.17.0.2:8080 | TestInjectionCRLF in 177.369s with 15337 message(s) sent
+2239107 [Thread-17] INFO org.parosproxy.paros.core.scanner.HostProcess  - start host http://172.17.0.2:8080 | TestParameterTamper strength MEDIUM threshold MEDIUM
+2404993 [ZAP-ActiveScanner-1] INFO org.zaproxy.zap.extension.httpsessions.ExtensionHttpSessions  - Added new session token for site 'google.com:80': JSESSIONID
+2405304 [ZAP-ActiveScanner-1] INFO org.zaproxy.zap.extension.httpsessions.ExtensionHttpSessions  - Added new session token for site ' :80': JSESSIONID
+2416670 [Thread-17] INFO org.parosproxy.paros.core.scanner.HostProcess  - completed host/plugin http://172.17.0.2:8080 | TestParameterTamper in 177.563s with 13541 message(s) sent
+2416671 [Thread-17] INFO org.parosproxy.paros.core.scanner.HostProcess  - start host http://172.17.0.2:8080 | TestPersistentXSSPrime strength MEDIUM threshold MEDIUM
+2591844 [Thread-17] INFO org.parosproxy.paros.core.scanner.HostProcess  - completed host/plugin http://172.17.0.2:8080 | TestPersistentXSSPrime in 175.173s with 2191 message(s) sent
+2591844 [Thread-17] INFO org.parosproxy.paros.core.scanner.HostProcess  - start host http://172.17.0.2:8080 | TestPersistentXSSSpider strength MEDIUM threshold MEDIUM
+2764202 [Thread-17] INFO org.parosproxy.paros.core.scanner.HostProcess  - completed host/plugin http://172.17.0.2:8080 | TestPersistentXSSSpider in 172.358s with 1766 message(s) sent
+2764203 [Thread-17] INFO org.parosproxy.paros.core.scanner.HostProcess  - start host http://172.17.0.2:8080 | TestPersistentXSSAttack strength MEDIUM threshold MEDIUM
+2872075 [Thread-17] INFO org.parosproxy.paros.core.scanner.HostProcess  - completed host/plugin http://172.17.0.2:8080 | TestPersistentXSSAttack in 107.873s with 0 message(s) sent
+2872075 [Thread-17] INFO org.parosproxy.paros.core.scanner.HostProcess  - start host http://172.17.0.2:8080 | ScriptsActiveScanner strength MEDIUM threshold MEDIUM
+2872076 [Thread-17] INFO org.parosproxy.paros.core.scanner.HostProcess  - skipped plugin [no scripts enabled] http://172.17.0.2:8080 | ScriptsActiveScanner in 0.001s with 0 message(s) sent
+2872076 [Thread-17] INFO org.parosproxy.paros.core.scanner.HostProcess  - start host http://172.17.0.2:8080 | SourceCodeDisclosureSVN strength MEDIUM threshold MEDIUM
+3034595 [Thread-17] INFO org.parosproxy.paros.core.scanner.HostProcess  - completed host/plugin http://172.17.0.2:8080 | SourceCodeDisclosureSVN in 162.519s with 1674 message(s) sent
+3034595 [Thread-17] INFO org.parosproxy.paros.core.scanner.HostProcess  - start host http://172.17.0.2:8080 | SourceCodeDisclosureWEBINF strength MEDIUM threshold MEDIUM
+3034595 [Thread-17] INFO org.parosproxy.paros.core.scanner.HostProcess  - start host http://172.17.0.2:8080 | ShellShockScanner strength MEDIUM threshold MEDIUM
+3034604 [ZAP-ActiveScanner-0] INFO org.parosproxy.paros.core.scanner.HostProcess  - completed host/plugin http://172.17.0.2:8080 | SourceCodeDisclosureWEBINF in 0.009s with 4 message(s) sent
+3211388 [Thread-17] INFO org.parosproxy.paros.core.scanner.HostProcess  - completed host/plugin http://172.17.0.2:8080 | ShellShockScanner in 176.793s with 4382 message(s) sent
+3211388 [Thread-17] INFO org.parosproxy.paros.core.scanner.HostProcess  - start host http://172.17.0.2:8080 | Csrftokenscan strength MEDIUM threshold MEDIUM
+3274750 [Thread-17] INFO org.parosproxy.paros.core.scanner.HostProcess  - completed host/plugin http://172.17.0.2:8080 | Csrftokenscan in 63.362s with 609 message(s) sent
+3274750 [Thread-17] INFO org.parosproxy.paros.core.scanner.HostProcess  - start host http://172.17.0.2:8080 | HeartBleedActiveScanner strength MEDIUM threshold MEDIUM
+3274753 [Thread-17] INFO org.parosproxy.paros.core.scanner.HostProcess  - start host http://172.17.0.2:8080 | CrossDomainScanner strength MEDIUM threshold MEDIUM
+3274758 [ZAP-ActiveScanner-0] INFO org.parosproxy.paros.core.scanner.HostProcess  - completed host/plugin http://172.17.0.2:8080 | HeartBleedActiveScanner in 0.008s with 0 message(s) sent
+3274759 [Thread-17] INFO org.parosproxy.paros.core.scanner.HostProcess  - start host http://172.17.0.2:8080 | SourceCodeDisclosureCVE20121823 strength MEDIUM threshold MEDIUM
+3274794 [ZAP-ActiveScanner-0] INFO org.parosproxy.paros.core.scanner.HostProcess  - completed host/plugin http://172.17.0.2:8080 | CrossDomainScanner in 0.041s with 2 message(s) sent
+3439614 [Thread-17] INFO org.parosproxy.paros.core.scanner.HostProcess  - completed host/plugin http://172.17.0.2:8080 | SourceCodeDisclosureCVE20121823 in 164.855s with 1673 message(s) sent
+3439614 [Thread-17] INFO org.parosproxy.paros.core.scanner.HostProcess  - start host http://172.17.0.2:8080 | RemoteCodeExecutionCVE20121823 strength MEDIUM threshold MEDIUM
+3616290 [Thread-17] INFO org.parosproxy.paros.core.scanner.HostProcess  - completed host/plugin http://172.17.0.2:8080 | RemoteCodeExecutionCVE20121823 in 176.676s with 3532 message(s) sent
+3616290 [Thread-17] INFO org.parosproxy.paros.core.scanner.HostProcess  - start host http://172.17.0.2:8080 | SessionFixation strength MEDIUM threshold MEDIUM
+3617443 [Thread-17] INFO org.parosproxy.paros.core.scanner.HostProcess  - completed host/plugin http://172.17.0.2:8080 | SessionFixation in 1.153s with 0 message(s) sent
+3617443 [Thread-17] INFO org.parosproxy.paros.core.scanner.HostProcess  - start host http://172.17.0.2:8080 | SQLInjectionMySQL strength MEDIUM threshold MEDIUM
+5097801 [Thread-17] INFO org.parosproxy.paros.core.scanner.HostProcess  - completed host/plugin http://172.17.0.2:8080 | SQLInjectionMySQL in 1480.358s with 14722 message(s) sent
+5097801 [Thread-17] INFO org.parosproxy.paros.core.scanner.HostProcess  - start host http://172.17.0.2:8080 | SQLInjectionHypersonic strength MEDIUM threshold MEDIUM
+5275320 [Thread-17] INFO org.parosproxy.paros.core.scanner.HostProcess  - completed host/plugin http://172.17.0.2:8080 | SQLInjectionHypersonic in 177.519s with 13146 message(s) sent
+5275320 [Thread-17] INFO org.parosproxy.paros.core.scanner.HostProcess  - start host http://172.17.0.2:8080 | SQLInjectionOracle strength MEDIUM threshold MEDIUM
+5452860 [Thread-17] INFO org.parosproxy.paros.core.scanner.HostProcess  - completed host/plugin http://172.17.0.2:8080 | SQLInjectionOracle in 177.54s with 13146 message(s) sent
+5452860 [Thread-17] INFO org.parosproxy.paros.core.scanner.HostProcess  - start host http://172.17.0.2:8080 | SQLInjectionPostgresql strength MEDIUM threshold MEDIUM
+5630406 [Thread-17] INFO org.parosproxy.paros.core.scanner.HostProcess  - completed host/plugin http://172.17.0.2:8080 | SQLInjectionPostgresql in 177.546s with 13146 message(s) sent
+5630407 [Thread-17] INFO org.parosproxy.paros.core.scanner.HostProcess  - start host http://172.17.0.2:8080 | XpathInjectionPlugin strength MEDIUM threshold MEDIUM
+5808339 [Thread-17] INFO org.parosproxy.paros.core.scanner.HostProcess  - completed host/plugin http://172.17.0.2:8080 | XpathInjectionPlugin in 177.932s with 6573 message(s) sent
+5808339 [Thread-17] INFO org.parosproxy.paros.core.scanner.HostProcess  - start host http://172.17.0.2:8080 | XXEPlugin strength MEDIUM threshold MEDIUM
+5809564 [Thread-17] INFO org.parosproxy.paros.core.scanner.HostProcess  - completed host/plugin http://172.17.0.2:8080 | XXEPlugin in 1.225s with 0 message(s) sent
+5809564 [Thread-17] INFO org.parosproxy.paros.core.scanner.HostProcess  - start host http://172.17.0.2:8080 | PaddingOraclePlugin strength MEDIUM threshold MEDIUM
+5915449 [Thread-17] INFO org.parosproxy.paros.core.scanner.HostProcess  - completed host/plugin http://172.17.0.2:8080 | PaddingOraclePlugin in 105.885s with 2 message(s) sent
+5915449 [Thread-17] INFO org.parosproxy.paros.core.scanner.HostProcess  - start host http://172.17.0.2:8080 | ExpressionLanguageInjectionPlugin strength MEDIUM threshold MEDIUM
+6090551 [Thread-17] INFO org.parosproxy.paros.core.scanner.HostProcess  - completed host/plugin http://172.17.0.2:8080 | ExpressionLanguageInjectionPlugin in 175.102s with 2156 message(s) sent
+6090551 [Thread-17] INFO org.parosproxy.paros.core.scanner.HostProcess  - start host http://172.17.0.2:8080 | BackupFileDisclosure strength MEDIUM threshold MEDIUM
+6258978 [Thread-17] INFO org.parosproxy.paros.core.scanner.HostProcess  - completed host/plugin http://172.17.0.2:8080 | BackupFileDisclosure in 168.427s with 59474 message(s) sent
+6258978 [Thread-17] INFO org.parosproxy.paros.core.scanner.HostProcess  - start host http://172.17.0.2:8080 | IntegerOverflow strength MEDIUM threshold MEDIUM
+6421703 [ZAP-ActiveScanner-0] INFO org.zaproxy.zap.extension.httpsessions.ExtensionHttpSessions  - Added new session token for site '81924254806078589259926599940287440509933434:80': JSESSIONID
+6421703 [ZAP-ActiveScanner-1] INFO org.zaproxy.zap.extension.httpsessions.ExtensionHttpSessions  - Added new session token for site '77213575562073999448310150494409192046666536:80': JSESSIONID
+6421769 [ZAP-ActiveScanner-0] INFO org.zaproxy.zap.extension.httpsessions.ExtensionHttpSessions  - Added new session token for site '00000000000000000000000000000000000000000000:80': JSESSIONID
+6421774 [ZAP-ActiveScanner-0] INFO org.zaproxy.zap.extension.httpsessions.ExtensionHttpSessions  - Added new session token for site '11111111111111111111111111111111111111111111:80': JSESSIONID
+6421778 [ZAP-ActiveScanner-0] INFO org.zaproxy.zap.extension.httpsessions.ExtensionHttpSessions  - Added new session token for site '99999999999999999999999999999999999999999999:80': JSESSIONID
+6421903 [ZAP-ActiveScanner-0] INFO org.zaproxy.zap.extension.httpsessions.ExtensionHttpSessions  - Added new session token for site '98673461865545874382520423065171345108042802:80': JSESSIONID
+6421903 [ZAP-ActiveScanner-1] INFO org.zaproxy.zap.extension.httpsessions.ExtensionHttpSessions  - Added new session token for site '50823401077644524890467985172121257050172753:80': JSESSIONID
+6422305 [ZAP-ActiveScanner-1] INFO org.zaproxy.zap.extension.httpsessions.ExtensionHttpSessions  - Added new session token for site '06047292607436690308442596267988119048603107:80': JSESSIONID
+6425134 [ZAP-ActiveScanner-0] INFO org.zaproxy.zap.extension.httpsessions.ExtensionHttpSessions  - Added new session token for site '93269798799954432512524670361417875254312065:80': JSESSIONID
+6425134 [ZAP-ActiveScanner-1] INFO org.zaproxy.zap.extension.httpsessions.ExtensionHttpSessions  - Added new session token for site '97429901379400586003237577238596088643758514:80': JSESSIONID
+6425329 [ZAP-ActiveScanner-0] INFO org.zaproxy.zap.extension.httpsessions.ExtensionHttpSessions  - Added new session token for site '40789386690046003958541221042824995314578610:80': JSESSIONID
+6425334 [ZAP-ActiveScanner-1] INFO org.zaproxy.zap.extension.httpsessions.ExtensionHttpSessions  - Added new session token for site '70470585761146545308562694093386981045249862:80': JSESSIONID
+6425736 [ZAP-ActiveScanner-1] INFO org.zaproxy.zap.extension.httpsessions.ExtensionHttpSessions  - Added new session token for site '75585003676877235579024325635418640747303316:80': JSESSIONID
+6432965 [Thread-17] INFO org.parosproxy.paros.core.scanner.HostProcess  - completed host/plugin http://172.17.0.2:8080 | IntegerOverflow in 173.987s with 8096 message(s) sent
+6432965 [Thread-17] INFO org.parosproxy.paros.core.scanner.HostProcess  - start host http://172.17.0.2:8080 | InsecureHTTPMethod strength MEDIUM threshold MEDIUM
+6605244 [Thread-17] INFO org.parosproxy.paros.core.scanner.HostProcess  - completed host/plugin http://172.17.0.2:8080 | InsecureHTTPMethod in 172.279s with 1766 message(s) sent
+6605244 [Thread-17] INFO org.parosproxy.paros.core.scanner.HostProcess  - start host http://172.17.0.2:8080 | HPP strength MEDIUM threshold MEDIUM
+6662485 [ZAP-ActiveScanner-0] INFO org.zaproxy.zap.extension.httpsessions.ExtensionHttpSessions  - Added new session token for site '&zap=zaproxy:80': JSESSIONID
+6665121 [Thread-17] INFO org.parosproxy.paros.core.scanner.HostProcess  - completed host/plugin http://172.17.0.2:8080 | HPP in 59.877s with 560 message(s) sent
+6665122 [Thread-17] INFO org.parosproxy.paros.core.scanner.HostProcess  - start host http://172.17.0.2:8080 | UsernameEnumeration strength MEDIUM threshold MEDIUM
+6665122 [Thread-17] INFO org.zaproxy.zap.extension.ascanrulesBeta.UsernameEnumeration  - There does not appear to be any configured contexts using Form-based Authentication. Further attempts during the current scan will be skipped.
+6665122 [Thread-17] INFO org.parosproxy.paros.core.scanner.HostProcess  - skipped plugin http://172.17.0.2:8080 | UsernameEnumeration in 0s with 0 message(s) sent
+6665122 [Thread-17] INFO org.parosproxy.paros.core.scanner.HostProcess  - start host http://172.17.0.2:8080 | SOAPActionSpoofingActiveScanner strength MEDIUM threshold MEDIUM
+6665912 [Thread-17] INFO org.parosproxy.paros.core.scanner.HostProcess  - completed host/plugin http://172.17.0.2:8080 | SOAPActionSpoofingActiveScanner in 0.79s with 0 message(s) sent
+6665912 [Thread-17] INFO org.parosproxy.paros.core.scanner.HostProcess  - start host http://172.17.0.2:8080 | SOAPXMLInjectionActiveScanner strength MEDIUM threshold MEDIUM
+6770031 [Thread-17] INFO org.parosproxy.paros.core.scanner.HostProcess  - completed host/plugin http://172.17.0.2:8080 | SOAPXMLInjectionActiveScanner in 104.119s with 0 message(s) sent
+6770032 [Thread-17] INFO org.parosproxy.paros.core.scanner.HostProcess  - completed host http://172.17.0.2:8080 in 6672.631s
+6770032 [Thread-16] INFO org.parosproxy.paros.core.scanner.Scanner  - scanner completed in 6672.656s
