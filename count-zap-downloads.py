@@ -29,7 +29,8 @@ for file in files:
         name = asset['name']
         count = asset['download_count']
         if (name in counts):
-          assets[name] = (count - counts[name])
+          # Ignore negative numbers - can happen when files are replaced
+          assets[name] = max((count - counts[name]), 0)
         else:
           assets[name] = count
         counts[name] = count
