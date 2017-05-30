@@ -1,183 +1,184 @@
 Found Java version 1.8.0_121
 Available memory: 3950 MB
 Setting jvm heap size: -Xmx987m
-168 [main] INFO org.zaproxy.zap.DaemonBootstrap  - OWASP ZAP 2.6.0 started 19/05/17 11:02:09
-191 [main] INFO org.parosproxy.paros.common.AbstractParam  - Setting config api.disablekey = true was null
-192 [main] INFO org.parosproxy.paros.common.AbstractParam  - Setting config api.addrs.addr.name = .* was null
-192 [main] INFO org.parosproxy.paros.common.AbstractParam  - Setting config api.addrs.addr.regex = true was null
-192 [main] INFO org.parosproxy.paros.common.AbstractParam  - Setting config database.recoverylog = false was null
-194 [main] INFO org.parosproxy.paros.network.SSLConnector  - Reading supported SSL/TLS protocols...
-195 [main] INFO org.parosproxy.paros.network.SSLConnector  - Using a SSLEngine...
-273 [main] INFO org.parosproxy.paros.network.SSLConnector  - Done reading supported SSL/TLS protocols: [SSLv2Hello, SSLv3, TLSv1, TLSv1.1, TLSv1.2]
-279 [main] INFO org.parosproxy.paros.extension.option.OptionsParamCertificate  - Unsafe SSL renegotiation disabled.
-551 [main] INFO hsqldb.db..ENGINE  - open start - state not modified
-678 [main] INFO hsqldb.db..ENGINE  - dataFileCache open start
-689 [main] INFO hsqldb.db..ENGINE  - dataFileCache open end
-753 [ZAP-daemon] INFO org.zaproxy.zap.control.ExtensionFactory  - Loading extensions
-1743 [ZAP-daemon] INFO org.zaproxy.zap.control.ExtensionFactory  - Installed add-ons: [[id=websocket, fileVersion=12], [id=onlineMenu, fileVersion=5], [id=jxbrowserlinux32, fileVersion=1], [id=invoke, fileVersion=6], [id=replacer, fileVersion=2], [id=fuzz, fileVersion=8, version=2.0.1], [id=tips, fileVersion=6], [id=jxbrowser, fileVersion=2], [id=diff, fileVersion=7], [id=bruteforce, fileVersion=6], [id=scripts, fileVersion=18], [id=quickstart, fileVersion=19], [id=coreLang, fileVersion=11], [id=spiderAjax, fileVersion=17], [id=ascanrules, fileVersion=26], [id=pscanrules, fileVersion=19], [id=selenium, fileVersion=10, version=1.1.0], [id=jxbrowserlinux64, fileVersion=1], [id=zest, fileVersion=23], [id=help, fileVersion=7], [id=directorylistv1, fileVersion=3], [id=saverawmessage, fileVersion=3], [id=alertFilters, fileVersion=4], [id=reveal, fileVersion=2], [id=webdriverlinux, fileVersion=2], [id=gettingStarted, fileVersion=6]]
-2017 [ZAP-daemon] INFO org.zaproxy.zap.control.ExtensionFactory  - Extensions loaded
-2292 [ZAP-daemon] INFO org.parosproxy.paros.extension.filter.FilterFactory  - loaded filter Change user agent to other browsers. 
-2292 [ZAP-daemon] INFO org.parosproxy.paros.extension.filter.FilterFactory  - loaded filter Detect insecure or potentially malicious content in HTTP responses.
-2293 [ZAP-daemon] INFO org.parosproxy.paros.extension.filter.FilterFactory  - loaded filter Detect and alert 'Set-cookie' attempt in HTTP response for modification.
-2293 [ZAP-daemon] INFO org.parosproxy.paros.extension.filter.FilterFactory  - loaded filter Avoid browser cache (strip off IfModifiedSince)
-2293 [ZAP-daemon] INFO org.parosproxy.paros.extension.filter.FilterFactory  - loaded filter Log cookies sent by browser.
-2294 [ZAP-daemon] INFO org.parosproxy.paros.extension.filter.FilterFactory  - loaded filter Log unique GET queries into file:filter/get.xls
-2294 [ZAP-daemon] INFO org.parosproxy.paros.extension.filter.FilterFactory  - loaded filter Log unique POST queries into file:  filter/post.xls
-2295 [ZAP-daemon] INFO org.parosproxy.paros.extension.filter.FilterFactory  - loaded filter Log request and response into file: filter/message.txt
-2295 [ZAP-daemon] INFO org.parosproxy.paros.extension.filter.FilterFactory  - loaded filter Replace HTTP request body using defined pattern.
-2295 [ZAP-daemon] INFO org.parosproxy.paros.extension.filter.FilterFactory  - loaded filter Replace HTTP request header using defined pattern.
-2295 [ZAP-daemon] INFO org.parosproxy.paros.extension.filter.FilterFactory  - loaded filter Replace HTTP response body using defined pattern.
-2295 [ZAP-daemon] INFO org.parosproxy.paros.extension.filter.FilterFactory  - loaded filter Replace HTTP response header using defined pattern.
-2295 [ZAP-daemon] INFO org.parosproxy.paros.extension.filter.FilterFactory  - loaded filter Send ZAP session request ID
-2436 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Allows ZAP to check for updates
-2447 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing ExtensionViewOption
-2447 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing ExtensionEdit
-2447 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing ExtensionFilter
-2448 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Provides a rest based API for controlling and accessing ZAP
-2497 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing ExtensionState
-2498 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing ExtensionReport
-2498 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing ExtensionHistory
-2499 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Show hidden fields and enable disabled fields
-2500 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Search messages for strings and regular expressions 
-2503 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Encode/Decode/Hash...
-2504 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Allows you to intercept and modify requests and responses
-2505 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Passive scanner
-2553 [ZAP-daemon] INFO org.zaproxy.zap.extension.pscan.ExtensionPassiveScan  - loaded passive scan rule: Script Passive Scan Rules
-2553 [ZAP-daemon] INFO org.zaproxy.zap.extension.pscan.ExtensionPassiveScan  - loaded passive scan rule: Stats Passive Scan Rule
-2554 [ZAP-daemon] INFO org.zaproxy.zap.extension.pscan.ExtensionPassiveScan  - loaded passive scan rule: Application Error Disclosure
-2554 [ZAP-daemon] INFO org.zaproxy.zap.extension.pscan.ExtensionPassiveScan  - loaded passive scan rule: Incomplete or No Cache-control and Pragma HTTP Header Set
-2554 [ZAP-daemon] INFO org.zaproxy.zap.extension.pscan.ExtensionPassiveScan  - loaded passive scan rule: Content-Type Header Missing
-2554 [ZAP-daemon] INFO org.zaproxy.zap.extension.pscan.ExtensionPassiveScan  - loaded passive scan rule: Cookie No HttpOnly Flag
-2554 [ZAP-daemon] INFO org.zaproxy.zap.extension.pscan.ExtensionPassiveScan  - loaded passive scan rule: Cookie Without Secure Flag
-2554 [ZAP-daemon] INFO org.zaproxy.zap.extension.pscan.ExtensionPassiveScan  - loaded passive scan rule: Cross-Domain JavaScript Source File Inclusion
-2554 [ZAP-daemon] INFO org.zaproxy.zap.extension.pscan.ExtensionPassiveScan  - loaded passive scan rule: Web Browser XSS Protection Not Enabled
-2555 [ZAP-daemon] INFO org.zaproxy.zap.extension.pscan.ExtensionPassiveScan  - loaded passive scan rule: Secure Pages Include Mixed Content
-2555 [ZAP-daemon] INFO org.zaproxy.zap.extension.pscan.ExtensionPassiveScan  - loaded passive scan rule: Password Autocomplete in Browser
-2555 [ZAP-daemon] INFO org.zaproxy.zap.extension.pscan.ExtensionPassiveScan  - loaded passive scan rule: Private IP Disclosure
-2555 [ZAP-daemon] INFO org.zaproxy.zap.extension.pscan.ExtensionPassiveScan  - loaded passive scan rule: Session ID in URL Rewrite
-2555 [ZAP-daemon] INFO org.zaproxy.zap.extension.pscan.ExtensionPassiveScan  - loaded passive scan rule: X-Content-Type-Options Header Missing
-2556 [ZAP-daemon] INFO org.zaproxy.zap.extension.pscan.ExtensionPassiveScan  - loaded passive scan rule: X-Frame-Options Header Scanner
-2574 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Allows you to view and manage alerts
-2576 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Active scanner, heavily based on the original Paros active scanner, but with additional tests added
-2585 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Spider used for automatically finding URIs on a site
-2592 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing A set of common popup menus for miscellaneous tasks
-2593 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Forced browsing of files and directories using code from the OWASP DirBuster tool
-2594 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing ExtensionManualRequest
-2594 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Compares 2 sessions and generates an HTML file showing the differences
-2594 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Invoke external applications passing context related information such as URLs and parameters
-2595 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Handles anti cross site request forgery (CSRF) tokens
-2596 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing ExtensionAuthentication
-2610 [ZAP-daemon] INFO org.zaproxy.zap.extension.authentication.ExtensionAuthentication  - Loaded authentication method types: [Form-based Authentication, HTTP/NTLM Authentication, Manual Authentication, Script-based Authentication]
-2611 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Creates a dynamic SSL certificate to allow SSL communications to be intercepted without warnings being generated by the browser
-2611 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Logs errors to the Output tab in development mode only
-2611 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing ExtensionUserManagement
-2613 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Summarise and analyse FORM and URL parameters as well as cookies
-2614 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Script integration
-2622 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Scripting console, supports all JSR 223 scripting languages
-2622 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing ExtensionForcedUser
-2623 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Extension handling HTTP sessions
-2624 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Zest is a specialized scripting language from Mozilla specifically designed to be used in security tools
-2848 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing ExtensionDiff
-2848 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing ExtensionRequestPostTableView
-2848 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing ExtensionSessionManagement
-2850 [ZAP-daemon] INFO org.zaproxy.zap.extension.sessions.ExtensionSessionManagement  - Loaded session management method types: [Cookie-based Session Management, HTTP Authentication Session Management]
-2850 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing ExtensionHttpPanelRequestFormTableView
-2851 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Capture messages from WebSockets with the ability to set breakpoints.
-2854 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Core UI related functionality.
-2855 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing ExtensionAuthorization
-2855 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing AJAX Spider, uses Crawljax
-2856 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Handles adding Global Excluded URLs
-2856 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Adds menu item to refresh the Sites tree
-2856 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Adds support for configurable keyboard shortcuts for all of the ZAP menus.
-2856 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing OWASP ZAP User Guide
-2856 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Provides a URL suitable for calling from target sites
-2858 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Allows you to configure which extensions are loaded when ZAP starts 
-2858 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing ExtensionHttpPanelComponentonentAll
-2858 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing ExtensionHttpPanelHexView
-2858 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing ExtensionHttpPanelImageView
-2858 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing ExtensionHttpPanelLargeRequestView
-2858 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing ExtensionHttpPanelLargeResponseView
-2858 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing ExtensionHttpPanelRequestQueryCookieTableView
-2858 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing ExtensionHttpPanelSyntaxHighlightTextView
-2858 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Active and passive rule configuration
-2859 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Statistics
-2860 [ZAP-daemon] INFO org.zaproxy.zap.extension.stats.ExtensionStats  - Start recording in memory stats
-2861 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Allows to fuzz WebSocket messages.
-2861 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing The Online menu links
-2861 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing ExtensionJxBrowserLinux32
-2861 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing ExtSelJxBrowserLinux32
-2862 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Easy way to replace strings in requests and responses
-2863 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Provides the foundation for concrete message types (for example, HTTP, WebSockets) expose fuzzer implementations.
-2864 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Allows to fuzz HTTP messages.
-2864 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Tips and Tricks
-2865 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing ExtensionJxBrowser
-2865 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Quick Start panel 
-2865 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Translations of the core language files
-2865 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Active Scan Rules
-2865 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Passive Scan Rules
-2865 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Provides WebDrivers to control several browsers using Selenium and includes HtmlUnit browser.
-2869 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing ExtensionJxBrowserLinux64
-2869 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing ExtSelJxBrowserLinux64
-2876 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing ExtensionSaveRawHttpMessage
-2876 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Context alert rules filter
-2877 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing The ZAP Getting Started Guide
-2950 [ZAP-daemon] INFO org.zaproxy.zap.extension.callback.ExtensionCallback  - Started callback server on 0.0.0.0:38437
-2950 [ZAP-daemon] INFO org.zaproxy.zap.extension.dynssl.ExtensionDynSSL  - Creating new root CA certificate
-3554 [ZAP-daemon] INFO org.zaproxy.zap.extension.dynssl.ExtensionDynSSL  - New root CA certificate created
-4638 [ZAP-daemon] INFO org.parosproxy.paros.CommandLine  - Downloading add-on from: https://github.com/zaproxy/zap-extensions/releases/download/2.6/soap-alpha-3.zap
-4638 [ZAP-daemon] INFO org.parosproxy.paros.CommandLine  - Downloading add-on from: https://github.com/zaproxy/zap-extensions/releases/download/2.5/saml-alpha-6.zap
-4638 [ZAP-daemon] INFO org.parosproxy.paros.CommandLine  - Downloading add-on from: https://github.com/zaproxy/zap-extensions/releases/download/2.5/tlsdebug-alpha-1.zap
-4639 [ZAP-daemon] INFO org.parosproxy.paros.CommandLine  - Downloading add-on from: https://github.com/zaproxy/zap-extensions/releases/download/2.5/domxss-alpha-3.zap
-4639 [ZAP-daemon] INFO org.parosproxy.paros.CommandLine  - Downloading add-on from: https://github.com/zaproxy/zap-extensions/releases/download/2.5/communityScripts-alpha-3.zap
-4639 [ZAP-daemon] INFO org.parosproxy.paros.CommandLine  - Downloading add-on from: https://github.com/zaproxy/zap-extensions/releases/download/2.5/sequence-alpha-3.zap
-4639 [ZAP-daemon] INFO org.parosproxy.paros.CommandLine  - Downloading add-on from: https://github.com/zaproxy/zap-extensions/releases/download/2.6/jxbrowserlinux64-alpha-2.zap
-4639 [ZAP-daemon] INFO org.parosproxy.paros.CommandLine  - Downloading add-on from: https://github.com/zaproxy/zap-extensions/releases/download/2.5/authstats-alpha-1.zap
-4639 [ZAP-daemon] INFO org.parosproxy.paros.CommandLine  - Downloading add-on from: https://github.com/zaproxy/zap-extensions/releases/download/2.5/ascanrulesBeta-beta-21.zap
-4639 [ZAP-daemon] INFO org.parosproxy.paros.CommandLine  - Downloading add-on from: https://github.com/zaproxy/zap-extensions/releases/download/2.6/pscanrulesBeta-beta-16.zap
-4639 [ZAP-daemon] INFO org.parosproxy.paros.CommandLine  - Downloading add-on from: https://github.com/zaproxy/zap-extensions/releases/download/2.6/importLogFiles-alpha-4.zap
-4639 [ZAP-daemon] INFO org.parosproxy.paros.CommandLine  - Downloading add-on from: https://github.com/zaproxy/zap-extensions/releases/download/2.5/webdriverwindows-beta-2.zap
-4639 [ZAP-daemon] INFO org.parosproxy.paros.CommandLine  - Downloading add-on from: https://github.com/zaproxy/zap-extensions/releases/download/2.5/ascanrulesAlpha-alpha-18.zap
-4639 [ZAP-daemon] INFO org.parosproxy.paros.CommandLine  - Downloading add-on from: https://github.com/zaproxy/zap-extensions/releases/download/2.5/pscanrulesAlpha-alpha-13.zap
-4639 [ZAP-daemon] INFO org.parosproxy.paros.CommandLine  - Downloading add-on from: https://github.com/zaproxy/zap-extensions/releases/download/2.5/plugnhack-beta-9.zap
-4640 [ZAP-daemon] INFO org.parosproxy.paros.CommandLine  - Downloading add-on from: https://github.com/zaproxy/zap-extensions/releases/download/2.5/beanshell-beta-5.zap
-4640 [ZAP-daemon] INFO org.parosproxy.paros.CommandLine  - Downloading add-on from: https://github.com/zaproxy/zap-extensions/releases/download/2.6/cspscanner-alpha-3.zap
-4640 [ZAP-daemon] INFO org.parosproxy.paros.CommandLine  - Downloading add-on from: https://github.com/zaproxy/zap-extensions/releases/download/2.5/viewstate-alpha-1.zap
-4640 [ZAP-daemon] INFO org.parosproxy.paros.CommandLine  - Downloading add-on from: https://github.com/zaproxy/zap-extensions/releases/download/2.5/fuzzdb-release-4.zap
-4640 [ZAP-daemon] INFO org.parosproxy.paros.CommandLine  - Downloading add-on from: https://github.com/zaproxy/zap-extensions/releases/download/2.5/help_pt_BR-release-6.zap
-4640 [ZAP-daemon] INFO org.parosproxy.paros.CommandLine  - Downloading add-on from: https://github.com/zaproxy/zap-extensions/releases/download/2.5/alertReport-beta-14.zap
-4640 [ZAP-daemon] INFO org.parosproxy.paros.CommandLine  - Downloading add-on from: https://github.com/zaproxy/zap-extensions/releases/download/2.6/formhandler-alpha-1.zap
-4640 [ZAP-daemon] INFO org.parosproxy.paros.CommandLine  - Downloading add-on from: https://github.com/zaproxy/zap-extensions/releases/download/2.6/codedx-alpha-5.zap
-4640 [ZAP-daemon] INFO org.parosproxy.paros.CommandLine  - Downloading add-on from: https://github.com/zaproxy/zap-extensions/releases/download/2.5/sse-alpha-9.zap
-4640 [ZAP-daemon] INFO org.parosproxy.paros.CommandLine  - Downloading add-on from: https://github.com/zaproxy/zap-extensions/releases/download/2.5/amf-alpha-1.zap
-4640 [ZAP-daemon] INFO org.parosproxy.paros.CommandLine  - Downloading add-on from: https://github.com/zaproxy/zap-extensions/releases/download/2.5/help_bs_BA-alpha-5.zap
-4640 [ZAP-daemon] INFO org.parosproxy.paros.CommandLine  - Downloading add-on from: https://github.com/zaproxy/zap-extensions/releases/download/2.6/jxbrowserlinux32-alpha-2.zap
-4640 [ZAP-daemon] INFO org.parosproxy.paros.CommandLine  - Downloading add-on from: https://github.com/zaproxy/zap-extensions/releases/download/2.5/exportreport-alpha-3.zap
-4641 [ZAP-daemon] INFO org.parosproxy.paros.CommandLine  - Downloading add-on from: https://github.com/zaproxy/zap-extensions/releases/download/2.5/callgraph-alpha-3.zap
-4641 [ZAP-daemon] INFO org.parosproxy.paros.CommandLine  - Downloading add-on from: https://github.com/zaproxy/zap-extensions/releases/download/2.5/revisit-alpha-2.zap
-4641 [ZAP-daemon] INFO org.parosproxy.paros.CommandLine  - Downloading add-on from: https://github.com/zaproxy/zap-extensions/releases/download/2.6/jxbrowsermacos-alpha-2.zap
-4641 [ZAP-daemon] INFO org.parosproxy.paros.CommandLine  - Downloading add-on from: https://github.com/zaproxy/zap-extensions/releases/download/2.5/wappalyzer-alpha-8.zap
-4641 [ZAP-daemon] INFO org.parosproxy.paros.CommandLine  - Downloading add-on from: https://github.com/zaproxy/zap-extensions/releases/download/2.5/svndigger-beta-3.zap
-4641 [ZAP-daemon] INFO org.parosproxy.paros.CommandLine  - Downloading add-on from: https://github.com/zaproxy/zap-extensions/releases/download/2.6/importurls-beta-3.zap
-4641 [ZAP-daemon] INFO org.parosproxy.paros.CommandLine  - Downloading add-on from: https://github.com/zaproxy/zap-extensions/releases/download/2.5/httpsInfo-alpha-7.zap
-4641 [ZAP-daemon] INFO org.parosproxy.paros.CommandLine  - Downloading add-on from: https://github.com/zaproxy/zap-extensions/releases/download/2.5/help_es_ES-alpha-5.zap
-4641 [ZAP-daemon] INFO org.parosproxy.paros.CommandLine  - Downloading add-on from: https://github.com/zaproxy/zap-extensions/releases/download/2.6/openapi-alpha-5.zap
-4641 [ZAP-daemon] INFO org.parosproxy.paros.CommandLine  - Downloading add-on from: https://github.com/zaproxy/zap-extensions/releases/download/2.5/sniTerminator-alpha-4.zap
-4641 [ZAP-daemon] INFO org.parosproxy.paros.CommandLine  - Downloading add-on from: https://github.com/zaproxy/zap-extensions/releases/download/2.5/help_ja_JP-alpha-5.zap
-4641 [ZAP-daemon] INFO org.parosproxy.paros.CommandLine  - Downloading add-on from: https://github.com/zaproxy/zap-extensions/releases/download/2.5/bugtracker-alpha-1.zap
-4641 [ZAP-daemon] INFO org.parosproxy.paros.CommandLine  - Downloading add-on from: https://github.com/zaproxy/zap-extensions/releases/download/2.5/help_fr_FR-alpha-5.zap
-4642 [ZAP-daemon] INFO org.parosproxy.paros.CommandLine  - Downloading add-on from: https://github.com/zaproxy/zap-extensions/releases/download/2.5/customreport-alpha-2.zap
-4642 [ZAP-daemon] INFO org.parosproxy.paros.CommandLine  - Downloading add-on from: https://github.com/zaproxy/zap-extensions/releases/download/2.5/highlighter-alpha-6.zap
-4642 [ZAP-daemon] INFO org.parosproxy.paros.CommandLine  - Downloading add-on from: https://github.com/zaproxy/zap-extensions/releases/download/2.5/jruby-beta-4.zap
-4644 [ZAP-daemon] INFO org.parosproxy.paros.CommandLine  - Downloading add-on from: https://github.com/zaproxy/zap-extensions/releases/download/2.5/webdrivermacos-beta-2.zap
-4644 [ZAP-daemon] INFO org.parosproxy.paros.CommandLine  - Downloading add-on from: https://github.com/zaproxy/zap-extensions/releases/download/2.5/browserView-alpha-4.zap
-4644 [ZAP-daemon] INFO org.parosproxy.paros.CommandLine  - Downloading add-on from: https://github.com/zaproxy/zap-extensions/releases/download/2.5/treetools-beta-6.zap
-4644 [ZAP-daemon] INFO org.parosproxy.paros.CommandLine  - Downloading add-on from: https://github.com/zaproxy/zap-extensions/releases/download/2.5/requester-alpha-1.zap
-4644 [ZAP-daemon] INFO org.parosproxy.paros.CommandLine  - Downloading add-on from: https://github.com/zaproxy/zap-extensions/releases/download/2.5/jython-beta-5.zap
-4644 [ZAP-daemon] INFO org.parosproxy.paros.CommandLine  - Downloading add-on from: https://github.com/zaproxy/zap-extensions/releases/download/2.6/jxbrowserwindows-alpha-2.zap
-4644 [ZAP-daemon] INFO org.parosproxy.paros.CommandLine  - Downloading add-on from: https://github.com/zaproxy/zap-extensions/releases/download/2.5/portscan-beta-7.zap
-4644 [ZAP-daemon] INFO org.parosproxy.paros.CommandLine  - Downloading add-on from: https://github.com/zaproxy/zap-extensions/releases/download/2.5/sqliplugin-beta-11.zap
-4644 [ZAP-daemon] INFO org.parosproxy.paros.CommandLine  - Downloading add-on from: https://github.com/zaproxy/zap-extensions/releases/download/2.5/directorylistv2_3-release-3.zap
-4644 [ZAP-daemon] INFO org.parosproxy.paros.CommandLine  - Downloading add-on from: https://github.com/zaproxy/zap-extensions/releases/download/2.6/jxbrowser-alpha-4.zap
-4644 [ZAP-daemon] INFO org.parosproxy.paros.CommandLine  - Downloading add-on from: https://github.com/zaproxy/zap-extensions/releases/download/2.5/directorylistv2_3_lc-release-3.zap
-4644 [ZAP-daemon] INFO org.parosproxy.paros.CommandLine  - Downloading add-on from: https://github.com/zaproxy/zap-extensions/releases/download/2.5/tokengen-beta-10.zap
-4644 [ZAP-daemon] INFO org.parosproxy.paros.CommandLine  - Downloading add-on from: https://github.com/zaproxy/zap-extensions/releases/download/2.5/accessControl-alpha-2.zap
+181 [main] INFO org.zaproxy.zap.DaemonBootstrap  - OWASP ZAP 2.6.0 started 26/05/17 11:02:07
+204 [main] INFO org.parosproxy.paros.common.AbstractParam  - Setting config api.disablekey = true was null
+204 [main] INFO org.parosproxy.paros.common.AbstractParam  - Setting config api.addrs.addr.name = .* was null
+204 [main] INFO org.parosproxy.paros.common.AbstractParam  - Setting config api.addrs.addr.regex = true was null
+204 [main] INFO org.parosproxy.paros.common.AbstractParam  - Setting config database.recoverylog = false was null
+207 [main] INFO org.parosproxy.paros.network.SSLConnector  - Reading supported SSL/TLS protocols...
+207 [main] INFO org.parosproxy.paros.network.SSLConnector  - Using a SSLEngine...
+286 [main] INFO org.parosproxy.paros.network.SSLConnector  - Done reading supported SSL/TLS protocols: [SSLv2Hello, SSLv3, TLSv1, TLSv1.1, TLSv1.2]
+306 [main] INFO org.parosproxy.paros.extension.option.OptionsParamCertificate  - Unsafe SSL renegotiation disabled.
+581 [main] INFO hsqldb.db..ENGINE  - open start - state not modified
+677 [main] INFO hsqldb.db..ENGINE  - dataFileCache open start
+685 [main] INFO hsqldb.db..ENGINE  - dataFileCache open end
+732 [ZAP-daemon] INFO org.zaproxy.zap.control.ExtensionFactory  - Loading extensions
+1706 [ZAP-daemon] INFO org.zaproxy.zap.control.ExtensionFactory  - Installed add-ons: [[id=websocket, fileVersion=12], [id=onlineMenu, fileVersion=5], [id=jxbrowserlinux32, fileVersion=1], [id=invoke, fileVersion=6], [id=replacer, fileVersion=2], [id=fuzz, fileVersion=8, version=2.0.1], [id=tips, fileVersion=6], [id=jxbrowser, fileVersion=2], [id=diff, fileVersion=7], [id=bruteforce, fileVersion=6], [id=scripts, fileVersion=18], [id=quickstart, fileVersion=19], [id=coreLang, fileVersion=11], [id=spiderAjax, fileVersion=17], [id=ascanrules, fileVersion=26], [id=pscanrules, fileVersion=19], [id=selenium, fileVersion=10, version=1.1.0], [id=jxbrowserlinux64, fileVersion=1], [id=zest, fileVersion=23], [id=help, fileVersion=7], [id=directorylistv1, fileVersion=3], [id=saverawmessage, fileVersion=3], [id=alertFilters, fileVersion=4], [id=reveal, fileVersion=2], [id=webdriverlinux, fileVersion=2], [id=gettingStarted, fileVersion=6]]
+1968 [ZAP-daemon] INFO org.zaproxy.zap.control.ExtensionFactory  - Extensions loaded
+2178 [ZAP-daemon] INFO org.parosproxy.paros.extension.filter.FilterFactory  - loaded filter Change user agent to other browsers. 
+2179 [ZAP-daemon] INFO org.parosproxy.paros.extension.filter.FilterFactory  - loaded filter Detect insecure or potentially malicious content in HTTP responses.
+2179 [ZAP-daemon] INFO org.parosproxy.paros.extension.filter.FilterFactory  - loaded filter Detect and alert 'Set-cookie' attempt in HTTP response for modification.
+2179 [ZAP-daemon] INFO org.parosproxy.paros.extension.filter.FilterFactory  - loaded filter Avoid browser cache (strip off IfModifiedSince)
+2179 [ZAP-daemon] INFO org.parosproxy.paros.extension.filter.FilterFactory  - loaded filter Log cookies sent by browser.
+2179 [ZAP-daemon] INFO org.parosproxy.paros.extension.filter.FilterFactory  - loaded filter Log unique GET queries into file:filter/get.xls
+2179 [ZAP-daemon] INFO org.parosproxy.paros.extension.filter.FilterFactory  - loaded filter Log unique POST queries into file:  filter/post.xls
+2179 [ZAP-daemon] INFO org.parosproxy.paros.extension.filter.FilterFactory  - loaded filter Log request and response into file: filter/message.txt
+2180 [ZAP-daemon] INFO org.parosproxy.paros.extension.filter.FilterFactory  - loaded filter Replace HTTP request body using defined pattern.
+2180 [ZAP-daemon] INFO org.parosproxy.paros.extension.filter.FilterFactory  - loaded filter Replace HTTP request header using defined pattern.
+2180 [ZAP-daemon] INFO org.parosproxy.paros.extension.filter.FilterFactory  - loaded filter Replace HTTP response body using defined pattern.
+2180 [ZAP-daemon] INFO org.parosproxy.paros.extension.filter.FilterFactory  - loaded filter Replace HTTP response header using defined pattern.
+2180 [ZAP-daemon] INFO org.parosproxy.paros.extension.filter.FilterFactory  - loaded filter Send ZAP session request ID
+2278 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Allows ZAP to check for updates
+2285 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing ExtensionViewOption
+2286 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing ExtensionEdit
+2286 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing ExtensionFilter
+2286 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Provides a rest based API for controlling and accessing ZAP
+2326 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing ExtensionState
+2326 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing ExtensionReport
+2326 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing ExtensionHistory
+2327 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Show hidden fields and enable disabled fields
+2328 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Search messages for strings and regular expressions 
+2329 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Encode/Decode/Hash...
+2329 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Allows you to intercept and modify requests and responses
+2330 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Passive scanner
+2366 [ZAP-daemon] INFO org.zaproxy.zap.extension.pscan.ExtensionPassiveScan  - loaded passive scan rule: Script Passive Scan Rules
+2366 [ZAP-daemon] INFO org.zaproxy.zap.extension.pscan.ExtensionPassiveScan  - loaded passive scan rule: Stats Passive Scan Rule
+2367 [ZAP-daemon] INFO org.zaproxy.zap.extension.pscan.ExtensionPassiveScan  - loaded passive scan rule: Application Error Disclosure
+2367 [ZAP-daemon] INFO org.zaproxy.zap.extension.pscan.ExtensionPassiveScan  - loaded passive scan rule: Incomplete or No Cache-control and Pragma HTTP Header Set
+2367 [ZAP-daemon] INFO org.zaproxy.zap.extension.pscan.ExtensionPassiveScan  - loaded passive scan rule: Content-Type Header Missing
+2367 [ZAP-daemon] INFO org.zaproxy.zap.extension.pscan.ExtensionPassiveScan  - loaded passive scan rule: Cookie No HttpOnly Flag
+2367 [ZAP-daemon] INFO org.zaproxy.zap.extension.pscan.ExtensionPassiveScan  - loaded passive scan rule: Cookie Without Secure Flag
+2367 [ZAP-daemon] INFO org.zaproxy.zap.extension.pscan.ExtensionPassiveScan  - loaded passive scan rule: Cross-Domain JavaScript Source File Inclusion
+2368 [ZAP-daemon] INFO org.zaproxy.zap.extension.pscan.ExtensionPassiveScan  - loaded passive scan rule: Web Browser XSS Protection Not Enabled
+2368 [ZAP-daemon] INFO org.zaproxy.zap.extension.pscan.ExtensionPassiveScan  - loaded passive scan rule: Secure Pages Include Mixed Content
+2368 [ZAP-daemon] INFO org.zaproxy.zap.extension.pscan.ExtensionPassiveScan  - loaded passive scan rule: Password Autocomplete in Browser
+2368 [ZAP-daemon] INFO org.zaproxy.zap.extension.pscan.ExtensionPassiveScan  - loaded passive scan rule: Private IP Disclosure
+2368 [ZAP-daemon] INFO org.zaproxy.zap.extension.pscan.ExtensionPassiveScan  - loaded passive scan rule: Session ID in URL Rewrite
+2368 [ZAP-daemon] INFO org.zaproxy.zap.extension.pscan.ExtensionPassiveScan  - loaded passive scan rule: X-Content-Type-Options Header Missing
+2368 [ZAP-daemon] INFO org.zaproxy.zap.extension.pscan.ExtensionPassiveScan  - loaded passive scan rule: X-Frame-Options Header Scanner
+2380 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Allows you to view and manage alerts
+2380 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Active scanner, heavily based on the original Paros active scanner, but with additional tests added
+2385 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Spider used for automatically finding URIs on a site
+2389 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing A set of common popup menus for miscellaneous tasks
+2389 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Forced browsing of files and directories using code from the OWASP DirBuster tool
+2390 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing ExtensionManualRequest
+2390 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Compares 2 sessions and generates an HTML file showing the differences
+2390 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Invoke external applications passing context related information such as URLs and parameters
+2391 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Handles anti cross site request forgery (CSRF) tokens
+2392 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing ExtensionAuthentication
+2407 [ZAP-daemon] INFO org.zaproxy.zap.extension.authentication.ExtensionAuthentication  - Loaded authentication method types: [Form-based Authentication, HTTP/NTLM Authentication, Manual Authentication, Script-based Authentication]
+2408 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Creates a dynamic SSL certificate to allow SSL communications to be intercepted without warnings being generated by the browser
+2408 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Logs errors to the Output tab in development mode only
+2408 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing ExtensionUserManagement
+2410 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Summarise and analyse FORM and URL parameters as well as cookies
+2411 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Script integration
+2420 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Scripting console, supports all JSR 223 scripting languages
+2421 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing ExtensionForcedUser
+2421 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Extension handling HTTP sessions
+2422 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Zest is a specialized scripting language from Mozilla specifically designed to be used in security tools
+2602 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing ExtensionDiff
+2602 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing ExtensionRequestPostTableView
+2602 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing ExtensionSessionManagement
+2604 [ZAP-daemon] INFO org.zaproxy.zap.extension.sessions.ExtensionSessionManagement  - Loaded session management method types: [Cookie-based Session Management, HTTP Authentication Session Management]
+2605 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing ExtensionHttpPanelRequestFormTableView
+2605 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Capture messages from WebSockets with the ability to set breakpoints.
+2609 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Core UI related functionality.
+2609 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing ExtensionAuthorization
+2610 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing AJAX Spider, uses Crawljax
+2611 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Handles adding Global Excluded URLs
+2611 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Adds menu item to refresh the Sites tree
+2611 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Adds support for configurable keyboard shortcuts for all of the ZAP menus.
+2611 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing OWASP ZAP User Guide
+2611 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Provides a URL suitable for calling from target sites
+2613 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Allows you to configure which extensions are loaded when ZAP starts 
+2613 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing ExtensionHttpPanelComponentonentAll
+2613 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing ExtensionHttpPanelHexView
+2613 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing ExtensionHttpPanelImageView
+2613 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing ExtensionHttpPanelLargeRequestView
+2613 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing ExtensionHttpPanelLargeResponseView
+2613 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing ExtensionHttpPanelRequestQueryCookieTableView
+2613 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing ExtensionHttpPanelSyntaxHighlightTextView
+2614 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Active and passive rule configuration
+2615 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Statistics
+2616 [ZAP-daemon] INFO org.zaproxy.zap.extension.stats.ExtensionStats  - Start recording in memory stats
+2616 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Allows to fuzz WebSocket messages.
+2617 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing The Online menu links
+2617 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing ExtensionJxBrowserLinux32
+2617 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing ExtSelJxBrowserLinux32
+2618 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Easy way to replace strings in requests and responses
+2619 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Provides the foundation for concrete message types (for example, HTTP, WebSockets) expose fuzzer implementations.
+2621 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Allows to fuzz HTTP messages.
+2621 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Tips and Tricks
+2621 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing ExtensionJxBrowser
+2621 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Quick Start panel 
+2621 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Translations of the core language files
+2622 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Active Scan Rules
+2622 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Passive Scan Rules
+2622 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Provides WebDrivers to control several browsers using Selenium and includes HtmlUnit browser.
+2626 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing ExtensionJxBrowserLinux64
+2626 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing ExtSelJxBrowserLinux64
+2633 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing ExtensionSaveRawHttpMessage
+2633 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Context alert rules filter
+2634 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing The ZAP Getting Started Guide
+2724 [ZAP-daemon] INFO org.zaproxy.zap.extension.callback.ExtensionCallback  - Started callback server on 0.0.0.0:44223
+2725 [ZAP-daemon] INFO org.zaproxy.zap.extension.dynssl.ExtensionDynSSL  - Creating new root CA certificate
+3116 [ZAP-daemon] INFO org.zaproxy.zap.extension.dynssl.ExtensionDynSSL  - New root CA certificate created
+4200 [ZAP-daemon] INFO org.parosproxy.paros.CommandLine  - Downloading add-on from: https://github.com/zaproxy/zap-extensions/releases/download/2.6/soap-alpha-3.zap
+4200 [ZAP-daemon] INFO org.parosproxy.paros.CommandLine  - Downloading add-on from: https://github.com/zaproxy/zap-extensions/releases/download/2.5/saml-alpha-6.zap
+4200 [ZAP-daemon] INFO org.parosproxy.paros.CommandLine  - Downloading add-on from: https://github.com/zaproxy/zap-extensions/releases/download/2.6/ascanrulesAlpha-alpha-19.zap
+4200 [ZAP-daemon] INFO org.parosproxy.paros.CommandLine  - Downloading add-on from: https://github.com/zaproxy/zap-extensions/releases/download/2.6/pscanrulesAlpha-alpha-14.zap
+4200 [ZAP-daemon] INFO org.parosproxy.paros.CommandLine  - Downloading add-on from: https://github.com/zaproxy/zap-extensions/releases/download/2.5/tlsdebug-alpha-1.zap
+4200 [ZAP-daemon] INFO org.parosproxy.paros.CommandLine  - Downloading add-on from: https://github.com/zaproxy/zap-extensions/releases/download/2.5/domxss-alpha-3.zap
+4200 [ZAP-daemon] INFO org.parosproxy.paros.CommandLine  - Downloading add-on from: https://github.com/zaproxy/zap-extensions/releases/download/2.5/communityScripts-alpha-3.zap
+4200 [ZAP-daemon] INFO org.parosproxy.paros.CommandLine  - Downloading add-on from: https://github.com/zaproxy/zap-extensions/releases/download/2.6/jxbrowserlinux64-alpha-2.zap
+4203 [ZAP-daemon] INFO org.parosproxy.paros.CommandLine  - Downloading add-on from: https://github.com/zaproxy/zap-extensions/releases/download/2.5/authstats-alpha-1.zap
+4204 [ZAP-daemon] INFO org.parosproxy.paros.CommandLine  - Downloading add-on from: https://github.com/zaproxy/zap-extensions/releases/download/2.5/ascanrulesBeta-beta-21.zap
+4204 [ZAP-daemon] INFO org.parosproxy.paros.CommandLine  - Downloading add-on from: https://github.com/zaproxy/zap-extensions/releases/download/2.6/pscanrulesBeta-beta-16.zap
+4204 [ZAP-daemon] INFO org.parosproxy.paros.CommandLine  - Downloading add-on from: https://github.com/zaproxy/zap-extensions/releases/download/2.6/importLogFiles-alpha-4.zap
+4204 [ZAP-daemon] INFO org.parosproxy.paros.CommandLine  - Downloading add-on from: https://github.com/zaproxy/zap-extensions/releases/download/2.5/webdriverwindows-beta-2.zap
+4204 [ZAP-daemon] INFO org.parosproxy.paros.CommandLine  - Downloading add-on from: https://github.com/zaproxy/zap-extensions/releases/download/2.5/plugnhack-beta-9.zap
+4204 [ZAP-daemon] INFO org.parosproxy.paros.CommandLine  - Downloading add-on from: https://github.com/zaproxy/zap-extensions/releases/download/2.5/beanshell-beta-5.zap
+4204 [ZAP-daemon] INFO org.parosproxy.paros.CommandLine  - Downloading add-on from: https://github.com/zaproxy/zap-extensions/releases/download/2.6/cspscanner-alpha-3.zap
+4204 [ZAP-daemon] INFO org.parosproxy.paros.CommandLine  - Downloading add-on from: https://github.com/zaproxy/zap-extensions/releases/download/2.5/viewstate-alpha-1.zap
+4204 [ZAP-daemon] INFO org.parosproxy.paros.CommandLine  - Downloading add-on from: https://github.com/zaproxy/zap-extensions/releases/download/2.5/fuzzdb-release-4.zap
+4204 [ZAP-daemon] INFO org.parosproxy.paros.CommandLine  - Downloading add-on from: https://github.com/zaproxy/zap-extensions/releases/download/2.5/help_pt_BR-release-6.zap
+4204 [ZAP-daemon] INFO org.parosproxy.paros.CommandLine  - Downloading add-on from: https://github.com/zaproxy/zap-extensions/releases/download/2.5/alertReport-beta-14.zap
+4204 [ZAP-daemon] INFO org.parosproxy.paros.CommandLine  - Downloading add-on from: https://github.com/zaproxy/zap-extensions/releases/download/2.6/formhandler-alpha-1.zap
+4205 [ZAP-daemon] INFO org.parosproxy.paros.CommandLine  - Downloading add-on from: https://github.com/zaproxy/zap-extensions/releases/download/2.6/codedx-alpha-5.zap
+4205 [ZAP-daemon] INFO org.parosproxy.paros.CommandLine  - Downloading add-on from: https://github.com/zaproxy/zap-extensions/releases/download/2.5/sse-alpha-9.zap
+4205 [ZAP-daemon] INFO org.parosproxy.paros.CommandLine  - Downloading add-on from: https://github.com/zaproxy/zap-extensions/releases/download/2.5/amf-alpha-1.zap
+4205 [ZAP-daemon] INFO org.parosproxy.paros.CommandLine  - Downloading add-on from: https://github.com/zaproxy/zap-extensions/releases/download/2.5/help_bs_BA-alpha-5.zap
+4205 [ZAP-daemon] INFO org.parosproxy.paros.CommandLine  - Downloading add-on from: https://github.com/zaproxy/zap-extensions/releases/download/2.6/jxbrowserlinux32-alpha-2.zap
+4205 [ZAP-daemon] INFO org.parosproxy.paros.CommandLine  - Downloading add-on from: https://github.com/zaproxy/zap-extensions/releases/download/2.5/callgraph-alpha-3.zap
+4205 [ZAP-daemon] INFO org.parosproxy.paros.CommandLine  - Downloading add-on from: https://github.com/zaproxy/zap-extensions/releases/download/2.5/revisit-alpha-2.zap
+4205 [ZAP-daemon] INFO org.parosproxy.paros.CommandLine  - Downloading add-on from: https://github.com/zaproxy/zap-extensions/releases/download/2.6/jxbrowsermacos-alpha-2.zap
+4205 [ZAP-daemon] INFO org.parosproxy.paros.CommandLine  - Downloading add-on from: https://github.com/zaproxy/zap-extensions/releases/download/2.5/wappalyzer-alpha-8.zap
+4205 [ZAP-daemon] INFO org.parosproxy.paros.CommandLine  - Downloading add-on from: https://github.com/zaproxy/zap-extensions/releases/download/2.5/svndigger-beta-3.zap
+4205 [ZAP-daemon] INFO org.parosproxy.paros.CommandLine  - Downloading add-on from: https://github.com/zaproxy/zap-extensions/releases/download/2.6/importurls-beta-3.zap
+4205 [ZAP-daemon] INFO org.parosproxy.paros.CommandLine  - Downloading add-on from: https://github.com/zaproxy/zap-extensions/releases/download/2.5/httpsInfo-alpha-7.zap
+4205 [ZAP-daemon] INFO org.parosproxy.paros.CommandLine  - Downloading add-on from: https://github.com/zaproxy/zap-extensions/releases/download/2.5/help_es_ES-alpha-5.zap
+4205 [ZAP-daemon] INFO org.parosproxy.paros.CommandLine  - Downloading add-on from: https://github.com/zaproxy/zap-extensions/releases/download/2.6/openapi-alpha-5.zap
+4205 [ZAP-daemon] INFO org.parosproxy.paros.CommandLine  - Downloading add-on from: https://github.com/zaproxy/zap-extensions/releases/download/2.5/sniTerminator-alpha-4.zap
+4205 [ZAP-daemon] INFO org.parosproxy.paros.CommandLine  - Downloading add-on from: https://github.com/zaproxy/zap-extensions/releases/download/2.5/help_ja_JP-alpha-5.zap
+4205 [ZAP-daemon] INFO org.parosproxy.paros.CommandLine  - Downloading add-on from: https://github.com/zaproxy/zap-extensions/releases/download/2.6/exportreport-alpha-4.zap
+4205 [ZAP-daemon] INFO org.parosproxy.paros.CommandLine  - Downloading add-on from: https://github.com/zaproxy/zap-extensions/releases/download/2.6/selenium-release-10.zap
+4205 [ZAP-daemon] INFO org.parosproxy.paros.CommandLine  - Downloading add-on from: https://github.com/zaproxy/zap-extensions/releases/download/2.5/bugtracker-alpha-1.zap
+4205 [ZAP-daemon] INFO org.parosproxy.paros.CommandLine  - Downloading add-on from: https://github.com/zaproxy/zap-extensions/releases/download/2.5/help_fr_FR-alpha-5.zap
+4205 [ZAP-daemon] INFO org.parosproxy.paros.CommandLine  - Downloading add-on from: https://github.com/zaproxy/zap-extensions/releases/download/2.5/customreport-alpha-2.zap
+4205 [ZAP-daemon] INFO org.parosproxy.paros.CommandLine  - Downloading add-on from: https://github.com/zaproxy/zap-extensions/releases/download/2.5/highlighter-alpha-6.zap
+4205 [ZAP-daemon] INFO org.parosproxy.paros.CommandLine  - Downloading add-on from: https://github.com/zaproxy/zap-extensions/releases/download/2.5/jruby-beta-4.zap
+4205 [ZAP-daemon] INFO org.parosproxy.paros.CommandLine  - Downloading add-on from: https://github.com/zaproxy/zap-extensions/releases/download/2.5/webdrivermacos-beta-2.zap
+4205 [ZAP-daemon] INFO org.parosproxy.paros.CommandLine  - Downloading add-on from: https://github.com/zaproxy/zap-extensions/releases/download/2.5/browserView-alpha-4.zap
+4206 [ZAP-daemon] INFO org.parosproxy.paros.CommandLine  - Downloading add-on from: https://github.com/zaproxy/zap-extensions/releases/download/2.5/treetools-beta-6.zap
+4206 [ZAP-daemon] INFO org.parosproxy.paros.CommandLine  - Downloading add-on from: https://github.com/zaproxy/zap-extensions/releases/download/2.6/sequence-alpha-4.zap
+4206 [ZAP-daemon] INFO org.parosproxy.paros.CommandLine  - Downloading add-on from: https://github.com/zaproxy/zap-extensions/releases/download/2.5/requester-alpha-1.zap
+4206 [ZAP-daemon] INFO org.parosproxy.paros.CommandLine  - Downloading add-on from: https://github.com/zaproxy/zap-extensions/releases/download/2.5/jython-beta-5.zap
+4206 [ZAP-daemon] INFO org.parosproxy.paros.CommandLine  - Downloading add-on from: https://github.com/zaproxy/zap-extensions/releases/download/2.6/jxbrowserwindows-alpha-2.zap
+4206 [ZAP-daemon] INFO org.parosproxy.paros.CommandLine  - Downloading add-on from: https://github.com/zaproxy/zap-extensions/releases/download/2.5/portscan-beta-7.zap
+4206 [ZAP-daemon] INFO org.parosproxy.paros.CommandLine  - Downloading add-on from: https://github.com/zaproxy/zap-extensions/releases/download/2.5/sqliplugin-beta-11.zap
+4206 [ZAP-daemon] INFO org.parosproxy.paros.CommandLine  - Downloading add-on from: https://github.com/zaproxy/zap-extensions/releases/download/2.5/directorylistv2_3-release-3.zap
+4206 [ZAP-daemon] INFO org.parosproxy.paros.CommandLine  - Downloading add-on from: https://github.com/zaproxy/zap-extensions/releases/download/2.6/jxbrowser-alpha-4.zap
+4206 [ZAP-daemon] INFO org.parosproxy.paros.CommandLine  - Downloading add-on from: https://github.com/zaproxy/zap-extensions/releases/download/2.5/directorylistv2_3_lc-release-3.zap
+4206 [ZAP-daemon] INFO org.parosproxy.paros.CommandLine  - Downloading add-on from: https://github.com/zaproxy/zap-extensions/releases/download/2.5/tokengen-beta-10.zap
+4206 [ZAP-daemon] INFO org.parosproxy.paros.CommandLine  - Downloading add-on from: https://github.com/zaproxy/zap-extensions/releases/download/2.5/accessControl-alpha-2.zap
