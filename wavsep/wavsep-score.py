@@ -39,7 +39,7 @@
 # This has been tested against wavsep 1.5
 
 from zapv2 import ZAPv2
-import datetime, sys, getopt
+import datetime, sys, getopt, html
 
 def main(argv):
 	# -------------------------------------------------------------------------
@@ -51,7 +51,7 @@ def main(argv):
 	try:
 		opts, args = getopt.getopt(argv,"h:p:")
 	except getopt.GetoptError:
-		print 'wavsep.py -h <ZAPhost> -p <ZAPport>'
+		print('wavsep.py -h <ZAPhost> -p <ZAPport>')
 		sys.exit(2)
 	for opt, arg in opts:
 		if opt == '-h':
@@ -261,7 +261,7 @@ def main(argv):
 			if (len(urlEl) > 6):
 				#print 'URL 4:' + urlEl[4] + ' 6:' + urlEl[6].split('-')[0]
 				if (urlEl[3] != 'wavsep'):
-					print 'Ignoring non wavsep URL 4:' + urlEl[4] + ' URL 5:' + urlEl[5]  + ' URL 6:' + urlEl[6]
+					print('Ignoring non wavsep URL 4:' + urlEl[4] + ' URL 5:' + urlEl[5]  + ' URL 6:' + urlEl[6])
 					continue
 				
 				if (urlEl[6].split('-')[0][:9] == 'index.jsp'):
@@ -280,7 +280,7 @@ def main(argv):
 				short = abbrev.get(alert.get('alert'))
 				if (short is None):
 					short = 'UNKNOWN'
-					print 'Unknown alert: ' + alert.get('alert')
+					print('Unknown alert: ' + alert.get('alert'))
 				aDict = alertsPerUrl.get(urlSummary, {'pass' : set([]), 'fail' : set([]), 'ignore' : set([]), 'other' : set([])})
 				added = False
 				for rule in rules:
@@ -329,7 +329,7 @@ def main(argv):
 	totalFail = 0
 
 	# Calculate the top level scores
-	for key, value in sorted(alertsPerUrl.iteritems()):
+	for key, value in sorted(alertsPerUrl.items()):
 		top = key.split(' : ')[1]
 		if ('-' in top):
 			top = top.split('-')[0] + '-' + top.split('-')[1]
@@ -347,7 +347,7 @@ def main(argv):
 			thisTop[2] += 1
 		
 	# Calculate the group scores
-	for key, value in sorted(alertsPerUrl.iteritems()):
+	for key, value in sorted(alertsPerUrl.items()):
 		group = key.split(' : ')[1]
 		if (group != thisGroup[0]):
 			thisGroup = [group, 0, 0]	# group, pass, fail
@@ -369,11 +369,11 @@ def main(argv):
 	scale=8
 	reportFile.write("<h3>Total Score</h3>\n")
 	reportFile.write("<font style=\"BACKGROUND-COLOR: GREEN\">")
-	for i in range (totalPass/scale):
+	for i in range (int(totalPass/scale)):
 		reportFile.write("&nbsp;")
 	reportFile.write("</font>")
 	reportFile.write("<font style=\"BACKGROUND-COLOR: RED\">")
-	for i in range (totalFail/scale):
+	for i in range (int(totalFail/scale)):
 		reportFile.write("&nbsp;")
 	reportFile.write("</font>")
 	total = 100 * totalPass / (totalPass + totalFail)
@@ -391,18 +391,18 @@ def main(argv):
 	for topResult in topResults:
 	    #print "%s Pass: %i Fail: %i Score: %i\%" % (topResult[0], topResult[1], topResult[2], (100*topResult[1]/topResult[1]+topResult[2]))
 		reportFile.write("<tr>")
-		reportFile.write("<td>" + topResult[0] + "</td>")
+		reportFile.write("<td>{0}</td>".format(html.escape(topResult[0])))
 		reportFile.write("<td align=\"right\">" + str(topResult[1]) + "</td>")
 		reportFile.write("<td align=\"right\">" + str(topResult[2]) + "</td>")
 		score = 100 * topResult[1] / (topResult[1] + topResult[2])
 		reportFile.write("<td align=\"right\">" + str(score) + "%</td>")
 		reportFile.write("<td>")
 		reportFile.write("<font style=\"BACKGROUND-COLOR: GREEN\">")
-		for i in range (topResult[1]/scale):
+		for i in range (int(topResult[1]/scale)):
 			reportFile.write("&nbsp;")
 		reportFile.write("</font>")
 		reportFile.write("<font style=\"BACKGROUND-COLOR: RED\">")
-		for i in range (topResult[2]/scale):
+		for i in range (int(topResult[2]/scale)):
 			reportFile.write("&nbsp;")
 		reportFile.write("</font>")
 		reportFile.write("</td>")
@@ -415,7 +415,7 @@ def main(argv):
 	reportFile.write("<tr><th>Alert</th><th>Description</th><th>Pass</th><th>Fail</th><th>Ignore</th><th>Other</th></tr>\n")
 
 	#for key, value in abbrev.items():
-	for (k, v) in sorted(abbrev.items(), key=lambda (k,v): v):
+	for (k, v) in sorted(list(abbrev.items()), key=lambda k_v: k_v[1]):
 		reportFile.write("<tr>")
 		reportFile.write("<td>" + v + "</td>")
 		reportFile.write("<td>" + k + "</td>")
@@ -436,18 +436,18 @@ def main(argv):
 	for groupResult in groupResults:
 		#print "%s Pass: %i Fail: %i Score: %i\%" % (groupResult[0], groupResult[1], groupResult[2], (100*groupResult[1]/groupResult[1]+groupResult[2]))
 		reportFile.write("<tr>")
-		reportFile.write("<td>" + groupResult[0] + "</td>")
+		reportFile.write("<td>{0}</td>".format(html.escape(groupResult[0])))
 		reportFile.write("<td align=\"right\">" + str(groupResult[1]) + "</td>")
 		reportFile.write("<td align=\"right\">" + str(groupResult[2]) + "</td>")
 		score = 100 * groupResult[1] / (groupResult[1] + groupResult[2])
 		reportFile.write("<td align=\"right\">" + str(score) + "%</td>")
 		reportFile.write("<td>")
 		reportFile.write("<font style=\"BACKGROUND-COLOR: GREEN\">")
-		for i in range (groupResult[1]/scale):
+		for i in range (int(groupResult[1]/scale)):
 			reportFile.write("&nbsp;")
 		reportFile.write("</font>")
 		reportFile.write("<font style=\"BACKGROUND-COLOR: RED\">")
-		for i in range (groupResult[2]/scale):
+		for i in range (int(groupResult[2]/scale)):
 			reportFile.write("&nbsp;")
 		reportFile.write("</font>")
 		reportFile.write("</td>")
@@ -460,13 +460,13 @@ def main(argv):
 	reportFile.write("<table border=\"1\">\n")
 	reportFile.write("<tr><th>Page</th><th>Result</th><th>Pass</th><th>Fail</th><th>Ignore</th><th>Other</th></tr>\n")
 
-	for key, value in sorted(alertsPerUrl.iteritems()):
+	for key, value in sorted(alertsPerUrl.items()):
 		reportFile.write("<tr>")
 		keyArray = key.split(':')
 		if (len(keyArray) == 4):
-			reportFile.write("<td>" + keyArray[0] + keyArray[2] + keyArray[3] + "</td>")
+			reportFile.write("<td>{0}</td>".format(html.escape(keyArray[0] + keyArray[2] + keyArray[3])))
 		else:
-			reportFile.write("<td>" + keyArray[0] + keyArray[2] + "</td>")
+			reportFile.write("<td>{0}</td>".format(html.escape(keyArray[0] + keyArray[2])))
 		reportFile.write("<td>")
 		if (len(value.get('pass')) > 0):
 			reportFile.write("<font style=\"BACKGROUND-COLOR: GREEN\">&nbsp;PASS&nbsp</font>")
@@ -606,12 +606,12 @@ def main(argv):
 
 	#print ''	
 	
-	print ''	
-	print 'ZAP ' + zapVersion
-	print 'Got ' + str(totalAlerts) + ' alerts'
-	print 'Got ' + str(len(uniqueUrls)) + ' unique urls'
-	print 'Took ' + time
-	print 'Score ' + str(total)
+	print('')
+	print('ZAP ' + zapVersion)
+	print('Got ' + str(totalAlerts) + ' alerts')
+	print('Got ' + str(len(uniqueUrls)) + ' unique urls')
+	print('Took ' + time)
+	print('Score ' + str(total))
 
 if __name__ == "__main__":
 	main(sys.argv[1:])   
