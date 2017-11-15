@@ -133,7 +133,7 @@ docker logs $ZPCID > ~/zap-mgmt-scripts_gh-pages/reports/${name}.logs.txt
 
 
 # Generate the report
-python ~/zap-mgmt-scripts/wavsep/wavsep-score.py -h $ZPIP > ~/wrk/summary.txt
+python3 ~/zap-mgmt-scripts/wavsep/wavsep-score.py -h $ZPIP > ~/wrk/summary.txt
 echo "====" >> ~/wrk/out.txt
 echo "Summary" >> ~/wrk/out.txt
 cat ~/wrk/summary.txt >> ~/wrk/out.txt
