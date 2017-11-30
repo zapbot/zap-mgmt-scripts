@@ -4,14 +4,14 @@
 import glob,json,os,sys
 
 # The file names
-REL = '2.6.0'
-CORE = 'ZAP_2.6.0_Core.tar.gz'
-CROSS = 'ZAP_2.6.0_Crossplatform.zip'
-LINUX = 'ZAP_2.6.0_Linux.tar.gz'
-UNIX = 'ZAP_2_6_0_unix.sh'
-MAC = 'ZAP_2_6_0_macos.dmg'
-WIN32 = 'ZAP_2_6_0_windows-x32.exe'
-WIN64 = 'ZAP_2_6_0_windows.exe'
+REL = '2.7.0'
+CORE = 'ZAP_2.7.0_Core.tar.gz'
+CROSS = 'ZAP_2.7.0_Crossplatform.zip'
+LINUX = 'ZAP_2.7.0_Linux.tar.gz'
+UNIX = 'ZAP_2_7_0_unix.sh'
+MAC = 'ZAP_2.7.0.dmg'
+WIN32 = 'ZAP_2_7_0_windows-x32.exe'
+WIN64 = 'ZAP_2_7_0_windows.exe'
 
 counts = {}
 files = sorted(glob.glob('../zap-mgmt-scripts_gh-pages/stats/releases-*'))
