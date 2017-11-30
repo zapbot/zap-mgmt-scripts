@@ -17,7 +17,8 @@ counts = {}
 files = sorted(glob.glob('../zap-mgmt-scripts_gh-pages/stats/releases-*'))
 # Option to just show the last 180 days to prevent the chart getting too big
 files = files[-180:]
-first = 1
+# Change to 1 once 2.7.0 has been out for more than 180 days ;)
+first = 0
 for file in files:
   with open(file) as stats_file:
     stats = json.load(stats_file)
