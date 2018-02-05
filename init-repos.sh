@@ -5,11 +5,16 @@
 cd ..
 
 # Clone the repos we dont need to update
-git clone https://github.com/zaproxy/zap-admin.git
 
 # Clone forks of the repos we need to update
 # and update the to sync with the originals
 # change zapbot to your user if required
+
+# zap-admin
+git clone https://github.com/zapbot/zap-admin.git
+cd zap-admin
+git remote add upstream https://github.com/zaproxy/zap-admin.git
+cd ..
 
 # zaproxy
 git clone https://github.com/zapbot/zaproxy.git
