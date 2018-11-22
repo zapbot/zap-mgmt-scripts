@@ -33,11 +33,11 @@ def main(argv):
    try:
       opts, args = getopt.getopt(argv,"hn:z:w:",["zap=","wivet=","name="])
    except getopt.GetoptError:
-      print 'test.py -z <ZAPipaddr> -w <WIVITipaddr>'
+      print('test.py -z <ZAPipaddr> -w <WIVITipaddr>')
       sys.exit(2)
    for opt, arg in opts:
       if opt == '-h':
-         print 'test.py -z <ZAPipaddr> -w <WIVITipaddr>'
+         print('test.py -z <ZAPipaddr> -w <WIVITipaddr>')
          sys.exit()
       elif opt in ("-n", "--name"):
          name = arg
@@ -45,8 +45,8 @@ def main(argv):
          zapHostIp = arg
       elif opt in ("-w", "--wivit"):
          wivitHostIp = arg
-   print 'zap is', zapHostIp
-   print 'wivit is ', wivitHostIp
+   print('zap is', zapHostIp)
+   print('wivit is ', wivitHostIp)
    
    # change this IP according to your environment
    
@@ -64,14 +64,14 @@ def main(argv):
    zap.spider.exclude_from_scan(target + 'logout.*')
 
    zap.spider.scan(target)
-   print 'Spider started'
+   print('Spider started')
    # Give the Spider a chance to start
    time.sleep(5)
    while (int(zap.spider.status()) < 100):
-       print 'Spider progress %: ' + zap.spider.status()
+       print('Spider progress %: ' + zap.spider.status())
        time.sleep(5)
 
-   print 'Spider completed'
+   print('Spider completed')
 
    time.sleep(5)
 
@@ -79,19 +79,19 @@ def main(argv):
    start = time.time()
 
    zap.ajaxSpider.scan(target)
-   print 'Ajax Spider started'
+   print('Ajax Spider started')
    # Give the Ajax Spider a chance to start
    time.sleep(5)
    while (zap.ajaxSpider.status == 'running'):
-       print 'Ajax spider still running, results: ' + zap.ajaxSpider.number_of_results
+       print('Ajax spider still running, results: ' + zap.ajaxSpider.number_of_results)
        time.sleep(5)
 
-   print 'Ajax Spider completed'
+   print('Ajax Spider completed')
 
    end = time.time()
-   print 'ZAP: ' + zapVersion
-   print 'Time: ' + time.strftime('%H:%M:%S', time.gmtime(end - start))
-   print 'Pages: ' + zap.ajaxSpider.number_of_results
+   print('ZAP: ' + zapVersion)
+   print('Time: ' + time.strftime('%H:%M:%S', time.gmtime(end - start)))
+   print('Pages: ' + zap.ajaxSpider.number_of_results)
 
    # parse and extract score
    stats = zap.urlopen(target + 'offscanpages/statistics.php')
@@ -105,9 +105,9 @@ def main(argv):
          backstop = stats.find('Coverage: %' + score + ')')
          frontstop = stats.rfind('statistics', 0, backstop)
          backstop = stats.find('"', frontstop)
-         # print 'Front: ' + str(frontstop) + ' Back: ' + str(backstop)
+         # print('Front: ' + str(frontstop) + ' Back: ' + str(backstop))
          results = stats[frontstop:backstop]
-   print 'Score: ' + str(top_score)
+   print('Score: ' + str(top_score))
 
    # Output the results page
    res = zap.urlopen(target + 'offscanpages/' + results)

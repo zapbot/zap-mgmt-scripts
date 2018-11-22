@@ -16,11 +16,11 @@ def main(argv):
       opts, args = getopt.getopt(argv,"z:",["zap="])
    except getopt.GetoptError:
       # TODO
-      print 'zap-backup-test.py -z <ZAPhostPort>'
+      print('zap-backup-test.py -z <ZAPhostPort>')
       sys.exit(2)
    for opt, arg in opts:
       if opt == '-h':
-         print 'zap-backup-test.py -z <ZAPhostPort>'
+         print('zap-backup-test.py -z <ZAPhostPort>')
          sys.exit()
       elif opt in ("-z", "--zap"):
          zapHostPort = arg
@@ -30,42 +30,42 @@ def main(argv):
    # Count number of messages
    old_mcount = zap.core.number_of_messages()
    old_acount = zap.core.number_of_alerts()
-   print 'Initial msg count: %s' % old_mcount
-   print 'Initial alert count: %s' % old_acount
+   print('Initial msg count: %s' % old_mcount)
+   print('Initial alert count: %s' % old_acount)
 
    # Time backup
    start_time = time.time()
    zap.core.save_session(name='backup-test', overwrite='true')
    backup_time = (time.time() - start_time)
-   print 'Backed up: %s' % str(time.strftime('%H:%M:%S', time.gmtime(int(backup_time))))
+   print('Backed up: %s' % str(time.strftime('%H:%M:%S', time.gmtime(int(backup_time)))))
 
    # Time new session
    start_time = time.time()
    zap.core.new_session(name='backup-empty', overwrite='true')
    new_time = (time.time() - start_time)
-   print 'New session: %s' % str(time.strftime('%H:%M:%S', time.gmtime(int(new_time))))
+   print('New session: %s' % str(time.strftime('%H:%M:%S', time.gmtime(int(new_time)))))
 
    # Sanity check new session
    new_mcount = zap.core.number_of_messages()
    if (new_mcount != '0'):
-     print 'Unexpected empty count: %s' % new_mcount
+     print('Unexpected empty count: %s' % new_mcount)
 
    # Time restore
    start_time = time.time()
    zap.core.load_session(name='backup-test')
    rec_time = (time.time() - start_time)
-   print 'Loaded: %s' % str(time.strftime('%H:%M:%S', time.gmtime(int(rec_time))))
+   print('Loaded: %s' % str(time.strftime('%H:%M:%S', time.gmtime(int(rec_time)))))
 
    rec_mcount = zap.core.number_of_messages()
    rec_acount = zap.core.number_of_alerts()
    if (old_mcount == rec_mcount):
-     print 'PASS: msg counts match'
+     print('PASS: msg counts match')
    else:
-     print 'FAIL: msg counts differ - original: %s recovered: %s' % old_mcount, rec_mcount
+     print('FAIL: msg counts differ - original: %s recovered: %s' % old_mcount, rec_mcount)
    if (old_acount == rec_acount):
-     print 'PASS: alert counts match'
+     print('PASS: alert counts match')
    else:
-     print 'FAIL: alert counts differ - original: %s recovered: %s' % old_acount, rec_acount
+     print('FAIL: alert counts differ - original: %s recovered: %s' % old_acount, rec_acount)
 
 
 if __name__ == "__main__":

@@ -2,6 +2,6 @@
 
 Requirements:
 
-pip install python-twitter
+pip3 install python-twitter
 
 local_settings.py needs to be changed to have suitable credentials for whichever twitter account is used
