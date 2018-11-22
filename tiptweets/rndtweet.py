@@ -11,7 +11,7 @@ with open('tweets.txt', 'r') as f:
   for l in f:
     if len(l) > 140:
       total_not += 1
-      print ('Line too long: ' + str(len(line)) + ': ' + line)
+      print ('Line too long: ' + str(len(l)) + ': ' + l)
     elif len(l) > 0:
       total_ok += 1
       lines.append(l)

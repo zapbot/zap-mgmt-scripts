@@ -46,9 +46,9 @@ def main(argv):
    print 'New session: %s' % str(time.strftime('%H:%M:%S', time.gmtime(int(new_time))))
 
    # Sanity check new session
-   new_count = zap.core.number_of_messages()
-   if (new_count != '0'):
-     print 'Unexpected empty count: %s' % new_count
+   new_mcount = zap.core.number_of_messages()
+   if (new_mcount != '0'):
+     print 'Unexpected empty count: %s' % new_mcount
 
    # Time restore
    start_time = time.time()
@@ -61,11 +61,11 @@ def main(argv):
    if (old_mcount == rec_mcount):
      print 'PASS: msg counts match'
    else:
-     print 'FAIL: msg counts differ - original: %s recovered: %s' % old_mcount, new_mcount
+     print 'FAIL: msg counts differ - original: %s recovered: %s' % old_mcount, rec_mcount
    if (old_acount == rec_acount):
      print 'PASS: alert counts match'
    else:
-     print 'FAIL: alert counts differ - original: %s recovered: %s' % old_acount, new_acount
+     print 'FAIL: alert counts differ - original: %s recovered: %s' % old_acount, rec_acount
 
 
 if __name__ == "__main__":
