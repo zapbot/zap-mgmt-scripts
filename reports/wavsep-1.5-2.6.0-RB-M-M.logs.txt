@@ -1,150 +1,151 @@
 Found Java version 1.8.0_151
 Available memory: 3950 MB
 Setting jvm heap size: -Xmx987m
-202 [main] INFO org.zaproxy.zap.DaemonBootstrap  - OWASP ZAP 2.7.0 started 14/01/19 16:01:53 with home /home/zap/.ZAP/
+212 [main] INFO org.zaproxy.zap.DaemonBootstrap  - OWASP ZAP 2.7.0 started 21/01/19 16:01:53 with home /home/zap/.ZAP/
 238 [main] INFO org.parosproxy.paros.common.AbstractParam  - Setting config api.disablekey = true was null
-239 [main] INFO org.parosproxy.paros.common.AbstractParam  - Setting config api.addrs.addr.name = .* was null
-239 [main] INFO org.parosproxy.paros.common.AbstractParam  - Setting config api.addrs.addr.regex = true was null
-239 [main] INFO org.parosproxy.paros.common.AbstractParam  - Setting config database.recoverylog = false was null
-242 [main] INFO org.parosproxy.paros.network.SSLConnector  - Reading supported SSL/TLS protocols...
-242 [main] INFO org.parosproxy.paros.network.SSLConnector  - Using a SSLEngine...
-325 [main] INFO org.parosproxy.paros.network.SSLConnector  - Done reading supported SSL/TLS protocols: [SSLv2Hello, SSLv3, TLSv1, TLSv1.1, TLSv1.2]
-331 [main] INFO org.parosproxy.paros.extension.option.OptionsParamCertificate  - Unsafe SSL renegotiation disabled.
+238 [main] INFO org.parosproxy.paros.common.AbstractParam  - Setting config api.addrs.addr.name = .* was null
+238 [main] INFO org.parosproxy.paros.common.AbstractParam  - Setting config api.addrs.addr.regex = true was null
+238 [main] INFO org.parosproxy.paros.common.AbstractParam  - Setting config database.recoverylog = false was null
+241 [main] INFO org.parosproxy.paros.network.SSLConnector  - Reading supported SSL/TLS protocols...
+241 [main] INFO org.parosproxy.paros.network.SSLConnector  - Using a SSLEngine...
+324 [main] INFO org.parosproxy.paros.network.SSLConnector  - Done reading supported SSL/TLS protocols: [SSLv2Hello, SSLv3, TLSv1, TLSv1.1, TLSv1.2]
+330 [main] INFO org.parosproxy.paros.extension.option.OptionsParamCertificate  - Unsafe SSL renegotiation disabled.
 627 [main] INFO hsqldb.db..ENGINE  - open start - state not modified
-727 [main] INFO hsqldb.db..ENGINE  - dataFileCache open start
-735 [main] INFO hsqldb.db..ENGINE  - dataFileCache open end
-805 [ZAP-daemon] INFO org.zaproxy.zap.control.ExtensionFactory  - Loading extensions
-1855 [ZAP-daemon] INFO org.zaproxy.zap.control.ExtensionFactory  - Installed add-ons: [[id=alertFilters, version=6.0.0], [id=ascanrules, version=28.0.0], [id=bruteforce, version=7.0.0], [id=coreLang, version=12.0.0], [id=diff, version=8.0.0], [id=directorylistv1, version=3.0.0], [id=fuzz, version=10.0.0], [id=gettingStarted, version=8.0.0], [id=help, version=8.0.0], [id=importurls, version=5.0.0], [id=invoke, version=8.0.0], [id=jxbrowser, version=7.0.0], [id=jxbrowserlinux64, version=5.0.0], [id=onlineMenu, version=6.0.0], [id=pscanrules, version=21.0.0], [id=quickstart, version=22.0.0], [id=replacer, version=4.0.0], [id=reveal, version=2.0.0], [id=saverawmessage, version=4.0.0], [id=scripts, version=22.0.0], [id=selenium, version=13.0.0], [id=spiderAjax, version=20.0.0], [id=tips, version=6.0.0], [id=webdriverlinux, version=4.0.0], [id=websocket, version=14.0.0], [id=zest, version=26.0.0]]
-2234 [ZAP-daemon] INFO org.zaproxy.zap.control.ExtensionFactory  - Extensions loaded
-2422 [ZAP-daemon] INFO org.parosproxy.paros.extension.filter.FilterFactory  - loaded filter Change user agent to other browsers. 
-2423 [ZAP-daemon] INFO org.parosproxy.paros.extension.filter.FilterFactory  - loaded filter Detect insecure or potentially malicious content in HTTP responses.
-2423 [ZAP-daemon] INFO org.parosproxy.paros.extension.filter.FilterFactory  - loaded filter Detect and alert 'Set-cookie' attempt in HTTP response for modification.
-2423 [ZAP-daemon] INFO org.parosproxy.paros.extension.filter.FilterFactory  - loaded filter Avoid browser cache (strip off IfModifiedSince)
-2423 [ZAP-daemon] INFO org.parosproxy.paros.extension.filter.FilterFactory  - loaded filter Log cookies sent by browser.
-2425 [ZAP-daemon] INFO org.parosproxy.paros.extension.filter.FilterFactory  - loaded filter Log unique GET queries into file:filter/get.xls
-2425 [ZAP-daemon] INFO org.parosproxy.paros.extension.filter.FilterFactory  - loaded filter Log unique POST queries into file:  filter/post.xls
-2425 [ZAP-daemon] INFO org.parosproxy.paros.extension.filter.FilterFactory  - loaded filter Log request and response into file: filter/message.txt
-2425 [ZAP-daemon] INFO org.parosproxy.paros.extension.filter.FilterFactory  - loaded filter Replace HTTP request body using defined pattern.
-2425 [ZAP-daemon] INFO org.parosproxy.paros.extension.filter.FilterFactory  - loaded filter Replace HTTP request header using defined pattern.
-2425 [ZAP-daemon] INFO org.parosproxy.paros.extension.filter.FilterFactory  - loaded filter Replace HTTP response body using defined pattern.
-2426 [ZAP-daemon] INFO org.parosproxy.paros.extension.filter.FilterFactory  - loaded filter Replace HTTP response header using defined pattern.
-2426 [ZAP-daemon] INFO org.parosproxy.paros.extension.filter.FilterFactory  - loaded filter Send ZAP session request ID
-2540 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Allows ZAP to check for updates
-2548 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Options Extension
-2548 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Edit Menu Extension
-2548 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Filter Extension
-2548 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Provides a rest based API for controlling and accessing ZAP
-2591 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Session State Extension
-2591 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Report Extension
-2591 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing History Extension
-2593 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Show hidden fields and enable disabled fields
-2594 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Search messages for strings and regular expressions
-2595 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Encode/Decode/Hash...
-2595 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Allows you to intercept and modify requests and responses
-2597 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Passive scanner
-2635 [ZAP-daemon] INFO org.zaproxy.zap.extension.pscan.ExtensionPassiveScan  - loaded passive scan rule: Script Passive Scan Rules
-2636 [ZAP-daemon] INFO org.zaproxy.zap.extension.pscan.ExtensionPassiveScan  - loaded passive scan rule: Stats Passive Scan Rule
-2636 [ZAP-daemon] INFO org.zaproxy.zap.extension.pscan.ExtensionPassiveScan  - loaded passive scan rule: Application Error Disclosure
-2636 [ZAP-daemon] INFO org.zaproxy.zap.extension.pscan.ExtensionPassiveScan  - loaded passive scan rule: Incomplete or No Cache-control and Pragma HTTP Header Set
-2636 [ZAP-daemon] INFO org.zaproxy.zap.extension.pscan.ExtensionPassiveScan  - loaded passive scan rule: Content-Type Header Missing
-2636 [ZAP-daemon] INFO org.zaproxy.zap.extension.pscan.ExtensionPassiveScan  - loaded passive scan rule: Cookie No HttpOnly Flag
-2636 [ZAP-daemon] INFO org.zaproxy.zap.extension.pscan.ExtensionPassiveScan  - loaded passive scan rule: Cookie Without Secure Flag
-2636 [ZAP-daemon] INFO org.zaproxy.zap.extension.pscan.ExtensionPassiveScan  - loaded passive scan rule: Cross-Domain JavaScript Source File Inclusion
-2637 [ZAP-daemon] INFO org.zaproxy.zap.extension.pscan.ExtensionPassiveScan  - loaded passive scan rule: Web Browser XSS Protection Not Enabled
-2637 [ZAP-daemon] INFO org.zaproxy.zap.extension.pscan.ExtensionPassiveScan  - loaded passive scan rule: Secure Pages Include Mixed Content
-2637 [ZAP-daemon] INFO org.zaproxy.zap.extension.pscan.ExtensionPassiveScan  - loaded passive scan rule: Password Autocomplete in Browser
-2637 [ZAP-daemon] INFO org.zaproxy.zap.extension.pscan.ExtensionPassiveScan  - loaded passive scan rule: Private IP Disclosure
-2637 [ZAP-daemon] INFO org.zaproxy.zap.extension.pscan.ExtensionPassiveScan  - loaded passive scan rule: Session ID in URL Rewrite
-2637 [ZAP-daemon] INFO org.zaproxy.zap.extension.pscan.ExtensionPassiveScan  - loaded passive scan rule: X-Content-Type-Options Header Missing
-2637 [ZAP-daemon] INFO org.zaproxy.zap.extension.pscan.ExtensionPassiveScan  - loaded passive scan rule: X-Frame-Options Header Scanner
-2650 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Allows you to view and manage alerts
-2650 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Active scanner, heavily based on the original Paros active scanner, but with additional tests added
-2655 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Spider used for automatically finding URIs on a site
-2659 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing A set of common popup menus for miscellaneous tasks
-2659 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Forced browsing of files and directories using code from the OWASP DirBuster tool
-2660 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Manual Request Editor Extension
-2660 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Compares 2 sessions and generates an HTML file showing the differences
-2660 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Invoke external applications passing context related information such as URLs and parameters
-2661 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Handles anti cross site request forgery (CSRF) tokens
-2662 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Authentication Extension
-2689 [ZAP-daemon] INFO org.zaproxy.zap.extension.authentication.ExtensionAuthentication  - Loaded authentication method types: [Form-based Authentication, HTTP/NTLM Authentication, Manual Authentication, Script-based Authentication]
-2691 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Creates a dynamic SSL certificate to allow SSL communications to be intercepted without warnings being generated by the browser
-2691 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Logs errors to the Output tab in development mode only
-2691 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Users Extension
-2693 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Summarise and analyse FORM and URL parameters as well as cookies
-2694 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Script integration
-2712 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Scripting console, supports all JSR 223 scripting languages
-2712 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Forced User Extension
-2712 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Extension handling HTTP sessions
-2714 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Zest is a specialized scripting language from Mozilla specifically designed to be used in security tools
-2826 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing ExtensionDiff
-2827 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing HTTP Panel Post Table View Extension
-2827 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Session Management Extension
-2836 [ZAP-daemon] INFO org.zaproxy.zap.extension.sessions.ExtensionSessionManagement  - Loaded session management method types: [Cookie-based Session Management, HTTP Authentication Session Management]
-2836 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing HTTP Panel Form Table View Extension
-2837 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Capture messages from WebSockets with the ability to set breakpoints.
-2842 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Allows you to import a file containing URLs which ZAP will access, adding them to the Sites tree
-2842 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Core UI related functionality.
-2842 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Authorization Extension
-2842 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing AJAX Spider, uses Crawljax
-2844 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Provides WebDrivers to control several browsers using Selenium and includes HtmlUnit browser.
-2850 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Manages the local proxy configurations
-2851 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Handles adding Global Excluded URLs
-2852 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Adds menu item to refresh the Sites tree
-2852 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Adds support for configurable keyboard shortcuts for all of the ZAP menus.
-2852 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing OWASP ZAP User Guide
-2852 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Provides a URL suitable for calling from target sites
-2855 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Allows you to configure which extensions are loaded when ZAP starts
-2855 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Combined HTTP Panels Extension
-2855 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing HTTP Panel Hex View Extension
-2855 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing HTTP Panel Image View Extension
-2855 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing HTTP Panel Large Request View Extension
-2855 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing HTTP Panel Large Response View Extension
-2855 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing HTTP Panel Query Table View Extension
-2856 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing HTTP Panel Syntax Highlighter View Extension
-2856 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Active and passive rule configuration
-2858 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Statistics
-2859 [ZAP-daemon] INFO org.zaproxy.zap.extension.stats.ExtensionStats  - Start recording in memory stats
-2860 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Quick Start panel 
-2860 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Launch browsers proxying through ZAP
-2861 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Context alert rules filter
-2867 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Provides the foundation for concrete message types (for example, HTTP, WebSockets) expose fuzzer implementations.
-2868 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Allows to fuzz HTTP messages.
-2869 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Tips and Tricks
-2869 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing ExtensionJxBrowserLinux64
-2869 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing ExtSelJxBrowserLinux64
-2881 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Translations of the core language files
-2881 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Passive Scan Rules
-2882 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Active Scan Rules
-2887 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing The Online menu links
-2895 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing The ZAP Getting Started Guide
-2895 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing ExtensionJxBrowser
-2895 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Easy way to replace strings in requests and responses
-2898 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing ExtensionSaveRawHttpMessage
-2898 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Allows to fuzz WebSocket messages.
-2903 [ZAP-daemon] WARN org.zaproxy.zap.extension.autoupdate.ExtensionAutoUpdate  - This ZAP installation is over a year old - its probably very out of date
-2974 [ZAP-daemon] INFO org.zaproxy.zap.extension.callback.ExtensionCallback  - Started callback server on 0.0.0.0:33185
-2974 [ZAP-daemon] INFO org.zaproxy.zap.extension.dynssl.ExtensionDynSSL  - Creating new root CA certificate
-3620 [ZAP-daemon] INFO org.zaproxy.zap.extension.dynssl.ExtensionDynSSL  - New root CA certificate created
-15248 [ZAP-daemon] INFO org.parosproxy.paros.CommandLine  - Add-on downloaded to: /home/zap/.ZAP/plugin/alertFilters-beta-7.zap
-15249 [ZAP-daemon] INFO org.parosproxy.paros.CommandLine  - Add-on downloaded to: /home/zap/.ZAP/plugin/replacer-beta-7.zap
-15249 [ZAP-daemon] INFO org.parosproxy.paros.CommandLine  - Add-on downloaded to: /home/zap/.ZAP/plugin/invoke-beta-9.zap
-15249 [ZAP-daemon] INFO org.parosproxy.paros.CommandLine  - Add-on downloaded to: /home/zap/.ZAP/plugin/quickstart-release-25.zap
-15249 [ZAP-daemon] INFO org.parosproxy.paros.CommandLine  - Add-on downloaded to: /home/zap/.ZAP/plugin/scripts-beta-24.zap
-15249 [ZAP-daemon] INFO org.parosproxy.paros.CommandLine  - Add-on downloaded to: /home/zap/.ZAP/plugin/websocket-release-18.zap
-15249 [ZAP-daemon] INFO org.parosproxy.paros.CommandLine  - Add-on downloaded to: /home/zap/.ZAP/plugin/ascanrules-release-32.zap
-15249 [ZAP-daemon] INFO org.parosproxy.paros.CommandLine  - Add-on downloaded to: /home/zap/.ZAP/plugin/jxbrowser-alpha-10.zap
-15249 [ZAP-daemon] INFO org.parosproxy.paros.CommandLine  - Add-on downloaded to: /home/zap/.ZAP/plugin/pscanrules-release-23.zap
-15249 [ZAP-daemon] INFO org.parosproxy.paros.CommandLine  - Add-on downloaded to: /home/zap/.ZAP/plugin/zest-beta-28.zap
-15249 [ZAP-daemon] INFO org.parosproxy.paros.CommandLine  - Add-on downloaded to: /home/zap/.ZAP/plugin/gettingStarted-release-9.zap
-15249 [ZAP-daemon] INFO org.parosproxy.paros.CommandLine  - Add-on downloaded to: /home/zap/.ZAP/plugin/coreLang-release-13.zap
-15250 [ZAP-daemon] INFO org.parosproxy.paros.CommandLine  - Add-on downloaded to: /home/zap/.ZAP/plugin/spiderAjax-release-22.zap
-15250 [ZAP-daemon] INFO org.parosproxy.paros.CommandLine  - Add-on downloaded to: /home/zap/.ZAP/plugin/webdriverlinux-beta-7.zap
-15250 [ZAP-daemon] INFO org.parosproxy.paros.CommandLine  - Add-on downloaded to: /home/zap/.ZAP/plugin/jxbrowserlinux64-alpha-8.zap
-15299 [ZAP-daemon] INFO org.zaproxy.zap.extension.autoupdate.ExtensionAutoUpdate  - Installing new addon scripts v24.0.0
-15905 [ZAP-daemon] INFO org.zaproxy.zap.extension.autoupdate.ExtensionAutoUpdate  - Installing new addon alertFilters v7.0.0
-15948 [ZAP-daemon] INFO org.zaproxy.zap.extension.autoupdate.ExtensionAutoUpdate  - Installing new addon coreLang v13.0.0
-16101 [ZAP-daemon] ERROR org.zaproxy.zap.control.AddOnInstaller  - An error occurred while uninstalling the extension "ExtensionWebSocket" bundled in the add-on "websocket":
+729 [main] INFO hsqldb.db..ENGINE  - dataFileCache open start
+738 [main] INFO hsqldb.db..ENGINE  - dataFileCache open end
+848 [ZAP-daemon] INFO org.zaproxy.zap.control.ExtensionFactory  - Loading extensions
+1908 [ZAP-daemon] INFO org.zaproxy.zap.control.ExtensionFactory  - Installed add-ons: [[id=alertFilters, version=6.0.0], [id=ascanrules, version=28.0.0], [id=bruteforce, version=7.0.0], [id=coreLang, version=12.0.0], [id=diff, version=8.0.0], [id=directorylistv1, version=3.0.0], [id=fuzz, version=10.0.0], [id=gettingStarted, version=8.0.0], [id=help, version=8.0.0], [id=importurls, version=5.0.0], [id=invoke, version=8.0.0], [id=jxbrowser, version=7.0.0], [id=jxbrowserlinux64, version=5.0.0], [id=onlineMenu, version=6.0.0], [id=pscanrules, version=21.0.0], [id=quickstart, version=22.0.0], [id=replacer, version=4.0.0], [id=reveal, version=2.0.0], [id=saverawmessage, version=4.0.0], [id=scripts, version=22.0.0], [id=selenium, version=13.0.0], [id=spiderAjax, version=20.0.0], [id=tips, version=6.0.0], [id=webdriverlinux, version=4.0.0], [id=websocket, version=14.0.0], [id=zest, version=26.0.0]]
+2290 [ZAP-daemon] INFO org.zaproxy.zap.control.ExtensionFactory  - Extensions loaded
+2491 [ZAP-daemon] INFO org.parosproxy.paros.extension.filter.FilterFactory  - loaded filter Change user agent to other browsers. 
+2491 [ZAP-daemon] INFO org.parosproxy.paros.extension.filter.FilterFactory  - loaded filter Detect insecure or potentially malicious content in HTTP responses.
+2491 [ZAP-daemon] INFO org.parosproxy.paros.extension.filter.FilterFactory  - loaded filter Detect and alert 'Set-cookie' attempt in HTTP response for modification.
+2492 [ZAP-daemon] INFO org.parosproxy.paros.extension.filter.FilterFactory  - loaded filter Avoid browser cache (strip off IfModifiedSince)
+2492 [ZAP-daemon] INFO org.parosproxy.paros.extension.filter.FilterFactory  - loaded filter Log cookies sent by browser.
+2493 [ZAP-daemon] INFO org.parosproxy.paros.extension.filter.FilterFactory  - loaded filter Log unique GET queries into file:filter/get.xls
+2493 [ZAP-daemon] INFO org.parosproxy.paros.extension.filter.FilterFactory  - loaded filter Log unique POST queries into file:  filter/post.xls
+2493 [ZAP-daemon] INFO org.parosproxy.paros.extension.filter.FilterFactory  - loaded filter Log request and response into file: filter/message.txt
+2493 [ZAP-daemon] INFO org.parosproxy.paros.extension.filter.FilterFactory  - loaded filter Replace HTTP request body using defined pattern.
+2493 [ZAP-daemon] INFO org.parosproxy.paros.extension.filter.FilterFactory  - loaded filter Replace HTTP request header using defined pattern.
+2494 [ZAP-daemon] INFO org.parosproxy.paros.extension.filter.FilterFactory  - loaded filter Replace HTTP response body using defined pattern.
+2494 [ZAP-daemon] INFO org.parosproxy.paros.extension.filter.FilterFactory  - loaded filter Replace HTTP response header using defined pattern.
+2494 [ZAP-daemon] INFO org.parosproxy.paros.extension.filter.FilterFactory  - loaded filter Send ZAP session request ID
+2627 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Allows ZAP to check for updates
+2634 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Options Extension
+2635 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Edit Menu Extension
+2635 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Filter Extension
+2635 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Provides a rest based API for controlling and accessing ZAP
+2678 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Session State Extension
+2678 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Report Extension
+2678 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing History Extension
+2680 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Show hidden fields and enable disabled fields
+2681 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Search messages for strings and regular expressions
+2681 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Encode/Decode/Hash...
+2682 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Allows you to intercept and modify requests and responses
+2683 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Passive scanner
+2737 [ZAP-daemon] INFO org.zaproxy.zap.extension.pscan.ExtensionPassiveScan  - loaded passive scan rule: Script Passive Scan Rules
+2739 [ZAP-daemon] INFO org.zaproxy.zap.extension.pscan.ExtensionPassiveScan  - loaded passive scan rule: Stats Passive Scan Rule
+2739 [ZAP-daemon] INFO org.zaproxy.zap.extension.pscan.ExtensionPassiveScan  - loaded passive scan rule: Application Error Disclosure
+2740 [ZAP-daemon] INFO org.zaproxy.zap.extension.pscan.ExtensionPassiveScan  - loaded passive scan rule: Incomplete or No Cache-control and Pragma HTTP Header Set
+2740 [ZAP-daemon] INFO org.zaproxy.zap.extension.pscan.ExtensionPassiveScan  - loaded passive scan rule: Content-Type Header Missing
+2740 [ZAP-daemon] INFO org.zaproxy.zap.extension.pscan.ExtensionPassiveScan  - loaded passive scan rule: Cookie No HttpOnly Flag
+2740 [ZAP-daemon] INFO org.zaproxy.zap.extension.pscan.ExtensionPassiveScan  - loaded passive scan rule: Cookie Without Secure Flag
+2740 [ZAP-daemon] INFO org.zaproxy.zap.extension.pscan.ExtensionPassiveScan  - loaded passive scan rule: Cross-Domain JavaScript Source File Inclusion
+2740 [ZAP-daemon] INFO org.zaproxy.zap.extension.pscan.ExtensionPassiveScan  - loaded passive scan rule: Web Browser XSS Protection Not Enabled
+2740 [ZAP-daemon] INFO org.zaproxy.zap.extension.pscan.ExtensionPassiveScan  - loaded passive scan rule: Secure Pages Include Mixed Content
+2740 [ZAP-daemon] INFO org.zaproxy.zap.extension.pscan.ExtensionPassiveScan  - loaded passive scan rule: Password Autocomplete in Browser
+2741 [ZAP-daemon] INFO org.zaproxy.zap.extension.pscan.ExtensionPassiveScan  - loaded passive scan rule: Private IP Disclosure
+2741 [ZAP-daemon] INFO org.zaproxy.zap.extension.pscan.ExtensionPassiveScan  - loaded passive scan rule: Session ID in URL Rewrite
+2741 [ZAP-daemon] INFO org.zaproxy.zap.extension.pscan.ExtensionPassiveScan  - loaded passive scan rule: X-Content-Type-Options Header Missing
+2741 [ZAP-daemon] INFO org.zaproxy.zap.extension.pscan.ExtensionPassiveScan  - loaded passive scan rule: X-Frame-Options Header Scanner
+2755 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Allows you to view and manage alerts
+2758 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Active scanner, heavily based on the original Paros active scanner, but with additional tests added
+2769 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Spider used for automatically finding URIs on a site
+2775 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing A set of common popup menus for miscellaneous tasks
+2775 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Forced browsing of files and directories using code from the OWASP DirBuster tool
+2776 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Manual Request Editor Extension
+2776 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Compares 2 sessions and generates an HTML file showing the differences
+2777 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Invoke external applications passing context related information such as URLs and parameters
+2777 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Handles anti cross site request forgery (CSRF) tokens
+2778 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Authentication Extension
+2795 [ZAP-daemon] INFO org.zaproxy.zap.extension.authentication.ExtensionAuthentication  - Loaded authentication method types: [Form-based Authentication, HTTP/NTLM Authentication, Manual Authentication, Script-based Authentication]
+2795 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Creates a dynamic SSL certificate to allow SSL communications to be intercepted without warnings being generated by the browser
+2796 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Logs errors to the Output tab in development mode only
+2796 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Users Extension
+2798 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Summarise and analyse FORM and URL parameters as well as cookies
+2799 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Script integration
+2815 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Scripting console, supports all JSR 223 scripting languages
+2815 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Forced User Extension
+2815 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Extension handling HTTP sessions
+2817 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Zest is a specialized scripting language from Mozilla specifically designed to be used in security tools
+2977 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing ExtensionDiff
+2977 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing HTTP Panel Post Table View Extension
+2977 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Session Management Extension
+2979 [ZAP-daemon] INFO org.zaproxy.zap.extension.sessions.ExtensionSessionManagement  - Loaded session management method types: [Cookie-based Session Management, HTTP Authentication Session Management]
+2979 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing HTTP Panel Form Table View Extension
+2980 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Capture messages from WebSockets with the ability to set breakpoints.
+2987 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Allows you to import a file containing URLs which ZAP will access, adding them to the Sites tree
+2987 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Core UI related functionality.
+2988 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Authorization Extension
+2988 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing AJAX Spider, uses Crawljax
+2989 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Provides WebDrivers to control several browsers using Selenium and includes HtmlUnit browser.
+2994 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Manages the local proxy configurations
+2994 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Handles adding Global Excluded URLs
+2995 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Adds menu item to refresh the Sites tree
+2995 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Adds support for configurable keyboard shortcuts for all of the ZAP menus.
+2995 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing OWASP ZAP User Guide
+2995 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Provides a URL suitable for calling from target sites
+2997 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Allows you to configure which extensions are loaded when ZAP starts
+2998 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Combined HTTP Panels Extension
+2998 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing HTTP Panel Hex View Extension
+2998 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing HTTP Panel Image View Extension
+2998 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing HTTP Panel Large Request View Extension
+2998 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing HTTP Panel Large Response View Extension
+2998 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing HTTP Panel Query Table View Extension
+2998 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing HTTP Panel Syntax Highlighter View Extension
+2998 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Active and passive rule configuration
+3000 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Statistics
+3001 [ZAP-daemon] INFO org.zaproxy.zap.extension.stats.ExtensionStats  - Start recording in memory stats
+3002 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Quick Start panel 
+3003 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Launch browsers proxying through ZAP
+3007 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Context alert rules filter
+3008 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Provides the foundation for concrete message types (for example, HTTP, WebSockets) expose fuzzer implementations.
+3010 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Allows to fuzz HTTP messages.
+3010 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Tips and Tricks
+3010 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing ExtensionJxBrowserLinux64
+3010 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing ExtSelJxBrowserLinux64
+3027 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Translations of the core language files
+3030 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Passive Scan Rules
+3030 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Active Scan Rules
+3030 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing The Online menu links
+3031 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing The ZAP Getting Started Guide
+3031 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing ExtensionJxBrowser
+3031 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Easy way to replace strings in requests and responses
+3039 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing ExtensionSaveRawHttpMessage
+3039 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Allows to fuzz WebSocket messages.
+3040 [ZAP-daemon] WARN org.zaproxy.zap.extension.autoupdate.ExtensionAutoUpdate  - This ZAP installation is over a year old - its probably very out of date
+3163 [ZAP-daemon] INFO org.zaproxy.zap.extension.callback.ExtensionCallback  - Started callback server on 0.0.0.0:37897
+3164 [ZAP-daemon] INFO org.zaproxy.zap.extension.dynssl.ExtensionDynSSL  - Creating new root CA certificate
+3950 [ZAP-daemon] INFO org.zaproxy.zap.extension.dynssl.ExtensionDynSSL  - New root CA certificate created
+15774 [ZAP-daemon] INFO org.parosproxy.paros.CommandLine  - Add-on downloaded to: /home/zap/.ZAP/plugin/quickstart-release-25.zap
+15774 [ZAP-daemon] INFO org.parosproxy.paros.CommandLine  - Add-on downloaded to: /home/zap/.ZAP/plugin/alertFilters-beta-7.zap
+15774 [ZAP-daemon] INFO org.parosproxy.paros.CommandLine  - Add-on downloaded to: /home/zap/.ZAP/plugin/replacer-beta-7.zap
+15775 [ZAP-daemon] INFO org.parosproxy.paros.CommandLine  - Add-on downloaded to: /home/zap/.ZAP/plugin/invoke-beta-9.zap
+15775 [ZAP-daemon] INFO org.parosproxy.paros.CommandLine  - Add-on downloaded to: /home/zap/.ZAP/plugin/ascanrules-release-32.zap
+15775 [ZAP-daemon] INFO org.parosproxy.paros.CommandLine  - Add-on downloaded to: /home/zap/.ZAP/plugin/pscanrules-release-23.zap
+15775 [ZAP-daemon] INFO org.parosproxy.paros.CommandLine  - Add-on downloaded to: /home/zap/.ZAP/plugin/scripts-beta-24.zap
+15775 [ZAP-daemon] INFO org.parosproxy.paros.CommandLine  - Add-on downloaded to: /home/zap/.ZAP/plugin/coreLang-release-13.zap
+15775 [ZAP-daemon] INFO org.parosproxy.paros.CommandLine  - Add-on downloaded to: /home/zap/.ZAP/plugin/jxbrowser-alpha-11.zap
+15775 [ZAP-daemon] INFO org.parosproxy.paros.CommandLine  - Add-on downloaded to: /home/zap/.ZAP/plugin/spiderAjax-release-22.zap
+15775 [ZAP-daemon] INFO org.parosproxy.paros.CommandLine  - Add-on downloaded to: /home/zap/.ZAP/plugin/websocket-release-18.zap
+15775 [ZAP-daemon] INFO org.parosproxy.paros.CommandLine  - Add-on downloaded to: /home/zap/.ZAP/plugin/zest-beta-28.zap
+15775 [ZAP-daemon] INFO org.parosproxy.paros.CommandLine  - Add-on downloaded to: /home/zap/.ZAP/plugin/webdriverlinux-beta-7.zap
+15775 [ZAP-daemon] INFO org.parosproxy.paros.CommandLine  - Add-on downloaded to: /home/zap/.ZAP/plugin/gettingStarted-release-9.zap
+15775 [ZAP-daemon] INFO org.parosproxy.paros.CommandLine  - Add-on downloaded to: /home/zap/.ZAP/plugin/jxbrowserlinux64-alpha-9.zap
+15817 [ZAP-daemon] INFO org.zaproxy.zap.extension.autoupdate.ExtensionAutoUpdate  - Installing new addon scripts v24.0.0
+16422 [ZAP-daemon] INFO org.zaproxy.zap.extension.autoupdate.ExtensionAutoUpdate  - Installing new addon alertFilters v7.0.0
+16444 [ZAP-daemon] INFO org.zaproxy.zap.extension.autoupdate.ExtensionAutoUpdate  - Installing new addon coreLang v13.0.0
+16577 [ZAP-daemon] INFO org.zaproxy.zap.extension.autoupdate.ExtensionAutoUpdate  - Installing new addon jxbrowser v11.0.0
+16608 [ZAP-daemon] ERROR org.zaproxy.zap.control.AddOnInstaller  - An error occurred while uninstalling the extension "ExtensionWebSocket" bundled in the add-on "websocket":
 java.lang.NullPointerException
 	at org.zaproxy.zap.extension.brk.ExtensionBreak.removeBreakpointsUiManager(ExtensionBreak.java:235)
 	at org.zaproxy.zap.extension.websocket.ExtensionWebSocket.unload(ExtensionWebSocket.java:399)
@@ -164,9 +165,9 @@ java.lang.NullPointerException
 	at org.parosproxy.paros.control.Control.runCommandLine(Control.java:324)
 	at org.zaproxy.zap.DaemonBootstrap$1.run(DaemonBootstrap.java:88)
 	at java.lang.Thread.run(Thread.java:748)
-16111 [ZAP-daemon] WARN org.zaproxy.zap.extension.autoupdate.ExtensionAutoUpdate  - It's recommended to restart ZAP. Not all add-ons were successfully uninstalled: [[id=websocket, version=14.0.0]]
-16144 [ZAP-daemon] INFO org.zaproxy.zap.extension.autoupdate.ExtensionAutoUpdate  - Installing new addon webdriverlinux v7.0.0
-16442 [ZAP-daemon] ERROR org.zaproxy.zap.control.AddOnLoaderUtils  - Declared "extension" was not found: org.zaproxy.zap.extension.websocket.fuzz.ExtensionWebSocketFuzzer
+16617 [ZAP-daemon] WARN org.zaproxy.zap.extension.autoupdate.ExtensionAutoUpdate  - It's recommended to restart ZAP. Not all add-ons were successfully uninstalled: [[id=websocket, version=14.0.0]]
+16651 [ZAP-daemon] INFO org.zaproxy.zap.extension.autoupdate.ExtensionAutoUpdate  - Installing new addon webdriverlinux v7.0.0
+16950 [ZAP-daemon] ERROR org.zaproxy.zap.control.AddOnLoaderUtils  - Declared "extension" was not found: org.zaproxy.zap.extension.websocket.fuzz.ExtensionWebSocketFuzzer
 java.lang.ClassNotFoundException
 	at org.zaproxy.zap.control.AddOnClassLoader.findClass(AddOnClassLoader.java:256)
 	at java.lang.ClassLoader.loadClass(ClassLoader.java:424)
@@ -185,7 +186,7 @@ java.lang.ClassNotFoundException
 	at org.parosproxy.paros.control.Control.runCommandLine(Control.java:324)
 	at org.zaproxy.zap.DaemonBootstrap$1.run(DaemonBootstrap.java:88)
 	at java.lang.Thread.run(Thread.java:748)
-16442 [ZAP-daemon] ERROR org.zaproxy.zap.extension.autoupdate.ExtensionAutoUpdate  - 
+16950 [ZAP-daemon] ERROR org.zaproxy.zap.extension.autoupdate.ExtensionAutoUpdate  - 
 java.lang.NullPointerException
 	at org.zaproxy.zap.control.ExtensionFactory.addExtensionImpl(ExtensionFactory.java:235)
 	at org.zaproxy.zap.control.ExtensionFactory.addAddOnExtension(ExtensionFactory.java:225)
@@ -201,8 +202,8 @@ java.lang.NullPointerException
 	at org.parosproxy.paros.control.Control.runCommandLine(Control.java:324)
 	at org.zaproxy.zap.DaemonBootstrap$1.run(DaemonBootstrap.java:88)
 	at java.lang.Thread.run(Thread.java:748)
-16448 [ZAP-daemon] INFO org.zaproxy.zap.extension.autoupdate.ExtensionAutoUpdate  - Installing new addon jxbrowserlinux64 v8.0.0
-16554 [ZAP-daemon] ERROR org.zaproxy.zap.control.AddOnLoaderUtils  - Declared "extension" was not found: org.zaproxy.zap.extension.websocket.fuzz.ExtensionWebSocketFuzzer
+16963 [ZAP-daemon] INFO org.zaproxy.zap.extension.autoupdate.ExtensionAutoUpdate  - Installing new addon replacer v7.0.0
+16978 [ZAP-daemon] ERROR org.zaproxy.zap.control.AddOnLoaderUtils  - Declared "extension" was not found: org.zaproxy.zap.extension.websocket.fuzz.ExtensionWebSocketFuzzer
 java.lang.ClassNotFoundException
 	at org.zaproxy.zap.control.AddOnClassLoader.findClass(AddOnClassLoader.java:256)
 	at java.lang.ClassLoader.loadClass(ClassLoader.java:424)
@@ -221,7 +222,7 @@ java.lang.ClassNotFoundException
 	at org.parosproxy.paros.control.Control.runCommandLine(Control.java:324)
 	at org.zaproxy.zap.DaemonBootstrap$1.run(DaemonBootstrap.java:88)
 	at java.lang.Thread.run(Thread.java:748)
-16554 [ZAP-daemon] ERROR org.zaproxy.zap.extension.autoupdate.ExtensionAutoUpdate  - 
+16979 [ZAP-daemon] ERROR org.zaproxy.zap.extension.autoupdate.ExtensionAutoUpdate  - 
 java.lang.NullPointerException
 	at org.zaproxy.zap.control.ExtensionFactory.addExtensionImpl(ExtensionFactory.java:235)
 	at org.zaproxy.zap.control.ExtensionFactory.addAddOnExtension(ExtensionFactory.java:225)
@@ -237,8 +238,8 @@ java.lang.NullPointerException
 	at org.parosproxy.paros.control.Control.runCommandLine(Control.java:324)
 	at org.zaproxy.zap.DaemonBootstrap$1.run(DaemonBootstrap.java:88)
 	at java.lang.Thread.run(Thread.java:748)
-16564 [ZAP-daemon] INFO org.zaproxy.zap.extension.autoupdate.ExtensionAutoUpdate  - Installing new addon replacer v7.0.0
-16577 [ZAP-daemon] ERROR org.zaproxy.zap.control.AddOnLoaderUtils  - Declared "extension" was not found: org.zaproxy.zap.extension.websocket.fuzz.ExtensionWebSocketFuzzer
+16995 [ZAP-daemon] INFO org.zaproxy.zap.extension.autoupdate.ExtensionAutoUpdate  - Installing new addon spiderAjax v22.0.0
+17015 [ZAP-daemon] ERROR org.zaproxy.zap.control.AddOnLoaderUtils  - Declared "extension" was not found: org.zaproxy.zap.extension.websocket.fuzz.ExtensionWebSocketFuzzer
 java.lang.ClassNotFoundException
 	at org.zaproxy.zap.control.AddOnClassLoader.findClass(AddOnClassLoader.java:256)
 	at java.lang.ClassLoader.loadClass(ClassLoader.java:424)
@@ -257,7 +258,7 @@ java.lang.ClassNotFoundException
 	at org.parosproxy.paros.control.Control.runCommandLine(Control.java:324)
 	at org.zaproxy.zap.DaemonBootstrap$1.run(DaemonBootstrap.java:88)
 	at java.lang.Thread.run(Thread.java:748)
-16577 [ZAP-daemon] ERROR org.zaproxy.zap.extension.autoupdate.ExtensionAutoUpdate  - 
+17015 [ZAP-daemon] ERROR org.zaproxy.zap.extension.autoupdate.ExtensionAutoUpdate  - 
 java.lang.NullPointerException
 	at org.zaproxy.zap.control.ExtensionFactory.addExtensionImpl(ExtensionFactory.java:235)
 	at org.zaproxy.zap.control.ExtensionFactory.addAddOnExtension(ExtensionFactory.java:225)
@@ -273,8 +274,8 @@ java.lang.NullPointerException
 	at org.parosproxy.paros.control.Control.runCommandLine(Control.java:324)
 	at org.zaproxy.zap.DaemonBootstrap$1.run(DaemonBootstrap.java:88)
 	at java.lang.Thread.run(Thread.java:748)
-16596 [ZAP-daemon] INFO org.zaproxy.zap.extension.autoupdate.ExtensionAutoUpdate  - Installing new addon spiderAjax v22.0.0
-16616 [ZAP-daemon] ERROR org.zaproxy.zap.control.AddOnLoaderUtils  - Declared "extension" was not found: org.zaproxy.zap.extension.websocket.fuzz.ExtensionWebSocketFuzzer
+17025 [ZAP-daemon] INFO org.zaproxy.zap.extension.autoupdate.ExtensionAutoUpdate  - Installing new addon invoke v9.0.0
+17034 [ZAP-daemon] ERROR org.zaproxy.zap.control.AddOnLoaderUtils  - Declared "extension" was not found: org.zaproxy.zap.extension.websocket.fuzz.ExtensionWebSocketFuzzer
 java.lang.ClassNotFoundException
 	at org.zaproxy.zap.control.AddOnClassLoader.findClass(AddOnClassLoader.java:256)
 	at java.lang.ClassLoader.loadClass(ClassLoader.java:424)
@@ -293,7 +294,7 @@ java.lang.ClassNotFoundException
 	at org.parosproxy.paros.control.Control.runCommandLine(Control.java:324)
 	at org.zaproxy.zap.DaemonBootstrap$1.run(DaemonBootstrap.java:88)
 	at java.lang.Thread.run(Thread.java:748)
-16618 [ZAP-daemon] ERROR org.zaproxy.zap.extension.autoupdate.ExtensionAutoUpdate  - 
+17036 [ZAP-daemon] ERROR org.zaproxy.zap.extension.autoupdate.ExtensionAutoUpdate  - 
 java.lang.NullPointerException
 	at org.zaproxy.zap.control.ExtensionFactory.addExtensionImpl(ExtensionFactory.java:235)
 	at org.zaproxy.zap.control.ExtensionFactory.addAddOnExtension(ExtensionFactory.java:225)
@@ -309,8 +310,8 @@ java.lang.NullPointerException
 	at org.parosproxy.paros.control.Control.runCommandLine(Control.java:324)
 	at org.zaproxy.zap.DaemonBootstrap$1.run(DaemonBootstrap.java:88)
 	at java.lang.Thread.run(Thread.java:748)
-16629 [ZAP-daemon] INFO org.zaproxy.zap.extension.autoupdate.ExtensionAutoUpdate  - Installing new addon invoke v9.0.0
-16637 [ZAP-daemon] ERROR org.zaproxy.zap.control.AddOnLoaderUtils  - Declared "extension" was not found: org.zaproxy.zap.extension.websocket.fuzz.ExtensionWebSocketFuzzer
+17043 [ZAP-daemon] INFO org.zaproxy.zap.extension.autoupdate.ExtensionAutoUpdate  - Installing new addon jxbrowserlinux64 v9.0.0
+17143 [ZAP-daemon] ERROR org.zaproxy.zap.control.AddOnLoaderUtils  - Declared "extension" was not found: org.zaproxy.zap.extension.websocket.fuzz.ExtensionWebSocketFuzzer
 java.lang.ClassNotFoundException
 	at org.zaproxy.zap.control.AddOnClassLoader.findClass(AddOnClassLoader.java:256)
 	at java.lang.ClassLoader.loadClass(ClassLoader.java:424)
@@ -329,7 +330,7 @@ java.lang.ClassNotFoundException
 	at org.parosproxy.paros.control.Control.runCommandLine(Control.java:324)
 	at org.zaproxy.zap.DaemonBootstrap$1.run(DaemonBootstrap.java:88)
 	at java.lang.Thread.run(Thread.java:748)
-16638 [ZAP-daemon] ERROR org.zaproxy.zap.extension.autoupdate.ExtensionAutoUpdate  - 
+17144 [ZAP-daemon] ERROR org.zaproxy.zap.extension.autoupdate.ExtensionAutoUpdate  - 
 java.lang.NullPointerException
 	at org.zaproxy.zap.control.ExtensionFactory.addExtensionImpl(ExtensionFactory.java:235)
 	at org.zaproxy.zap.control.ExtensionFactory.addAddOnExtension(ExtensionFactory.java:225)
@@ -345,8 +346,8 @@ java.lang.NullPointerException
 	at org.parosproxy.paros.control.Control.runCommandLine(Control.java:324)
 	at org.zaproxy.zap.DaemonBootstrap$1.run(DaemonBootstrap.java:88)
 	at java.lang.Thread.run(Thread.java:748)
-16648 [ZAP-daemon] INFO org.zaproxy.zap.extension.autoupdate.ExtensionAutoUpdate  - Installing new addon ascanrules v32.0.0
-16697 [ZAP-daemon] ERROR org.zaproxy.zap.control.AddOnLoaderUtils  - Declared "extension" was not found: org.zaproxy.zap.extension.websocket.fuzz.ExtensionWebSocketFuzzer
+17168 [ZAP-daemon] INFO org.zaproxy.zap.extension.autoupdate.ExtensionAutoUpdate  - Installing new addon ascanrules v32.0.0
+17248 [ZAP-daemon] ERROR org.zaproxy.zap.control.AddOnLoaderUtils  - Declared "extension" was not found: org.zaproxy.zap.extension.websocket.fuzz.ExtensionWebSocketFuzzer
 java.lang.ClassNotFoundException
 	at org.zaproxy.zap.control.AddOnClassLoader.findClass(AddOnClassLoader.java:256)
 	at java.lang.ClassLoader.loadClass(ClassLoader.java:424)
@@ -365,7 +366,7 @@ java.lang.ClassNotFoundException
 	at org.parosproxy.paros.control.Control.runCommandLine(Control.java:324)
 	at org.zaproxy.zap.DaemonBootstrap$1.run(DaemonBootstrap.java:88)
 	at java.lang.Thread.run(Thread.java:748)
-16698 [ZAP-daemon] ERROR org.zaproxy.zap.extension.autoupdate.ExtensionAutoUpdate  - 
+17249 [ZAP-daemon] ERROR org.zaproxy.zap.extension.autoupdate.ExtensionAutoUpdate  - 
 java.lang.NullPointerException
 	at org.zaproxy.zap.control.ExtensionFactory.addExtensionImpl(ExtensionFactory.java:235)
 	at org.zaproxy.zap.control.ExtensionFactory.addAddOnExtension(ExtensionFactory.java:225)
@@ -381,8 +382,8 @@ java.lang.NullPointerException
 	at org.parosproxy.paros.control.Control.runCommandLine(Control.java:324)
 	at org.zaproxy.zap.DaemonBootstrap$1.run(DaemonBootstrap.java:88)
 	at java.lang.Thread.run(Thread.java:748)
-16742 [ZAP-daemon] INFO org.zaproxy.zap.extension.autoupdate.ExtensionAutoUpdate  - Installing new addon zest v28.0.0
-16784 [ZAP-daemon] ERROR org.zaproxy.zap.control.AddOnLoaderUtils  - Declared "extension" was not found: org.zaproxy.zap.extension.websocket.fuzz.ExtensionWebSocketFuzzer
+17286 [ZAP-daemon] INFO org.zaproxy.zap.extension.autoupdate.ExtensionAutoUpdate  - Installing new addon zest v28.0.0
+17321 [ZAP-daemon] ERROR org.zaproxy.zap.control.AddOnLoaderUtils  - Declared "extension" was not found: org.zaproxy.zap.extension.websocket.fuzz.ExtensionWebSocketFuzzer
 java.lang.ClassNotFoundException
 	at org.zaproxy.zap.control.AddOnClassLoader.findClass(AddOnClassLoader.java:256)
 	at java.lang.ClassLoader.loadClass(ClassLoader.java:424)
@@ -401,7 +402,7 @@ java.lang.ClassNotFoundException
 	at org.parosproxy.paros.control.Control.runCommandLine(Control.java:324)
 	at org.zaproxy.zap.DaemonBootstrap$1.run(DaemonBootstrap.java:88)
 	at java.lang.Thread.run(Thread.java:748)
-16784 [ZAP-daemon] ERROR org.zaproxy.zap.extension.autoupdate.ExtensionAutoUpdate  - 
+17321 [ZAP-daemon] ERROR org.zaproxy.zap.extension.autoupdate.ExtensionAutoUpdate  - 
 java.lang.NullPointerException
 	at org.zaproxy.zap.control.ExtensionFactory.addExtensionImpl(ExtensionFactory.java:235)
 	at org.zaproxy.zap.control.ExtensionFactory.addAddOnExtension(ExtensionFactory.java:225)
@@ -417,8 +418,8 @@ java.lang.NullPointerException
 	at org.parosproxy.paros.control.Control.runCommandLine(Control.java:324)
 	at org.zaproxy.zap.DaemonBootstrap$1.run(DaemonBootstrap.java:88)
 	at java.lang.Thread.run(Thread.java:748)
-16808 [ZAP-daemon] INFO org.zaproxy.zap.extension.autoupdate.ExtensionAutoUpdate  - Installing new addon jxbrowser v10.0.0
-16815 [ZAP-daemon] ERROR org.zaproxy.zap.control.AddOnLoaderUtils  - Declared "extension" was not found: org.zaproxy.zap.extension.websocket.fuzz.ExtensionWebSocketFuzzer
+17331 [ZAP-daemon] INFO org.zaproxy.zap.extension.autoupdate.ExtensionAutoUpdate  - Installing new addon quickstart v25.0.0
+17355 [ZAP-daemon] ERROR org.zaproxy.zap.control.AddOnLoaderUtils  - Declared "extension" was not found: org.zaproxy.zap.extension.websocket.fuzz.ExtensionWebSocketFuzzer
 java.lang.ClassNotFoundException
 	at org.zaproxy.zap.control.AddOnClassLoader.findClass(AddOnClassLoader.java:256)
 	at java.lang.ClassLoader.loadClass(ClassLoader.java:424)
@@ -437,7 +438,7 @@ java.lang.ClassNotFoundException
 	at org.parosproxy.paros.control.Control.runCommandLine(Control.java:324)
 	at org.zaproxy.zap.DaemonBootstrap$1.run(DaemonBootstrap.java:88)
 	at java.lang.Thread.run(Thread.java:748)
-16817 [ZAP-daemon] ERROR org.zaproxy.zap.extension.autoupdate.ExtensionAutoUpdate  - 
+17356 [ZAP-daemon] ERROR org.zaproxy.zap.extension.autoupdate.ExtensionAutoUpdate  - 
 java.lang.NullPointerException
 	at org.zaproxy.zap.control.ExtensionFactory.addExtensionImpl(ExtensionFactory.java:235)
 	at org.zaproxy.zap.control.ExtensionFactory.addAddOnExtension(ExtensionFactory.java:225)
@@ -453,8 +454,20 @@ java.lang.NullPointerException
 	at org.parosproxy.paros.control.Control.runCommandLine(Control.java:324)
 	at org.zaproxy.zap.DaemonBootstrap$1.run(DaemonBootstrap.java:88)
 	at java.lang.Thread.run(Thread.java:748)
-16833 [ZAP-daemon] INFO org.zaproxy.zap.extension.autoupdate.ExtensionAutoUpdate  - Installing new addon quickstart v25.0.0
-16870 [ZAP-daemon] ERROR org.zaproxy.zap.control.AddOnLoaderUtils  - Declared "extension" was not found: org.zaproxy.zap.extension.websocket.fuzz.ExtensionWebSocketFuzzer
+17394 [ZAP-daemon] INFO org.zaproxy.zap.extension.autoupdate.ExtensionAutoUpdate  - Installing new addon pscanrules v23.0.0
+17426 [ZAP-daemon] INFO org.zaproxy.zap.extension.pscan.ExtensionPassiveScan  - loaded passive scan rule: Application Error Disclosure
+17426 [ZAP-daemon] INFO org.zaproxy.zap.extension.pscan.ExtensionPassiveScan  - loaded passive scan rule: Incomplete or No Cache-control and Pragma HTTP Header Set
+17426 [ZAP-daemon] INFO org.zaproxy.zap.extension.pscan.ExtensionPassiveScan  - loaded passive scan rule: Content-Type Header Missing
+17426 [ZAP-daemon] INFO org.zaproxy.zap.extension.pscan.ExtensionPassiveScan  - loaded passive scan rule: Cookie No HttpOnly Flag
+17426 [ZAP-daemon] INFO org.zaproxy.zap.extension.pscan.ExtensionPassiveScan  - loaded passive scan rule: Cookie Without Secure Flag
+17427 [ZAP-daemon] INFO org.zaproxy.zap.extension.pscan.ExtensionPassiveScan  - loaded passive scan rule: Cross-Domain JavaScript Source File Inclusion
+17427 [ZAP-daemon] INFO org.zaproxy.zap.extension.pscan.ExtensionPassiveScan  - loaded passive scan rule: Web Browser XSS Protection Not Enabled
+17428 [ZAP-daemon] INFO org.zaproxy.zap.extension.pscan.ExtensionPassiveScan  - loaded passive scan rule: Secure Pages Include Mixed Content
+17428 [ZAP-daemon] INFO org.zaproxy.zap.extension.pscan.ExtensionPassiveScan  - loaded passive scan rule: Private IP Disclosure
+17428 [ZAP-daemon] INFO org.zaproxy.zap.extension.pscan.ExtensionPassiveScan  - loaded passive scan rule: Session ID in URL Rewrite
+17428 [ZAP-daemon] INFO org.zaproxy.zap.extension.pscan.ExtensionPassiveScan  - loaded passive scan rule: X-Content-Type-Options Header Missing
+17428 [ZAP-daemon] INFO org.zaproxy.zap.extension.pscan.ExtensionPassiveScan  - loaded passive scan rule: X-Frame-Options Header Scanner
+17434 [ZAP-daemon] ERROR org.zaproxy.zap.control.AddOnLoaderUtils  - Declared "extension" was not found: org.zaproxy.zap.extension.websocket.fuzz.ExtensionWebSocketFuzzer
 java.lang.ClassNotFoundException
 	at org.zaproxy.zap.control.AddOnClassLoader.findClass(AddOnClassLoader.java:256)
 	at java.lang.ClassLoader.loadClass(ClassLoader.java:424)
@@ -473,7 +486,7 @@ java.lang.ClassNotFoundException
 	at org.parosproxy.paros.control.Control.runCommandLine(Control.java:324)
 	at org.zaproxy.zap.DaemonBootstrap$1.run(DaemonBootstrap.java:88)
 	at java.lang.Thread.run(Thread.java:748)
-16871 [ZAP-daemon] ERROR org.zaproxy.zap.extension.autoupdate.ExtensionAutoUpdate  - 
+17435 [ZAP-daemon] ERROR org.zaproxy.zap.extension.autoupdate.ExtensionAutoUpdate  - 
 java.lang.NullPointerException
 	at org.zaproxy.zap.control.ExtensionFactory.addExtensionImpl(ExtensionFactory.java:235)
 	at org.zaproxy.zap.control.ExtensionFactory.addAddOnExtension(ExtensionFactory.java:225)
@@ -489,20 +502,8 @@ java.lang.NullPointerException
 	at org.parosproxy.paros.control.Control.runCommandLine(Control.java:324)
 	at org.zaproxy.zap.DaemonBootstrap$1.run(DaemonBootstrap.java:88)
 	at java.lang.Thread.run(Thread.java:748)
-16878 [ZAP-daemon] INFO org.zaproxy.zap.extension.autoupdate.ExtensionAutoUpdate  - Installing new addon pscanrules v23.0.0
-16893 [ZAP-daemon] INFO org.zaproxy.zap.extension.pscan.ExtensionPassiveScan  - loaded passive scan rule: Application Error Disclosure
-16893 [ZAP-daemon] INFO org.zaproxy.zap.extension.pscan.ExtensionPassiveScan  - loaded passive scan rule: Incomplete or No Cache-control and Pragma HTTP Header Set
-16893 [ZAP-daemon] INFO org.zaproxy.zap.extension.pscan.ExtensionPassiveScan  - loaded passive scan rule: Content-Type Header Missing
-16893 [ZAP-daemon] INFO org.zaproxy.zap.extension.pscan.ExtensionPassiveScan  - loaded passive scan rule: Cookie No HttpOnly Flag
-16893 [ZAP-daemon] INFO org.zaproxy.zap.extension.pscan.ExtensionPassiveScan  - loaded passive scan rule: Cookie Without Secure Flag
-16893 [ZAP-daemon] INFO org.zaproxy.zap.extension.pscan.ExtensionPassiveScan  - loaded passive scan rule: Cross-Domain JavaScript Source File Inclusion
-16893 [ZAP-daemon] INFO org.zaproxy.zap.extension.pscan.ExtensionPassiveScan  - loaded passive scan rule: Web Browser XSS Protection Not Enabled
-16893 [ZAP-daemon] INFO org.zaproxy.zap.extension.pscan.ExtensionPassiveScan  - loaded passive scan rule: Secure Pages Include Mixed Content
-16894 [ZAP-daemon] INFO org.zaproxy.zap.extension.pscan.ExtensionPassiveScan  - loaded passive scan rule: Private IP Disclosure
-16894 [ZAP-daemon] INFO org.zaproxy.zap.extension.pscan.ExtensionPassiveScan  - loaded passive scan rule: Session ID in URL Rewrite
-16894 [ZAP-daemon] INFO org.zaproxy.zap.extension.pscan.ExtensionPassiveScan  - loaded passive scan rule: X-Content-Type-Options Header Missing
-16894 [ZAP-daemon] INFO org.zaproxy.zap.extension.pscan.ExtensionPassiveScan  - loaded passive scan rule: X-Frame-Options Header Scanner
-16897 [ZAP-daemon] ERROR org.zaproxy.zap.control.AddOnLoaderUtils  - Declared "extension" was not found: org.zaproxy.zap.extension.websocket.fuzz.ExtensionWebSocketFuzzer
+17445 [ZAP-daemon] INFO org.zaproxy.zap.extension.autoupdate.ExtensionAutoUpdate  - Installing new addon gettingStarted v9.0.0
+17472 [ZAP-daemon] ERROR org.zaproxy.zap.control.AddOnLoaderUtils  - Declared "extension" was not found: org.zaproxy.zap.extension.websocket.fuzz.ExtensionWebSocketFuzzer
 java.lang.ClassNotFoundException
 	at org.zaproxy.zap.control.AddOnClassLoader.findClass(AddOnClassLoader.java:256)
 	at java.lang.ClassLoader.loadClass(ClassLoader.java:424)
@@ -521,7 +522,7 @@ java.lang.ClassNotFoundException
 	at org.parosproxy.paros.control.Control.runCommandLine(Control.java:324)
 	at org.zaproxy.zap.DaemonBootstrap$1.run(DaemonBootstrap.java:88)
 	at java.lang.Thread.run(Thread.java:748)
-16897 [ZAP-daemon] ERROR org.zaproxy.zap.extension.autoupdate.ExtensionAutoUpdate  - 
+17472 [ZAP-daemon] ERROR org.zaproxy.zap.extension.autoupdate.ExtensionAutoUpdate  - 
 java.lang.NullPointerException
 	at org.zaproxy.zap.control.ExtensionFactory.addExtensionImpl(ExtensionFactory.java:235)
 	at org.zaproxy.zap.control.ExtensionFactory.addAddOnExtension(ExtensionFactory.java:225)
@@ -537,8 +538,26 @@ java.lang.NullPointerException
 	at org.parosproxy.paros.control.Control.runCommandLine(Control.java:324)
 	at org.zaproxy.zap.DaemonBootstrap$1.run(DaemonBootstrap.java:88)
 	at java.lang.Thread.run(Thread.java:748)
-16904 [ZAP-daemon] INFO org.zaproxy.zap.extension.autoupdate.ExtensionAutoUpdate  - Installing new addon gettingStarted v9.0.0
-16925 [ZAP-daemon] ERROR org.zaproxy.zap.control.AddOnLoaderUtils  - Declared "extension" was not found: org.zaproxy.zap.extension.websocket.fuzz.ExtensionWebSocketFuzzer
+17474 [ZAP-daemon] INFO org.parosproxy.paros.CommandLine  - Add-on update check complete
+17485 [ZAP-daemon] INFO org.parosproxy.paros.CommandLine  - Downloading add-on from: https://github.com/zaproxy/zap-extensions/releases/download/2.7/ascanrulesBeta-beta-24.zap
+19086 [ZAP-daemon] INFO org.parosproxy.paros.CommandLine  - Add-on downloaded to: /home/zap/.ZAP/plugin/quickstart-release-25.zap
+19086 [ZAP-daemon] INFO org.parosproxy.paros.CommandLine  - Add-on downloaded to: /home/zap/.ZAP/plugin/alertFilters-beta-7.zap
+19086 [ZAP-daemon] INFO org.parosproxy.paros.CommandLine  - Add-on downloaded to: /home/zap/.ZAP/plugin/replacer-beta-7.zap
+19087 [ZAP-daemon] INFO org.parosproxy.paros.CommandLine  - Add-on downloaded to: /home/zap/.ZAP/plugin/invoke-beta-9.zap
+19087 [ZAP-daemon] INFO org.parosproxy.paros.CommandLine  - Add-on downloaded to: /home/zap/.ZAP/plugin/ascanrules-release-32.zap
+19087 [ZAP-daemon] INFO org.parosproxy.paros.CommandLine  - Add-on downloaded to: /home/zap/.ZAP/plugin/pscanrules-release-23.zap
+19087 [ZAP-daemon] INFO org.parosproxy.paros.CommandLine  - Add-on downloaded to: /home/zap/.ZAP/plugin/scripts-beta-24.zap
+19087 [ZAP-daemon] INFO org.parosproxy.paros.CommandLine  - Add-on downloaded to: /home/zap/.ZAP/plugin/coreLang-release-13.zap
+19087 [ZAP-daemon] INFO org.parosproxy.paros.CommandLine  - Add-on downloaded to: /home/zap/.ZAP/plugin/jxbrowser-alpha-11.zap
+19087 [ZAP-daemon] INFO org.parosproxy.paros.CommandLine  - Add-on downloaded to: /home/zap/.ZAP/plugin/spiderAjax-release-22.zap
+19087 [ZAP-daemon] INFO org.parosproxy.paros.CommandLine  - Add-on downloaded to: /home/zap/.ZAP/plugin/websocket-release-18.zap
+19087 [ZAP-daemon] INFO org.parosproxy.paros.CommandLine  - Add-on downloaded to: /home/zap/.ZAP/plugin/zest-beta-28.zap
+19087 [ZAP-daemon] INFO org.parosproxy.paros.CommandLine  - Add-on downloaded to: /home/zap/.ZAP/plugin/webdriverlinux-beta-7.zap
+19087 [ZAP-daemon] INFO org.parosproxy.paros.CommandLine  - Add-on downloaded to: /home/zap/.ZAP/plugin/gettingStarted-release-9.zap
+19087 [ZAP-daemon] INFO org.parosproxy.paros.CommandLine  - Add-on downloaded to: /home/zap/.ZAP/plugin/jxbrowserlinux64-alpha-9.zap
+19087 [ZAP-daemon] INFO org.parosproxy.paros.CommandLine  - Add-on downloaded to: /home/zap/.ZAP/plugin/ascanrulesBeta-beta-24.zap
+19090 [ZAP-daemon] INFO org.zaproxy.zap.extension.autoupdate.ExtensionAutoUpdate  - Installing new addon ascanrulesBeta v24.0.0
+19129 [ZAP-daemon] ERROR org.zaproxy.zap.control.AddOnLoaderUtils  - Declared "extension" was not found: org.zaproxy.zap.extension.websocket.fuzz.ExtensionWebSocketFuzzer
 java.lang.ClassNotFoundException
 	at org.zaproxy.zap.control.AddOnClassLoader.findClass(AddOnClassLoader.java:256)
 	at java.lang.ClassLoader.loadClass(ClassLoader.java:424)
@@ -552,12 +571,13 @@ java.lang.ClassNotFoundException
 	at org.zaproxy.zap.extension.autoupdate.ExtensionAutoUpdate.install(ExtensionAutoUpdate.java:1053)
 	at org.zaproxy.zap.extension.autoupdate.ExtensionAutoUpdate.installNewExtensions(ExtensionAutoUpdate.java:499)
 	at org.zaproxy.zap.extension.autoupdate.ExtensionAutoUpdate.waitAndInstallDownloads(ExtensionAutoUpdate.java:1809)
-	at org.zaproxy.zap.extension.autoupdate.ExtensionAutoUpdate.execute(ExtensionAutoUpdate.java:1708)
+	at org.zaproxy.zap.extension.autoupdate.ExtensionAutoUpdate.installAddOns(ExtensionAutoUpdate.java:1633)
+	at org.zaproxy.zap.extension.autoupdate.ExtensionAutoUpdate.execute(ExtensionAutoUpdate.java:1768)
 	at org.parosproxy.paros.extension.ExtensionLoader.runCommandLine(ExtensionLoader.java:444)
 	at org.parosproxy.paros.control.Control.runCommandLine(Control.java:324)
 	at org.zaproxy.zap.DaemonBootstrap$1.run(DaemonBootstrap.java:88)
 	at java.lang.Thread.run(Thread.java:748)
-16926 [ZAP-daemon] ERROR org.zaproxy.zap.extension.autoupdate.ExtensionAutoUpdate  - 
+19130 [ZAP-daemon] ERROR org.zaproxy.zap.extension.autoupdate.ExtensionAutoUpdate  - 
 java.lang.NullPointerException
 	at org.zaproxy.zap.control.ExtensionFactory.addExtensionImpl(ExtensionFactory.java:235)
 	at org.zaproxy.zap.control.ExtensionFactory.addAddOnExtension(ExtensionFactory.java:225)
@@ -568,27 +588,131 @@ java.lang.NullPointerException
 	at org.zaproxy.zap.extension.autoupdate.ExtensionAutoUpdate.install(ExtensionAutoUpdate.java:1053)
 	at org.zaproxy.zap.extension.autoupdate.ExtensionAutoUpdate.installNewExtensions(ExtensionAutoUpdate.java:499)
 	at org.zaproxy.zap.extension.autoupdate.ExtensionAutoUpdate.waitAndInstallDownloads(ExtensionAutoUpdate.java:1809)
-	at org.zaproxy.zap.extension.autoupdate.ExtensionAutoUpdate.execute(ExtensionAutoUpdate.java:1708)
+	at org.zaproxy.zap.extension.autoupdate.ExtensionAutoUpdate.installAddOns(ExtensionAutoUpdate.java:1633)
+	at org.zaproxy.zap.extension.autoupdate.ExtensionAutoUpdate.execute(ExtensionAutoUpdate.java:1768)
 	at org.parosproxy.paros.extension.ExtensionLoader.runCommandLine(ExtensionLoader.java:444)
 	at org.parosproxy.paros.control.Control.runCommandLine(Control.java:324)
 	at org.zaproxy.zap.DaemonBootstrap$1.run(DaemonBootstrap.java:88)
 	at java.lang.Thread.run(Thread.java:748)
-16926 [ZAP-daemon] INFO org.parosproxy.paros.CommandLine  - Add-on update check complete
-16930 [ZAP-daemon] INFO org.parosproxy.paros.CommandLine  - Downloading add-on from: https://github.com/zaproxy/zap-extensions/releases/download/2.7/ascanrulesBeta-beta-24.zap
-19533 [ZAP-daemon] INFO org.parosproxy.paros.CommandLine  - Add-on downloaded to: /home/zap/.ZAP/plugin/alertFilters-beta-7.zap
-19533 [ZAP-daemon] INFO org.parosproxy.paros.CommandLine  - Add-on downloaded to: /home/zap/.ZAP/plugin/replacer-beta-7.zap
-19533 [ZAP-daemon] INFO org.parosproxy.paros.CommandLine  - Add-on downloaded to: /home/zap/.ZAP/plugin/invoke-beta-9.zap
-19533 [ZAP-daemon] INFO org.parosproxy.paros.CommandLine  - Add-on downloaded to: /home/zap/.ZAP/plugin/quickstart-release-25.zap
-19533 [ZAP-daemon] INFO org.parosproxy.paros.CommandLine  - Add-on downloaded to: /home/zap/.ZAP/plugin/scripts-beta-24.zap
-19533 [ZAP-daemon] INFO org.parosproxy.paros.CommandLine  - Add-on downloaded to: /home/zap/.ZAP/plugin/websocket-release-18.zap
-19533 [ZAP-daemon] INFO org.parosproxy.paros.CommandLine  - Add-on downloaded to: /home/zap/.ZAP/plugin/ascanrules-release-32.zap
-19533 [ZAP-daemon] INFO org.parosproxy.paros.CommandLine  - Add-on downloaded to: /home/zap/.ZAP/plugin/jxbrowser-alpha-10.zap
-19533 [ZAP-daemon] INFO org.parosproxy.paros.CommandLine  - Add-on downloaded to: /home/zap/.ZAP/plugin/pscanrules-release-23.zap
-19533 [ZAP-daemon] INFO org.parosproxy.paros.CommandLine  - Add-on downloaded to: /home/zap/.ZAP/plugin/zest-beta-28.zap
-19533 [ZAP-daemon] INFO org.parosproxy.paros.CommandLine  - Add-on downloaded to: /home/zap/.ZAP/plugin/gettingStarted-release-9.zap
-19534 [ZAP-daemon] INFO org.parosproxy.paros.CommandLine  - Add-on downloaded to: /home/zap/.ZAP/plugin/coreLang-release-13.zap
-19534 [ZAP-daemon] INFO org.parosproxy.paros.CommandLine  - Add-on downloaded to: /home/zap/.ZAP/plugin/spiderAjax-release-22.zap
-19534 [ZAP-daemon] INFO org.parosproxy.paros.CommandLine  - Add-on downloaded to: /home/zap/.ZAP/plugin/webdriverlinux-beta-7.zap
-19534 [ZAP-daemon] INFO org.parosproxy.paros.CommandLine  - Add-on downloaded to: /home/zap/.ZAP/plugin/jxbrowserlinux64-alpha-8.zap
-19534 [ZAP-daemon] INFO org.parosproxy.paros.CommandLine  - Add-on downloaded to: /home/zap/.ZAP/plugin/ascanrulesBeta-beta-24.zap
-19538 [ZAP-daemon] INFO org.zaproxy.zap.extension.autoupdate.ExtensionAutoUpdate  - Installing new addon ascanrulesBeta v24.0.0
+19131 [ZAP-daemon] INFO org.zaproxy.zap.DaemonBootstrap  - ZAP is now listening on 0.0.0.0:8090
+27248 [ZAP-SpiderInitThread-0] INFO org.zaproxy.zap.extension.spider.SpiderThread  - Starting spidering scan on http://172.17...dex-active.jsp at Mon Jan 21 16:02:20 UTC 2019
+27251 [ZAP-SpiderInitThread-0] INFO org.zaproxy.zap.spider.Spider  - Spider initializing...
+27270 [ZAP-SpiderInitThread-0] INFO org.zaproxy.zap.spider.Spider  - Starting spider...
+90640 [ZAP-SpiderThreadPool-0-thread-1] WARN org.zaproxy.zap.spider.URLCanonicalizer  - Error while Processing URL [httk://google.com] in the spidering process (on base http://172.17.0.2:8080/wavsep/active/Unvalidated-Redirect/Redirect-Detection-Evaluation-GET-302Redirect/Case03-Redirect-RedirectMethod-FilenameContext-Unrestricted-HttpURL-DefaultInvalidInput-AnyPathReq-Read.jsp?target=httk://google.com): unknown protocol: httk
+90819 [ZAP-SpiderThreadPool-0-thread-1] WARN org.zaproxy.zap.spider.URLCanonicalizer  - Error while Processing URL [http://] in the spidering process (on base http://172.17.0.2:8080/wavsep/active/Unvalidated-Redirect/Redirect-Detection-Evaluation-GET-302Redirect/Case07-Redirect-RedirectMethod-FilenameContext-Unrestricted-HttpURL-DefaultEmptyInput-PartialPathReq-Read.jsp?target): Expected authority at index 7: http://
+100005 [ZAP-SpiderThreadPool-0-thread-2] INFO org.zaproxy.zap.spider.Spider  - Spidering process is complete. Shutting down...
+100006 [ZAP-SpiderShutdownThread-0] INFO org.zaproxy.zap.extension.spider.SpiderThread  - Spider scanning complete: true
+107714 [ZAP-ProxyThread-40] INFO org.parosproxy.paros.core.scanner.Scanner  - scanner started
+107746 [Thread-35] INFO org.parosproxy.paros.core.scanner.HostProcess  - Scanning 1929 node(s) from http://172.17.0.2:8080
+107753 [Thread-35] INFO org.parosproxy.paros.core.scanner.HostProcess  - start host http://172.17.0.2:8080 | TestPathTraversal strength MEDIUM threshold MEDIUM
+302606 [Thread-35] INFO org.parosproxy.paros.core.scanner.HostProcess  - completed host/plugin http://172.17.0.2:8080 | TestPathTraversal in 194.854s with 38506 message(s) sent and 396 alert(s) raised.
+302607 [Thread-35] INFO org.parosproxy.paros.core.scanner.HostProcess  - start host http://172.17.0.2:8080 | TestRemoteFileInclude strength MEDIUM threshold MEDIUM
+499295 [Thread-35] INFO org.parosproxy.paros.core.scanner.HostProcess  - completed host/plugin http://172.17.0.2:8080 | TestRemoteFileInclude in 196.689s with 24414 message(s) sent and 97 alert(s) raised.
+499296 [Thread-35] INFO org.parosproxy.paros.core.scanner.HostProcess  - start host http://172.17.0.2:8080 | TestServerSideInclude strength MEDIUM threshold MEDIUM
+697248 [Thread-35] INFO org.parosproxy.paros.core.scanner.HostProcess  - completed host/plugin http://172.17.0.2:8080 | TestServerSideInclude in 197.953s with 9940 message(s) sent and 0 alert(s) raised.
+697248 [Thread-35] INFO org.parosproxy.paros.core.scanner.HostProcess  - start host http://172.17.0.2:8080 | TestCrossSiteScriptV2 strength MEDIUM threshold MEDIUM
+891508 [Thread-35] INFO org.parosproxy.paros.core.scanner.HostProcess  - completed host/plugin http://172.17.0.2:8080 | TestCrossSiteScriptV2 in 194.259s with 7559 message(s) sent and 196 alert(s) raised.
+891508 [Thread-35] INFO org.parosproxy.paros.core.scanner.HostProcess  - start host http://172.17.0.2:8080 | TestPersistentXSSPrime strength MEDIUM threshold MEDIUM
+1082799 [Thread-35] INFO org.parosproxy.paros.core.scanner.HostProcess  - completed host/plugin http://172.17.0.2:8080 | TestPersistentXSSPrime in 191.291s with 2520 message(s) sent and 0 alert(s) raised.
+1082800 [Thread-35] INFO org.parosproxy.paros.core.scanner.HostProcess  - start host http://172.17.0.2:8080 | TestPersistentXSSSpider strength MEDIUM threshold MEDIUM
+1272252 [Thread-35] INFO org.parosproxy.paros.core.scanner.HostProcess  - completed host/plugin http://172.17.0.2:8080 | TestPersistentXSSSpider in 189.452s with 1929 message(s) sent and 0 alert(s) raised.
+1272252 [Thread-35] INFO org.parosproxy.paros.core.scanner.HostProcess  - start host http://172.17.0.2:8080 | TestPersistentXSSAttack strength MEDIUM threshold MEDIUM
+1359013 [Thread-35] INFO org.parosproxy.paros.core.scanner.HostProcess  - completed host/plugin http://172.17.0.2:8080 | TestPersistentXSSAttack in 86.761s with 0 message(s) sent and 0 alert(s) raised.
+1359014 [Thread-35] INFO org.parosproxy.paros.core.scanner.HostProcess  - start host http://172.17.0.2:8080 | TestSQLInjection strength MEDIUM threshold MEDIUM
+1569648 [Thread-35] INFO org.parosproxy.paros.core.scanner.HostProcess  - completed host/plugin http://172.17.0.2:8080 | TestSQLInjection in 210.634s with 61203 message(s) sent and 116 alert(s) raised.
+1569649 [Thread-35] INFO org.parosproxy.paros.core.scanner.HostProcess  - start host http://172.17.0.2:8080 | CodeInjectionPlugin strength MEDIUM threshold MEDIUM
+1764173 [Thread-35] INFO org.parosproxy.paros.core.scanner.HostProcess  - completed host/plugin http://172.17.0.2:8080 | CodeInjectionPlugin in 194.524s with 20160 message(s) sent and 0 alert(s) raised.
+1764174 [Thread-35] INFO org.parosproxy.paros.core.scanner.HostProcess  - start host http://172.17.0.2:8080 | CommandInjectionPlugin strength MEDIUM threshold MEDIUM
+1963721 [Thread-35] INFO org.parosproxy.paros.core.scanner.HostProcess  - completed host/plugin http://172.17.0.2:8080 | CommandInjectionPlugin in 199.547s with 80640 message(s) sent and 0 alert(s) raised.
+1963722 [Thread-35] INFO org.parosproxy.paros.core.scanner.HostProcess  - start host http://172.17.0.2:8080 | TestDirectoryBrowsing strength MEDIUM threshold MEDIUM
+2153177 [Thread-35] INFO org.parosproxy.paros.core.scanner.HostProcess  - completed host/plugin http://172.17.0.2:8080 | TestDirectoryBrowsing in 189.455s with 1929 message(s) sent and 0 alert(s) raised.
+2153177 [Thread-35] INFO org.parosproxy.paros.core.scanner.HostProcess  - start host http://172.17.0.2:8080 | TestExternalRedirect strength MEDIUM threshold MEDIUM
+2347596 [Thread-35] INFO org.parosproxy.paros.core.scanner.HostProcess  - completed host/plugin http://172.17.0.2:8080 | TestExternalRedirect in 194.419s with 22202 message(s) sent and 64 alert(s) raised.
+2347597 [Thread-35] INFO org.parosproxy.paros.core.scanner.HostProcess  - start host http://172.17.0.2:8080 | BufferOverflow strength MEDIUM threshold MEDIUM
+2537735 [Thread-35] INFO org.parosproxy.paros.core.scanner.HostProcess  - completed host/plugin http://172.17.0.2:8080 | BufferOverflow in 190.138s with 2381 message(s) sent and 77 alert(s) raised.
+2537735 [Thread-35] INFO org.parosproxy.paros.core.scanner.HostProcess  - start host http://172.17.0.2:8080 | FormatString strength MEDIUM threshold MEDIUM
+2729669 [Thread-35] INFO org.parosproxy.paros.core.scanner.HostProcess  - completed host/plugin http://172.17.0.2:8080 | FormatString in 191.934s with 6947 message(s) sent and 2 alert(s) raised.
+2729669 [Thread-35] INFO org.parosproxy.paros.core.scanner.HostProcess  - start host http://172.17.0.2:8080 | TestInjectionCRLF strength MEDIUM threshold MEDIUM
+2923882 [Thread-35] INFO org.parosproxy.paros.core.scanner.HostProcess  - completed host/plugin http://172.17.0.2:8080 | TestInjectionCRLF in 194.213s with 17639 message(s) sent and 0 alert(s) raised.
+2923883 [Thread-35] INFO org.parosproxy.paros.core.scanner.HostProcess  - start host http://172.17.0.2:8080 | TestParameterTamper strength MEDIUM threshold MEDIUM
+3117729 [Thread-35] INFO org.parosproxy.paros.core.scanner.HostProcess  - completed host/plugin http://172.17.0.2:8080 | TestParameterTamper in 193.846s with 15861 message(s) sent and 0 alert(s) raised.
+3117729 [Thread-35] INFO org.parosproxy.paros.core.scanner.HostProcess  - start host http://172.17.0.2:8080 | ScriptsActiveScanner strength MEDIUM threshold MEDIUM
+3117732 [Thread-35] INFO org.parosproxy.paros.core.scanner.HostProcess  - skipped plugin [no scripts enabled] http://172.17.0.2:8080 | ScriptsActiveScanner in 0.002s with 0 message(s) sent and 0 alert(s) raised.
+3117733 [Thread-35] INFO org.parosproxy.paros.core.scanner.HostProcess  - start host http://172.17.0.2:8080 | SourceCodeDisclosureSVN strength MEDIUM threshold MEDIUM
+3297556 [Thread-35] INFO org.parosproxy.paros.core.scanner.HostProcess  - completed host/plugin http://172.17.0.2:8080 | SourceCodeDisclosureSVN in 179.823s with 1837 message(s) sent and 0 alert(s) raised.
+3297557 [Thread-35] INFO org.parosproxy.paros.core.scanner.HostProcess  - start host http://172.17.0.2:8080 | SourceCodeDisclosureWEBINF strength MEDIUM threshold MEDIUM
+3297559 [Thread-35] INFO org.parosproxy.paros.core.scanner.HostProcess  - start host http://172.17.0.2:8080 | ShellShockScanner strength MEDIUM threshold MEDIUM
+3297569 [ZAP-ActiveScanner-0] INFO org.parosproxy.paros.core.scanner.HostProcess  - completed host/plugin http://172.17.0.2:8080 | SourceCodeDisclosureWEBINF in 0.012s with 4 message(s) sent and 0 alert(s) raised.
+3491297 [Thread-35] INFO org.parosproxy.paros.core.scanner.HostProcess  - completed host/plugin http://172.17.0.2:8080 | ShellShockScanner in 193.738s with 5040 message(s) sent and 0 alert(s) raised.
+3491297 [Thread-35] INFO org.parosproxy.paros.core.scanner.HostProcess  - start host http://172.17.0.2:8080 | Csrftokenscan strength MEDIUM threshold MEDIUM
+3569104 [Thread-35] INFO org.parosproxy.paros.core.scanner.HostProcess  - completed host/plugin http://172.17.0.2:8080 | Csrftokenscan in 77.807s with 608 message(s) sent and 606 alert(s) raised.
+3569104 [Thread-35] INFO org.parosproxy.paros.core.scanner.HostProcess  - start host http://172.17.0.2:8080 | HeartBleedActiveScanner strength MEDIUM threshold MEDIUM
+3569108 [Thread-35] INFO org.parosproxy.paros.core.scanner.HostProcess  - start host http://172.17.0.2:8080 | CrossDomainScanner strength MEDIUM threshold MEDIUM
+3569112 [ZAP-ActiveScanner-0] INFO org.parosproxy.paros.core.scanner.HostProcess  - completed host/plugin http://172.17.0.2:8080 | HeartBleedActiveScanner in 0.008s with 3 message(s) sent and 0 alert(s) raised.
+3569119 [Thread-35] INFO org.parosproxy.paros.core.scanner.HostProcess  - start host http://172.17.0.2:8080 | SourceCodeDisclosureCVE20121823 strength MEDIUM threshold MEDIUM
+3569141 [ZAP-ActiveScanner-0] INFO org.parosproxy.paros.core.scanner.HostProcess  - completed host/plugin http://172.17.0.2:8080 | CrossDomainScanner in 0.033s with 2 message(s) sent and 0 alert(s) raised.
+3732765 [Thread-35] INFO org.parosproxy.paros.core.scanner.HostProcess  - completed host/plugin http://172.17.0.2:8080 | SourceCodeDisclosureCVE20121823 in 163.647s with 1597 message(s) sent and 0 alert(s) raised.
+3732765 [Thread-35] INFO org.parosproxy.paros.core.scanner.HostProcess  - start host http://172.17.0.2:8080 | RemoteCodeExecutionCVE20121823 strength MEDIUM threshold MEDIUM
+3926446 [Thread-35] INFO org.parosproxy.paros.core.scanner.HostProcess  - completed host/plugin http://172.17.0.2:8080 | RemoteCodeExecutionCVE20121823 in 193.681s with 3858 message(s) sent and 0 alert(s) raised.
+3926446 [Thread-35] INFO org.parosproxy.paros.core.scanner.HostProcess  - start host http://172.17.0.2:8080 | SessionFixation strength MEDIUM threshold MEDIUM
+3928207 [Thread-35] INFO org.parosproxy.paros.core.scanner.HostProcess  - completed host/plugin http://172.17.0.2:8080 | SessionFixation in 1.761s with 0 message(s) sent and 0 alert(s) raised.
+3928207 [Thread-35] INFO org.parosproxy.paros.core.scanner.HostProcess  - start host http://172.17.0.2:8080 | SQLInjectionMySQL strength MEDIUM threshold MEDIUM
+5425250 [Thread-35] INFO org.parosproxy.paros.core.scanner.HostProcess  - completed host/plugin http://172.17.0.2:8080 | SQLInjectionMySQL in 1497.043s with 17025 message(s) sent and 105 alert(s) raised.
+5425251 [Thread-35] INFO org.parosproxy.paros.core.scanner.HostProcess  - start host http://172.17.0.2:8080 | SQLInjectionHypersonic strength MEDIUM threshold MEDIUM
+5619769 [Thread-35] INFO org.parosproxy.paros.core.scanner.HostProcess  - completed host/plugin http://172.17.0.2:8080 | SQLInjectionHypersonic in 194.519s with 15115 message(s) sent and 0 alert(s) raised.
+5619769 [Thread-35] INFO org.parosproxy.paros.core.scanner.HostProcess  - start host http://172.17.0.2:8080 | SQLInjectionOracle strength MEDIUM threshold MEDIUM
+5814065 [Thread-35] INFO org.parosproxy.paros.core.scanner.HostProcess  - completed host/plugin http://172.17.0.2:8080 | SQLInjectionOracle in 194.296s with 15120 message(s) sent and 0 alert(s) raised.
+5814066 [Thread-35] INFO org.parosproxy.paros.core.scanner.HostProcess  - start host http://172.17.0.2:8080 | SQLInjectionPostgresql strength MEDIUM threshold MEDIUM
+6008263 [Thread-35] INFO org.parosproxy.paros.core.scanner.HostProcess  - completed host/plugin http://172.17.0.2:8080 | SQLInjectionPostgresql in 194.197s with 15120 message(s) sent and 0 alert(s) raised.
+6008263 [Thread-35] INFO org.parosproxy.paros.core.scanner.HostProcess  - start host http://172.17.0.2:8080 | XpathInjectionPlugin strength MEDIUM threshold MEDIUM
+6202950 [Thread-35] INFO org.parosproxy.paros.core.scanner.HostProcess  - completed host/plugin http://172.17.0.2:8080 | XpathInjectionPlugin in 194.687s with 7560 message(s) sent and 0 alert(s) raised.
+6202950 [Thread-35] INFO org.parosproxy.paros.core.scanner.HostProcess  - start host http://172.17.0.2:8080 | XXEPlugin strength MEDIUM threshold MEDIUM
+6203867 [Thread-35] INFO org.parosproxy.paros.core.scanner.HostProcess  - completed host/plugin http://172.17.0.2:8080 | XXEPlugin in 0.917s with 0 message(s) sent and 0 alert(s) raised.
+6203868 [Thread-35] INFO org.parosproxy.paros.core.scanner.HostProcess  - start host http://172.17.0.2:8080 | PaddingOraclePlugin strength MEDIUM threshold MEDIUM
+6293595 [Thread-35] INFO org.parosproxy.paros.core.scanner.HostProcess  - completed host/plugin http://172.17.0.2:8080 | PaddingOraclePlugin in 89.727s with 2 message(s) sent and 1 alert(s) raised.
+6293596 [Thread-35] INFO org.parosproxy.paros.core.scanner.HostProcess  - start host http://172.17.0.2:8080 | ExpressionLanguageInjectionPlugin strength MEDIUM threshold MEDIUM
+6340904 [ZAP-ActiveScanner-0] ERROR org.zaproxy.zap.extension.ascanrulesBeta.ExpressionLanguageInjectionPlugin  - Expression Language Injection vulnerability check failed for parameter [target] and payload [${753436+435762}] due to an I/O error
+java.net.SocketException: Connection reset
+	at java.net.SocketInputStream.read(SocketInputStream.java:210)
+	at java.net.SocketInputStream.read(SocketInputStream.java:141)
+	at java.io.BufferedInputStream.fill(BufferedInputStream.java:246)
+	at java.io.BufferedInputStream.read(BufferedInputStream.java:265)
+	at org.apache.commons.httpclient.HttpParser.readRawLine(HttpParser.java:78)
+	at org.apache.commons.httpclient.HttpParser.readLine(HttpParser.java:106)
+	at org.apache.commons.httpclient.HttpConnection.readLine(HttpConnection.java:1152)
+	at org.apache.commons.httpclient.MultiThreadedHttpConnectionManager$HttpConnectionAdapter.readLine(MultiThreadedHttpConnectionManager.java:1413)
+	at org.apache.commons.httpclient.HttpMethodBase.readStatusLine(HttpMethodBase.java:2107)
+	at org.apache.commons.httpclient.HttpMethodBase.readResponse(HttpMethodBase.java:1868)
+	at org.apache.commons.httpclient.HttpMethodBase.execute(HttpMethodBase.java:1155)
+	at org.apache.commons.httpclient.HttpMethodDirector.executeWithRetry(HttpMethodDirector.java:460)
+	at org.apache.commons.httpclient.HttpMethodDirector.executeMethod(HttpMethodDirector.java:199)
+	at org.apache.commons.httpclient.HttpClient.executeMethod(HttpClient.java:397)
+	at org.parosproxy.paros.network.HttpSender.executeMethod(HttpSender.java:333)
+	at org.parosproxy.paros.network.HttpSender.runMethod(HttpSender.java:564)
+	at org.parosproxy.paros.network.HttpSender.send(HttpSender.java:523)
+	at org.parosproxy.paros.network.HttpSender.sendAuthenticated(HttpSender.java:501)
+	at org.parosproxy.paros.network.HttpSender.sendAndReceiveImpl(HttpSender.java:901)
+	at org.parosproxy.paros.network.HttpSender.sendAndReceive(HttpSender.java:869)
+	at org.parosproxy.paros.core.scanner.AbstractPlugin.sendAndReceive(AbstractPlugin.java:302)
+	at org.parosproxy.paros.core.scanner.AbstractPlugin.sendAndReceive(AbstractPlugin.java:242)
+	at org.parosproxy.paros.core.scanner.AbstractPlugin.sendAndReceive(AbstractPlugin.java:219)
+	at org.zaproxy.zap.extension.ascanrulesBeta.ExpressionLanguageInjectionPlugin.scan(ExpressionLanguageInjectionPlugin.java:180)
+	at org.parosproxy.paros.core.scanner.AbstractAppParamPlugin.scan(AbstractAppParamPlugin.java:263)
+	at org.parosproxy.paros.core.scanner.AbstractAppParamPlugin.scanVariant(AbstractAppParamPlugin.java:191)
+	at org.parosproxy.paros.core.scanner.AbstractAppParamPlugin.scan(AbstractAppParamPlugin.java:162)
+	at org.parosproxy.paros.core.scanner.AbstractPlugin.run(AbstractPlugin.java:380)
+	at java.lang.Thread.run(Thread.java:748)
+6485057 [Thread-35] INFO org.parosproxy.paros.core.scanner.HostProcess  - completed host/plugin http://172.17.0.2:8080 | ExpressionLanguageInjectionPlugin in 191.461s with 2484 message(s) sent and 0 alert(s) raised.
+6485058 [Thread-35] INFO org.parosproxy.paros.core.scanner.HostProcess  - start host http://172.17.0.2:8080 | BackupFileDisclosure strength MEDIUM threshold MEDIUM
+6671245 [Thread-35] INFO org.parosproxy.paros.core.scanner.HostProcess  - completed host/plugin http://172.17.0.2:8080 | BackupFileDisclosure in 186.187s with 65295 message(s) sent and 0 alert(s) raised.
+6671246 [Thread-35] INFO org.parosproxy.paros.core.scanner.HostProcess  - start host http://172.17.0.2:8080 | IntegerOverflow strength MEDIUM threshold MEDIUM
+6862771 [Thread-35] INFO org.parosproxy.paros.core.scanner.HostProcess  - completed host/plugin http://172.17.0.2:8080 | IntegerOverflow in 191.525s with 9357 message(s) sent and 57 alert(s) raised.
+6862771 [Thread-35] INFO org.parosproxy.paros.core.scanner.HostProcess  - start host http://172.17.0.2:8080 | InsecureHTTPMethod strength MEDIUM threshold MEDIUM
+7051632 [Thread-35] INFO org.parosproxy.paros.core.scanner.HostProcess  - completed host/plugin http://172.17.0.2:8080 | InsecureHTTPMethod in 188.861s with 1945 message(s) sent and 16 alert(s) raised.
+7051632 [Thread-35] INFO org.parosproxy.paros.core.scanner.HostProcess  - start host http://172.17.0.2:8080 | HPP strength MEDIUM threshold MEDIUM
+7126438 [Thread-35] INFO org.parosproxy.paros.core.scanner.HostProcess  - completed host/plugin http://172.17.0.2:8080 | HPP in 74.806s with 559 message(s) sent and 0 alert(s) raised.
+7126438 [Thread-35] INFO org.parosproxy.paros.core.scanner.HostProcess  - start host http://172.17.0.2:8080 | UsernameEnumeration strength MEDIUM threshold MEDIUM
+7126439 [Thread-35] INFO org.zaproxy.zap.extension.ascanrulesBeta.UsernameEnumeration  - There does not appear to be any configured contexts using Form-based Authentication. Further attempts during the current scan will be skipped.
+7126439 [Thread-35] INFO org.parosproxy.paros.core.scanner.HostProcess  - skipped plugin http://172.17.0.2:8080 | UsernameEnumeration in 0.001s with 0 message(s) sent and 0 alert(s) raised.
+7126439 [Thread-35] INFO org.parosproxy.paros.core.scanner.HostProcess  - completed host http://172.17.0.2:8080 in 7018.71s
+7126440 [Thread-34] INFO org.parosproxy.paros.core.scanner.Scanner  - scanner completed in 7018.726s
