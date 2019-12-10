@@ -9,7 +9,7 @@ lines = []
 # Read file in
 with open('tweets.txt', 'r') as f:
   for l in f:
-    if len(l) > 140:
+    if len(l) > 280:
       total_not += 1
       print ('Line too long: ' + str(len(line)) + ': ' + line)
     elif len(l) > 0:
