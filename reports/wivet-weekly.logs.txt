@@ -1,168 +1,204 @@
 Found Java version 1.8.0_232
 Available memory: 3950 MB
 Using JVM args: -Xmx987m
-194 [main] INFO org.zaproxy.zap.DaemonBootstrap  - OWASP ZAP D-2019-12-23 started 26/12/19 22:02:25 with home /home/zap/.ZAP_D/
-247 [main] INFO org.parosproxy.paros.common.AbstractParam  - Setting config api.disablekey = true was null
-247 [main] INFO org.parosproxy.paros.common.AbstractParam  - Setting config api.addrs.addr.name = .* was null
-247 [main] INFO org.parosproxy.paros.common.AbstractParam  - Setting config api.addrs.addr.regex = true was null
-248 [main] INFO org.parosproxy.paros.common.AbstractParam  - Setting config ajaxSpider.clickDefaultElems = False was null
-253 [main] INFO org.parosproxy.paros.common.AbstractParam  - Setting config ajaxSpider.browserId = htmlunit was null
-260 [main] INFO org.parosproxy.paros.network.SSLConnector  - Reading supported SSL/TLS protocols...
-260 [main] INFO org.parosproxy.paros.network.SSLConnector  - Using a SSLEngine...
-375 [main] INFO org.parosproxy.paros.network.SSLConnector  - Done reading supported SSL/TLS protocols: [SSLv2Hello, SSLv3, TLSv1, TLSv1.1, TLSv1.2]
-383 [main] INFO org.parosproxy.paros.extension.option.OptionsParamCertificate  - Unsafe SSL renegotiation disabled.
-837 [main] INFO hsqldb.db.HSQLDB379AF3DEBD.ENGINE  - dataFileCache open start
-846 [main] INFO hsqldb.db.HSQLDB379AF3DEBD.ENGINE  - dataFileCache open end
-938 [ZAP-daemon] INFO org.zaproxy.zap.control.ExtensionFactory  - Loading extensions
-2668 [ZAP-daemon] INFO org.zaproxy.zap.control.ExtensionFactory  - Installed add-ons: [[id=accessControl, version=6.0.0], [id=alertFilters, version=10.0.0], [id=ascanrules, version=34.0.0], [id=ascanrulesBeta, version=28.0.0], [id=bruteforce, version=9.0.0], [id=coreLang, version=14.0.0], [id=diff, version=10.0.0], [id=directorylistv1, version=4.0.0], [id=formhandler, version=3.0.0], [id=fuzz, version=12.0.0], [id=gettingStarted, version=11.0.0], [id=help, version=10.0.0], [id=hud, version=0.9.0], [id=importurls, version=7.0.0], [id=invoke, version=10.0.0], [id=onlineMenu, version=7.0.0], [id=openapi, version=15.0.0], [id=plugnhack, version=12.0.0], [id=portscan, version=9.0.0], [id=pscanrules, version=26.0.0], [id=pscanrulesBeta, version=22.0.0], [id=quickstart, version=27.0.0], [id=replacer, version=8.0.0], [id=reveal, version=3.0.0], [id=saverawmessage, version=5.0.0], [id=savexmlmessage, version=0.1.0], [id=scripts, version=26.0.0], [id=selenium, version=15.1.0], [id=sequence, version=6.0.0], [id=spiderAjax, version=23.1.0], [id=tips, version=7.0.0], [id=webdriverlinux, version=16.0.0], [id=webdrivermacos, version=15.0.0], [id=webdriverwindows, version=16.0.0], [id=websocket, version=21.0.0], [id=zest, version=31.0.0]]
-3930 [ZAP-daemon] INFO org.zaproxy.zap.control.ExtensionFactory  - Extensions loaded
-4414 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Allows ZAP to check for updates
-4427 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Options Extension
-4427 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Edit Menu Extension
-4428 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Provides a rest based API for controlling and accessing ZAP
-4468 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Session State Extension
-4468 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Report Extension
-4469 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing History Extension
-4471 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Show hidden fields and enable disabled fields
-4472 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Search messages for strings and regular expressions
-4485 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Encode/Decode/Hash...
-4485 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Allows you to intercept and modify requests and responses
-4488 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Passive scanner
-4620 [ZAP-daemon] INFO org.zaproxy.zap.extension.pscan.ExtensionPassiveScan  - loaded passive scan rule: Script Passive Scan Rules
-4620 [ZAP-daemon] INFO org.zaproxy.zap.extension.pscan.ExtensionPassiveScan  - loaded passive scan rule: Stats Passive Scan Rule
-4620 [ZAP-daemon] INFO org.zaproxy.zap.extension.pscan.ExtensionPassiveScan  - loaded passive scan rule: Application Error Disclosure
-4620 [ZAP-daemon] INFO org.zaproxy.zap.extension.pscan.ExtensionPassiveScan  - loaded passive scan rule: Absence of Anti-CSRF Tokens
-4620 [ZAP-daemon] INFO org.zaproxy.zap.extension.pscan.ExtensionPassiveScan  - loaded passive scan rule: Incomplete or No Cache-control and Pragma HTTP Header Set
-4621 [ZAP-daemon] INFO org.zaproxy.zap.extension.pscan.ExtensionPassiveScan  - loaded passive scan rule: Charset Mismatch
-4621 [ZAP-daemon] INFO org.zaproxy.zap.extension.pscan.ExtensionPassiveScan  - loaded passive scan rule: CSP Scanner
-4621 [ZAP-daemon] INFO org.zaproxy.zap.extension.pscan.ExtensionPassiveScan  - loaded passive scan rule: Content-Type Header Missing
-4621 [ZAP-daemon] INFO org.zaproxy.zap.extension.pscan.ExtensionPassiveScan  - loaded passive scan rule: Cookie No HttpOnly Flag
-4621 [ZAP-daemon] INFO org.zaproxy.zap.extension.pscan.ExtensionPassiveScan  - loaded passive scan rule: Loosely Scoped Cookie
-4621 [ZAP-daemon] INFO org.zaproxy.zap.extension.pscan.ExtensionPassiveScan  - loaded passive scan rule: Cookie Without SameSite Attribute
-4621 [ZAP-daemon] INFO org.zaproxy.zap.extension.pscan.ExtensionPassiveScan  - loaded passive scan rule: Cookie Without Secure Flag
-4621 [ZAP-daemon] INFO org.zaproxy.zap.extension.pscan.ExtensionPassiveScan  - loaded passive scan rule: Cross-Domain Misconfiguration
-4621 [ZAP-daemon] INFO org.zaproxy.zap.extension.pscan.ExtensionPassiveScan  - loaded passive scan rule: Cross-Domain JavaScript Source File Inclusion
-4621 [ZAP-daemon] INFO org.zaproxy.zap.extension.pscan.ExtensionPassiveScan  - loaded passive scan rule: Web Browser XSS Protection Not Enabled
-4621 [ZAP-daemon] INFO org.zaproxy.zap.extension.pscan.ExtensionPassiveScan  - loaded passive scan rule: Information Disclosure - Debug Error Messages
-4622 [ZAP-daemon] INFO org.zaproxy.zap.extension.pscan.ExtensionPassiveScan  - loaded passive scan rule: Information Disclosure - Sensitive Information in URL
-4622 [ZAP-daemon] INFO org.zaproxy.zap.extension.pscan.ExtensionPassiveScan  - loaded passive scan rule: Information Disclosure - Sensitive Information in HTTP Referrer Header
-4626 [ZAP-daemon] INFO org.zaproxy.zap.extension.pscan.ExtensionPassiveScan  - loaded passive scan rule: Information Disclosure - Suspicious Comments
-4626 [ZAP-daemon] INFO org.zaproxy.zap.extension.pscan.ExtensionPassiveScan  - loaded passive scan rule: Weak Authentication Method
-4626 [ZAP-daemon] INFO org.zaproxy.zap.extension.pscan.ExtensionPassiveScan  - loaded passive scan rule: Insecure JSF ViewState
-4626 [ZAP-daemon] INFO org.zaproxy.zap.extension.pscan.ExtensionPassiveScan  - loaded passive scan rule: Secure Pages Include Mixed Content
-4627 [ZAP-daemon] INFO org.zaproxy.zap.extension.pscan.ExtensionPassiveScan  - loaded passive scan rule: Private IP Disclosure
-4627 [ZAP-daemon] INFO org.zaproxy.zap.extension.pscan.ExtensionPassiveScan  - loaded passive scan rule: Session ID in URL Rewrite
-4627 [ZAP-daemon] INFO org.zaproxy.zap.extension.pscan.ExtensionPassiveScan  - loaded passive scan rule: Timestamp Disclosure
-4627 [ZAP-daemon] INFO org.zaproxy.zap.extension.pscan.ExtensionPassiveScan  - loaded passive scan rule: Username Hash Found
-4627 [ZAP-daemon] INFO org.zaproxy.zap.extension.pscan.ExtensionPassiveScan  - loaded passive scan rule: Viewstate Scanner
-4628 [ZAP-daemon] INFO org.zaproxy.zap.extension.pscan.ExtensionPassiveScan  - loaded passive scan rule: X-AspNet-Version Response Header Scanner
-4628 [ZAP-daemon] INFO org.zaproxy.zap.extension.pscan.ExtensionPassiveScan  - loaded passive scan rule: X-Content-Type-Options Header Missing
-4628 [ZAP-daemon] INFO org.zaproxy.zap.extension.pscan.ExtensionPassiveScan  - loaded passive scan rule: X-Debug-Token Information Leak
-4628 [ZAP-daemon] INFO org.zaproxy.zap.extension.pscan.ExtensionPassiveScan  - loaded passive scan rule: X-Frame-Options Header Scanner
-4628 [ZAP-daemon] INFO org.zaproxy.zap.extension.pscan.ExtensionPassiveScan  - loaded passive scan rule: Server Leaks Information via "X-Powered-By" HTTP Response Header Field(s)
-4628 [ZAP-daemon] INFO org.zaproxy.zap.extension.pscan.ExtensionPassiveScan  - loaded passive scan rule: Big Redirect Detected (Potential Sensitive Information Leak)
-4629 [ZAP-daemon] INFO org.zaproxy.zap.extension.pscan.ExtensionPassiveScan  - loaded passive scan rule: Content Security Policy (CSP) Header Not Set
-4629 [ZAP-daemon] INFO org.zaproxy.zap.extension.pscan.ExtensionPassiveScan  - loaded passive scan rule: Directory Browsing
-4629 [ZAP-daemon] INFO org.zaproxy.zap.extension.pscan.ExtensionPassiveScan  - loaded passive scan rule: Hash Disclosure
-4629 [ZAP-daemon] INFO org.zaproxy.zap.extension.pscan.ExtensionPassiveScan  - loaded passive scan rule: Heartbleed OpenSSL Vulnerability (Indicative)
-4630 [ZAP-daemon] INFO org.zaproxy.zap.extension.pscan.ExtensionPassiveScan  - loaded passive scan rule: HTTP to HTTPS Insecure Transition in Form Post
-4630 [ZAP-daemon] INFO org.zaproxy.zap.extension.pscan.ExtensionPassiveScan  - loaded passive scan rule: HTTPS to HTTP Insecure Transition in Form Post
-4630 [ZAP-daemon] INFO org.zaproxy.zap.extension.pscan.ExtensionPassiveScan  - loaded passive scan rule: Reverse Tabnabbing
-4630 [ZAP-daemon] INFO org.zaproxy.zap.extension.pscan.ExtensionPassiveScan  - loaded passive scan rule: PII Scanner
-4630 [ZAP-daemon] INFO org.zaproxy.zap.extension.pscan.ExtensionPassiveScan  - loaded passive scan rule: Retrieved from Cache
-4630 [ZAP-daemon] INFO org.zaproxy.zap.extension.pscan.ExtensionPassiveScan  - loaded passive scan rule: HTTP Server Response Header Scanner
-4630 [ZAP-daemon] INFO org.zaproxy.zap.extension.pscan.ExtensionPassiveScan  - loaded passive scan rule: HTTP Parameter Override
-4630 [ZAP-daemon] INFO org.zaproxy.zap.extension.pscan.ExtensionPassiveScan  - loaded passive scan rule: Strict-Transport-Security Header Scanner
-4630 [ZAP-daemon] INFO org.zaproxy.zap.extension.pscan.ExtensionPassiveScan  - loaded passive scan rule: User Controllable Charset
-4630 [ZAP-daemon] INFO org.zaproxy.zap.extension.pscan.ExtensionPassiveScan  - loaded passive scan rule: Cookie Poisoning
-4631 [ZAP-daemon] INFO org.zaproxy.zap.extension.pscan.ExtensionPassiveScan  - loaded passive scan rule: User Controllable HTML Element Attribute (Potential XSS)
-4631 [ZAP-daemon] INFO org.zaproxy.zap.extension.pscan.ExtensionPassiveScan  - loaded passive scan rule: User Controllable JavaScript Event (XSS)
-4631 [ZAP-daemon] INFO org.zaproxy.zap.extension.pscan.ExtensionPassiveScan  - loaded passive scan rule: Open Redirect
-4631 [ZAP-daemon] INFO org.zaproxy.zap.extension.pscan.ExtensionPassiveScan  - loaded passive scan rule: X-Backend-Server Header Information Leak
-4631 [ZAP-daemon] INFO org.zaproxy.zap.extension.pscan.ExtensionPassiveScan  - loaded passive scan rule: X-ChromeLogger-Data (XCOLD) Header Information Leak
-4646 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Allows you to view and manage alerts
-4648 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Active scanner, heavily based on the original Paros active scanner, but with additional tests added
-4654 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing ExtensionSequence
-4655 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Spider used for automatically finding URIs on a site
-4660 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing A set of common popup menus for miscellaneous tasks
-4660 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Forced browsing of files and directories using code from the OWASP DirBuster tool
-4661 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Simple but effective port scanner
-4662 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Manual Request Editor Extension
-4662 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Compares 2 sessions and generates an HTML file showing the differences
-4662 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Invoke external applications passing context related information such as URLs and parameters
-4662 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Handles anti cross site request forgery (CSRF) tokens
-4666 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Authentication Extension
-4680 [ZAP-daemon] INFO org.zaproxy.zap.extension.authentication.ExtensionAuthentication  - Loaded authentication method types: [Form-based Authentication, HTTP/NTLM Authentication, Manual Authentication, Script-based Authentication, JSON-based Authentication]
-4681 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Creates a dynamic SSL certificate to allow SSL communications to be intercepted without warnings being generated by the browser
-4681 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Logs errors to the Output tab in development mode only
-4681 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Users Extension
-4701 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Summarise and analyse FORM and URL parameters as well as cookies
-4710 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Script integration
-4731 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Scripting console, supports all JSR 223 scripting languages
-4883 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Forced User Extension
-4884 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Extension handling HTTP sessions
-4886 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Zest is a specialized scripting language from Mozilla specifically designed to be used in security tools
-5190 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing ExtensionDiff
-5191 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing HTTP Panel Post Table View Extension
-5191 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Simple browser configuration
-5191 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Session Management Extension
-5206 [ZAP-daemon] INFO org.zaproxy.zap.extension.sessions.ExtensionSessionManagement  - Loaded session management method types: [Cookie-based Session Management, HTTP Authentication Session Management, Script-based Session Management]
-5207 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing HTTP Panel Form Table View Extension
-5207 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Capture messages from WebSockets with the ability to set breakpoints.
-5245 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Allows you to import a file containing URLs which ZAP will access, adding them to the Sites tree
-5245 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Core UI related functionality.
-5245 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Authorization Extension
-5246 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing AJAX Spider, uses Crawljax
-5247 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Provides WebDrivers to control several browsers using Selenium and includes HtmlUnit browser.
-5263 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Manages the local proxy configurations
-5264 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Add-on that adds a set of tools for testing access control in web applications.
-5265 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Handles adding Global Excluded URLs
-5265 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Adds menu item to refresh the Sites tree
-5265 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing OWASP ZAP User Guide
-5265 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Provides a URL suitable for calling from target sites
-5280 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Allows you to configure which extensions are loaded when ZAP starts
-5280 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Combined HTTP Panels Extension
-5280 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing HTTP Panel Hex View Extension
-5280 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing HTTP Panel Image View Extension
-5280 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing HTTP Panel Large Request View Extension
-5280 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing HTTP Panel Large Response View Extension
-5281 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing HTTP Panel Query Table View Extension
-5281 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing HTTP Panel Syntax Highlighter View Extension
-5281 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Adds support for configurable keyboard shortcuts for all of the ZAP menus.
-5281 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Active and passive rule configuration
-5292 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Statistics
-5293 [ZAP-daemon] INFO org.zaproxy.zap.extension.stats.ExtensionStats  - Start recording in memory stats
-5294 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Allows to fuzz WebSocket messages.
-5294 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing ExtensionSaveRawHttpMessage
-5294 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Context alert rules filter
-5296 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Allows you to spider and import OpenAPI (Swagger) definitions 
-5317 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Provides the foundation for concrete message types (for example, HTTP, WebSockets) expose fuzzer implementations.
-5318 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Allows to fuzz HTTP messages.
-5318 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Active Scan Rules - beta
-5319 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Heads Up Display
-5356 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing ExtensionHUDlaunch
-5373 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Active Scan Rules
-5373 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Adds the Quick Start panel for scanning and exploring applications
-5375 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Add the option to use the Ajax Spider in the Quick Start scan
-5375 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Launch browsers proxying through ZAP
-5376 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Launch browsers proxying through ZAP
-5376 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing ExtensionSaveXMLHttpMessage
-5377 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Passive Scan Rules
-5377 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing The Online menu links
-5377 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Easy way to replace strings in requests and responses
-5380 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing This extension allows a user to change the default values used by ZAP Spiders.
-5382 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Translations of the core language files
-5382 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Passive Scan Rules - beta
-5383 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Tips and Tricks
-5386 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing The ZAP Getting Started Guide
-5686 [ZAP-daemon] INFO org.zaproxy.zap.extension.callback.ExtensionCallback  - Started callback server on 0.0.0.0:44273
-5687 [ZAP-daemon] INFO org.zaproxy.zap.extension.dynssl.ExtensionDynSSL  - Creating new root CA certificate
-6347 [ZAP-daemon] INFO org.zaproxy.zap.extension.dynssl.ExtensionDynSSL  - New root CA certificate created
-6349 [ZAP-daemon] INFO org.zaproxy.zap.DaemonBootstrap  - ZAP is now listening on 0.0.0.0:8090
-21611 [ZAP-SpiderInitThread-0] INFO org.zaproxy.zap.extension.spider.SpiderThread  - Starting spidering scan on http://172.17.0.2 at Thu Dec 26 22:02:47 UTC 2019
-21618 [ZAP-SpiderInitThread-0] INFO org.zaproxy.zap.spider.Spider  - Spider initializing...
-21656 [ZAP-SpiderInitThread-0] INFO org.zaproxy.zap.spider.Spider  - Starting spider...
-22498 [ZAP-SpiderThreadPool-0-thread-2] WARN io.swagger.parser.util.DeserializationUtils  - Error snake-parsing yaml content
+258 [main] INFO org.zaproxy.zap.DaemonBootstrap  - OWASP ZAP D-2019-12-23 started 02/01/20 22:02:27 with home /home/zap/.ZAP_D/
+302 [main] INFO org.parosproxy.paros.common.AbstractParam  - Setting config api.disablekey = true was null
+304 [main] INFO org.parosproxy.paros.common.AbstractParam  - Setting config api.addrs.addr.name = .* was null
+305 [main] INFO org.parosproxy.paros.common.AbstractParam  - Setting config api.addrs.addr.regex = true was null
+306 [main] INFO org.parosproxy.paros.common.AbstractParam  - Setting config ajaxSpider.clickDefaultElems = False was null
+306 [main] INFO org.parosproxy.paros.common.AbstractParam  - Setting config ajaxSpider.browserId = htmlunit was null
+338 [main] INFO org.parosproxy.paros.network.SSLConnector  - Reading supported SSL/TLS protocols...
+339 [main] INFO org.parosproxy.paros.network.SSLConnector  - Using a SSLEngine...
+455 [main] INFO org.parosproxy.paros.network.SSLConnector  - Done reading supported SSL/TLS protocols: [SSLv2Hello, SSLv3, TLSv1, TLSv1.1, TLSv1.2]
+465 [main] INFO org.parosproxy.paros.extension.option.OptionsParamCertificate  - Unsafe SSL renegotiation disabled.
+1871 [main] INFO hsqldb.db.HSQLDB379AF3DEBD.ENGINE  - dataFileCache open start
+1878 [main] INFO hsqldb.db.HSQLDB379AF3DEBD.ENGINE  - dataFileCache open end
+2017 [ZAP-daemon] INFO org.zaproxy.zap.control.ExtensionFactory  - Loading extensions
+3862 [ZAP-daemon] INFO org.zaproxy.zap.control.ExtensionFactory  - Installed add-ons: [[id=accessControl, version=6.0.0], [id=alertFilters, version=10.0.0], [id=ascanrules, version=34.0.0], [id=ascanrulesBeta, version=28.0.0], [id=bruteforce, version=9.0.0], [id=coreLang, version=14.0.0], [id=diff, version=10.0.0], [id=directorylistv1, version=4.0.0], [id=formhandler, version=3.0.0], [id=fuzz, version=12.0.0], [id=gettingStarted, version=11.0.0], [id=help, version=10.0.0], [id=hud, version=0.9.0], [id=importurls, version=7.0.0], [id=invoke, version=10.0.0], [id=onlineMenu, version=7.0.0], [id=openapi, version=15.0.0], [id=plugnhack, version=12.0.0], [id=portscan, version=9.0.0], [id=pscanrules, version=26.0.0], [id=pscanrulesBeta, version=22.0.0], [id=quickstart, version=27.0.0], [id=replacer, version=8.0.0], [id=reveal, version=3.0.0], [id=saverawmessage, version=5.0.0], [id=savexmlmessage, version=0.1.0], [id=scripts, version=26.0.0], [id=selenium, version=15.1.0], [id=sequence, version=6.0.0], [id=spiderAjax, version=23.1.0], [id=tips, version=7.0.0], [id=webdriverlinux, version=16.0.0], [id=webdrivermacos, version=15.0.0], [id=webdriverwindows, version=16.0.0], [id=websocket, version=21.0.0], [id=zest, version=31.0.0]]
+4432 [ZAP-daemon] INFO org.zaproxy.zap.control.ExtensionFactory  - Extensions loaded
+4627 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Allows ZAP to check for updates
+4633 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Options Extension
+4634 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Edit Menu Extension
+4634 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Provides a rest based API for controlling and accessing ZAP
+4646 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Session State Extension
+4646 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Report Extension
+4647 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing History Extension
+4648 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Show hidden fields and enable disabled fields
+4649 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Search messages for strings and regular expressions
+4650 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Encode/Decode/Hash...
+4651 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Allows you to intercept and modify requests and responses
+4652 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Passive scanner
+4782 [ZAP-daemon] INFO org.zaproxy.zap.extension.pscan.ExtensionPassiveScan  - loaded passive scan rule: Script Passive Scan Rules
+4782 [ZAP-daemon] INFO org.zaproxy.zap.extension.pscan.ExtensionPassiveScan  - loaded passive scan rule: Stats Passive Scan Rule
+4782 [ZAP-daemon] INFO org.zaproxy.zap.extension.pscan.ExtensionPassiveScan  - loaded passive scan rule: Application Error Disclosure
+4782 [ZAP-daemon] INFO org.zaproxy.zap.extension.pscan.ExtensionPassiveScan  - loaded passive scan rule: Absence of Anti-CSRF Tokens
+4783 [ZAP-daemon] INFO org.zaproxy.zap.extension.pscan.ExtensionPassiveScan  - loaded passive scan rule: Incomplete or No Cache-control and Pragma HTTP Header Set
+4783 [ZAP-daemon] INFO org.zaproxy.zap.extension.pscan.ExtensionPassiveScan  - loaded passive scan rule: Charset Mismatch
+4783 [ZAP-daemon] INFO org.zaproxy.zap.extension.pscan.ExtensionPassiveScan  - loaded passive scan rule: CSP Scanner
+4783 [ZAP-daemon] INFO org.zaproxy.zap.extension.pscan.ExtensionPassiveScan  - loaded passive scan rule: Content-Type Header Missing
+4783 [ZAP-daemon] INFO org.zaproxy.zap.extension.pscan.ExtensionPassiveScan  - loaded passive scan rule: Cookie No HttpOnly Flag
+4783 [ZAP-daemon] INFO org.zaproxy.zap.extension.pscan.ExtensionPassiveScan  - loaded passive scan rule: Loosely Scoped Cookie
+4783 [ZAP-daemon] INFO org.zaproxy.zap.extension.pscan.ExtensionPassiveScan  - loaded passive scan rule: Cookie Without SameSite Attribute
+4784 [ZAP-daemon] INFO org.zaproxy.zap.extension.pscan.ExtensionPassiveScan  - loaded passive scan rule: Cookie Without Secure Flag
+4784 [ZAP-daemon] INFO org.zaproxy.zap.extension.pscan.ExtensionPassiveScan  - loaded passive scan rule: Cross-Domain Misconfiguration
+4784 [ZAP-daemon] INFO org.zaproxy.zap.extension.pscan.ExtensionPassiveScan  - loaded passive scan rule: Cross-Domain JavaScript Source File Inclusion
+4784 [ZAP-daemon] INFO org.zaproxy.zap.extension.pscan.ExtensionPassiveScan  - loaded passive scan rule: Web Browser XSS Protection Not Enabled
+4784 [ZAP-daemon] INFO org.zaproxy.zap.extension.pscan.ExtensionPassiveScan  - loaded passive scan rule: Information Disclosure - Debug Error Messages
+4784 [ZAP-daemon] INFO org.zaproxy.zap.extension.pscan.ExtensionPassiveScan  - loaded passive scan rule: Information Disclosure - Sensitive Information in URL
+4784 [ZAP-daemon] INFO org.zaproxy.zap.extension.pscan.ExtensionPassiveScan  - loaded passive scan rule: Information Disclosure - Sensitive Information in HTTP Referrer Header
+4785 [ZAP-daemon] INFO org.zaproxy.zap.extension.pscan.ExtensionPassiveScan  - loaded passive scan rule: Information Disclosure - Suspicious Comments
+4785 [ZAP-daemon] INFO org.zaproxy.zap.extension.pscan.ExtensionPassiveScan  - loaded passive scan rule: Weak Authentication Method
+4785 [ZAP-daemon] INFO org.zaproxy.zap.extension.pscan.ExtensionPassiveScan  - loaded passive scan rule: Insecure JSF ViewState
+4785 [ZAP-daemon] INFO org.zaproxy.zap.extension.pscan.ExtensionPassiveScan  - loaded passive scan rule: Secure Pages Include Mixed Content
+4785 [ZAP-daemon] INFO org.zaproxy.zap.extension.pscan.ExtensionPassiveScan  - loaded passive scan rule: Private IP Disclosure
+4785 [ZAP-daemon] INFO org.zaproxy.zap.extension.pscan.ExtensionPassiveScan  - loaded passive scan rule: Session ID in URL Rewrite
+4785 [ZAP-daemon] INFO org.zaproxy.zap.extension.pscan.ExtensionPassiveScan  - loaded passive scan rule: Timestamp Disclosure
+4785 [ZAP-daemon] INFO org.zaproxy.zap.extension.pscan.ExtensionPassiveScan  - loaded passive scan rule: Username Hash Found
+4785 [ZAP-daemon] INFO org.zaproxy.zap.extension.pscan.ExtensionPassiveScan  - loaded passive scan rule: Viewstate Scanner
+4785 [ZAP-daemon] INFO org.zaproxy.zap.extension.pscan.ExtensionPassiveScan  - loaded passive scan rule: X-AspNet-Version Response Header Scanner
+4785 [ZAP-daemon] INFO org.zaproxy.zap.extension.pscan.ExtensionPassiveScan  - loaded passive scan rule: X-Content-Type-Options Header Missing
+4786 [ZAP-daemon] INFO org.zaproxy.zap.extension.pscan.ExtensionPassiveScan  - loaded passive scan rule: X-Debug-Token Information Leak
+4786 [ZAP-daemon] INFO org.zaproxy.zap.extension.pscan.ExtensionPassiveScan  - loaded passive scan rule: X-Frame-Options Header Scanner
+4786 [ZAP-daemon] INFO org.zaproxy.zap.extension.pscan.ExtensionPassiveScan  - loaded passive scan rule: Server Leaks Information via "X-Powered-By" HTTP Response Header Field(s)
+4786 [ZAP-daemon] INFO org.zaproxy.zap.extension.pscan.ExtensionPassiveScan  - loaded passive scan rule: Big Redirect Detected (Potential Sensitive Information Leak)
+4786 [ZAP-daemon] INFO org.zaproxy.zap.extension.pscan.ExtensionPassiveScan  - loaded passive scan rule: Content Security Policy (CSP) Header Not Set
+4786 [ZAP-daemon] INFO org.zaproxy.zap.extension.pscan.ExtensionPassiveScan  - loaded passive scan rule: Directory Browsing
+4787 [ZAP-daemon] INFO org.zaproxy.zap.extension.pscan.ExtensionPassiveScan  - loaded passive scan rule: Hash Disclosure
+4787 [ZAP-daemon] INFO org.zaproxy.zap.extension.pscan.ExtensionPassiveScan  - loaded passive scan rule: Heartbleed OpenSSL Vulnerability (Indicative)
+4787 [ZAP-daemon] INFO org.zaproxy.zap.extension.pscan.ExtensionPassiveScan  - loaded passive scan rule: HTTP to HTTPS Insecure Transition in Form Post
+4787 [ZAP-daemon] INFO org.zaproxy.zap.extension.pscan.ExtensionPassiveScan  - loaded passive scan rule: HTTPS to HTTP Insecure Transition in Form Post
+4787 [ZAP-daemon] INFO org.zaproxy.zap.extension.pscan.ExtensionPassiveScan  - loaded passive scan rule: Reverse Tabnabbing
+4787 [ZAP-daemon] INFO org.zaproxy.zap.extension.pscan.ExtensionPassiveScan  - loaded passive scan rule: PII Scanner
+4787 [ZAP-daemon] INFO org.zaproxy.zap.extension.pscan.ExtensionPassiveScan  - loaded passive scan rule: Retrieved from Cache
+4787 [ZAP-daemon] INFO org.zaproxy.zap.extension.pscan.ExtensionPassiveScan  - loaded passive scan rule: HTTP Server Response Header Scanner
+4787 [ZAP-daemon] INFO org.zaproxy.zap.extension.pscan.ExtensionPassiveScan  - loaded passive scan rule: HTTP Parameter Override
+4788 [ZAP-daemon] INFO org.zaproxy.zap.extension.pscan.ExtensionPassiveScan  - loaded passive scan rule: Strict-Transport-Security Header Scanner
+4788 [ZAP-daemon] INFO org.zaproxy.zap.extension.pscan.ExtensionPassiveScan  - loaded passive scan rule: User Controllable Charset
+4788 [ZAP-daemon] INFO org.zaproxy.zap.extension.pscan.ExtensionPassiveScan  - loaded passive scan rule: Cookie Poisoning
+4788 [ZAP-daemon] INFO org.zaproxy.zap.extension.pscan.ExtensionPassiveScan  - loaded passive scan rule: User Controllable HTML Element Attribute (Potential XSS)
+4788 [ZAP-daemon] INFO org.zaproxy.zap.extension.pscan.ExtensionPassiveScan  - loaded passive scan rule: User Controllable JavaScript Event (XSS)
+4789 [ZAP-daemon] INFO org.zaproxy.zap.extension.pscan.ExtensionPassiveScan  - loaded passive scan rule: Open Redirect
+4789 [ZAP-daemon] INFO org.zaproxy.zap.extension.pscan.ExtensionPassiveScan  - loaded passive scan rule: X-Backend-Server Header Information Leak
+4789 [ZAP-daemon] INFO org.zaproxy.zap.extension.pscan.ExtensionPassiveScan  - loaded passive scan rule: X-ChromeLogger-Data (XCOLD) Header Information Leak
+4803 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Allows you to view and manage alerts
+4804 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Active scanner, heavily based on the original Paros active scanner, but with additional tests added
+4815 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing ExtensionSequence
+4817 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Spider used for automatically finding URIs on a site
+4822 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing A set of common popup menus for miscellaneous tasks
+4822 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Forced browsing of files and directories using code from the OWASP DirBuster tool
+4823 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Simple but effective port scanner
+4824 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Manual Request Editor Extension
+4824 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Compares 2 sessions and generates an HTML file showing the differences
+4824 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Invoke external applications passing context related information such as URLs and parameters
+4825 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Handles anti cross site request forgery (CSRF) tokens
+4828 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Authentication Extension
+4842 [ZAP-daemon] INFO org.zaproxy.zap.extension.authentication.ExtensionAuthentication  - Loaded authentication method types: [Form-based Authentication, HTTP/NTLM Authentication, Manual Authentication, Script-based Authentication, JSON-based Authentication]
+4843 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Creates a dynamic SSL certificate to allow SSL communications to be intercepted without warnings being generated by the browser
+4843 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Logs errors to the Output tab in development mode only
+4844 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Users Extension
+4864 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Summarise and analyse FORM and URL parameters as well as cookies
+4865 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Script integration
+4885 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Scripting console, supports all JSR 223 scripting languages
+5058 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Forced User Extension
+5060 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Extension handling HTTP sessions
+5065 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Zest is a specialized scripting language from Mozilla specifically designed to be used in security tools
+5285 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing ExtensionDiff
+5286 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing HTTP Panel Post Table View Extension
+5286 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Simple browser configuration
+5286 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Session Management Extension
+5293 [ZAP-daemon] INFO org.zaproxy.zap.extension.sessions.ExtensionSessionManagement  - Loaded session management method types: [Cookie-based Session Management, HTTP Authentication Session Management, Script-based Session Management]
+5294 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing HTTP Panel Form Table View Extension
+5294 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Capture messages from WebSockets with the ability to set breakpoints.
+5308 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Allows you to import a file containing URLs which ZAP will access, adding them to the Sites tree
+5309 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Core UI related functionality.
+5309 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Authorization Extension
+5309 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing AJAX Spider, uses Crawljax
+5311 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Provides WebDrivers to control several browsers using Selenium and includes HtmlUnit browser.
+5318 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Manages the local proxy configurations
+5319 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Add-on that adds a set of tools for testing access control in web applications.
+5320 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Handles adding Global Excluded URLs
+5321 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Adds menu item to refresh the Sites tree
+5321 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing OWASP ZAP User Guide
+5321 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Provides a URL suitable for calling from target sites
+5323 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Allows you to configure which extensions are loaded when ZAP starts
+5324 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Combined HTTP Panels Extension
+5324 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing HTTP Panel Hex View Extension
+5324 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing HTTP Panel Image View Extension
+5324 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing HTTP Panel Large Request View Extension
+5324 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing HTTP Panel Large Response View Extension
+5324 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing HTTP Panel Query Table View Extension
+5325 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing HTTP Panel Syntax Highlighter View Extension
+5325 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Adds support for configurable keyboard shortcuts for all of the ZAP menus.
+5325 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Active and passive rule configuration
+5328 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Statistics
+5329 [ZAP-daemon] INFO org.zaproxy.zap.extension.stats.ExtensionStats  - Start recording in memory stats
+5330 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Allows to fuzz WebSocket messages.
+5330 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing ExtensionSaveRawHttpMessage
+5330 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Context alert rules filter
+5332 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Allows you to spider and import OpenAPI (Swagger) definitions 
+5345 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Provides the foundation for concrete message types (for example, HTTP, WebSockets) expose fuzzer implementations.
+5346 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Allows to fuzz HTTP messages.
+5347 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Active Scan Rules - beta
+5347 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Heads Up Display
+5393 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing ExtensionHUDlaunch
+5395 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Active Scan Rules
+5396 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Adds the Quick Start panel for scanning and exploring applications
+5398 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Add the option to use the Ajax Spider in the Quick Start scan
+5398 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Launch browsers proxying through ZAP
+5399 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Launch browsers proxying through ZAP
+5400 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing ExtensionSaveXMLHttpMessage
+5400 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Passive Scan Rules
+5400 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing The Online menu links
+5400 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Easy way to replace strings in requests and responses
+5411 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing This extension allows a user to change the default values used by ZAP Spiders.
+5417 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Translations of the core language files
+5418 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Passive Scan Rules - beta
+5419 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing Tips and Tricks
+5419 [ZAP-daemon] INFO org.parosproxy.paros.extension.ExtensionLoader  - Initializing The ZAP Getting Started Guide
+5612 [ZAP-daemon] INFO org.zaproxy.zap.extension.callback.ExtensionCallback  - Started callback server on 0.0.0.0:42193
+5612 [ZAP-daemon] INFO org.zaproxy.zap.extension.dynssl.ExtensionDynSSL  - Creating new root CA certificate
+6469 [ZAP-daemon] INFO org.zaproxy.zap.extension.dynssl.ExtensionDynSSL  - New root CA certificate created
+6471 [ZAP-daemon] INFO org.zaproxy.zap.DaemonBootstrap  - ZAP is now listening on 0.0.0.0:8090
+21335 [ZAP-SpiderInitThread-0] INFO org.zaproxy.zap.extension.spider.SpiderThread  - Starting spidering scan on http://172.17.0.2 at Thu Jan 02 22:02:48 UTC 2020
+21340 [ZAP-SpiderInitThread-0] INFO org.zaproxy.zap.spider.Spider  - Spider initializing...
+21377 [ZAP-SpiderInitThread-0] INFO org.zaproxy.zap.spider.Spider  - Starting spider...
+22092 [ZAP-SpiderThreadPool-0-thread-1] WARN io.swagger.parser.util.DeserializationUtils  - Error snake-parsing yaml content
+io.swagger.parser.util.DeserializationUtils$SnakeException: Exception safe-checking yaml content  (maxDepth 2000)
+	at io.swagger.parser.util.DeserializationUtils$CustomSnakeYamlConstructor.getSingleData(DeserializationUtils.java:300)
+	at org.yaml.snakeyaml.Yaml.loadFromReader(Yaml.java:525)
+	at org.yaml.snakeyaml.Yaml.load(Yaml.java:438)
+	at io.swagger.parser.util.DeserializationUtils.readYamlTree(DeserializationUtils.java:137)
+	at io.swagger.parser.Swagger20Parser.deserializeYaml(Swagger20Parser.java:83)
+	at io.swagger.parser.Swagger20Parser.convertToSwagger(Swagger20Parser.java:125)
+	at io.swagger.parser.Swagger20Parser.parse(Swagger20Parser.java:156)
+	at io.swagger.parser.SwaggerParser.parse(SwaggerParser.java:139)
+	at io.swagger.parser.SwaggerParser.parse(SwaggerParser.java:133)
+	at org.zaproxy.zap.extension.openapi.converter.swagger.SwaggerConverter.getOpenAPI(SwaggerConverter.java:195)
+	at org.zaproxy.zap.extension.openapi.converter.swagger.SwaggerConverter.readOpenAPISpec(SwaggerConverter.java:170)
+	at org.zaproxy.zap.extension.openapi.converter.swagger.SwaggerConverter.getRequestModels(SwaggerConverter.java:157)
+	at org.zaproxy.zap.extension.openapi.OpenApiSpider.parseResource(OpenApiSpider.java:55)
+	at org.zaproxy.zap.spider.SpiderTask.processResource(SpiderTask.java:415)
+	at org.zaproxy.zap.spider.SpiderTask.runImpl(SpiderTask.java:267)
+	at org.zaproxy.zap.spider.SpiderTask.run(SpiderTask.java:190)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: mapping values are not allowed here
+ in 'string', line 3, column 36:
+    Code licensed under the BSD License:
+                                       ^
+
+	at org.yaml.snakeyaml.scanner.ScannerImpl.fetchValue(ScannerImpl.java:869)
+	at org.yaml.snakeyaml.scanner.ScannerImpl.fetchMoreTokens(ScannerImpl.java:358)
+	at org.yaml.snakeyaml.scanner.ScannerImpl.peekToken(ScannerImpl.java:250)
+	at org.yaml.snakeyaml.parser.ParserImpl$ParseDocumentEnd.produce(ParserImpl.java:253)
+	at org.yaml.snakeyaml.parser.ParserImpl.peekEvent(ParserImpl.java:158)
+	at org.yaml.snakeyaml.parser.ParserImpl.getEvent(ParserImpl.java:168)
+	at org.yaml.snakeyaml.composer.Composer.getNode(Composer.java:87)
+	at org.yaml.snakeyaml.composer.Composer.getSingleNode(Composer.java:108)
+	at io.swagger.parser.util.DeserializationUtils$CustomSnakeYamlConstructor.getSingleData(DeserializationUtils.java:279)
+	... 18 more
+22092 [ZAP-SpiderThreadPool-0-thread-2] WARN io.swagger.parser.util.DeserializationUtils  - Error snake-parsing yaml content
 io.swagger.parser.util.DeserializationUtils$SnakeException: Exception safe-checking yaml content  (maxDepth 2000)
 	at io.swagger.parser.util.DeserializationUtils$CustomSnakeYamlConstructor.getSingleData(DeserializationUtils.java:300)
 	at org.yaml.snakeyaml.Yaml.loadFromReader(Yaml.java:525)
@@ -198,18 +234,21 @@ Caused by: mapping values are not allowed here
 	at org.yaml.snakeyaml.composer.Composer.getSingleNode(Composer.java:108)
 	at io.swagger.parser.util.DeserializationUtils$CustomSnakeYamlConstructor.getSingleData(DeserializationUtils.java:279)
 	... 18 more
-22498 [ZAP-SpiderThreadPool-0-thread-1] WARN io.swagger.parser.util.DeserializationUtils  - Error snake-parsing yaml content
-io.swagger.parser.util.DeserializationUtils$SnakeException: Exception safe-checking yaml content  (maxDepth 2000)
-	at io.swagger.parser.util.DeserializationUtils$CustomSnakeYamlConstructor.getSingleData(DeserializationUtils.java:300)
-	at org.yaml.snakeyaml.Yaml.loadFromReader(Yaml.java:525)
-	at org.yaml.snakeyaml.Yaml.load(Yaml.java:438)
-	at io.swagger.parser.util.DeserializationUtils.readYamlTree(DeserializationUtils.java:137)
-	at io.swagger.parser.Swagger20Parser.deserializeYaml(Swagger20Parser.java:83)
-	at io.swagger.parser.Swagger20Parser.convertToSwagger(Swagger20Parser.java:125)
-	at io.swagger.parser.Swagger20Parser.parse(Swagger20Parser.java:156)
-	at io.swagger.parser.SwaggerParser.parse(SwaggerParser.java:139)
-	at io.swagger.parser.SwaggerParser.parse(SwaggerParser.java:133)
-	at org.zaproxy.zap.extension.openapi.converter.swagger.SwaggerConverter.getOpenAPI(SwaggerConverter.java:195)
+22127 [ZAP-SpiderThreadPool-0-thread-2] ERROR io.swagger.parser.SwaggerCompatConverter  - failed to read resource listing
+com.fasterxml.jackson.core.JsonParseException: Unexpected character ('(' (code 40)): expected a valid value (JSON String, Number, Array, Object or token 'null', 'true' or 'false')
+ at [Source: (StringReader); line: 1, column: 2]
+	at com.fasterxml.jackson.core.JsonParser._constructError(JsonParser.java:1840)
+	at com.fasterxml.jackson.core.base.ParserMinimalBase._reportError(ParserMinimalBase.java:712)
+	at com.fasterxml.jackson.core.base.ParserMinimalBase._reportUnexpectedChar(ParserMinimalBase.java:637)
+	at com.fasterxml.jackson.core.json.ReaderBasedJsonParser._handleOddValue(ReaderBasedJsonParser.java:1917)
+	at com.fasterxml.jackson.core.json.ReaderBasedJsonParser.nextToken(ReaderBasedJsonParser.java:773)
+	at com.fasterxml.jackson.databind.ObjectMapper._readTreeAndClose(ObjectMapper.java:4231)
+	at com.fasterxml.jackson.databind.ObjectMapper.readTree(ObjectMapper.java:2711)
+	at io.swagger.parser.SwaggerCompatConverter.readResourceListing(SwaggerCompatConverter.java:210)
+	at io.swagger.parser.SwaggerCompatConverter.read(SwaggerCompatConverter.java:123)
+	at io.swagger.parser.SwaggerCompatConverter.read(SwaggerCompatConverter.java:114)
+	at org.zaproxy.zap.extension.openapi.converter.swagger.SwaggerConverter.convertV1ToV2(SwaggerConverter.java:216)
+	at org.zaproxy.zap.extension.openapi.converter.swagger.SwaggerConverter.getOpenAPI(SwaggerConverter.java:197)
 	at org.zaproxy.zap.extension.openapi.converter.swagger.SwaggerConverter.readOpenAPISpec(SwaggerConverter.java:170)
 	at org.zaproxy.zap.extension.openapi.converter.swagger.SwaggerConverter.getRequestModels(SwaggerConverter.java:157)
 	at org.zaproxy.zap.extension.openapi.OpenApiSpider.parseResource(OpenApiSpider.java:55)
@@ -219,22 +258,7 @@ io.swagger.parser.util.DeserializationUtils$SnakeException: Exception safe-check
 	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
 	at java.lang.Thread.run(Thread.java:748)
-Caused by: mapping values are not allowed here
- in 'string', line 3, column 36:
-    Code licensed under the BSD License:
-                                       ^
-
-	at org.yaml.snakeyaml.scanner.ScannerImpl.fetchValue(ScannerImpl.java:869)
-	at org.yaml.snakeyaml.scanner.ScannerImpl.fetchMoreTokens(ScannerImpl.java:358)
-	at org.yaml.snakeyaml.scanner.ScannerImpl.peekToken(ScannerImpl.java:250)
-	at org.yaml.snakeyaml.parser.ParserImpl$ParseDocumentEnd.produce(ParserImpl.java:253)
-	at org.yaml.snakeyaml.parser.ParserImpl.peekEvent(ParserImpl.java:158)
-	at org.yaml.snakeyaml.parser.ParserImpl.getEvent(ParserImpl.java:168)
-	at org.yaml.snakeyaml.composer.Composer.getNode(Composer.java:87)
-	at org.yaml.snakeyaml.composer.Composer.getSingleNode(Composer.java:108)
-	at io.swagger.parser.util.DeserializationUtils$CustomSnakeYamlConstructor.getSingleData(DeserializationUtils.java:279)
-	... 18 more
-22533 [ZAP-SpiderThreadPool-0-thread-1] ERROR io.swagger.parser.SwaggerCompatConverter  - failed to read resource listing
+22128 [ZAP-SpiderThreadPool-0-thread-1] ERROR io.swagger.parser.SwaggerCompatConverter  - failed to read resource listing
 com.fasterxml.jackson.core.JsonParseException: Unexpected character ('/' (code 47)): maybe a (non-standard) comment? (not recognized as one since Feature 'ALLOW_COMMENTS' not enabled for parser)
  at [Source: (String)"/*
 Copyright (c) 2007, Yahoo! Inc. All rights reserved.
@@ -266,31 +290,7 @@ if(typeof YAHOO=="undefined"||!YAHOO){var YAHOO={};}YAHOO.namespace=function(){v
 	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
 	at java.lang.Thread.run(Thread.java:748)
-22533 [ZAP-SpiderThreadPool-0-thread-2] ERROR io.swagger.parser.SwaggerCompatConverter  - failed to read resource listing
-com.fasterxml.jackson.core.JsonParseException: Unexpected character ('(' (code 40)): expected a valid value (JSON String, Number, Array, Object or token 'null', 'true' or 'false')
- at [Source: (StringReader); line: 1, column: 2]
-	at com.fasterxml.jackson.core.JsonParser._constructError(JsonParser.java:1840)
-	at com.fasterxml.jackson.core.base.ParserMinimalBase._reportError(ParserMinimalBase.java:712)
-	at com.fasterxml.jackson.core.base.ParserMinimalBase._reportUnexpectedChar(ParserMinimalBase.java:637)
-	at com.fasterxml.jackson.core.json.ReaderBasedJsonParser._handleOddValue(ReaderBasedJsonParser.java:1917)
-	at com.fasterxml.jackson.core.json.ReaderBasedJsonParser.nextToken(ReaderBasedJsonParser.java:773)
-	at com.fasterxml.jackson.databind.ObjectMapper._readTreeAndClose(ObjectMapper.java:4231)
-	at com.fasterxml.jackson.databind.ObjectMapper.readTree(ObjectMapper.java:2711)
-	at io.swagger.parser.SwaggerCompatConverter.readResourceListing(SwaggerCompatConverter.java:210)
-	at io.swagger.parser.SwaggerCompatConverter.read(SwaggerCompatConverter.java:123)
-	at io.swagger.parser.SwaggerCompatConverter.read(SwaggerCompatConverter.java:114)
-	at org.zaproxy.zap.extension.openapi.converter.swagger.SwaggerConverter.convertV1ToV2(SwaggerConverter.java:216)
-	at org.zaproxy.zap.extension.openapi.converter.swagger.SwaggerConverter.getOpenAPI(SwaggerConverter.java:197)
-	at org.zaproxy.zap.extension.openapi.converter.swagger.SwaggerConverter.readOpenAPISpec(SwaggerConverter.java:170)
-	at org.zaproxy.zap.extension.openapi.converter.swagger.SwaggerConverter.getRequestModels(SwaggerConverter.java:157)
-	at org.zaproxy.zap.extension.openapi.OpenApiSpider.parseResource(OpenApiSpider.java:55)
-	at org.zaproxy.zap.spider.SpiderTask.processResource(SpiderTask.java:415)
-	at org.zaproxy.zap.spider.SpiderTask.runImpl(SpiderTask.java:267)
-	at org.zaproxy.zap.spider.SpiderTask.run(SpiderTask.java:190)
-	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
-	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
-	at java.lang.Thread.run(Thread.java:748)
-22639 [ZAP-SpiderThreadPool-0-thread-1] WARN io.swagger.parser.util.DeserializationUtils  - Error snake-parsing yaml content
+22250 [ZAP-SpiderThreadPool-0-thread-1] WARN io.swagger.parser.util.DeserializationUtils  - Error snake-parsing yaml content
 io.swagger.parser.util.DeserializationUtils$SnakeException: Exception safe-checking yaml content  (maxDepth 2000)
 	at io.swagger.parser.util.DeserializationUtils$CustomSnakeYamlConstructor.getSingleData(DeserializationUtils.java:300)
 	at org.yaml.snakeyaml.Yaml.loadFromReader(Yaml.java:525)
@@ -326,7 +326,7 @@ Caused by: mapping values are not allowed here
 	at org.yaml.snakeyaml.composer.Composer.getSingleNode(Composer.java:108)
 	at io.swagger.parser.util.DeserializationUtils$CustomSnakeYamlConstructor.getSingleData(DeserializationUtils.java:279)
 	... 18 more
-22643 [ZAP-SpiderThreadPool-0-thread-1] ERROR io.swagger.parser.SwaggerCompatConverter  - failed to read resource listing
+22254 [ZAP-SpiderThreadPool-0-thread-1] ERROR io.swagger.parser.SwaggerCompatConverter  - failed to read resource listing
 com.fasterxml.jackson.core.JsonParseException: Unexpected character ('/' (code 47)): maybe a (non-standard) comment? (not recognized as one since Feature 'ALLOW_COMMENTS' not enabled for parser)
  at [Source: (String)"/*
 Copyright (c) 2007, Yahoo! Inc. All rights reserved.
@@ -358,7 +358,7 @@ YAHOO.util.CustomEvent=function(D,B,C,A){this.type=D;this.scope=B||window;this.s
 	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
 	at java.lang.Thread.run(Thread.java:748)
-22665 [ZAP-SpiderThreadPool-0-thread-1] WARN io.swagger.parser.util.DeserializationUtils  - Error snake-parsing yaml content
+22255 [ZAP-SpiderThreadPool-0-thread-2] WARN io.swagger.parser.util.DeserializationUtils  - Error snake-parsing yaml content
 io.swagger.parser.util.DeserializationUtils$SnakeException: Exception safe-checking yaml content  (maxDepth 2000)
 	at io.swagger.parser.util.DeserializationUtils$CustomSnakeYamlConstructor.getSingleData(DeserializationUtils.java:300)
 	at org.yaml.snakeyaml.Yaml.loadFromReader(Yaml.java:525)
@@ -394,7 +394,7 @@ Caused by: mapping values are not allowed here
 	at org.yaml.snakeyaml.composer.Composer.getSingleNode(Composer.java:108)
 	at io.swagger.parser.util.DeserializationUtils$CustomSnakeYamlConstructor.getSingleData(DeserializationUtils.java:279)
 	... 18 more
-22671 [ZAP-SpiderThreadPool-0-thread-1] ERROR io.swagger.parser.SwaggerCompatConverter  - failed to read resource listing
+22259 [ZAP-SpiderThreadPool-0-thread-2] ERROR io.swagger.parser.SwaggerCompatConverter  - failed to read resource listing
 com.fasterxml.jackson.core.JsonParseException: Unexpected character ('/' (code 47)): maybe a (non-standard) comment? (not recognized as one since Feature 'ALLOW_COMMENTS' not enabled for parser)
  at [Source: (String)"/*
 Copyright (c) 2007, Yahoo! Inc. All rights reserved.
@@ -426,7 +426,7 @@ YAHOO.util.Connect={_msxml_progid:["Microsoft.XMLHTTP","MSXML2.XMLHTTP.3.0","MSX
 	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
 	at java.lang.Thread.run(Thread.java:748)
-22735 [ZAP-SpiderThreadPool-0-thread-1] ERROR io.swagger.parser.SwaggerCompatConverter  - failed to read resource listing
+22356 [ZAP-SpiderThreadPool-0-thread-1] ERROR io.swagger.parser.SwaggerCompatConverter  - failed to read resource listing
 com.fasterxml.jackson.core.JsonParseException: Unexpected character ('/' (code 47)): maybe a (non-standard) comment? (not recognized as one since Feature 'ALLOW_COMMENTS' not enabled for parser)
  at [Source: (String)"/*
  * Ext JS Library 3.0.3
@@ -458,7 +458,7 @@ window.undefined=window.undefined;Ext={version:"3.0.3"};Ext.apply=function(d,e,b
 	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
 	at java.lang.Thread.run(Thread.java:748)
-22755 [ZAP-SpiderThreadPool-0-thread-2] WARN io.swagger.parser.util.DeserializationUtils  - Error snake-parsing yaml content
+22366 [ZAP-SpiderThreadPool-0-thread-2] WARN io.swagger.parser.util.DeserializationUtils  - Error snake-parsing yaml content
 io.swagger.parser.util.DeserializationUtils$SnakeException: Exception safe-checking yaml content  (maxDepth 2000)
 	at io.swagger.parser.util.DeserializationUtils$CustomSnakeYamlConstructor.getSingleData(DeserializationUtils.java:300)
 	at org.yaml.snakeyaml.Yaml.loadFromReader(Yaml.java:525)
@@ -494,7 +494,7 @@ Caused by: mapping values are not allowed here
 	at org.yaml.snakeyaml.composer.Composer.getSingleNode(Composer.java:108)
 	at io.swagger.parser.util.DeserializationUtils$CustomSnakeYamlConstructor.getSingleData(DeserializationUtils.java:279)
 	... 18 more
-22757 [ZAP-SpiderThreadPool-0-thread-1] ERROR io.swagger.parser.SwaggerCompatConverter  - failed to read resource listing
+22370 [ZAP-SpiderThreadPool-0-thread-1] ERROR io.swagger.parser.SwaggerCompatConverter  - failed to read resource listing
 com.fasterxml.jackson.core.JsonParseException: Unexpected character ('/' (code 47)): maybe a (non-standard) comment? (not recognized as one since Feature 'ALLOW_COMMENTS' not enabled for parser)
  at [Source: (String)"/*!
  * Ext JS Library 3.0.3
@@ -535,33 +535,7 @@ Ext.exampledata.states = [
 	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
 	at java.lang.Thread.run(Thread.java:748)
-22770 [ZAP-SpiderThreadPool-0-thread-2] ERROR io.swagger.parser.SwaggerCompatConverter  - failed to read resource listing
-com.fasterxml.jackson.core.JsonParseException: Unexpected character ('/' (code 47)): maybe a (non-standard) comment? (not recognized as one since Feature 'ALLOW_COMMENTS' not enabled for parser)
- at [Source: (StringReader); line: 1, column: 2]
-	at com.fasterxml.jackson.core.JsonParser._constructError(JsonParser.java:1840)
-	at com.fasterxml.jackson.core.base.ParserMinimalBase._reportError(ParserMinimalBase.java:712)
-	at com.fasterxml.jackson.core.base.ParserMinimalBase._reportUnexpectedChar(ParserMinimalBase.java:637)
-	at com.fasterxml.jackson.core.json.ReaderBasedJsonParser._skipComment(ReaderBasedJsonParser.java:2436)
-	at com.fasterxml.jackson.core.json.ReaderBasedJsonParser._skipWSOrEnd2(ReaderBasedJsonParser.java:2411)
-	at com.fasterxml.jackson.core.json.ReaderBasedJsonParser._skipWSOrEnd(ReaderBasedJsonParser.java:2362)
-	at com.fasterxml.jackson.core.json.ReaderBasedJsonParser.nextToken(ReaderBasedJsonParser.java:672)
-	at com.fasterxml.jackson.databind.ObjectMapper._readTreeAndClose(ObjectMapper.java:4231)
-	at com.fasterxml.jackson.databind.ObjectMapper.readTree(ObjectMapper.java:2711)
-	at io.swagger.parser.SwaggerCompatConverter.readResourceListing(SwaggerCompatConverter.java:210)
-	at io.swagger.parser.SwaggerCompatConverter.read(SwaggerCompatConverter.java:123)
-	at io.swagger.parser.SwaggerCompatConverter.read(SwaggerCompatConverter.java:114)
-	at org.zaproxy.zap.extension.openapi.converter.swagger.SwaggerConverter.convertV1ToV2(SwaggerConverter.java:216)
-	at org.zaproxy.zap.extension.openapi.converter.swagger.SwaggerConverter.getOpenAPI(SwaggerConverter.java:197)
-	at org.zaproxy.zap.extension.openapi.converter.swagger.SwaggerConverter.readOpenAPISpec(SwaggerConverter.java:170)
-	at org.zaproxy.zap.extension.openapi.converter.swagger.SwaggerConverter.getRequestModels(SwaggerConverter.java:157)
-	at org.zaproxy.zap.extension.openapi.OpenApiSpider.parseResource(OpenApiSpider.java:55)
-	at org.zaproxy.zap.spider.SpiderTask.processResource(SpiderTask.java:415)
-	at org.zaproxy.zap.spider.SpiderTask.runImpl(SpiderTask.java:267)
-	at org.zaproxy.zap.spider.SpiderTask.run(SpiderTask.java:190)
-	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
-	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
-	at java.lang.Thread.run(Thread.java:748)
-22782 [ZAP-SpiderThreadPool-0-thread-1] WARN io.swagger.parser.util.DeserializationUtils  - Error snake-parsing yaml content
+22381 [ZAP-SpiderThreadPool-0-thread-1] WARN io.swagger.parser.util.DeserializationUtils  - Error snake-parsing yaml content
 io.swagger.parser.util.DeserializationUtils$SnakeException: Exception safe-checking yaml content  (maxDepth 2000)
 	at io.swagger.parser.util.DeserializationUtils$CustomSnakeYamlConstructor.getSingleData(DeserializationUtils.java:300)
 	at org.yaml.snakeyaml.Yaml.loadFromReader(Yaml.java:525)
@@ -597,7 +571,7 @@ Caused by: mapping values are not allowed here
 	at org.yaml.snakeyaml.composer.Composer.getSingleNode(Composer.java:108)
 	at io.swagger.parser.util.DeserializationUtils$CustomSnakeYamlConstructor.getSingleData(DeserializationUtils.java:279)
 	... 18 more
-22783 [ZAP-SpiderThreadPool-0-thread-1] ERROR io.swagger.parser.SwaggerCompatConverter  - failed to read resource listing
+22383 [ZAP-SpiderThreadPool-0-thread-1] ERROR io.swagger.parser.SwaggerCompatConverter  - failed to read resource listing
 com.fasterxml.jackson.core.JsonParseException: Unexpected character ('/' (code 47)): maybe a (non-standard) comment? (not recognized as one since Feature 'ALLOW_COMMENTS' not enabled for parser)
  at [Source: (String)"/*!
  * Ext JS Library 3.0.3
@@ -646,7 +620,33 @@ Ext.onReady(function(){
 	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
 	at java.lang.Thread.run(Thread.java:748)
-22825 [ZAP-SpiderThreadPool-0-thread-1] WARN io.swagger.parser.util.DeserializationUtils  - Error snake-parsing yaml content
+22385 [ZAP-SpiderThreadPool-0-thread-2] ERROR io.swagger.parser.SwaggerCompatConverter  - failed to read resource listing
+com.fasterxml.jackson.core.JsonParseException: Unexpected character ('/' (code 47)): maybe a (non-standard) comment? (not recognized as one since Feature 'ALLOW_COMMENTS' not enabled for parser)
+ at [Source: (StringReader); line: 1, column: 2]
+	at com.fasterxml.jackson.core.JsonParser._constructError(JsonParser.java:1840)
+	at com.fasterxml.jackson.core.base.ParserMinimalBase._reportError(ParserMinimalBase.java:712)
+	at com.fasterxml.jackson.core.base.ParserMinimalBase._reportUnexpectedChar(ParserMinimalBase.java:637)
+	at com.fasterxml.jackson.core.json.ReaderBasedJsonParser._skipComment(ReaderBasedJsonParser.java:2436)
+	at com.fasterxml.jackson.core.json.ReaderBasedJsonParser._skipWSOrEnd2(ReaderBasedJsonParser.java:2411)
+	at com.fasterxml.jackson.core.json.ReaderBasedJsonParser._skipWSOrEnd(ReaderBasedJsonParser.java:2362)
+	at com.fasterxml.jackson.core.json.ReaderBasedJsonParser.nextToken(ReaderBasedJsonParser.java:672)
+	at com.fasterxml.jackson.databind.ObjectMapper._readTreeAndClose(ObjectMapper.java:4231)
+	at com.fasterxml.jackson.databind.ObjectMapper.readTree(ObjectMapper.java:2711)
+	at io.swagger.parser.SwaggerCompatConverter.readResourceListing(SwaggerCompatConverter.java:210)
+	at io.swagger.parser.SwaggerCompatConverter.read(SwaggerCompatConverter.java:123)
+	at io.swagger.parser.SwaggerCompatConverter.read(SwaggerCompatConverter.java:114)
+	at org.zaproxy.zap.extension.openapi.converter.swagger.SwaggerConverter.convertV1ToV2(SwaggerConverter.java:216)
+	at org.zaproxy.zap.extension.openapi.converter.swagger.SwaggerConverter.getOpenAPI(SwaggerConverter.java:197)
+	at org.zaproxy.zap.extension.openapi.converter.swagger.SwaggerConverter.readOpenAPISpec(SwaggerConverter.java:170)
+	at org.zaproxy.zap.extension.openapi.converter.swagger.SwaggerConverter.getRequestModels(SwaggerConverter.java:157)
+	at org.zaproxy.zap.extension.openapi.OpenApiSpider.parseResource(OpenApiSpider.java:55)
+	at org.zaproxy.zap.spider.SpiderTask.processResource(SpiderTask.java:415)
+	at org.zaproxy.zap.spider.SpiderTask.runImpl(SpiderTask.java:267)
+	at org.zaproxy.zap.spider.SpiderTask.run(SpiderTask.java:190)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+22404 [ZAP-SpiderThreadPool-0-thread-1] WARN io.swagger.parser.util.DeserializationUtils  - Error snake-parsing yaml content
 io.swagger.parser.util.DeserializationUtils$SnakeException: Exception safe-checking yaml content  (maxDepth 2000)
 	at io.swagger.parser.util.DeserializationUtils$CustomSnakeYamlConstructor.getSingleData(DeserializationUtils.java:300)
 	at org.yaml.snakeyaml.Yaml.loadFromReader(Yaml.java:525)
@@ -682,7 +682,7 @@ Caused by: mapping values are not allowed here
 	at org.yaml.snakeyaml.composer.Composer.getSingleNode(Composer.java:108)
 	at io.swagger.parser.util.DeserializationUtils$CustomSnakeYamlConstructor.getSingleData(DeserializationUtils.java:279)
 	... 18 more
-22829 [ZAP-SpiderThreadPool-0-thread-1] ERROR io.swagger.parser.SwaggerCompatConverter  - failed to read resource listing
+22406 [ZAP-SpiderThreadPool-0-thread-1] ERROR io.swagger.parser.SwaggerCompatConverter  - failed to read resource listing
 com.fasterxml.jackson.core.JsonParseException: Unexpected character ('/' (code 47)): maybe a (non-standard) comment? (not recognized as one since Feature 'ALLOW_COMMENTS' not enabled for parser)
  at [Source: (String)"// Flash Player Version Detection - Rev 1.6
 // Detect Client Browser type
@@ -721,7 +721,7 @@ function ControlVersion()
 	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
 	at java.lang.Thread.run(Thread.java:748)
-22852 [ZAP-SpiderThreadPool-0-thread-2] WARN io.swagger.parser.util.DeserializationUtils  - Error snake-parsing yaml content
+22422 [ZAP-SpiderThreadPool-0-thread-2] WARN io.swagger.parser.util.DeserializationUtils  - Error snake-parsing yaml content
 io.swagger.parser.util.DeserializationUtils$SnakeException: Exception safe-checking yaml content  (maxDepth 2000)
 	at io.swagger.parser.util.DeserializationUtils$CustomSnakeYamlConstructor.getSingleData(DeserializationUtils.java:300)
 	at org.yaml.snakeyaml.Yaml.loadFromReader(Yaml.java:525)
@@ -757,7 +757,7 @@ Caused by: mapping values are not allowed here
 	at org.yaml.snakeyaml.composer.Composer.getSingleNode(Composer.java:108)
 	at io.swagger.parser.util.DeserializationUtils$CustomSnakeYamlConstructor.getSingleData(DeserializationUtils.java:279)
 	... 18 more
-22856 [ZAP-SpiderThreadPool-0-thread-2] ERROR io.swagger.parser.SwaggerCompatConverter  - failed to read resource listing
+22424 [ZAP-SpiderThreadPool-0-thread-2] ERROR io.swagger.parser.SwaggerCompatConverter  - failed to read resource listing
 com.fasterxml.jackson.core.JsonParseException: Unrecognized token 'BrowserHistoryUtils': was expecting (JSON String, Number, Array, Object or token 'null', 'true' or 'false')
  at [Source: (String)"BrowserHistoryUtils = {
     addEvent: function(elm, evType, fn, useCapture) {
@@ -799,14 +799,14 @@ BrowserHistory = (function() {
 	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
 	at java.lang.Thread.run(Thread.java:748)
-22897 [ZAP-SpiderThreadPool-0-thread-1] INFO org.zaproxy.zap.spider.Spider  - Spidering process is complete. Shutting down...
-22898 [ZAP-SpiderShutdownThread-0] INFO org.zaproxy.zap.extension.spider.SpiderThread  - Spider scanning complete: true
-31631 [ZAP-AjaxSpiderApi] INFO org.zaproxy.zap.extension.spiderAjax.SpiderThread  - Running Crawljax (with htmlunit): API - http://172.17.0.2/
-31633 [ZAP-AjaxSpiderApi] INFO org.zaproxy.zap.extension.spiderAjax.SpiderThread  - Starting proxy...
-31633 [ZAP-AjaxSpiderApi] INFO org.zaproxy.zap.extension.spiderAjax.SpiderThread  - Proxy started, listening at port [40898].
-31892 [ZAP-AjaxSpiderApi] INFO com.crawljax.core.plugin.Plugins  - Loaded org.zaproxy.zap.extension.spiderAjax.SpiderThread$DummyPlugin@18e9d71b as a OnBrowserCreatedPlugin
-238171 [pool-2-thread-1] WARN com.gargoylesoftware.htmlunit.IncorrectnessListenerImpl  - Expected content type of 'application/javascript' or 'application/ecmascript' for remotely loaded JavaScript element at 'http://172.17.0.2/innerpages/21_1f822.php', but got 'text/html'.
-238175 [pool-2-thread-1] ERROR com.gargoylesoftware.htmlunit.javascript.DefaultJavaScriptErrorListener  - Error during JavaScript execution
+22467 [ZAP-SpiderThreadPool-0-thread-2] INFO org.zaproxy.zap.spider.Spider  - Spidering process is complete. Shutting down...
+22470 [ZAP-SpiderShutdownThread-0] INFO org.zaproxy.zap.extension.spider.SpiderThread  - Spider scanning complete: true
+31370 [ZAP-AjaxSpiderApi] INFO org.zaproxy.zap.extension.spiderAjax.SpiderThread  - Running Crawljax (with htmlunit): API - http://172.17.0.2/
+31372 [ZAP-AjaxSpiderApi] INFO org.zaproxy.zap.extension.spiderAjax.SpiderThread  - Starting proxy...
+31372 [ZAP-AjaxSpiderApi] INFO org.zaproxy.zap.extension.spiderAjax.SpiderThread  - Proxy started, listening at port [40922].
+31793 [ZAP-AjaxSpiderApi] INFO com.crawljax.core.plugin.Plugins  - Loaded org.zaproxy.zap.extension.spiderAjax.SpiderThread$DummyPlugin@5830d01d as a OnBrowserCreatedPlugin
+237407 [pool-2-thread-1] WARN com.gargoylesoftware.htmlunit.IncorrectnessListenerImpl  - Expected content type of 'application/javascript' or 'application/ecmascript' for remotely loaded JavaScript element at 'http://172.17.0.2/innerpages/21_1f822.php', but got 'text/html'.
+237414 [pool-2-thread-1] ERROR com.gargoylesoftware.htmlunit.javascript.DefaultJavaScriptErrorListener  - Error during JavaScript execution
 ======= EXCEPTION START ========
 Exception class=[net.sourceforge.htmlunit.corejs.javascript.EvaluatorException]
 com.gargoylesoftware.htmlunit.ScriptException: illegally formed XML syntax (http://172.17.0.2/innerpages/21_1f822.php#11)
@@ -982,8 +982,8 @@ net.sourceforge.htmlunit.corejs.javascript.EvaluatorException: illegally formed 
 
 ======= EXCEPTION END ========
 illegally formed XML syntax (http://172.17.0.2/innerpages/21_1f822.php#11)
-457707 [ZAP-AjaxSpiderApi] INFO com.crawljax.core.CrawlController  - Received shutdown notice. Reason is Exausted
-457725 [ZAP-AjaxSpiderApi] INFO com.crawljax.core.CrawlController  - Shutdown process complete
-457725 [ZAP-AjaxSpiderApi] INFO org.zaproxy.zap.extension.spiderAjax.SpiderThread  - Stopping proxy...
-457826 [ZAP-AjaxSpiderApi] INFO org.zaproxy.zap.extension.spiderAjax.SpiderThread  - Proxy stopped.
-457826 [ZAP-AjaxSpiderApi] INFO org.zaproxy.zap.extension.spiderAjax.SpiderThread  - Finished Crawljax: API - http://172.17.0.2/
+456859 [ZAP-AjaxSpiderApi] INFO com.crawljax.core.CrawlController  - Received shutdown notice. Reason is Exausted
+456872 [ZAP-AjaxSpiderApi] INFO com.crawljax.core.CrawlController  - Shutdown process complete
+456872 [ZAP-AjaxSpiderApi] INFO org.zaproxy.zap.extension.spiderAjax.SpiderThread  - Stopping proxy...
+456973 [ZAP-AjaxSpiderApi] INFO org.zaproxy.zap.extension.spiderAjax.SpiderThread  - Proxy stopped.
+456973 [ZAP-AjaxSpiderApi] INFO org.zaproxy.zap.extension.spiderAjax.SpiderThread  - Finished Crawljax: API - http://172.17.0.2/
