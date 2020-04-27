@@ -39,6 +39,6 @@ for file in files:
         # Ignore the first as its just for getting a baseline
         first = 0
       else:
-        print "        ['%s', %d, %d, %d, %d, %d, %d, %d, '']," % (file[-15:-5], 
-          assets[WIN64], assets[WIN32], assets[UNIX], assets[LINUX], assets[MAC], assets[CROSS], assets[CORE])
+        print("        ['%s', %d, %d, %d, %d, %d, %d, %d, '']," % (file[-15:-5], 
+          assets[WIN64], assets[WIN32], assets[UNIX], assets[LINUX], assets[MAC], assets[CROSS], assets[CORE]))
     

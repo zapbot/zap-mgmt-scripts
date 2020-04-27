@@ -16,11 +16,11 @@ def main(argv):
    try:
       opts, args = getopt.getopt(argv,"haz:w:p:",["zap=","wavsep=","ajax","policy="])
    except getopt.GetoptError:
-      print 'test.py -z <ZAPipaddr> -w <WAVSEPipaddr>'
+      print('test.py -z <ZAPipaddr> -w <WAVSEPipaddr>')
       sys.exit(2)
    for opt, arg in opts:
       if opt == '-h':
-         print 'test.py -z <ZAPipaddr> -w <WAVSEPipaddr> -p <scanPolicy> -a'
+         print('test.py -z <ZAPipaddr> -w <WAVSEPipaddr> -p <scanPolicy> -a')
          sys.exit()
       elif opt in ("-z", "--zap"):
          zapHostIp = arg
@@ -30,8 +30,8 @@ def main(argv):
          ajax = True
       elif opt in ("-p", "--policy"):
          policy = arg
-   print 'zap is', zapHostIp
-   print 'wavsep is ', wavsepHostIp
+   print('zap is', zapHostIp)
+   print('wavsep is ', wavsepHostIp)
    
    # change this IP according to your environment
    
@@ -72,32 +72,32 @@ def main(argv):
    zap.urlopen(activeIndexPage)
    time.sleep(2)
 
-   print 'Spidering %s' % activeIndexPage
+   print('Spidering %s' % activeIndexPage)
    zap.spider.scan(activeIndexPage)
    # Give the Spider a chance to start
    time.sleep(5)
    while (int(zap.spider.status()) < 100):
-       print 'Spider progress %: ' + zap.spider.status()
+       print('Spider progress %: ' + zap.spider.status())
        time.sleep(5)
 
-   print 'Spider completed'
+   print('Spider completed')
    time.sleep(5)
    
    if (ajax):
        # Run the Ajax Spider
-       print 'Ajax Spidering %s' % activeIndexPage
+       print('Ajax Spidering %s' % activeIndexPage)
        zap.ajaxSpider.scan(activeIndexPage)
        # Give the Ajax Spider a chance to start
        time.sleep(5)
        while (zap.ajaxSpider.status == 'running'):
-           print 'Ajax spider still running, results: ' + zap.ajaxSpider.number_of_results
+           print('Ajax spider still running, results: ' + zap.ajaxSpider.number_of_results)
            time.sleep(5)
-       print 'Ajax Spider completed'
+       print('Ajax Spider completed')
        time.sleep(5)
 
    # Create the policy
 
-   print 'Scanning target %s' % target
+   print('Scanning target %s' % target)
    if (policy):
        zap.ascan.scan(target, scanpolicyname=policy)
    else:
@@ -105,10 +105,10 @@ def main(argv):
    # Give the Scanner a chance to start
    time.sleep(5)
    while (int(zap.ascan.status()) < 100):
-       print 'Scan progress %: ' + zap.ascan.status()
+       print('Scan progress %: ' + zap.ascan.status())
        time.sleep(5)
        
-   print 'Scan completed'
+   print('Scan completed')
 
 if __name__ == "__main__":
    main(sys.argv[1:])   

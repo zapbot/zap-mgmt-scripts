@@ -1,1 +1,1 @@
-/usr/bin/python rndtweet.py
+/usr/bin/python3 rndtweet.py

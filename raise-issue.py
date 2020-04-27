@@ -28,10 +28,10 @@ def make_github_issue(title, owner, repo, user, password, body=None, assignee=No
     # Add the issue to our repository
     r = session.post(url, json.dumps(issue))
     if r.status_code == 201:
-        print 'Successfully created Issue "%s"' % title
+        print('Successfully created Issue "%s"' % title)
     else:
-        print 'Could not create Issue "%s"' % title
-        print 'Response:', r.content
+        print('Could not create Issue "%s"' % title)
+        print('Response:', r.content)
 
 
 def get_args():
