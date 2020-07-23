@@ -1,0 +1,47 @@
+name: Update Download Stats
+
+on:
+  schedule:
+    - cron:  '0 0 * * *'
+  workflow_dispatch:
+
+jobs:
+  record_stats:
+    name: Record Stats
+    runs-on: ubuntu-latest
+    steps:
+    - name: Setup Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: '3.x'
+    - name: Build and push update
+      run: |
+        # Setup git details
+        export GITHUB_USER=zapbot
+        export GITHUB_TOKEN=${{ secrets.ZAPBOT_TOKEN }}
+        git config --global user.email "12745184+zapbot@users.noreply.github.com"
+        git config --global user.name $GITHUB_USER
+        git clone https://github.com/$GITHUB_USER/zap-mgmt-scripts.git
+        cp -R zap-mgmt-scripts/ master
+        cp -R zap-mgmt-scripts/ gh-pages
+        cd gh-pages
+        git checkout gh-pages
+        git remote set-url origin https://$GITHUB_USER:$GITHUB_TOKEN@github.com/$GITHUB_USER/zap-mgmt-scripts.git
+        # Setup env vars for later
+        export PAGES_ROOT=$(pwd)
+        cd ../master
+        export MASTER_ROOT=$(pwd)
+        export DATE=$(date --rfc-3339 date)
+        # Record the download stats
+        curl https://api.github.com/repos/zaproxy/zaproxy/releases > $PAGES_ROOT/stats/releases-${DATE}.json
+        # Generate the ZAP download page
+        rm -f $PAGES_ROOT/downloads.html
+        cat $PAGES_ROOT/download.head > $PAGES_ROOT/downloads.html
+        cd $PAGES_ROOT
+        python $MASTER_ROOT/count-zap-downloads.py >> $PAGES_ROOT/downloads.html
+        cat $PAGES_ROOT/download.tail >> $PAGES_ROOT/downloads.html
+        # Push to the repo
+        cd $PAGES_ROOT
+        git add downloads.html stats date.txt
+        git commit -m "Stats for ${DATE}" --signoff
+        git push origin

@@ -4,20 +4,20 @@
 import glob,json,os,sys
 
 # The file names
-REL = '2.7.0'
-CORE = 'ZAP_2.7.0_Core.tar.gz'
-CROSS = 'ZAP_2.7.0_Crossplatform.zip'
-LINUX = 'ZAP_2.7.0_Linux.tar.gz'
-UNIX = 'ZAP_2_7_0_unix.sh'
-MAC = 'ZAP_2.7.0.dmg'
-WIN32 = 'ZAP_2_7_0_windows-x32.exe'
-WIN64 = 'ZAP_2_7_0_windows.exe'
+REL = 'v2.9.0'
+CORE = 'ZAP_2.9.0_Core.zip'
+CROSS = 'ZAP_2.9.0_Crossplatform.zip'
+LINUX = 'ZAP_2.9.0_Linux.tar.gz'
+UNIX = 'ZAP_2_9_0_unix.sh'
+MAC = 'ZAP_2.9.0.dmg'
+WIN32 = 'ZAP_2_9_0_windows-x32.exe'
+WIN64 = 'ZAP_2_9_0_windows.exe'
 
 counts = {}
-files = sorted(glob.glob('../zap-mgmt-scripts_gh-pages/stats/releases-*'))
+files = sorted(glob.glob('./stats/releases-*'))
 # Option to just show the last 180 days to prevent the chart getting too big
 files = files[-180:]
-# Change to 1 once 2.7.0 has been out for more than 180 days ;)
+# Change to 1 once 2.9.0 has been out for more than 180 days ;)
 first = 0
 for file in files:
   with open(file) as stats_file:
