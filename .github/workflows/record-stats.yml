@@ -42,6 +42,6 @@ jobs:
         cat $PAGES_ROOT/download.tail >> $PAGES_ROOT/downloads.html
         # Push to the repo
         cd $PAGES_ROOT
-        git add downloads.html stats date.txt
+        git add downloads.html stats
         git commit -m "Stats for ${DATE}" --signoff
         git push origin
