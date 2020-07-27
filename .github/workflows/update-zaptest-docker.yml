@@ -1,0 +1,16 @@
+name: Update zaptest docker image
+
+on: 
+  workflow_dispatch:
+
+jobs:
+  update_docker:
+    runs-on: [ubuntu-latest]
+    steps:
+    - name: Update docker
+      run: |
+        git clone https://github.com/zapbot/zap-mgmt-scripts.git
+        cd zap-mgmt-scripts
+        docker login -u zapbot -p ${{ secrets.ZAPBOT_DOCKER }}
+        docker build -t owasp/zap-testing -f dockerfile .
+        docker push owasp/zap-testing
