@@ -41,6 +41,13 @@
 from zapv2 import ZAPv2
 import datetime, sys, getopt, html
 
+def listToLinks(l):
+	s = ''
+	if l:
+		for i in l:
+			s += '<a href="#' + i + '">' + i + '</a> '
+	return s
+
 def main(argv):
 	# -------------------------------------------------------------------------
 	# Default Configurations - use -h and -p for different host and port
@@ -63,6 +70,42 @@ def main(argv):
 
 	# Dictionary of abbreviation to keep the output a bit shorter
 	abbrev = {
+			'10020': ["X-Frame-Options Header Not Set", "XFrame"], \
+			'10021': ["X-Content-Type-Options Header Missing", "XContent"], \
+			'10024': ["Information Disclosure - Sensitive Information in URL", "URLinfo"], \
+			'10028': ["Open Redirect", "OpenRedir"], \
+			'10029': ["Cookie Poisoning", "CookiePoison"], \
+			'10031': ["User Controllable HTML Element Attribute (Potential XSS)", "MaybeXSS"], \
+			'10036': ["Server Leaks Version Information via \"Server\" HTTP Response Header Field", "ServerLeak"], \
+			'10038': ["Content Security Policy (CSP) Header Not Set", "NoCSP"], \
+			'10043': ["User Controllable JavaScript Event (XSS)", "UserJsEvent"], \
+			'10058': ["GET for POST", "GetForPost"], \
+			'10062': ["PII Disclosure", "PII"], \
+			'10096': ["Timestamp Disclosure - Unix", "Timestamp"], \
+			'10104': ["User Agent Fuzzer", "UAfuzz"], \
+			'10109': ["Modern Web Application", "ModernApp"], \
+			'10202': ["Absence of Anti-CSRF Tokens", "NoCSRF"], \
+			'20012': ["Anti CSRF Tokens Scanner", "ACSRF"], \
+			'20019': ["External Redirect", "ExtRedir"], \
+			'30001': ["Buffer Overflow", "Buffer"], \
+			'30002': ["Format String Error", "Format"], \
+			'30003': ["Integer Overflow Error", "IntOver"], \
+			'40012': ["Cross Site Scripting (Reflected)", "RXSS"], \
+			'40014': ["Cross Site Scripting (Persistent)", "PXSS"], \
+			'40018': ["SQL Injection - MySQL", "SqlMySql"], \
+			'40018': ["SQL Injection", "SQLi"], \
+			'40019': ["SQL Injection - MySQL", "SqlMySql"], \
+			'40026': ["Cross Site Scripting (DOM Based)", "DXSS"], \
+			'43': ["Source Code Disclosure - File Inclusion", "SrcInc"], \
+			'6': ["Path Traversal", "PathTrav"], \
+			'7': ["Remote File Inclusion", "RFI"], \
+			'90022': ["Application Error Disclosure", "AppError"], \
+			'90024': ["Generic Padding Oracle", "PaddingOracle"], \
+			'90027': ["Cookie Slack Detector", "CookieSlack"], \
+			'90033': ["Loosely Scoped Cookie", "CookieLoose"], \
+		}
+	# Want to keep these for mapping some of the rules that were not run during testing...
+	oldAbbrev = {
 			'Active Vulnerability title' : 'Ex',\
 			'Cross Site Scripting (DOM Based)' : 'DXSS',\
 			'Cross Site Scripting (Persistent)' : 'PXSS',\
@@ -124,17 +167,23 @@ def main(argv):
 			['-', 'Ex', 'ignore'], \
 			['-', 'CookieLoose', 'ignore'], \
 			['-', 'CookieSlack', 'ignore'], \
+			['-', 'GetForPost', 'ignore'], \
 			['-', 'InfoDebug', 'ignore'], \
 			['-', 'InfoUrl', 'ignore'], \
 			#['-', 'IntOver', 'ignore'], \
+			['-', 'NoCSP', 'ignore'], \
 			['-', 'NoCSRF2', 'ignore'], \
 			['-', 'ParamOver', 'ignore'], \
 			['-', 'PrivIP', 'ignore'], \
+			['-', 'ServerLeak', 'ignore'], \
 			['-', 'SrcInc', 'ignore'], \
+			['-', 'Timestamp', 'ignore'], \
 			#['-', 'UAfuzz', 'ignore'], \
+			['-', 'URLinfo', 'ignore'], \
 			['-', 'XFrame', 'ignore'], \
 			['-', 'XContent', 'ignore'], \
 			['-', 'XSSoff', 'ignore'], \
+			#
 			['LFI-', 'AppError', 'ignore'], \
 			['LFI-', 'Buffer', 'ignore'], \
 			['LFI-', 'Format', 'ignore'], \
@@ -188,6 +237,7 @@ def main(argv):
 			['Tag2HtmlPageScopeValidViewstateRequired', 'ViewstateNoMac', 'ignore'], \
 			['session-password-autocomplete', 'NoCSRF', 'ignore'], \
 			#
+			['DXSS-Detection-Evaluation', 'DXSS', 'pass'], \
 			['LFI-Detection-Evaluation', 'PathTrav', 'pass'], \
 			['LFI-FalsePositives', 'PathTrav', 'fail'], \
 			['Redirect-', 'ExtRedir', 'pass'], \
@@ -247,7 +297,7 @@ def main(argv):
 
 	totalAlerts = 0
 	offset = 0
-	page = 100
+	page = 1000
 	# Page through the alerts as otherwise ZAP can hang...
 	alerts = zap.core.alerts('', offset, page)
 	while len(alerts) > 0:
@@ -277,10 +327,13 @@ def main(argv):
 					urlSummary = urlEl[4] + ' : ' + urlEl[5] + ' : ' + urlEl[6]
 				
 				#print 'URL summary:' + urlSummary
-				short = abbrev.get(alert.get('alert'))
-				if (short is None):
-					short = 'UNKNOWN'
-					print('Unknown alert: ' + alert.get('alert'))
+				titleAbrev = abbrev.get(alert.get('pluginId'))
+				if (titleAbrev is None):
+					short = str(alert.get('pluginId'))
+					#print('Unknown alert: ' + short + ' ' + alert.get('alert'))
+					print('`' + str(alert.get('pluginId')) + '\': [\'' + alert.get('alert') + '\', \'TBA\'], \\')
+				else:
+					short = titleAbrev[1]
 				aDict = alertsPerUrl.get(urlSummary, {'pass' : set([]), 'fail' : set([]), 'ignore' : set([]), 'other' : set([])})
 				added = False
 				for rule in rules:
@@ -317,7 +370,7 @@ def main(argv):
 	reportFile.write("  </head>\n")
 	reportFile.write("<body>\n")
 
-	reportFile.write("<h1><img src=\"https://raw.githubusercontent.com/zaproxy/zaproxy/develop/src/resource/zap64x64.png\" align=\"middle\">OWASP ZAP wavsep results</h1>\n")
+	reportFile.write("<h1><img src=\"https://raw.githubusercontent.com/zaproxy/zaproxy/develop/zap/src/main/resources/resource/zap64x64.png\" align=\"middle\">OWASP ZAP wavsep results</h1>\n")
 	reportFile.write("Generated: " + datetime.datetime.now().strftime("%Y-%m-%d %H:%M") + "\n")
 
 	topResults = []
@@ -377,7 +430,7 @@ def main(argv):
 		reportFile.write("&nbsp;")
 	reportFile.write("</font>")
 	total = 100 * totalPass / (totalPass + totalFail)
-	reportFile.write(str(total) + "%<br/><br/>\n")
+	reportFile.write("{:.2f}%<br/><br/>\n".format(total))
 
 	reportFile.write('ZAP Version: ' + zapVersion + '<br/>\n')
 	reportFile.write('URLs found: ' + str(len(uniqueUrls)))
@@ -415,14 +468,15 @@ def main(argv):
 	reportFile.write("<tr><th>Alert</th><th>Description</th><th>Pass</th><th>Fail</th><th>Ignore</th><th>Other</th></tr>\n")
 
 	#for key, value in abbrev.items():
-	for (k, v) in sorted(list(abbrev.items()), key=lambda k_v: k_v[1]):
+	#for (k, v) in sorted(list(abbrev.items()), key=lambda k_v: k_v[1]):
+	for k, v in sorted(abbrev.items()):
 		reportFile.write("<tr>")
-		reportFile.write("<td>" + v + "</td>")
-		reportFile.write("<td>" + k + "</td>")
-		reportFile.write("<td>" + str(alertPassCount.get(v, 0)) +"&nbsp;</td>")
-		reportFile.write("<td>" + str(alertFailCount.get(v, 0)) +"&nbsp;</td>")
-		reportFile.write("<td>" + str(alertIgnoreCount.get(v, 0)) +"&nbsp;</td>")
-		reportFile.write("<td>" + str(alertOtherCount.get(v, 0)) +"&nbsp;</td>")
+		reportFile.write("<td>" + v[1] + "</td>")
+		reportFile.write("<td><a name=\"" + v[1] + "\" href=\"https://www.zaproxy.org/docs/alerts/" + k + "/\">" + v[0] + "</a></td>")
+		reportFile.write("<td>" + str(alertPassCount.get(v[1], 0)) +"&nbsp;</td>")
+		reportFile.write("<td>" + str(alertFailCount.get(v[1], 0)) +"&nbsp;</td>")
+		reportFile.write("<td>" + str(alertIgnoreCount.get(v[1], 0)) +"&nbsp;</td>")
+		reportFile.write("<td>" + str(alertOtherCount.get(v[1], 0)) +"&nbsp;</td>")
 		reportFile.write("</tr>\n")
 
 	reportFile.write("</table><br/>\n")
@@ -480,22 +534,22 @@ def main(argv):
 	
 		reportFile.write("<td>")
 		if (value.get('pass') is not None):
-			reportFile.write(" ".join(value.get('pass')))
+			reportFile.write(listToLinks(value.get('pass')))
 		reportFile.write("&nbsp;</td>")
 
 		reportFile.write("<td>")
 		if (value.get('fail') is not None):
-			reportFile.write(" ".join(value.get('fail')))
+			reportFile.write(listToLinks(value.get('fail')))
 		reportFile.write("&nbsp;</td>")
 
 		reportFile.write("<td>")
 		if (value.get('ignore') is not None):
-			reportFile.write(" ".join(value.get('ignore')))
+			reportFile.write(listToLinks(value.get('ignore')))
 		reportFile.write("&nbsp;</td>")
 
 		reportFile.write("<td>")
 		if (value.get('other') is not None):
-			reportFile.write(" ".join(value.get('other')))
+			reportFile.write(listToLinks(value.get('other')))
 		reportFile.write("&nbsp;</td>")
 
 		reportFile.write("</tr>\n")
