@@ -1,0 +1,18 @@
+name: ZAP vs Wavsep
+
+on: 
+  workflow_dispatch:
+
+jobs:
+  scan:
+    runs-on: [ubuntu-latest]
+    steps:
+    - name: Start wavsep
+      run: docker run --rm -d -p 8080:8080 owaspvwad/wavsep &
+    - name: Start ZAP
+      run: docker run --rm -d -p 8090:8090 --network host owasp/zap2docker-weekly zap-x.sh -daemon -host localhost -port 8090 -addonupdate -config "api.addrs.addr.name=.*" -config api.addrs.addr.regex=true -config api.disablekey=true &
+    - name: Run ZAP API script
+      env:
+        GITHUB_TOKEN: ${{ secrets.ZAPBOT_TOKEN }}
+      run: docker run --rm --network host --env ZAPBOT_TOKEN=${{ secrets.ZAPBOT_TOKEN }} zapbot/zap-testing ./zap-vs-wavsep-1.5.sh -a -e 61 -n wavsep-1.5-weekly-RBJ-M-M -t "Rel, Beta"
+
