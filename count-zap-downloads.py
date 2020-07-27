@@ -17,8 +17,6 @@ counts = {}
 files = sorted(glob.glob('./stats/releases-*'))
 # Option to just show the last 180 days to prevent the chart getting too big
 files = files[-180:]
-# Change to 1 once 2.9.0 has been out for more than 180 days ;)
-first = 0
 for file in files:
   with open(file) as stats_file:
     stats = json.load(stats_file)
@@ -35,10 +33,9 @@ for file in files:
         else:
           assets[name] = count
         counts[name] = count
-      if (first):
+      if (files.index(file) == 0):
         # Ignore the first as its just for getting a baseline
-        first = 0
+        continue
       else:
         print("        ['%s', %d, %d, %d, %d, %d, %d, %d, '']," % (file[-15:-5], 
           assets[WIN64], assets[WIN32], assets[UNIX], assets[LINUX], assets[MAC], assets[CROSS], assets[CORE]))
-    
