@@ -556,99 +556,101 @@ def main(argv):
 
 	reportFile.write("</table><br/>\n")
 
-	reportFile.write("<h3>Plugin Times</h3>\n")
-
-	# The start of the chart script
-	reportFile.write("<script type=\"text/javascript\">\n")
-	reportFile.write("  // Load the Visualization API and the piechart package.\n")
-	reportFile.write("  google.load('visualization', '1.0', {'packages':['corechart']});\n")
-	reportFile.write("  // Set a callback to run when the Google Visualization API is loaded.\n")
-	reportFile.write("  google.setOnLoadCallback(drawChart);\n")
-	reportFile.write("  function drawChart() {\n")
-	reportFile.write("    // Create the data table.\n")
-	reportFile.write("    var data = new google.visualization.DataTable();\n")
-	reportFile.write("    data.addColumn('string', 'Plugin');\n")
-	reportFile.write("    data.addColumn('number', 'Time in ms');\n")
-	reportFile.write("    data.addRows([\n")
-        
 	progress = zap.ascan.scan_progress()
-	# Loop through first time for the chart
-	for plugin in progress[1]['HostProcess']:
-		reportFile.write("      ['" + plugin['Plugin'][0] + "', " + plugin['Plugin'][4] + "],\n")
+	time = ''
+        
+	if not isinstance(progress, str): 
+		reportFile.write("<h3>Plugin Times</h3>\n")
+	
+		# The start of the chart script
+		reportFile.write("<script type=\"text/javascript\">\n")
+		reportFile.write("  // Load the Visualization API and the piechart package.\n")
+		reportFile.write("  google.load('visualization', '1.0', {'packages':['corechart']});\n")
+		reportFile.write("  // Set a callback to run when the Google Visualization API is loaded.\n")
+		reportFile.write("  google.setOnLoadCallback(drawChart);\n")
+		reportFile.write("  function drawChart() {\n")
+		reportFile.write("    // Create the data table.\n")
+		reportFile.write("    var data = new google.visualization.DataTable();\n")
+		reportFile.write("    data.addColumn('string', 'Plugin');\n")
+		reportFile.write("    data.addColumn('number', 'Time in ms');\n")
+		reportFile.write("    data.addRows([\n")
+		# Loop through first time for the chart
+		for plugin in progress[1]['HostProcess']:
+			reportFile.write("      ['" + plugin['Plugin'][0] + "', " + plugin['Plugin'][4] + "],\n")
 
-	# The end of the first chart
-	reportFile.write("    ]);\n")
-	reportFile.write("    // Set chart options\n")
-	reportFile.write("    var options = {'title':'Plugin times',\n")
-	reportFile.write("                   'width':600,\n")
-	reportFile.write("                   'height':500};\n")
-	reportFile.write("    // Instantiate and draw our chart, passing in some options.\n")
-	reportFile.write("    var chart = new google.visualization.PieChart(document.getElementById('chart_div'));\n")
-	reportFile.write("    chart.draw(data, options);\n")
-	reportFile.write("\n")
-	reportFile.write("    // Create the 2nd data table.\n")
-	reportFile.write("    var data2 = new google.visualization.DataTable();\n")
-	reportFile.write("    data2.addColumn('string', 'Plugin');\n")
-	reportFile.write("    data2.addColumn('number', 'Requests');\n")
-	reportFile.write("    data2.addRows([\n")
-
-	# Loop through 2nd time for the 2nd chart
-	for plugin in progress[1]['HostProcess']:
-		reportFile.write("      ['" + plugin['Plugin'][0] + "', " + plugin['Plugin'][5] + "],\n")
-
-	# The end of the chart script
-	reportFile.write("    ]);\n")
-	reportFile.write("    // Set chart options\n")
-	reportFile.write("    var options2 = {'title':'Request counts',\n")
-	reportFile.write("                   'width':600,\n")
-	reportFile.write("                   'height':500};\n")
-	reportFile.write("    // Instantiate and draw our chart, passing in some options.\n")
-	reportFile.write("    var chart2 = new google.visualization.PieChart(document.getElementById('chart_div2'));\n")
-	reportFile.write("    chart2.draw(data2, options2);\n")
-	reportFile.write("  }\n")
-	reportFile.write("</script>\n")
-
-	reportFile.write("<div id=\"chart_div\" style=\"width: 600px; float: left;\"></div>\n")
-	reportFile.write("<div id=\"chart_div2\" style=\"margin-left: 620px;\"></div>\n")
-
-	reportFile.write("<table border=\"1\">\n")
-	reportFile.write("<tr><th>Plugin</th><th>ms</th><th>Reqs</th>")
-	reportFile.write("<th>Quality</th>")
-	reportFile.write("</tr>\n")
-
-	# Loop through second time for the table
-	totalTime = 0
-	for plugin in progress[1]['HostProcess']:
+		# The end of the first chart
+		reportFile.write("    ]);\n")
+		reportFile.write("    // Set chart options\n")
+		reportFile.write("    var options = {'title':'Plugin times',\n")
+		reportFile.write("                   'width':600,\n")
+		reportFile.write("                   'height':500};\n")
+		reportFile.write("    // Instantiate and draw our chart, passing in some options.\n")
+		reportFile.write("    var chart = new google.visualization.PieChart(document.getElementById('chart_div'));\n")
+		reportFile.write("    chart.draw(data, options);\n")
+		reportFile.write("\n")
+		reportFile.write("    // Create the 2nd data table.\n")
+		reportFile.write("    var data2 = new google.visualization.DataTable();\n")
+		reportFile.write("    data2.addColumn('string', 'Plugin');\n")
+		reportFile.write("    data2.addColumn('number', 'Requests');\n")
+		reportFile.write("    data2.addRows([\n")
+	
+		# Loop through 2nd time for the 2nd chart
+		for plugin in progress[1]['HostProcess']:
+			reportFile.write("      ['" + plugin['Plugin'][0] + "', " + plugin['Plugin'][5] + "],\n")
+	
+		# The end of the chart script
+		reportFile.write("    ]);\n")
+		reportFile.write("    // Set chart options\n")
+		reportFile.write("    var options2 = {'title':'Request counts',\n")
+		reportFile.write("                   'width':600,\n")
+		reportFile.write("                   'height':500};\n")
+		reportFile.write("    // Instantiate and draw our chart, passing in some options.\n")
+		reportFile.write("    var chart2 = new google.visualization.PieChart(document.getElementById('chart_div2'));\n")
+		reportFile.write("    chart2.draw(data2, options2);\n")
+		reportFile.write("  }\n")
+		reportFile.write("</script>\n")
+	
+		reportFile.write("<div id=\"chart_div\" style=\"width: 600px; float: left;\"></div>\n")
+		reportFile.write("<div id=\"chart_div2\" style=\"margin-left: 620px;\"></div>\n")
+	
+		reportFile.write("<table border=\"1\">\n")
+		reportFile.write("<tr><th>Plugin</th><th>ms</th><th>Reqs</th>")
+		reportFile.write("<th>Quality</th>")
+		reportFile.write("</tr>\n")
+	
+		# Loop through second time for the table
+		totalTime = 0
+		for plugin in progress[1]['HostProcess']:
+			reportFile.write("<tr>")
+			reportFile.write("<td>" + plugin['Plugin'][0] + "</td>")
+			# Convert ms into something more readable
+			t = int(plugin['Plugin'][4])
+			totalTime += t
+			s, ms = divmod(t, 1000)
+			m, s = divmod(s, 60)
+			h, m = divmod(m, 60)
+			time = "%d:%02d:%02d.%03d" % (h, m, s, ms)
+			reportFile.write("<td>" + time + "</td>")
+			reportFile.write("<td>" + plugin['Plugin'][5] + "</td>")
+			reportFile.write("<td>" + plugin['Plugin'][2] + "</td>")
+			reportFile.write("</tr>\n")
+	
+		reportFile.write("<tr><td></td><td></td><td></td>")
+		reportFile.write("<td></td>")
+		reportFile.write("</tr>")
 		reportFile.write("<tr>")
-		reportFile.write("<td>" + plugin['Plugin'][0] + "</td>")
+		reportFile.write("<td>Total</td>")
 		# Convert ms into something more readable
-		t = int(plugin['Plugin'][4])
-		totalTime += t
-		s, ms = divmod(t, 1000)
+		s, ms = divmod(totalTime, 1000)
 		m, s = divmod(s, 60)
 		h, m = divmod(m, 60)
-		time = "%d:%02d:%02d.%03d" % (h, m, s, ms)
+		time = "%d:%02d:%02d" % (h, m, s)
 		reportFile.write("<td>" + time + "</td>")
-		reportFile.write("<td>" + plugin['Plugin'][5] + "</td>")
-		reportFile.write("<td>" + plugin['Plugin'][2] + "</td>")
+		reportFile.write("<td>-</td>")
+		reportFile.write("<td>-</td>")
 		reportFile.write("</tr>\n")
-
-	reportFile.write("<tr><td></td><td></td><td></td>")
-	reportFile.write("<td></td>")
-	reportFile.write("</tr>")
-	reportFile.write("<tr>")
-	reportFile.write("<td>Total</td>")
-	# Convert ms into something more readable
-	s, ms = divmod(totalTime, 1000)
-	m, s = divmod(s, 60)
-	h, m = divmod(m, 60)
-	time = "%d:%02d:%02d" % (h, m, s)
-	reportFile.write("<td>" + time + "</td>")
-	reportFile.write("<td>-</td>")
-	reportFile.write("<td>-</td>")
-	reportFile.write("</tr>\n")
-
-	reportFile.write("</table><br/>\n")
+	
+		reportFile.write("</table><br/>\n")
 
 	reportFile.write("</body></html>\n")
 	reportFile.close()
@@ -665,7 +667,7 @@ def main(argv):
 	print('Got ' + str(totalAlerts) + ' alerts')
 	print('Got ' + str(len(uniqueUrls)) + ' unique urls')
 	print('Took ' + time)
-	print('Score ' + str(total))
+	print('Score ' + str(int(total)))
 
 if __name__ == "__main__":
 	main(sys.argv[1:])   
