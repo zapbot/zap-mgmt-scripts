@@ -113,7 +113,7 @@ echo "<td>" `cat wrk/summary.txt | grep urls | awk -F ' ' '{print $2}'` "</td>" 
 echo "<td>" `cat wrk/summary.txt | grep Took | awk -F ' ' '{print $2}'` "</td>" >> ${name}.summary
 
 # TODO get hold of the ZAP logs
-#ERRS=$(grep -c ERROR ~/zap-mgmt-scripts_gh-pages/reports/${name}.logs.txt) >> ${name}.summary
+#ERRS=$(grep -c ERROR ~/zap-mgmt-scripts/reports/${name}.logs.txt) >> ${name}.summary
 #echo "<td><a href=\"reports/${name}.logs.txt\">${ERRS}</a></td>" >> ${name}.summary
 echo "</tr>" >> ${name}.summary
 
@@ -122,8 +122,8 @@ cat ${name}.summary
 git clone -b gh-pages https://github.com/zapbot/zap-mgmt-scripts.git
 
 # Save and push to github
-mv ${name}.summary zap-mgmt-scripts_gh-pages/reports/
-mv report.html zap-mgmt-scripts_gh-pages/reports/${name}.html
+mv ${name}.summary zap-mgmt-scripts/reports/
+mv report.html zap-mgmt-scripts/reports/${name}.html
 
 cd zap-mgmt-scripts
 
