@@ -78,7 +78,7 @@ mkdir wrk
 date > wrk/out.txt
 
 echo Let ZAP start up...
-sleep 60
+sleep 120
 
 # Spider and scan the app
 python3 wavsep_spider_scan.py $score_opt -p "$policy" -z localhost -w localhost >> wrk/out.txt
@@ -112,11 +112,12 @@ fi
 echo "<td>" `cat wrk/summary.txt | grep urls | awk -F ' ' '{print $2}'` "</td>" >> ${name}.summary
 echo "<td>" `cat wrk/summary.txt | grep Took | awk -F ' ' '{print $2}'` "</td>" >> ${name}.summary
 
-#cat zap*.log > reports/${name}.logs.txt
+ls -l
+cat zap*.log > reports/${name}.logs.txt
 
-#ERRS=$(grep -c ERROR reports/${name}.logs.txt)
-#echo "<td><a href=\"reports/${name}.logs.txt\">${ERRS}</a></td>" >> ${name}.summary
-echo "<td>-</td>" >> ${name}.summary
+ERRS=$(grep -c ERROR reports/${name}.logs.txt)
+echo "<td><a href=\"reports/${name}.logs.txt\">${ERRS}</a></td>" >> ${name}.summary
+#echo "<td>-</td>" >> ${name}.summary
 echo "</tr>" >> ${name}.summary
 
 cat ${name}.summary
