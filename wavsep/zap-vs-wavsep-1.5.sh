@@ -112,10 +112,11 @@ fi
 echo "<td>" `cat wrk/summary.txt | grep urls | awk -F ' ' '{print $2}'` "</td>" >> ${name}.summary
 echo "<td>" `cat wrk/summary.txt | grep Took | awk -F ' ' '{print $2}'` "</td>" >> ${name}.summary
 
-cat zap*.log > reports/${name}.logs.txt
+#cat zap*.log > reports/${name}.logs.txt
 
-ERRS=$(grep -c ERROR reports/${name}.logs.txt)
-echo "<td><a href=\"reports/${name}.logs.txt\">${ERRS}</a></td>" >> ${name}.summary
+#ERRS=$(grep -c ERROR reports/${name}.logs.txt)
+#echo "<td><a href=\"reports/${name}.logs.txt\">${ERRS}</a></td>" >> ${name}.summary
+echo "<td>-</td>" >> ${name}.summary
 echo "</tr>" >> ${name}.summary
 
 cat ${name}.summary
