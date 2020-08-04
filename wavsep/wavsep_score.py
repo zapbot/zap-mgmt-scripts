@@ -448,7 +448,7 @@ def main(argv):
 		reportFile.write("<td align=\"right\">" + str(topResult[1]) + "</td>")
 		reportFile.write("<td align=\"right\">" + str(topResult[2]) + "</td>")
 		score = 100 * topResult[1] / (topResult[1] + topResult[2])
-		reportFile.write("<td align=\"right\">" + str(score) + "%</td>")
+		reportFile.write("<td align=\"right\">{:.2f}%</td>".format(score))
 		reportFile.write("<td>")
 		reportFile.write("<font style=\"BACKGROUND-COLOR: GREEN\">")
 		for i in range (int(topResult[1]/scale)):
@@ -494,7 +494,7 @@ def main(argv):
 		reportFile.write("<td align=\"right\">" + str(groupResult[1]) + "</td>")
 		reportFile.write("<td align=\"right\">" + str(groupResult[2]) + "</td>")
 		score = 100 * groupResult[1] / (groupResult[1] + groupResult[2])
-		reportFile.write("<td align=\"right\">" + str(score) + "%</td>")
+		reportFile.write("<td align=\"right\">{:.2f}%</td>".format(score))
 		reportFile.write("<td>")
 		reportFile.write("<font style=\"BACKGROUND-COLOR: GREEN\">")
 		for i in range (int(groupResult[1]/scale)):

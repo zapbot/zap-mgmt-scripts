@@ -87,7 +87,7 @@ python3 wavsep_spider_scan.py $score_opt -p "$policy" -z localhost -w localhost 
 python3 wavsep_score.py -h localhost > wrk/summary.txt
 echo "====" >> wrk/out.txt
 echo "Summary" >> wrk/out.txt
-cat ~/wrk/summary.txt >> wrk/out.txt
+cat wrk/summary.txt >> wrk/out.txt
 
 echo "<TR>" > ${name}.summary
 echo "<td>" `cat wrk/summary.txt | grep ZAP | awk -F ' ' '{print $2}'` "</td>" >> ${name}.summary
@@ -112,9 +112,10 @@ fi
 echo "<td>" `cat wrk/summary.txt | grep urls | awk -F ' ' '{print $2}'` "</td>" >> ${name}.summary
 echo "<td>" `cat wrk/summary.txt | grep Took | awk -F ' ' '{print $2}'` "</td>" >> ${name}.summary
 
-# TODO get hold of the ZAP logs
-#ERRS=$(grep -c ERROR ~/zap-mgmt-scripts/reports/${name}.logs.txt) >> ${name}.summary
-#echo "<td><a href=\"reports/${name}.logs.txt\">${ERRS}</a></td>" >> ${name}.summary
+cat zap*.log > reports/${name}.logs.txt
+
+ERRS=$(grep -c ERROR reports/${name}.logs.txt)
+echo "<td><a href=\"reports/${name}.logs.txt\">${ERRS}</a></td>" >> ${name}.summary
 echo "</tr>" >> ${name}.summary
 
 cat ${name}.summary
