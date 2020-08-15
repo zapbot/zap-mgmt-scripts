@@ -79,16 +79,6 @@ def main(argv):
         '90018': ['Advanced SQL Injection', 'AdvSqli']
     }
 
-    vulnapp_vulnerability_type_vs_plugin_id = {
-        'PATH_TRAVERSAL': ['6'],
-        'COMMAND_INJECTION': ['90020'],
-        'REFLECTED_XSS': ['40012'],
-        'PERSISTENT_XSS': ['40016'],
-        'BLIND_SQL_INJECTION': ['40019', '40024', '90018'],
-        'UNION_BASED_SQL_INJECTION': ['40019', '40024', '90018'],
-        'ERROR_BASED_SQL_INJECTION': ['40019', '40024', '90018']
-    }
-
     # Reverse map which stores ZAP's plugin Id vs Owasp VulnerableApp's vulnerability types
     zap_plugin_id_vs_vulnapp_vulnerability_types = {
         '6': ['PATH_TRAVERSAL'],
@@ -275,18 +265,17 @@ def main(argv):
     reportFile.write("<table border=\"1\">\n")
     reportFile.write(
         "<tr><th>Alert</th><th>Description</th><th>Pass</th><th>Fail</th><th>Ignore</th><th>Other</th></tr>\n")
-    for vulnapp_vuln_type, pluginids in sorted(vulnapp_vulnerability_type_vs_plugin_id.items()):
-        for pluginid in pluginids:
-            reportFile.write("<tr>")
-            reportFile.write("<td>" + plugin_information[pluginid][1] + "</td>")
-            reportFile.write(
-                "<td><a name=\"" + pluginid + "\" href=\"https://www.zaproxy.org/docs/alerts/" + pluginid + "/\">" + plugin_information[pluginid][0]
-                + "</a></td>")
-            reportFile.write("<td>" + str(alert_pass_count.get(pluginid, 0)) + "&nbsp;</td>")
-            reportFile.write("<td>" + str(alert_fail_count.get(pluginid,0)) + "&nbsp;</td>")
-            reportFile.write("<td>" + str(alert_ignore_count.get(vulnapp_vuln_type, 0)) + "&nbsp;</td>")
-            reportFile.write("<td>" + str(alert_other_count.get(vulnapp_vuln_type, 0)) + "&nbsp;</td>")
-            reportFile.write("</tr>\n")
+    for pluginid, details in plugin_information.items():
+        reportFile.write("<tr>")
+        reportFile.write("<td>" + details[1] + "</td>")
+        reportFile.write(
+            "<td><a name=\"" + pluginid + "\" href=\"https://www.zaproxy.org/docs/alerts/" + pluginid + "/\">" + details[0]
+            + "</a></td>")
+        reportFile.write("<td>" + str(alert_pass_count.get(pluginid, 0)) + "&nbsp;</td>")
+        reportFile.write("<td>" + str(alert_fail_count.get(pluginid,0)) + "&nbsp;</td>")
+        reportFile.write("<td>" + str(alert_ignore_count.get(pluginid, 0)) + "&nbsp;</td>")
+        reportFile.write("<td>" + str(alert_other_count.get(pluginid, 0)) + "&nbsp;</td>")
+        reportFile.write("</tr>\n")
     reportFile.write("</table><br/>\n")
 
     # Output the group table
