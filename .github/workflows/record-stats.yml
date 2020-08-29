@@ -15,6 +15,8 @@ jobs:
       with:
         python-version: '3.x'
     - name: Build and push update
+      env:
+        TAG: v2.9.0
       run: |
         # Setup git details
         export GITHUB_USER=zapbot
@@ -33,7 +35,7 @@ jobs:
         export MASTER_ROOT=$(pwd)
         export DATE=$(date --rfc-3339 date)
         # Record the download stats
-        curl https://api.github.com/repos/zaproxy/zaproxy/releases > $PAGES_ROOT/stats/releases-${DATE}.json
+        curl https://api.github.com/repos/zaproxy/zaproxy/releases/tags/$TAG > $PAGES_ROOT/stats/releases-${DATE}.json
         # Generate the ZAP download page
         rm -f $PAGES_ROOT/downloads.html
         cat $PAGES_ROOT/download.head > $PAGES_ROOT/downloads.html
