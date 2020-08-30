@@ -35,7 +35,7 @@ jobs:
         export MASTER_ROOT=$(pwd)
         export DATE=$(date --rfc-3339 date)
         # Record the download stats
-        curl https://api.github.com/repos/zaproxy/zaproxy/releases/tags/$TAG > $PAGES_ROOT/stats/releases-${DATE}.json
+        curl --connect-timeout 5 --max-time 10 --retry 5 --retry-delay 0 --retry-max-time 40 --retry-connrefused https://api.github.com/repos/zaproxy/zaproxy/releases/tags/$TAG > $PAGES_ROOT/stats/releases-${DATE}.json
         # Generate the ZAP download page
         rm -f $PAGES_ROOT/downloads.html
         cat $PAGES_ROOT/download.head > $PAGES_ROOT/downloads.html
