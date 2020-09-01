@@ -14,7 +14,7 @@ jobs:
     - name: Run ZAP API script
       env:
         GITHUB_TOKEN: ${{ secrets.ZAPBOT_TOKEN }}
-      run: docker run --rm --network host --env ZAPBOT_TOKEN=${{ secrets.ZAPBOT_TOKEN }} owasp/zap-testing ../vulnerableApp/zap-vs-vulnerableApp.sh -e 32 -n vulnerableApp-weekly-RBJ-M-M -t "Rel, Beta, DomXSS"
+      run: docker run --rm --network host --env ZAPBOT_TOKEN=${{ secrets.ZAPBOT_TOKEN }} owasp/zap-testing ./zap-vs-vulnerableApp.sh -e 32 -n vulnerableApp-weekly-RBJ-M-M -t "Rel, Beta, DomXSS"
     - name: Run ls
       env:
         GITHUB_TOKEN: ${{ secrets.ZAPBOT_TOKEN }}
