@@ -9,4 +9,4 @@ RUN pip3 install --upgrade python-owasp-zap-v2.4
 
 WORKDIR /zap
 
-copy wavsep wivet /zap/
+copy wavsep wivet vulnerableApp /zap/
