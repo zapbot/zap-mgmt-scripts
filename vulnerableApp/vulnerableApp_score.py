@@ -54,7 +54,7 @@ def main(argv):
     # Default Configurations - use -h and -p for different host and port
     # -------------------------------------------------------------------------
     zapHost = '127.0.0.1'
-    zapPort = '8080'
+    zapPort = '8090'
 
     try:
         opts, args = getopt.getopt(argv, "h:p:")
