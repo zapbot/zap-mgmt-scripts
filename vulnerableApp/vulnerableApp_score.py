@@ -54,7 +54,7 @@ def main(argv):
     # Default Configurations - use -h and -p for different host and port
     # -------------------------------------------------------------------------
     zapHost = '127.0.0.1'
-    zapPort = '8080'
+    zapPort = '8090'
 
     try:
         opts, args = getopt.getopt(argv, "h:p:")
@@ -114,9 +114,9 @@ def main(argv):
 
     # Scanner endpoint of Owasp VulnerableApp which provides information related to vulnerabilities present.
     # TODO once vuln.yml specification is decided need to move this logic as per the spec
-    vulnerable_app_scanner_response = requests.get("http://127.0.0.1:9090/scanner");
+    vulnerable_app_scanner_response = requests.get("http://127.0.0.1:9090/scanner", proxies={'http': zapUrl, 'https': zapUrl}, verify=False);
     if vulnerable_app_scanner_response.status_code != 200:
-        print("Failure while accessing scanner endpoint" + json.dump(vulnerable_app_scanner_response))
+        print("Failure while accessing scanner endpoint" + str(vulnerable_app_scanner_response))
         sys.exit(2)
     else:
         vulnerability_info = vulnerable_app_scanner_response.json()
