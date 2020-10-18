@@ -227,7 +227,9 @@ def main(argv):
     for i in range(int(totalFail / scale)):
         reportFile.write("&nbsp;")
     reportFile.write("</font>")
-    total = 100 * totalPass / (totalPass + totalFail)
+    total = 0
+    if (totalPass + totalFail) != 0:
+        total = 100 * totalPass / (totalPass + totalFail)
     reportFile.write("{:.2f}%<br/><br/>\n".format(total))
 
     reportFile.write('ZAP Version: ' + zap_version + '<br/>\n')
