@@ -54,7 +54,7 @@ def main(argv):
     # Default Configurations - use -h and -p for different host and port
     # -------------------------------------------------------------------------
     zapHost = '127.0.0.1'
-    zapPort = '8090'
+    zapPort = '8080'
 
     try:
         opts, args = getopt.getopt(argv, "h:p:")
@@ -111,10 +111,10 @@ def main(argv):
     page = 1000
     # Page through the alerts as otherwise ZAP can hang...
     alerts = zap.core.alerts('', offset, page)
-
+    print("Scoring")
     # Scanner endpoint of Owasp VulnerableApp which provides information related to vulnerabilities present.
     # TODO once vuln.yml specification is decided need to move this logic as per the spec
-    vulnerable_app_scanner_response = requests.get("http://127.0.0.1:9090/scanner", proxies={'http': zapUrl, 'https': zapUrl}, verify=False);
+    vulnerable_app_scanner_response = requests.get("http://192.168.0.102:9090/scanner", proxies={'http': zapUrl, 'https': zapUrl}, verify=False)
     if vulnerable_app_scanner_response.status_code != 200:
         print("Failure while accessing scanner endpoint" + str(vulnerable_app_scanner_response))
         sys.exit(2)
@@ -134,6 +134,8 @@ def main(argv):
             total_alerts += len(alerts)
             for alert in alerts:
                 url = alert.get('url')
+                url = url.split("://")[1]
+                url = "https://" + url;
                 # Grab the url before any '?'
                 url_without_query_param = url.split('?')[0]
                 aDict = alerts_per_url.get(url_without_query_param,
