@@ -40,12 +40,59 @@
 from zapv2 import ZAPv2
 import datetime, sys, getopt, html, requests, json
 
+plugin_information = {
+    '6': ['Path Traversal', 'PathTrav'],
+    '43': ["Source Code Disclosure - File Inclusion", "SrcInc"],
+    '10020': ["X-Frame-Options Header Not Set", "XFrame"],
+    '10016': ["Web Browser XSS Protection Not Enabled", "XSSProtectionNotEnabled"],
+    '10021': ["X-Content-Type-Options Header Missing", "XContent"],
+    '10024': ["Information Disclosure - Sensitive Information in URL", "URLinfo"],
+    '10028': ["Open Redirect", "OpenRedir"],
+    '10029': ["Cookie Poisoning", "CookiePoison"],
+    '10031': ["User Controllable HTML Element Attribute (Potential XSS)", "MaybeXSS"],
+    '10036': ["Server Leaks Version Information via \"Server\" HTTP Response Header Field", "ServerLeak"],
+    '10038': ["Content Security Policy (CSP) Header Not Set", "NoCSP"],
+    '10043': ["User Controllable JavaScript Event (XSS)", "UserJsEvent"],
+    '10049': ["Content Cacheability", "ContentCache"],
+    '10058': ["GET for POST", "GetForPost"],
+    '10062': ["PII Disclosure", "PII"],
+    '10063': ["Feature Policy Header Not Set", "FeaturePolicyNotSet"],
+    '10096': ["Timestamp Disclosure - Unix", "Timestamp"],
+    '10104': ["User Agent Fuzzer", "UAfuzz"],
+    '10109': ["Modern Web Application", "ModernApp"],
+    '10202': ["Absence of Anti-CSRF Tokens", "NoCSRF"],
+    '20012': ["Anti CSRF Tokens Scanner", "ACSRF"],
+    '20019': ["External Redirect", "ExtRedir"],
+    '30001': ["Buffer Overflow", "Buffer"],
+    '30002': ["Format String Error", "Format"],
+    '30003': ["Integer Overflow Error", "IntOver"],
+    '40012': ['Cross Site Scripting (Reflected)', 'RXSS'],
+    '40014': ['Cross Site Scripting (Persistent) - Prime', 'PXSS'],
+    '40015': ['LDAP Injection', 'LDAPi'],
+    '40016': ['Cross Site Scripting (Persistent)', 'PXSS'],
+    '40017': ['Cross Site Scripting (Persistent) - Spider', 'PXSSS'],
+    '40019': ['SQL Injection - MySQL', 'MysqlSqli'],
+    '40024': ['SQL Injection - SQLite', 'SqliteSqli'],
+    '40026': ["Cross Site Scripting (DOM Based)", "DXSS"],
+    '40036': ['JWT Scan Rule', 'JWT'],
+    '90018': ['Advanced SQL Injection', 'AdvSqli'],
+    '90020': ['Remote OS Command Injection', 'CommandInjection'],
+    '90023': ['XML External Entity Attack', 'XXE'],
+    '90022': ["Application Error Disclosure", "AppError"],
+    '90024': ["Generic Padding Oracle", "PaddingOracle"],
+    '90027': ["Cookie Slack Detector", "CookieSlack"],
+    '90033': ["Loosely Scoped Cookie", "CookieLoose"],
+}
+
 
 def listToLinks(l):
     s = ''
     if l:
         for i in l:
-            s += '<a href="#' + i + '">' + i + '</a> '
+            if (i in plugin_information):
+                s += '<a href="#' + i + '">' + plugin_information.get(i)[1] + '</a> '
+            else:
+                s += '<a href="#' + i + '">' + i + '</a> '
     return s
 
 
@@ -69,27 +116,20 @@ def main(argv):
 
     zapUrl = 'http://' + zapHost + ':' + zapPort
 
-    plugin_information = {
-        '6': ['Path Traversal', 'PathTrav'],
-        '90020': ['Remote OS Command Injection', 'CommandInjection'],
-        '40012': ['Cross Site Scripting (Reflected)', 'RXSS'],
-        '40016': ['Cross Site Scripting (Persistent) - Prime', 'PXSS'],
-        '40019': ['SQL Injection - MySQL', 'MysqlSqli'],
-        '40024': ['SQL Injection - SQLite', 'SqliteSqli'],
-        '90018': ['Advanced SQL Injection', 'AdvSqli']
-    }
-
     # Reverse map which stores ZAP's plugin Id vs Owasp VulnerableApp's vulnerability types
     zap_plugin_id_vs_vulnapp_vulnerability_types = {
         '6': ['PATH_TRAVERSAL'],
         '40012': ['REFLECTED_XSS'],
+        '40014': ['PERSISTENT_XSS'],
         '40016': ['PERSISTENT_XSS'],
+        '40017': ['PERSISTENT_XSS'],
         '90020': ['COMMAND_INJECTION'],
         '40019': ['UNION_BASED_SQL_INJECTION', 'BLIND_SQL_INJECTION', 'ERROR_BASED_SQL_INJECTION'],
         '40024': ['UNION_BASED_SQL_INJECTION', 'BLIND_SQL_INJECTION', 'ERROR_BASED_SQL_INJECTION'],
-        '90018': ['UNION_BASED_SQL_INJECTION', 'BLIND_SQL_INJECTION', 'ERROR_BASED_SQL_INJECTION']
+        '90018': ['UNION_BASED_SQL_INJECTION', 'BLIND_SQL_INJECTION', 'ERROR_BASED_SQL_INJECTION'],
+        '40036': ['SERVER_SIDE_VULNERABLE_JWT', 'INSECURE_CONFIGURATION_JWT', 'CLIENT_SIDE_VULNERABLE_JWT'],
+        '90023': ['XXE']
     }
-
 
     zap = ZAPv2(proxies={'http': zapUrl, 'https': zapUrl})
 
@@ -103,6 +143,7 @@ def main(argv):
     alert_other_count = {}
 
     total_vulnerability_type_count = {}
+    url_vs_vulnapp_vuln_info = {}
 
     zap_version = zap.core.version
 
@@ -111,16 +152,14 @@ def main(argv):
     page = 1000
     # Page through the alerts as otherwise ZAP can hang...
     alerts = zap.core.alerts('', offset, page)
-    print("Scoring")
     # Scanner endpoint of Owasp VulnerableApp which provides information related to vulnerabilities present.
-    # TODO once vuln.yml specification is decided need to move this logic as per the spec
-    vulnerable_app_scanner_response = requests.get("http://192.168.0.102:9090/scanner", proxies={'http': zapUrl, 'https': zapUrl}, verify=False)
+    vulnerable_app_scanner_response = requests.get("http://127.0.0.1:9090/scanner",
+                                                   proxies={'http': zapUrl, 'https': zapUrl}, verify=False)
     if vulnerable_app_scanner_response.status_code != 200:
         print("Failure while accessing scanner endpoint" + str(vulnerable_app_scanner_response))
         sys.exit(2)
     else:
         vulnerability_info = vulnerable_app_scanner_response.json()
-        url_vs_vulnapp_vuln_info = {}
         for vulnapp_vuln_info in vulnerability_info:
             url = vulnapp_vuln_info["url"]
             if url not in url_vs_vulnapp_vuln_info:
@@ -134,12 +173,10 @@ def main(argv):
             total_alerts += len(alerts)
             for alert in alerts:
                 url = alert.get('url')
-                url = url.split("://")[1]
-                url = "https://" + url;
                 # Grab the url before any '?'
                 url_without_query_param = url.split('?')[0]
                 aDict = alerts_per_url.get(url_without_query_param,
-                                         {'pass': set([]), 'fail': set([]), 'ignore': set([]), 'other': set([])})
+                                           {'pass': set([]), 'fail': set([]), 'ignore': set([]), 'other': set([])})
                 if url_without_query_param in url_vs_vulnapp_vuln_info:
                     if alert.get('pluginId') in zap_plugin_id_vs_vulnapp_vulnerability_types:
                         vulnapp_vuln_types_for_pluginid = zap_plugin_id_vs_vulnapp_vulnerability_types.get(
@@ -150,15 +187,22 @@ def main(argv):
                                 for zap_pluginid_vuln in vulnapp_vuln_types_for_pluginid:
                                     if vulnapp_vuln_type == zap_pluginid_vuln:
                                         is_found = True
+                                        # print(zap_pluginid_vuln + "  " + alert.get('pluginId'))
                                         aDict['pass'].add(alert.get('pluginId'))
                                         alert_pass_count[alert.get('pluginId')] = alert_pass_count.get(
                                             alert.get('pluginId'), 0) + 1
                                 if not is_found:
-                                    alert_fail_count[alert.get('pluginId')] = alert_fail_count.get(alert.get('pluginId'), 0) + 1
+                                    alert_fail_count[alert.get('pluginId')] = alert_fail_count.get(
+                                        alert.get('pluginId'), 0) + 1
                                     aDict['fail'].add(alert.get('pluginId'))
                         alerts_per_url[url_without_query_param] = aDict
+                    else:
+                        alert_ignore_count[alert.get('pluginId')] = alert_ignore_count.get(alert.get('pluginId'), 0) + 1
+                        aDict['other'].add(alert.get('pluginId'))
+                uniqueUrls.add(url_without_query_param)
             offset += page
             alerts = zap.core.alerts('', offset, page)
+
     # Generate report file
     reportFile = open('report.html', 'w')
     reportFile.write("<html>\n")
@@ -182,44 +226,53 @@ def main(argv):
     totalFail = 0
 
     # Calculate the top level scores
-    for key, value in sorted(alerts_per_url.items()):
-        top = key
-        if ('-' in top):
-            top = top.split('-')[0] + '-' + top.split('-')[1]
-
-        if (top != thisTop[0]):
-            thisTop = [top, 0, 0]  # top, pass, fail
-            topResults.append(thisTop)
-        if (len(value.get('pass')) > 0):
-            thisTop[1] += 1
-        elif (len(value.get('fail')) > 0):
-            thisTop[2] += 1
-        elif ('falsePositive' in key):
-            thisTop[1] += 1
+    for url in sorted(url_vs_vulnapp_vuln_info):
+        top = url
+        value = alerts_per_url.get(url)
+        if url in alerts_per_url:
+            if (top != thisTop[0]):
+                thisTop = [top, 0, 0]  # top, pass, fail
+                topResults.append(thisTop)
+            if (len(value.get('pass')) > 0):
+                thisTop[1] += len(value.get('pass'))
+            if (len(value.get('fail')) > 0):
+                thisTop[2] += len(value.get('fail'))
+            if (len(value.get('ignore')) > 0):
+                thisTop[2] += len(value.get('ignore'))
+            # Vulnerabilities not found by ZAP
+            thisTop[2] += len(url_vs_vulnapp_vuln_info.get(url)) - len(value.get('pass'))
         else:
-            thisTop[2] += 1
+            # These Vulnerabilities are the one's that are not spidered.
+            thisTop = [top, 0, len(url_vs_vulnapp_vuln_info.get(url))]
+            topResults.append(thisTop)
 
     # Calculate the group scores
-    for key, value in sorted(alerts_per_url.items()):
-        group = key
-        if (group != thisGroup[0]):
-            thisGroup = [group, 0, 0]  # group, pass, fail
-            groupResults.append(thisGroup)
-        if (len(value.get('pass')) > 0):
-            totalPass += 1
-            thisGroup[1] += 1
-        elif (len(value.get('fail')) > 0):
-            totalFail += 1
-            thisGroup[2] += 1
-        elif ('FalsePositive' in key):
-            totalPass += 1
-            thisGroup[1] += 1
+    for url in sorted(url_vs_vulnapp_vuln_info):
+        value = alerts_per_url.get(url)
+        group = url.split('/')[3]
+        if url in alerts_per_url:
+            if (group != thisGroup[0]):
+                thisGroup = [group, 0, 0]  # group, pass, fail
+                groupResults.append(thisGroup)
+            if (len(value.get('pass')) > 0):
+                totalPass += len(value.get('pass'))
+                thisGroup[1] += len(value.get('pass'))
+            if (len(value.get('fail')) > 0):
+                totalFail += len(value.get('fail'))
+                thisGroup[2] += len(value.get('fail'))
+            if (len(value.get('ignore')) > 0):
+                totalFail += len(value.get('ignore'))
+                thisGroup[2] += len(value.get('ignore'))
+            thisTop[2] += len(url_vs_vulnapp_vuln_info.get(url)) - len(value.get('pass'))
         else:
-            totalFail += 1
-            thisGroup[2] += 1
-
+            # These Vulnerabilities are the one's that are not spidered.
+            if (group != thisGroup[0]):
+                thisGroup = [group, 0, 0]  # group, pass, fail
+                groupResults.append(thisGroup)
+            totalFail += len(url_vs_vulnapp_vuln_info.get(url))
+            thisGroup[2] += len(url_vs_vulnapp_vuln_info.get(url))
     # Output the summary
-    scale = 8
+    scale = 1
     reportFile.write("<h3>Total Score</h3>\n")
     reportFile.write("<font style=\"BACKGROUND-COLOR: GREEN\">")
     for i in range(int(totalPass / scale)):
@@ -242,14 +295,15 @@ def main(argv):
     reportFile.write("<table border=\"1\">\n")
     reportFile.write("<tr><th>Top Level</th><th>Pass</th><th>Fail</th><th>Score</th><th>Chart</th></tr>\n")
 
-    scale = 6
+    scale = 1
     for topResult in topResults:
-        # print "%s Pass: %i Fail: %i Score: %i\%" % (topResult[0], topResult[1], topResult[2], (100*topResult[1]/topResult[1]+topResult[2]))
         reportFile.write("<tr>")
         reportFile.write("<td>{0}</td>".format(html.escape(topResult[0])))
         reportFile.write("<td align=\"right\">" + str(topResult[1]) + "</td>")
         reportFile.write("<td align=\"right\">" + str(topResult[2]) + "</td>")
-        score = 100 * topResult[1] / (topResult[1] + topResult[2])
+        score = 0
+        if (topResults[1] + topResults[2]) != 0:
+            score = 100 * topResult[1] / (topResult[1] + topResult[2])
         reportFile.write("<td align=\"right\">" + str(score) + "%</td>")
         reportFile.write("<td>")
         reportFile.write("<font style=\"BACKGROUND-COLOR: GREEN\">")
@@ -273,11 +327,13 @@ def main(argv):
         reportFile.write("<tr>")
         reportFile.write("<td>" + details[1] + "</td>")
         reportFile.write(
-            "<td><a name=\"" + pluginid + "\" href=\"https://www.zaproxy.org/docs/alerts/" + pluginid + "/\">" + details[0]
+            "<td><a name=\"" + pluginid + "\" href=\"https://www.zaproxy.org/docs/alerts/" + pluginid + "/\">" +
+            details[0]
             + "</a></td>")
         reportFile.write("<td>" + str(alert_pass_count.get(pluginid, 0)) + "&nbsp;</td>")
-        reportFile.write("<td>" + str(alert_fail_count.get(pluginid,0)) + "&nbsp;</td>")
+        reportFile.write("<td>" + str(alert_fail_count.get(pluginid, 0)) + "&nbsp;</td>")
         reportFile.write("<td>" + str(alert_ignore_count.get(pluginid, 0)) + "&nbsp;</td>")
+        reportFile.write("<td>" + str(alert_other_count.get(pluginid, 0)) + "&nbsp;</td>")
         reportFile.write("<td>" + str(alert_other_count.get(pluginid, 0)) + "&nbsp;</td>")
         reportFile.write("</tr>\n")
     reportFile.write("</table><br/>\n")
@@ -287,9 +343,8 @@ def main(argv):
     reportFile.write("<table border=\"1\">\n")
     reportFile.write("<tr><th>Group</th><th>Pass</th><th>Fail</th><th>Score</th><th>Chart</th></tr>\n")
 
-    scale = 4
+    scale = 1
     for groupResult in groupResults:
-        # print "%s Pass: %i Fail: %i Score: %i\%" % (groupResult[0], groupResult[1], groupResult[2], (100*groupResult[1]/groupResult[1]+groupResult[2]))
         reportFile.write("<tr>")
         reportFile.write("<td>{0}</td>".format(html.escape(groupResult[0])))
         reportFile.write("<td align=\"right\">" + str(groupResult[1]) + "</td>")
@@ -317,11 +372,11 @@ def main(argv):
 
     for key, value in sorted(alerts_per_url.items()):
         reportFile.write("<tr>")
-        keyArray = key.split(':')
-        if (len(keyArray) == 4):
-            reportFile.write("<td>{0}</td>".format(html.escape(keyArray[0] + keyArray[2] + keyArray[3])))
+        keyArray = key.split('/')
+        if (len(keyArray) == 5):
+            reportFile.write("<td>{0}</td>".format(html.escape(keyArray[3] + "-" + keyArray[4])))
         else:
-            reportFile.write("<td>{0}</td>".format(html.escape(keyArray[0] + keyArray[2])))
+            reportFile.write("<td>{0}</td>".format(html.escape(key)))
         reportFile.write("<td>")
         if (len(value.get('pass')) > 0):
             reportFile.write("<font style=\"BACKGROUND-COLOR: GREEN\">&nbsp;PASS&nbsp</font>")

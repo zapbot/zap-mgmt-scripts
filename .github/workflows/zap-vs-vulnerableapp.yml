@@ -10,8 +10,8 @@ jobs:
     - name: Start vulnerableApp
       run: docker run --rm -d -p 9090:9090 --name=owasp-vulnerableapp sasanlabs/owasp-vulnerableapp:latest
     - name: Start ZAP
-      run: docker run --rm -d -p 8090:8090 --network host owasp/zap2docker-weekly zap-x.sh -daemon -host localhost -port 8090 -addonupdate -addoninstall domxss -config "api.addrs.addr.name=.*" -config api.addrs.addr.regex=true -config api.disablekey=true &
+      run: docker run --rm -d -p 8090:8090 --network host owasp/zap2docker-weekly zap-x.sh -daemon -host localhost -port 8090 -addoninstallall -addonupdate -config "api.addrs.addr.name=.*" -config api.addrs.addr.regex=true -config ajaxSpider.numberOfBrowsers=10 -config ajaxSpider.maxDuration=60 -config ajaxSpider.clickElemsOnce=false -config ajaxSpider.clickDefaultElems=false -config scanner.addQueryParam=true -config scanner.injectable=31 -config api.disablekey=true &
     - name: Run ZAP API script
       env:
         GITHUB_TOKEN: ${{ secrets.ZAPBOT_TOKEN }}
-      run: docker run --rm --network host --env ZAPBOT_TOKEN=${{ secrets.ZAPBOT_TOKEN }} owasp/zap-testing ../vulnerableApp/zap-vs-vulnerableApp.sh -e 32 -n vulnerableApp-weekly-RBJ-M-M -t "Rel, Beta, DomXSS"
+      run: docker run --rm --network host --env ZAPBOT_TOKEN=${{ secrets.ZAPBOT_TOKEN }} preetkaran20/owasp-zaptesting ./zap-vs-vulnerableApp.sh -a -e 11 -p "St-Ins-Th-Low" -n vulnerableApp-weekly-RBJ-M-M -t "Rel, Beta, DomXSS"

@@ -82,14 +82,11 @@ sleep 60
 
 # Spider and scan the app
 python3 vulnerableApp_spider_scan.py $score_opt -p "$policy" -z localhost >> wrk/out.txt
-
-echo Spidering done
 cat wrk/out.txt
 
 # Generate the report
 python3 vulnerableApp_score.py -h localhost > wrk/summary.txt
-
-echo Scanner done
+cat wrk/summary.txt
 
 echo "====" >> wrk/out.txt
 echo "Summary" >> wrk/out.txt
