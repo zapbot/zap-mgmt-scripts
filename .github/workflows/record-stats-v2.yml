@@ -1,0 +1,75 @@
+name: Collect Daily Stats
+
+on:
+  schedule:
+    - cron:  '0 0 * * *'
+  workflow_dispatch:
+
+jobs:
+  record_stats:
+    name: Collect Daily Stats
+    runs-on: ubuntu-latest
+    steps:
+    - name: Setup Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: '3.x'
+
+    - name: Set up env
+      run: |
+        python -m pip install requests
+
+        # Set up AWS CLI
+        export AWSCLI_ACCESS=${{ secrets.AWSCLI_ACCESS }}
+        export AWSCLI_SECRET=${{ secrets.AWSCLI_SECRET }}
+        python -m pip install awscli
+        mkdir ~/.aws
+        echo "[default]" > ~/.aws/config
+        echo "[default]" > ~/.aws/credentials
+        echo "aws_access_key_id = $AWSCLI_ACCESS" >> ~/.aws/credentials
+        echo "aws_secret_access_key = $AWSCLI_SECRET" >> ~/.aws/credentials
+
+    - name: Clone zap-mgmt-scripts
+      run: |
+        # Setup git details
+        export GITHUB_USER=zapbot
+        export GITHUB_TOKEN=${{ secrets.ZAPBOT_TOKEN }}
+        git config --global user.email "12745184+zapbot@users.noreply.github.com"
+        git config --global user.name $GITHUB_USER
+        git clone https://github.com/$GITHUB_USER/zap-mgmt-scripts.git
+
+        cp -R zap-mgmt-scripts/ master
+        cp -R zap-mgmt-scripts/ gh-pages
+        cd gh-pages
+        git checkout gh-pages
+        git remote set-url origin https://$GITHUB_USER:$GITHUB_TOKEN@github.com/$GITHUB_USER/zap-mgmt-scripts.git
+        cd ..
+
+    - name: Sync S3 files
+      run: |
+        mkdir project-zap
+        mkdir project-zap/stats
+        # This will gradually take longer and longer so at some point we could limit it to just recent files
+        aws s3 sync s3://project-zap/stats/ project-zap/stats/
+        
+    - name: Collect todays stats
+      run: |
+        export BITLY_TOKEN=${{ secrets.BITLY_TOKEN }}
+
+        cd master/stats
+        python3 stats.py collect
+        
+        # TODO raise an issue if not empty
+        echo "Any errors?"
+        cat errors.txt
+        cd ../..
+
+    - name: Daily post process
+      run: |
+        cd master/stats
+        python3 stats.py daily
+        cd ../..
+
+    - name: Update S3 files
+      run: |
+        aws s3 sync project-zap/stats/ s3://project-zap/stats/ 

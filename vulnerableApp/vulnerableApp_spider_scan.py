@@ -37,7 +37,8 @@ def main(argv):
    
    target = 'http://' + vulnerableAppHostIp + ':9090/'
 
-   zap = ZAPv2()
+   print('Target %s' % target)
+   print('ZAP %s' % zapHostIp)
    
    # change this IP according to your environment
    
