@@ -334,7 +334,6 @@ def main(argv):
         reportFile.write("<td>" + str(alert_fail_count.get(pluginid, 0)) + "&nbsp;</td>")
         reportFile.write("<td>" + str(alert_ignore_count.get(pluginid, 0)) + "&nbsp;</td>")
         reportFile.write("<td>" + str(alert_other_count.get(pluginid, 0)) + "&nbsp;</td>")
-        reportFile.write("<td>" + str(alert_other_count.get(pluginid, 0)) + "&nbsp;</td>")
         reportFile.write("</tr>\n")
     reportFile.write("</table><br/>\n")
 
