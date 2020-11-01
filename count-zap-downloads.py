@@ -21,21 +21,20 @@ for file in files:
   with open(file) as stats_file:
     stats = json.load(stats_file)
 
-  for stat in stats:
-    if (stat['name'] == REL):
-      assets = {}
-      for asset in stat['assets']:
-        name = asset['name']
-        count = asset['download_count']
-        if (name in counts):
-          # Ignore negative numbers - can happen when files are replaced
-          assets[name] = max((count - counts[name]), 0)
-        else:
-          assets[name] = count
-        counts[name] = count
-      if (files.index(file) == 0):
-        # Ignore the first as its just for getting a baseline
-        continue
+  if (stats['name'] == REL):
+    assets = {}
+    for asset in stats['assets']:
+      name = asset['name']
+      count = asset['download_count']
+      if (name in counts):
+        # Ignore negative numbers - can happen when files are replaced
+        assets[name] = max((count - counts[name]), 0)
       else:
-        print("        ['%s', %d, %d, %d, %d, %d, %d, %d, '']," % (file[-15:-5], 
-          assets[WIN64], assets[WIN32], assets[UNIX], assets[LINUX], assets[MAC], assets[CROSS], assets[CORE]))
+        assets[name] = count
+      counts[name] = count
+    if (files.index(file) == 0):
+      # Ignore the first as its just for getting a baseline
+      continue
+    else:
+      print("        ['%s', %d, %d, %d, %d, %d, %d, %d, '']," % (file[-15:-5], 
+        assets[WIN64], assets[WIN32], assets[UNIX], assets[LINUX], assets[MAC], assets[CROSS], assets[CORE]))

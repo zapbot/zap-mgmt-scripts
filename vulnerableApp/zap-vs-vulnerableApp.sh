@@ -1,5 +1,5 @@
 #!/bin/bash
-# Runs ZAP against wavsep with the specified options, generates the report and issues a PR to update it
+# Runs ZAP against Owasp VulnerableApp with the specified options, generates the report and issues a PR to update it
 # Parameters:
 #	-a					Run the Ajax spider (in addition to the traditional one)
 #	-e expected-score	Expected score string
@@ -8,9 +8,9 @@
 #	-z zap-options		Options to be passed directly to the ZAP command line call 
 #
 # Some example calls:
-# ./zap-vs-wavsep-1.5.sh -d "owasp/zap2docker-weekly" -e "66" -n "wavsep-1.5-weekly-RB-M-M" -t "Rel,Beta"
-# ./zap-vs-wavsep-1.5.sh -d "owasp/zap2docker-weekly" -e "66" -p "St-High-Th-Med" -n "wavsep-1.5-weekly-RB-H-M" -t "Rel,Beta"
-# ./zap-vs-wavsep-1.5.sh -d "owasp/zap2docker-weekly" -e "66" -n "wavsep-1.5-weekly-RBA-M-M" -t "Rel,Beta,Alpha" -z "-addoninstall ascanrulesAlpha"
+# ./zap-vs-vulnerableApp.sh -d "owasp/zap2docker-weekly" -e "66" -n "vulnerableApp-weekly-RB-M-M" -t "Rel,Beta"
+# ./zap-vs-vulnerableApp.sh -d "owasp/zap2docker-weekly" -e "66" -p "St-High-Th-Med" -n "vulnerableApp-weekly-RB-H-M" -t "Rel,Beta"
+# ./zap-vs-vulnerableApp.sh -d "owasp/zap2docker-weekly" -e "66" -n "vulnerableApp-weekly-RBA-M-M" -t "Rel,Beta,Alpha" -z "-addoninstall ascanrulesAlpha"
 
 USAGE="Usage: $0 [-a] -d docker-image [-e expected-score] -n name [-t text] [-z zap-options]"
 
@@ -78,13 +78,24 @@ mkdir wrk
 date > wrk/out.txt
 
 echo Let ZAP start up...
-sleep 120
+sleep 60
 
 # Spider and scan the app
-python3 wavsep_spider_scan.py $score_opt -p "$policy" -z localhost -w localhost >> wrk/out.txt
+<<<<<<< HEAD
+python3 vulnerableApp_spider_scan.py $score_opt -p "$policy" -z localhost >> wrk/out.txt
+cat wrk/out.txt
+=======
+echo python3 vulnerableApp_spider_scan.py $score_opt -p "$policy" -z localhost -w localhost >> wrk/out.txt
+python3 vulnerableApp_spider_scan.py $score_opt -p "$policy" -z localhost -w localhost >> wrk/out.txt
+>>>>>>> c8e3a6a883921d0a14c8fe8127b417d07232b6d1
+
+echo "SBSB testing - out.txt:"
+cat wrk/out.txt
 
 # Generate the report
-python3 wavsep_score.py -h localhost > wrk/summary.txt
+python3 vulnerableApp_score.py -h localhost > wrk/summary.txt
+cat wrk/summary.txt
+
 echo "====" >> wrk/out.txt
 echo "Summary" >> wrk/out.txt
 cat wrk/summary.txt >> wrk/out.txt
@@ -92,7 +103,7 @@ cat wrk/summary.txt >> wrk/out.txt
 echo "<TR>" > ${name}.summary
 echo "<td>" `cat wrk/summary.txt | grep ZAP | awk -F ' ' '{print $2}'` "</td>" >> ${name}.summary
 
-echo "<td>wavsep 1.5</td>" >> ${name}.summary
+echo "<td>Owasp VulnerableApp</td>" >> ${name}.summary
 echo "<td>$text</td>" >> ${name}.summary
 echo "<td>$policy</td>" >> ${name}.summary
 
@@ -112,12 +123,9 @@ fi
 echo "<td>" `cat wrk/summary.txt | grep urls | awk -F ' ' '{print $2}'` "</td>" >> ${name}.summary
 echo "<td>" `cat wrk/summary.txt | grep Took | awk -F ' ' '{print $2}'` "</td>" >> ${name}.summary
 
-ls -l
-cat zap*.log > reports/${name}.logs.txt
-
-ERRS=$(grep -c ERROR reports/${name}.logs.txt)
-echo "<td><a href=\"reports/${name}.logs.txt\">${ERRS}</a></td>" >> ${name}.summary
-#echo "<td>-</td>" >> ${name}.summary
+# TODO get hold of the ZAP logs
+#ERRS=$(grep -c ERROR ~/zap-mgmt-scripts/reports/${name}.logs.txt) >> ${name}.summary
+#echo "<td><a href=\"reports/${name}.logs.txt\">${ERRS}</a></td>" >> ${name}.summary
 echo "</tr>" >> ${name}.summary
 
 cat ${name}.summary
