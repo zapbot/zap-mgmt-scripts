@@ -228,8 +228,8 @@ def main(argv):
     # Calculate the top level scores
     for url in sorted(url_vs_vulnapp_vuln_info):
         top = url
-        value = alerts_per_url.get(url)
         if url in alerts_per_url:
+            value = alerts_per_url.get(url)
             if (top != thisTop[0]):
                 thisTop = [top, 0, 0]  # top, pass, fail
                 topResults.append(thisTop)
@@ -248,9 +248,9 @@ def main(argv):
 
     # Calculate the group scores
     for url in sorted(url_vs_vulnapp_vuln_info):
-        value = alerts_per_url.get(url)
         group = url.split('/')[3]
         if url in alerts_per_url:
+            value = alerts_per_url.get(url)
             if (group != thisGroup[0]):
                 thisGroup = [group, 0, 0]  # group, pass, fail
                 groupResults.append(thisGroup)
@@ -304,7 +304,7 @@ def main(argv):
         score = 0
         if (topResults[1] + topResults[2]) != 0:
             score = 100 * topResult[1] / (topResult[1] + topResult[2])
-        reportFile.write("<td align=\"right\">" + str(score) + "%</td>")
+        reportFile.write("<td align=\"right\">" + "{:.2f}".format(score) + "%</td>")
         reportFile.write("<td>")
         reportFile.write("<font style=\"BACKGROUND-COLOR: GREEN\">")
         for i in range(int(topResult[1] / scale)):
@@ -318,6 +318,34 @@ def main(argv):
         reportFile.write("</tr>\n")
 
     reportFile.write("</table><br/>\n")
+
+    # Output the group table
+    reportFile.write("<h3>Group Scores</h3>\n")
+    reportFile.write("<table border=\"1\">\n")
+    reportFile.write("<tr><th>Group</th><th>Pass</th><th>Fail</th><th>Score</th><th>Chart</th></tr>\n")
+
+    scale = 1
+    for groupResult in groupResults:
+        reportFile.write("<tr>")
+        reportFile.write("<td>{0}</td>".format(html.escape(groupResult[0])))
+        reportFile.write("<td align=\"right\">" + str(groupResult[1]) + "</td>")
+        reportFile.write("<td align=\"right\">" + str(groupResult[2]) + "</td>")
+        score = 100 * groupResult[1] / (groupResult[1] + groupResult[2])
+        reportFile.write("<td align=\"right\">" + "{:.2f}".format(score) + "%</td>")
+        reportFile.write("<td>")
+        reportFile.write("<font style=\"BACKGROUND-COLOR: GREEN\">")
+        for i in range(int(groupResult[1] / scale)):
+            reportFile.write("&nbsp;")
+        reportFile.write("</font>")
+        reportFile.write("<font style=\"BACKGROUND-COLOR: RED\">")
+        for i in range(int(groupResult[2] / scale)):
+            reportFile.write("&nbsp;")
+        reportFile.write("</font>")
+        reportFile.write("</td>")
+        reportFile.write("</tr>\n")
+
+    reportFile.write("</table><br/>\n")
+
 
     reportFile.write("<h3>Alerts</h3>\n")
     reportFile.write("<table border=\"1\">\n")
@@ -334,43 +362,30 @@ def main(argv):
         reportFile.write("<td>" + str(alert_fail_count.get(pluginid, 0)) + "&nbsp;</td>")
         reportFile.write("<td>" + str(alert_ignore_count.get(pluginid, 0)) + "&nbsp;</td>")
         reportFile.write("<td>" + str(alert_other_count.get(pluginid, 0)) + "&nbsp;</td>")
-        reportFile.write("<td>" + str(alert_other_count.get(pluginid, 0)) + "&nbsp;</td>")
         reportFile.write("</tr>\n")
     reportFile.write("</table><br/>\n")
 
-    # Output the group table
-    reportFile.write("<h3>Group Scores</h3>\n")
-    reportFile.write("<table border=\"1\">\n")
-    reportFile.write("<tr><th>Group</th><th>Pass</th><th>Fail</th><th>Score</th><th>Chart</th></tr>\n")
-
-    scale = 1
-    for groupResult in groupResults:
-        reportFile.write("<tr>")
-        reportFile.write("<td>{0}</td>".format(html.escape(groupResult[0])))
-        reportFile.write("<td align=\"right\">" + str(groupResult[1]) + "</td>")
-        reportFile.write("<td align=\"right\">" + str(groupResult[2]) + "</td>")
-        score = 100 * groupResult[1] / (groupResult[1] + groupResult[2])
-        reportFile.write("<td align=\"right\">" + str(score) + "%</td>")
-        reportFile.write("<td>")
-        reportFile.write("<font style=\"BACKGROUND-COLOR: GREEN\">")
-        for i in range(int(groupResult[1] / scale)):
-            reportFile.write("&nbsp;")
-        reportFile.write("</font>")
-        reportFile.write("<font style=\"BACKGROUND-COLOR: RED\">")
-        for i in range(int(groupResult[2] / scale)):
-            reportFile.write("&nbsp;")
-        reportFile.write("</font>")
-        reportFile.write("</td>")
-        reportFile.write("</tr>\n")
-
-    reportFile.write("</table><br/>\n")
 
     # Output the detail table
     reportFile.write("<h3>Detailed Results</h3>\n")
     reportFile.write("<table border=\"1\">\n")
     reportFile.write("<tr><th>Page</th><th>Result</th><th>Pass</th><th>Fail</th><th>Ignore</th><th>Other</th></tr>\n")
 
-    for key, value in sorted(alerts_per_url.items()):
+    # We are considering first plugin id only because VulnerableApp's Vulnerability Types don't have one-on-one
+    # mapping with ZAP plugin id.
+    vulnerable_app_vulnerability_type_vs_plugin_id = {}
+    for plugin_id in zap_plugin_id_vs_vulnapp_vulnerability_types:
+        for vulnerabilityType in zap_plugin_id_vs_vulnapp_vulnerability_types.get(plugin_id):
+            vulnerable_app_vulnerability_type_vs_plugin_id[vulnerabilityType] = plugin_id
+    for url in sorted(url_vs_vulnapp_vuln_info):
+        key = url
+        vulnerability_infos = url_vs_vulnapp_vuln_info.get(url)
+        pluginids = set([])
+        for vulnerability_info in vulnerability_infos:
+            for vulnerabilityType in vulnerability_info["vulnerabilityTypes"]:
+                if vulnerabilityType in vulnerable_app_vulnerability_type_vs_plugin_id.keys():
+                    pluginids.add(vulnerable_app_vulnerability_type_vs_plugin_id.get(vulnerabilityType))
+        value = alerts_per_url.get(url, {'pass': set([]), 'fail': pluginids, 'ignore': set([]), 'other': set([])});
         reportFile.write("<tr>")
         keyArray = key.split('/')
         if (len(keyArray) == 5):
