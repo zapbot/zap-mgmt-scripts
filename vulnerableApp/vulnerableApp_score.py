@@ -228,7 +228,7 @@ def main(argv):
         if url in alerts_per_url:
             value = alerts_per_url.get(url)
             if (top_level != this_top[0]):
-                this_top = [top_level, 0, 0]  # top_level, pass, fail
+                this_top = [top_level, 0, 0]  # top level, pass, fail
                 top_level_results.append(this_top)
             if (len(value.get('pass')) > 0):
                 totalPass += len(value.get('pass'))
@@ -266,7 +266,7 @@ def main(argv):
     reportFile.write('ZAP Version: ' + zap_version + '<br/>\n')
     reportFile.write('URLs found: ' + str(len(uniqueUrls)))
 
-    # Output the top_level table
+    # Output the top level table
     reportFile.write("<h3>Top Level Scores</h3>\n")
     reportFile.write("<table border=\"1\">\n")
     reportFile.write("<tr><th>Top Level</th><th>Pass</th><th>Fail</th><th>Score</th><th>Chart</th></tr>\n")
