@@ -217,60 +217,36 @@ def main(argv):
         "<h1><img src=\"https://raw.githubusercontent.com/zaproxy/zaproxy/develop/zap/src/main/resources/resource/zap64x64.png\" align=\"middle\">OWASP ZAP VulnerableApp results</h1>\n")
     reportFile.write("Generated: " + datetime.datetime.now().strftime("%Y-%m-%d %H:%M") + "\n")
 
-    topResults = []
-    thisTop = ['', 0, 0]
-
-    groupResults = []
-    thisGroup = ['', 0, 0]
+    top_level_results = []
+    this_top = ['', 0, 0]
     totalPass = 0
     totalFail = 0
 
     # Calculate the top level scores
     for url in sorted(url_vs_vulnapp_vuln_info):
-        top = url
+        top_level = url.split('/')[3]
         if url in alerts_per_url:
             value = alerts_per_url.get(url)
-            if (top != thisTop[0]):
-                thisTop = [top, 0, 0]  # top, pass, fail
-                topResults.append(thisTop)
-            if (len(value.get('pass')) > 0):
-                thisTop[1] += len(value.get('pass'))
-            if (len(value.get('fail')) > 0):
-                thisTop[2] += len(value.get('fail'))
-            if (len(value.get('ignore')) > 0):
-                thisTop[2] += len(value.get('ignore'))
-            # Vulnerabilities not found by ZAP
-            thisTop[2] += len(url_vs_vulnapp_vuln_info.get(url)) - len(value.get('pass'))
-        else:
-            # These Vulnerabilities are the one's that are not spidered.
-            thisTop = [top, 0, len(url_vs_vulnapp_vuln_info.get(url))]
-            topResults.append(thisTop)
-
-    # Calculate the group scores
-    for url in sorted(url_vs_vulnapp_vuln_info):
-        group = url.split('/')[3]
-        if url in alerts_per_url:
-            value = alerts_per_url.get(url)
-            if (group != thisGroup[0]):
-                thisGroup = [group, 0, 0]  # group, pass, fail
-                groupResults.append(thisGroup)
+            if (top_level != this_top[0]):
+                this_top = [top_level, 0, 0]  # top_level, pass, fail
+                top_level_results.append(this_top)
             if (len(value.get('pass')) > 0):
                 totalPass += len(value.get('pass'))
-                thisGroup[1] += len(value.get('pass'))
+                this_top[1] += len(value.get('pass'))
             if (len(value.get('fail')) > 0):
                 totalFail += len(value.get('fail'))
-                thisGroup[2] += len(value.get('fail'))
+                this_top[2] += len(value.get('fail'))
             if (len(value.get('ignore')) > 0):
                 totalFail += len(value.get('ignore'))
-                thisGroup[2] += len(value.get('ignore'))
-            thisTop[2] += len(url_vs_vulnapp_vuln_info.get(url)) - len(value.get('pass'))
+                this_top[2] += len(value.get('ignore'))
+            this_top[2] += len(url_vs_vulnapp_vuln_info.get(url)) - len(value.get('pass'))
         else:
             # These Vulnerabilities are the one's that are not spidered.
-            if (group != thisGroup[0]):
-                thisGroup = [group, 0, 0]  # group, pass, fail
-                groupResults.append(thisGroup)
+            if (top_level != this_top[0]):
+                this_top = [top_level, 0, 0]  # top_level, pass, fail
+                top_level_results.append(this_top)
             totalFail += len(url_vs_vulnapp_vuln_info.get(url))
-            thisGroup[2] += len(url_vs_vulnapp_vuln_info.get(url))
+            this_top[2] += len(url_vs_vulnapp_vuln_info.get(url))
     # Output the summary
     scale = 1
     reportFile.write("<h3>Total Score</h3>\n")
@@ -290,55 +266,26 @@ def main(argv):
     reportFile.write('ZAP Version: ' + zap_version + '<br/>\n')
     reportFile.write('URLs found: ' + str(len(uniqueUrls)))
 
-    # Output the top level table
+    # Output the top_level table
     reportFile.write("<h3>Top Level Scores</h3>\n")
     reportFile.write("<table border=\"1\">\n")
     reportFile.write("<tr><th>Top Level</th><th>Pass</th><th>Fail</th><th>Score</th><th>Chart</th></tr>\n")
 
     scale = 1
-    for topResult in topResults:
+    for top_level_result in top_level_results:
         reportFile.write("<tr>")
-        reportFile.write("<td>{0}</td>".format(html.escape(topResult[0])))
-        reportFile.write("<td align=\"right\">" + str(topResult[1]) + "</td>")
-        reportFile.write("<td align=\"right\">" + str(topResult[2]) + "</td>")
-        score = 0
-        if (topResults[1] + topResults[2]) != 0:
-            score = 100 * topResult[1] / (topResult[1] + topResult[2])
+        reportFile.write("<td>{0}</td>".format(html.escape(top_level_result[0])))
+        reportFile.write("<td align=\"right\">" + str(top_level_result[1]) + "</td>")
+        reportFile.write("<td align=\"right\">" + str(top_level_result[2]) + "</td>")
+        score = 100 * top_level_result[1] / (top_level_result[1] + top_level_result[2])
         reportFile.write("<td align=\"right\">" + "{:.2f}".format(score) + "%</td>")
         reportFile.write("<td>")
         reportFile.write("<font style=\"BACKGROUND-COLOR: GREEN\">")
-        for i in range(int(topResult[1] / scale)):
+        for i in range(int(top_level_result[1] / scale)):
             reportFile.write("&nbsp;")
         reportFile.write("</font>")
         reportFile.write("<font style=\"BACKGROUND-COLOR: RED\">")
-        for i in range(int(topResult[2] / scale)):
-            reportFile.write("&nbsp;")
-        reportFile.write("</font>")
-        reportFile.write("</td>")
-        reportFile.write("</tr>\n")
-
-    reportFile.write("</table><br/>\n")
-
-    # Output the group table
-    reportFile.write("<h3>Group Scores</h3>\n")
-    reportFile.write("<table border=\"1\">\n")
-    reportFile.write("<tr><th>Group</th><th>Pass</th><th>Fail</th><th>Score</th><th>Chart</th></tr>\n")
-
-    scale = 1
-    for groupResult in groupResults:
-        reportFile.write("<tr>")
-        reportFile.write("<td>{0}</td>".format(html.escape(groupResult[0])))
-        reportFile.write("<td align=\"right\">" + str(groupResult[1]) + "</td>")
-        reportFile.write("<td align=\"right\">" + str(groupResult[2]) + "</td>")
-        score = 100 * groupResult[1] / (groupResult[1] + groupResult[2])
-        reportFile.write("<td align=\"right\">" + "{:.2f}".format(score) + "%</td>")
-        reportFile.write("<td>")
-        reportFile.write("<font style=\"BACKGROUND-COLOR: GREEN\">")
-        for i in range(int(groupResult[1] / scale)):
-            reportFile.write("&nbsp;")
-        reportFile.write("</font>")
-        reportFile.write("<font style=\"BACKGROUND-COLOR: RED\">")
-        for i in range(int(groupResult[2] / scale)):
+        for i in range(int(top_level_result[2] / scale)):
             reportFile.write("&nbsp;")
         reportFile.write("</font>")
         reportFile.write("</td>")
