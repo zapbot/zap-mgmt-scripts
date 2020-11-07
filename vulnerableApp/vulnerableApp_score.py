@@ -119,6 +119,7 @@ def main(argv):
     # Reverse map which stores ZAP's plugin Id vs Owasp VulnerableApp's vulnerability types
     zap_plugin_id_vs_vulnapp_vulnerability_types = {
         '6': ['PATH_TRAVERSAL'],
+        '10028': ['OPEN_REDIRECT_3XX_STATUS_CODE'],
         '40012': ['REFLECTED_XSS'],
         '40014': ['PERSISTENT_XSS'],
         '40016': ['PERSISTENT_XSS'],
