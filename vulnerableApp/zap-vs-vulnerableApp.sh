@@ -81,17 +81,16 @@ echo Let ZAP start up...
 sleep 60
 
 # Spider and scan the app
-echo python3 vulnerableApp_spider_scan.py $score_opt -p "$policy" -z localhost -w localhost >> wrk/out.txt
-python3 vulnerableApp_spider_scan.py $score_opt -p "$policy" -z localhost -w localhost >> wrk/out.txt
-
-echo "SBSB testing - out.txt:"
+python3 vulnerableApp_spider_scan.py $score_opt -p "$policy" -z localhost >> wrk/out.txt
 cat wrk/out.txt
 
 # Generate the report
 python3 vulnerableApp_score.py -h localhost > wrk/summary.txt
+cat wrk/summary.txt
+
 echo "====" >> wrk/out.txt
 echo "Summary" >> wrk/out.txt
-cat ~/wrk/summary.txt >> wrk/out.txt
+cat wrk/summary.txt >> wrk/out.txt
 
 echo "<TR>" > ${name}.summary
 echo "<td>" `cat wrk/summary.txt | grep ZAP | awk -F ' ' '{print $2}'` "</td>" >> ${name}.summary
