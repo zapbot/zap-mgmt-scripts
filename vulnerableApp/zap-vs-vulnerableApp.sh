@@ -81,7 +81,7 @@ echo Let ZAP start up...
 sleep 60
 
 # Spider and scan the app
-python3 vulnerableApp_spider_scan.py $score_opt -p "$policy" -z localhost >> wrk/out.txt
+python3 vulnerableApp_spider_scan.py $score_opt -p "$policy" -z localhost -w localhost >> wrk/out.txt
 cat wrk/out.txt
 
 # Generate the report
