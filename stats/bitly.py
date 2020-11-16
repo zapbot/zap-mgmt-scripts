@@ -1,6 +1,8 @@
 '''
 Script for collecting and processing the ZAP bitly stats
 '''
+import csv
+import datetime
 import glob
 import json
 import os
@@ -37,33 +39,14 @@ def collect():
 def daily():
     files = sorted(glob.glob(utils.basedir() + 'bitly/raw/*.json'))
     created = set()
-    first_month = ""
-    last_monthly_totals = {}
-    monthly_files_to_write = set()
     for file in files:
         with open(file) as stats_file:
             stats = json.load(stats_file)
             link = os.path.basename(stats_file.name)[20:-5]
             date_collected = os.path.basename(stats_file.name)[:10]
             #print(stats_file.name + ' ' + link + ' ' + date_collected)
-            for lc in stats['link_clicks']:
+            for lc in stats['link_clicks']: # TODO these will be duplicated
                 date_str = lc['date'][:10]
-                is_monthly = date_str.endswith('-01')
-                if is_monthly:
-                    if len(first_month) == 0:
-                        first_month = date_str
-                    if len(first_month) > 0 and not first_month == date_str:
-                        monthly_file = utils.basedir() + 'bitly/monthly/' + date_str + '.csv'
-                        if not os.path.exists(monthly_file):
-                            with open(monthly_file, "a") as f:
-                                f.write('date,link,clicks\n')
-                                monthly_files_to_write.add(date_str)
-                                print('Created ' + monthly_file)
-                        if date_str in monthly_files_to_write:
-                            with open(monthly_file, "a") as f:
-                                f.write(date_str + ',' + link + ',' + str(last_monthly_totals[link]) + '\n')
-                                last_monthly_totals[link] = 0
-
                 # Stats for the day of collection will probably be incomplete
                 if not date_str == date_collected:
                     daily_file = utils.basedir() + 'bitly/daily/' + date_str + '.csv'
@@ -76,7 +59,31 @@ def daily():
                         with open(daily_file, "a") as f:
                             f.write(date_str + ',' + link + ',' + str(lc['clicks']) + '\n')
 
-                    # Monthly totals
-                    if not link in last_monthly_totals:
-                        last_monthly_totals[link] = 0
-                    last_monthly_totals[link] += lc['clicks']
+    # The raw stats contain duplicate days so its easier to work out the monthly stats from the daily ones
+    today = datetime.date.today()
+    if (today.day > 1):
+        first_str = today.replace(day=1).strftime('%Y-%m-%d')
+        monthly_file = utils.basedir() + 'bitly/monthly/' + first_str + '.csv'
+        if not os.path.exists(monthly_file):
+            monthly_totals = {}
+            if today.month == 1:
+                last_month = today.replace(year = today.year-1).replace(month = 12)
+            else:
+                last_month = today.replace(month = today.month-1)
+            files = sorted(glob.glob(utils.basedir() + 'bitly/daily/' + last_month.strftime('%Y-%m-') + '*.csv'))
+            for file in files:
+                with open(file) as daily_file:
+                    csv_reader = csv.reader(daily_file)
+                    # Ignore the header
+                    next(csv_reader)
+                    for row in csv_reader:
+                        link = row[1]
+                        clicks = row[2]
+                        if not link in monthly_totals:
+                            monthly_totals[link] = 0
+                        monthly_totals[link] += int(clicks)
+            with open(monthly_file, "a") as f:
+                f.write('date,link,clicks\n')
+                for link in monthly_totals:
+                    f.write(utils.today() + ',' + link + "," + str(monthly_totals[link]) + '\n')
+            print('Created ' + monthly_file)
