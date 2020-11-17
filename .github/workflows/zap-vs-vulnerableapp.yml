@@ -8,7 +8,7 @@ jobs:
     runs-on: [ubuntu-latest]
     steps:
     - name: Start vulnerableApp
-      run: docker run --rm -d -p 9090:9090 --name=owasp-vulnerableapp sasanlabs/owasp-vulnerableapp:latest
+      run: docker run --rm -d -p 9090:9090 --network host --name=owasp-vulnerableapp sasanlabs/owasp-vulnerableapp:latest
     - name: Start ZAP
       run: docker run --rm -d -p 8090:8090 --network host owasp/zap2docker-weekly zap-x.sh -daemon -host localhost -port 8090 -addoninstallall -addonupdate -config "api.addrs.addr.name=.*" -config api.addrs.addr.regex=true -config ajaxSpider.numberOfBrowsers=10 -config ajaxSpider.maxDuration=60 -config ajaxSpider.clickElemsOnce=false -config ajaxSpider.clickDefaultElems=false -config scanner.addQueryParam=true -config scanner.injectable=31 -config api.disablekey=true &
     - name: Run ZAP API script
