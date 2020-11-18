@@ -29,12 +29,22 @@ links = [
     "owaspzap-start-dev", \
     ]
 
-bitly_api = "https://api-ssl.bitly.com/v4/bitlinks/bit.ly/{{LINK}}/clicks?unit=day&units=-1&size=7"
+links_for_country_stats = [
+    "owaspzap-2-9-0d", \
+    "owaspzap-2-9-0", \
+    "owaspzap-news-2-9", \
+    ]
+
+bitly_clicks_api = "https://api-ssl.bitly.com/v4/bitlinks/bit.ly/{{LINK}}/clicks?unit=day&units=-1&size=7"
+bitly_countries_api = "https://api-ssl.bitly.com/v4/bitlinks/bit.ly/{{LINK}}/countries?unit=day&units=1&size=100"
 
 def collect():
     headers = {'Authorization': 'Bearer ' + os.getenv('BITLY_TOKEN')}
     for link in links:
-        utils.download_to_file(bitly_api.replace('{{LINK}}', link), utils.basedir() + "bitly/raw/" + utils.today() + '-' + link + ".json", headers)
+        utils.download_to_file(bitly_clicks_api.replace('{{LINK}}', link), utils.basedir() + "bitly/raw/" + utils.today() + '-' + link + ".json", headers)
+
+    for link_cs in links_for_country_stats:
+        utils.download_to_file(bitly_countries_api.replace('{{LINK}}', link_cs), utils.basedir() + "bitly/raw-countries/" + utils.today() + '-' + link_cs + ".json", headers)
 
 def daily():
     files = sorted(glob.glob(utils.basedir() + 'bitly/raw/*.json'))
