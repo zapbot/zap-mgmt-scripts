@@ -10,10 +10,12 @@ jobs:
     - name: Start wavsep
       run: docker run --rm -d -p 8080:8080 owaspvwad/wavsep &
     - name: Start ZAP
-      run: docker run --rm -d -p 8090:8090 --network host owasp/zap2docker-live zap-x.sh \
-        -daemon -host localhost -port 8090 -addonupdate -addoninstall domxss \
-        -config "api.addrs.addr.name=.*" -config api.addrs.addr.regex=true -config api.disablekey=true \
-        -config database.recoverylog=false -config pscans.maxBodySizeInBytes=10 &
+      run: |
+        sleep 30
+        docker run --rm -d -p 8090:8090 --network host owasp/zap2docker-live zap-x.sh \
+          -daemon -host localhost -port 8090 -addonupdate -addoninstall domxss \
+          -config "api.addrs.addr.name=.*" -config api.addrs.addr.regex=true -config api.disablekey=true \
+          -config database.recoverylog=false -config pscans.maxBodySizeInBytes=10 &
     - name: Disable all tags
       run: curl "http://localhost:8090/JSON/pscan/action/disableAllTags"
     - name: Run ZAP API script
