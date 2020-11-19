@@ -15,10 +15,6 @@ jobs:
           -daemon -host localhost -port 8090 -addonupdate -addoninstall domxss \
           -config "api.addrs.addr.name=.*" -config api.addrs.addr.regex=true -config api.disablekey=true \
           -config database.recoverylog=false -config pscans.maxBodySizeInBytes=10 &
-    - name: Disable all tags
-      run: |
-        sleep 30
-        curl "http://localhost:8090/JSON/pscan/action/disableAllTags"
     - name: Run ZAP API script
       env:
         GITHUB_TOKEN: ${{ secrets.ZAPBOT_TOKEN }}
