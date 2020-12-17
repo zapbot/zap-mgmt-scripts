@@ -8,6 +8,7 @@ import os
 import sys
 
 tags = [
+    "v2.10.0",
     "v2.9.0",
     "v2.8.0",
     ]
