@@ -1,0 +1,29 @@
+name: ZAPBOT Randon tip tweet
+
+on:
+  schedule:
+    - cron:  '0 * * * *' # Every hour
+  workflow_dispatch:
+
+jobs:
+
+  tweet:
+    name: Send random tweet from zapbot (1 in 12 chance)
+    runs-on: [ubuntu-latest]
+    steps:
+      - name: Setup Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.x'
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Tweet
+        env:
+          TWITTER_CONSUMER_KEY: ${{ secrets.ZAPBOT_TWITTER_CONSUMER_KEY }}
+          TWITTER_CONSUMER_SECRET: ${{ secrets.ZAPBOT_TWITTER_CONSUMER_SECRET }}
+          TWITTER_ACCESS_TOKEN: ${{ secrets.ZAPBOT_TWITTER_ACCESS_TOKEN }}
+          TWITTER_ACCESS_TOKEN_SECRET: ${{ secrets.ZAPBOT_TWITTER_ACCESS_TOKEN_SECRET }}
+        run: |
+          pip3 install python-twitter
+          cd tiptweets
+          python3 rndtweet.py 12
