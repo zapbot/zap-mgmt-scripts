@@ -4,4 +4,9 @@ Requirements:
 
 pip3 install python-twitter
 
-local_settings.py needs to be changed to have suitable credentials for whichever twitter account is used
+The following env vars must have valid values:
+
+* TWITTER_CONSUMER_KEY
+* TWITTER_CONSUMER_SECRET
+* TWITTER_ACCESS_TOKEN
+* TWITTER_ACCESS_TOKEN_SECRET
