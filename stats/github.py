@@ -82,7 +82,12 @@ def daily():
                             f.write(date_str + ',' +  tag + ',' + asset['name'] + ',' + mapping + ',' + str(assets[name]) + '\n')
 
             if is_monthly:
+                last_monthly_total = 0
                 if tag in last_monthly_totals:
+                    last_monthly_total = last_monthly_totals[tag]
+
+                if tag in last_monthly_totals or tags.index(tag) == 0:
+                    # we have a previous total or its the latest tag, which could be new
                     monthly_file = utils.basedir() + 'downloads/monthly/' + date_str + '.csv'
                     if not os.path.exists(monthly_file):
                         monthly_files_to_write.add(date_str)
@@ -92,6 +97,6 @@ def daily():
                     # There can be multiple raw files with the same date, ie one per tag
                     if date_str in monthly_files_to_write:
                         with open(monthly_file, "a") as f:
-                            f.write(date_str + ',' +  tag + ',' + str(daily_total) + ',' + str(daily_total - last_monthly_totals[tag]))
+                            f.write(date_str + ',' +  tag + ',' + str(daily_total) + ',' + str(daily_total - last_monthly_total) + '\n')
 
                 last_monthly_totals[tag] = daily_total
