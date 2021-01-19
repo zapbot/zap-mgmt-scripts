@@ -215,7 +215,7 @@ def main(argv):
     reportFile.write("<body>\n")
 
     reportFile.write(
-        "<h1><img src=\"https://raw.githubusercontent.com/zaproxy/zaproxy/develop/zap/src/main/resources/resource/zap64x64.png\" align=\"middle\">OWASP ZAP VulnerableApp results</h1>\n")
+        "<h1><img src=\"https://raw.githubusercontent.com/zaproxy/zaproxy/main/zap/src/main/resources/resource/zap64x64.png\" align=\"middle\">OWASP ZAP VulnerableApp results</h1>\n")
     reportFile.write("Generated: " + datetime.datetime.now().strftime("%Y-%m-%d %H:%M") + "\n")
 
     top_level_results = []
