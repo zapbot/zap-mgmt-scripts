@@ -8,7 +8,7 @@ import os
 import sys
 
 def usage():
-    print("stats.py collect | daily | monthly")
+    print("stats.py collect | daily | website")
 
 def collect():
     docker.collect()
@@ -19,6 +19,11 @@ def daily():
     docker.daily()
     github.daily()
     bitly.daily()
+
+def website():
+    docker.website()
+    github.website()
+    bitly.website()
 
 if __name__ == '__main__':
     if len(sys.argv) == 2:

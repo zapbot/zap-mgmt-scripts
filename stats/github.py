@@ -1,6 +1,7 @@
 '''
 Script for collecting and processing the ZAP github stats
 '''
+import csv
 import utils
 import glob
 import json
@@ -100,3 +101,61 @@ def daily():
                             f.write(date_str + ',' +  tag + ',' + str(daily_total) + ',' + str(daily_total - last_monthly_total) + '\n')
 
                 last_monthly_totals[tag] = daily_total
+
+def website():
+    files = sorted(glob.glob(utils.basedir() + 'downloads/monthly/*.csv'))
+    outfile = utils.websitedir() + 'site/data/charts/downloads.json'
+    if not os.path.isfile(outfile):
+        print('No existing file: ' + outfile)
+        return
+    
+    versions = []
+    map = {}
+    
+    for file in files:
+        with open(file) as monthly_file:
+            csv_reader = csv.reader(monthly_file)
+            # Ignore the header
+            next(csv_reader)
+            for row in csv_reader:
+                # Monthly stats tend to get recorded as the 2nd even though they really apply to the previous month
+                date = row[0][:-2] + '01"'
+                version = row[1]
+                if len(row) > 3:
+                    downloads = row[3]
+                else:
+                    downloads = row[2]
+                if not version in versions:
+                    versions.append(version)
+                if not date in map:
+                    map[date] = {}
+                map[date][version] = downloads
+    
+    with open(outfile, 'w') as f:
+        print('{', file=f)
+        print('  "title": "Direct Downloads",', file=f)
+        print('  "description": "Direct downloads since v2.4.3. It is worth noting that downloads have reduced since the Docker images have become more popular.",', file=f)
+        print('  "columns": ["Version" ', end='', file=f)
+        for l in versions:
+            print(', "' + l + '"', end='', file=f)
+        print('],', file=f)
+        print('  "data": [', end='', file=f)
+        
+        first = True
+        for date in sorted(map.keys()):
+            if not first:
+                print(',', end='', file=f)
+            else:
+                first = False
+            print('\n    ["' + date, end='', file=f)
+            for l in versions:
+                if l in map[date] and len(map[date][l]) > 0:
+                    print(', ' + map[date][l], end='', file=f)
+                else:
+                    print(', 0', end='', file=f)
+            print(', ""]', end='', file=f)
+        
+        print('\n  ]', file=f)
+        print('}', file=f)
+
+    print('Updated: ' + outfile)

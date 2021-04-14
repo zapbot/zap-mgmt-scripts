@@ -103,3 +103,66 @@ def daily():
                 for link in monthly_totals:
                     f.write(utils.today() + ',' + link + "," + str(monthly_totals[link]) + '\n')
             print('Created ' + monthly_file)
+
+def website():
+    '''
+    Currently just handling the check for update requests, whose links all start with a '2'
+    '''
+    files = sorted(glob.glob(utils.basedir() + 'bitly/monthly/*.csv'))
+    outfile = utils.websitedir() + 'site/data/charts/check-for-updates.json'
+    if not os.path.isfile(outfile):
+        print('No existing file: ' + outfile)
+        return
+    links = []
+    map = {}
+    
+    for file in files:
+        with open(file) as monthly_file:
+            csv_reader = csv.reader(monthly_file)
+            # Ignore the header
+            next(csv_reader)
+            for row in csv_reader:
+                date = row[0]
+                link = row[1]
+                if len(row) > 3:
+                    clicks = row[3]
+                else:
+                    clicks = row[2]
+                if not link in links:
+                    links.append(link)
+                if not date in map:
+                    map[date] = {}
+                map[date][link] = clicks
+
+    with open(outfile, 'w') as f:
+        print('{', file=f)
+        print('  "title": "Check for Updates",', file=f)
+        print('  "description": "The number of Check for Update requests received per month. From 2.9.0 the suffix \'d\' indicates ZAP is running as a daemon rather than the desktop.",', file=f)
+        print('  "columns": ["Version" ', end='', file=f)
+        for l in links:
+            if l.startswith('2'):
+                # Its a CFU link
+                print(', "' + l + '"', end='', file=f)
+        print('],', file=f)
+        print('  "data": [', end='', file=f)
+        
+        first = True
+        for date in sorted(map.keys()):
+            # Monthly stats tend to get recorded as the 2nd even though they really apply to the previous month
+            if not first:
+                print(',', end='', file=f)
+            else:
+                first = False
+            print('\n    ["' + date[:-2] + '01"', end='', file=f)
+            for l in links:
+                if l.startswith('2'):
+                    if l in map[date] and len(map[date][l]) > 0:
+                        print(', ' + map[date][l], end='', file=f)
+                    else:
+                        print(', 0', end='', file=f)
+            print(', ""]', end='', file=f)
+            
+        print('\n  ]', file=f)
+        print('}', file=f)
+
+    print('Updated: ' + outfile)

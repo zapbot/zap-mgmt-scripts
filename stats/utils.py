@@ -28,3 +28,6 @@ def download_to_file(url, filename, headers={}):
             errors.write("\n\n")
 
     errors.close()
+    
+def websitedir():
+    return "../../zaproxy-website/"
