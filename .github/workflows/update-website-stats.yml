@@ -34,7 +34,6 @@ jobs:
         # Setup git details
         export GITHUB_USER=zapbot
         export GITHUB_TOKEN=${{ secrets.ZAPBOT_TOKEN }}
-        python -m pip install awscli
         git config --global user.email "12745184+zapbot@users.noreply.github.com"
         git config --global user.name $GITHUB_USER
         git clone https://github.com/$GITHUB_USER/zap-mgmt-scripts.git
@@ -45,6 +44,7 @@ jobs:
         cd zaproxy-website
         git remote set-url origin https://$GITHUB_USER:$GITHUB_TOKEN@github.com/$GITHUB_USER/zaproxy-website.git
         git remote add upstream https://github.com/zaproxy/zaproxy-website.git
+        git checkout statistics
         git pull upstream master
         git reset --hard upstream/master
         git push origin --force
@@ -69,7 +69,5 @@ jobs:
         git commit -m "Updated monthly statistics"
         git push origin
 
-        echo ${{ secrets.ZAPBOT_TOKEN }} > zapbottoken.txt
-        gh auth login --with-token < zapbottoken.txt
-        rm zapbottoken.txt
+        echo ${{ secrets.ZAPBOT_TOKEN }} | gh auth login --scopes "read:org" --with-token
         gh pr create --fill
