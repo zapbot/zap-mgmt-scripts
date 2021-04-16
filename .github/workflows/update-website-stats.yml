@@ -66,7 +66,7 @@ jobs:
       run: |
         cd zaproxy-website
         git add site/data/charts/*
-        git commit -m "Updated monthly statistics"
+        git commit -s -m "Updated monthly statistics"
         git push origin
 
         echo ${{ secrets.ZAPBOT_TOKEN }} | gh auth login --scopes "read:org" --with-token
