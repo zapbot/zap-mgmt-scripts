@@ -32,6 +32,7 @@ jobs:
         # Setup git details
         export GITHUB_USER=zapbot
         export GITHUB_TOKEN=${{ secrets.ZAPBOT_TOKEN }}
+        python -m pip install awscli
         git config --global user.email "12745184+zapbot@users.noreply.github.com"
         git config --global user.name $GITHUB_USER
         git clone https://github.com/$GITHUB_USER/zap-mgmt-scripts.git
