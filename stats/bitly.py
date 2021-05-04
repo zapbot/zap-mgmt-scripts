@@ -104,9 +104,12 @@ def daily():
                     f.write(utils.today() + ',' + link + "," + str(monthly_totals[link]) + '\n')
             print('Created ' + monthly_file)
 
+def is_cfu(link):
+    return link.startswith('2') or link.startswith('devw')
+
 def website():
     '''
-    Currently just handling the check for update requests, whose links all start with a '2'
+    Currently just handling the check for update requests as per is_cfu
     '''
     files = sorted(glob.glob(utils.basedir() + 'bitly/monthly/*.csv'))
     outfile = utils.websitedir() + 'site/data/charts/check-for-updates.json'
@@ -140,8 +143,7 @@ def website():
         print('  "description": "The number of Check for Update requests received per month. From 2.9.0 the suffix \'d\' indicates ZAP is running as a daemon rather than the desktop.",', file=f)
         print('  "columns": ["Version" ', end='', file=f)
         for l in links:
-            if l.startswith('2'):
-                # Its a CFU link
+            if is_cfu(l):
                 print(', "' + l + '"', end='', file=f)
         print('],', file=f)
         print('  "data": [', end='', file=f)
@@ -155,7 +157,7 @@ def website():
                 first = False
             print('\n    ["' + date[:-2] + '01"', end='', file=f)
             for l in links:
-                if l.startswith('2'):
+                if is_cfu(l):
                     if l in map[date] and len(map[date][l]) > 0:
                         print(', ' + map[date][l], end='', file=f)
                     else:
