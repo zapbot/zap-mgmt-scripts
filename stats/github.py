@@ -51,7 +51,7 @@ def daily():
                     print('Creating ' + daily_file)
                     f.write('date,version,name,tag,downloads\n')
                     
-            is_monthly = date_str.endswith('-01')
+            is_monthly = date_str.endswith('-01') or date_str == '2021-08-02' # No stats for 2021-08-01 :/
             daily_total = 0
             for asset in stats['assets']:
                 tag = stats['name']
