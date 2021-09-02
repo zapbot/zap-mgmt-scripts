@@ -32,7 +32,7 @@ def daily():
             image = stats['name']
             total = stats['pull_count']
 
-            is_monthly = date_str.endswith('-01')
+            is_monthly = date_str.endswith('-01') or date_str == '2021-08-02' # No stats for 2021-08-01 :/
             if is_monthly:
                 if image in last_monthly_totals:
                     monthly_file = utils.basedir() + 'docker/monthly/' + date_str + '.csv'
