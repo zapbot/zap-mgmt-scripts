@@ -10,6 +10,8 @@ import sys
 import utils
 
 links = [
+    "owaspzap-2-11-0d", \
+    "owaspzap-2-11-0", \
     "owaspzap-2-10-0d", \
     "owaspzap-2-10-0", \
     "owaspzap-2-9-0d", \
@@ -20,6 +22,7 @@ links = [
     "owaspzap-2-5-0", \
     "owaspzap-2-4-3", \
     "owaspzap-devw", \
+    "owaspzap-news-2-11", \
     "owaspzap-news-2-10", \
     "owaspzap-news-2-9", \
     "owaspzap-news-2-8", \
@@ -33,6 +36,9 @@ links = [
     ]
 
 links_for_country_stats = [
+    "owaspzap-2-11-0d", \
+    "owaspzap-2-11-0", \
+    "owaspzap-news-2-11", \
     "owaspzap-2-10-0d", \
     "owaspzap-2-10-0", \
     "owaspzap-news-2-10", \
