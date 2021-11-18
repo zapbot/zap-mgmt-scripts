@@ -24,7 +24,7 @@ jobs:
         export AWSCLI_ACCESS=${{ secrets.AWSCLI_ACCESS }}
         export AWSCLI_SECRET=${{ secrets.AWSCLI_SECRET }}
         mkdir ~/.aws
-        echo "[default]" > ~/.aws/config
+        echo "[default]\nregion = us-east-2" > ~/.aws/config
         echo "[default]" > ~/.aws/credentials
         echo "aws_access_key_id = $AWSCLI_ACCESS" >> ~/.aws/credentials
         echo "aws_secret_access_key = $AWSCLI_SECRET" >> ~/.aws/credentials
