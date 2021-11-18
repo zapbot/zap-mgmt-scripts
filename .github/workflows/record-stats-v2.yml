@@ -24,7 +24,8 @@ jobs:
         export AWSCLI_SECRET=${{ secrets.AWSCLI_SECRET }}
         python -m pip install awscli
         mkdir ~/.aws
-        echo "[default]\nregion = us-east-2" > ~/.aws/config
+        echo "[default]" > ~/.aws/config
+        echo "region = us-east-2" >> ~/.aws/config
         echo "[default]" > ~/.aws/credentials
         echo "aws_access_key_id = $AWSCLI_ACCESS" >> ~/.aws/credentials
         echo "aws_secret_access_key = $AWSCLI_SECRET" >> ~/.aws/credentials

@@ -16,20 +16,20 @@ def collect():
     docker.collect()
     github.collect()
     bitly.collect()
-    #zap_services.collect()
+    zap_services.collect()
 
 def daily():
     docker.daily()
     github.daily()
     bitly.daily()
-    #zap_services.daily()
+    zap_services.daily()
 
 def website():
     docker.website()
     github.website()
     bitly.website()
     groups.website()
-    #zap_services.website()
+    zap_services.website()
 
 if __name__ == '__main__':
     if len(sys.argv) == 2:
