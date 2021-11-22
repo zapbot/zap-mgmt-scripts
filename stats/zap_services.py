@@ -80,14 +80,14 @@ def copy_without_quotes(source, dest) :
 def collect():
     # Requests by day and version
     aws_athena_query_to_file(
-        'SELECT day, zapVersion, count(*) FROM "zap_cfu"."default"."zap-cfu" WHERE day = \'' + today_str + '\' GROUP BY day, zapVersion', 
+        'SELECT day, zapVersion, count(*) as count FROM "zap-cfu-DS"."default"."zap-cfu" WHERE day = \'' + today_str + '\' GROUP BY day, zapVersion', 
         day_raw_file)
     
     # Requests by month and version
     if not os.path.isfile(mon_raw_file):
         # For historical reasons the monthly stats are collected on the 2nd of the next month
         aws_athena_query_to_file(
-            'SELECT \'' + this_mon_str + '-02\', zapVersion, count(*) FROM "zap_cfu"."default"."zap-cfu" WHERE day LIKE \'' + last_mon_str + '-%\' GROUP BY zapVersion', 
+            'SELECT \'' + this_mon_str + '-02\', zapVersion, count(*) as count FROM "zap-cfu-DS"."default"."zap-cfu" WHERE day LIKE \'' + last_mon_str + '-%\' GROUP BY zapVersion', 
             mon_raw_file)
     
 
@@ -105,3 +105,8 @@ def website():
     # All handled by the bitly script
     pass
 
+if __name__ == '__main__':
+    if len(sys.argv) == 2:
+        fn = sys.argv[1]
+        if fn in globals():
+            globals()[sys.argv[1]]()
