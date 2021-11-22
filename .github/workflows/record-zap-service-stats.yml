@@ -60,9 +60,6 @@ jobs:
         cd master/stats
         python3 zap_services.py collect
         
-        # TODO raise an issue if not empty
-        echo "Any errors?"
-        cat errors.txt
         cd ../..
 
     - name: Daily post process
