@@ -61,7 +61,7 @@ def aws_athena_query_to_file(query, file):
     qid = aws_athena_query(query)
     if qid is not None:
         # Loop polling for the result
-        for _ in range(20):
+        for _ in range(100):
             res = aws_athena_query_result(qid)
             if res['QueryExecution']['Status']['State'] == "FAILED":
                 print(res)
