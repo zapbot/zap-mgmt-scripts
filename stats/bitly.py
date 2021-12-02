@@ -111,7 +111,7 @@ def daily():
             print('Created ' + monthly_file)
 
 def is_cfu(link):
-    return link.startswith('2') or link.startswith('devw')
+    return link.startswith('2') or link.startswith('devw') or link.startswith('Daily') 
 
 def website():
     '''
@@ -133,6 +133,10 @@ def website():
             for row in csv_reader:
                 date = row[0]
                 link = row[1]
+                # Handle new CFU service stats
+                if link.startswith('D-'):
+                    link = 'Daily'
+                
                 if len(row) > 3:
                     clicks = row[3]
                 else:
@@ -141,7 +145,11 @@ def website():
                     links.append(link)
                 if not date in map:
                     map[date] = {}
-                map[date][link] = clicks
+                    
+                if link in map[date]:
+                    map[date][link] = str(int(map[date][link]) + int(clicks))
+                else:
+                    map[date][link] = clicks
 
     with open(outfile, 'w') as f:
         print('{', file=f)
@@ -174,3 +182,9 @@ def website():
         print('}', file=f)
 
     print('Updated: ' + outfile)
+
+if __name__ == '__main__':
+    if len(sys.argv) == 2:
+        fn = sys.argv[1]
+        if fn in globals():
+            globals()[sys.argv[1]]()
