@@ -136,6 +136,9 @@ def website():
                 # Handle new CFU service stats
                 if link.startswith('D-'):
                     link = 'Daily'
+                if "." in link:
+                    # This will need to change when ZAP uses the new CFU service
+                    continue
                 
                 if len(row) > 3:
                     clicks = row[3]
