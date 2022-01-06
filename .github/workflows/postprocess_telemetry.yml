@@ -42,7 +42,6 @@ jobs:
         # The telemetry/raw directory should just contain unprocessed files so remain small
         aws s3 sync s3://project-zap/telemetry/raw/ telemetry/raw/
         python3 tel_postprocess.py
-        # Dry run to start with, just to double check its going to do the right thing!
-        aws s3 mv telemetry/ s3://project-zap/telemetry/ --recursive --dryrun
-        aws s3 sync telemetry/raw/ s3://project-zap/telemetry/raw/ --delete --dryrun
+        aws s3 mv telemetry/ s3://project-zap/telemetry/ --recursive
+        aws s3 sync telemetry/raw/ s3://project-zap/telemetry/raw/ --delete
 
