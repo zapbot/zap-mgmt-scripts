@@ -1,4 +1,4 @@
-name: Sync the CFU and News Stats
+name: Sync the ZAP Service Stats
 
 on:
   schedule:
@@ -7,7 +7,7 @@ on:
 
 jobs:
   record_stats:
-    name: Sync the CFU and News  Stats
+    name: Sync the ZAP Service Stats
     runs-on: ubuntu-latest
     steps:
     - name: Setup Python
@@ -28,5 +28,6 @@ jobs:
         echo "aws_access_key_id = $AWSCLI_ACCESS" >> ~/.aws/credentials
         echo "aws_secret_access_key = $AWSCLI_SECRET" >> ~/.aws/credentials
 
-        aws s3 sync s3://project-zap-news/ s3://project-zap/stats/zap-news-test1/
-        aws s3 sync s3://project-zap-cfu/ s3://project-zap/stats/zap-cfu-test1/
+        aws s3 mv s3://project-zap-news/ s3://project-zap/stats/zap-news/ --recursive
+        aws s3 mv s3://project-zap-cfu/ s3://project-zap/stats/zap-cfu/ --recursive
+        aws s3 mv s3://project-zap-tel/ s3://project-zap/telemetry/raw/ --recursive
