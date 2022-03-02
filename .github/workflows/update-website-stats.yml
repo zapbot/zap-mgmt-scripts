@@ -53,8 +53,12 @@ jobs:
       run: |
         mkdir project-zap
         mkdir project-zap/stats
-        # This will gradually take longer and longer so at some point we could limit it to just recent files
-        aws s3 sync s3://project-zap/stats/ project-zap/stats/
+        # Just sync the subdirectories we need
+        aws s3 sync s3://project-zap/stats/bitly/ project-zap/stats/bitly/
+        aws s3 sync s3://project-zap/stats/cfu/ project-zap/stats/cfu/
+        aws s3 sync s3://project-zap/stats/docker/ project-zap/stats/docker/
+        aws s3 sync s3://project-zap/stats/downloads/ project-zap/stats/downloads/
+        aws s3 sync s3://project-zap/stats/groups/ project-zap/stats/groups/
         
     - name: Generate the stats data files
       run: |
@@ -69,5 +73,5 @@ jobs:
         git commit -s -m "Updated monthly statistics"
         git push origin
 
-        echo ${{ secrets.ZAPBOT_TOKEN }} | gh auth login --scopes "read:org" --with-token
+        echo ${{ secrets.ZAPBOT_TOKEN }} | gh auth login --with-token
         gh pr create --fill
