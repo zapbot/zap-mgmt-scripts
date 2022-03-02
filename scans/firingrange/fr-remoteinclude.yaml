@@ -1,0 +1,66 @@
+---
+env:
+  contexts:
+  - name: "Firing Range"
+    urls:
+    - "https://public-firing-range.appspot.com/remoteinclude/"
+    includePaths: []
+    excludePaths: []
+    authentication:
+      parameters: {}
+      verification:
+        method: "response"
+        pollFrequency: 60
+        pollUnits: "requests"
+    sessionManagement:
+      method: "cookie"
+      parameters: {}
+  parameters:
+    failOnError: true
+    failOnWarning: false
+    progressToStdout: true
+  vars: {}
+jobs:
+- name: "add-script"
+  type: script
+  parameters:
+    action: add
+    type: standalone
+    file: /zap/wrk/firing-range-score.js
+- parameters: {}
+  name: "spider"
+  type: "spider"
+  tests:
+  - onFail: "INFO"
+    statistic: "automation.spider.urls.added"
+    site: ""
+    operator: ">="
+    value: 100
+    name: "At least 100 URLs found"
+    type: "stats"
+- parameters:
+    context: ""
+    user: ""
+    policy: ""
+    maxRuleDurationInMins: 0
+    maxScanDurationInMins: 0
+  policyDefinition:
+    defaultStrength: "medium"
+    defaultThreshold: "off"
+    rules:
+    - id: 40012
+      name: "Cross Site Scripting (Reflected)"
+      threshold: "medium"
+      strength: "default"
+    - id: 40026
+      name: "Cross Site Scripting (DOM)"
+      threshold: "medium"
+      strength: "default"
+  name: "activeScan"
+  type: "activeScan"
+- name: "run-script"
+  type: script
+  parameters:
+    action: run
+    type: standalone
+    name: firing-range-score.js
