@@ -27,7 +27,7 @@ jobs:
         git checkout -B firingrange
         git pull upstream master
         git reset --hard upstream/master
-        git push origin --force
+        git push --set-upstream origin firingrange --force
 
     - name: Scan Firing Range
       run: |
