@@ -37,7 +37,7 @@ jobs:
         do
           cat fr-$s.js firing-range-score-main.js  > firing-range-score.js
         
-          docker run -v $(pwd):/zap/wrk/:rw -t owasp/zap2docker-live zap.sh -cmd -silent -autorun /zap/wrk/fr-$s.yaml
+          docker run --user=root -v $(pwd):/zap/wrk/:rw -t owasp/zap2docker-live zap.sh -cmd -silent -autorun /zap/wrk/fr-$s.yaml
         
           cp $s.yml ../../../zaproxy-website/site/data/scans/firingrange/
         done
