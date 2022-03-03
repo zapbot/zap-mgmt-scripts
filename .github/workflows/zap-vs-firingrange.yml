@@ -31,7 +31,6 @@ jobs:
 
     - name: Scan Firing Range
       run: |
-        shell: bash
         cd zap-mgmt-scripts/scans/firingrange
         sections=( "escape" "mixedcontent" "reflected" "remoteinclude" "reverseclickjacking")
         for s in "${sections[@]}"
