@@ -32,7 +32,7 @@ jobs:
     - name: Scan Crawl Maze
       run: |
         cd zap-mgmt-scripts/scans/crawlmaze
-        // Need to do this so the zap user in docker can write to the file
+        # Need to do this so the zap user in docker can write to the file
         touch all.yml
         chmod a+w all.yml
         docker run -v $(pwd):/zap/wrk/:rw -t owasp/zap2docker-live zap.sh -cmd -silent -autorun /zap/wrk/crawl-maze.yaml
