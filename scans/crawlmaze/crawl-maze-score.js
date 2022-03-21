@@ -131,6 +131,9 @@ for (var i in expectedResults) {
 
 print('tests: ' + total);
 print('passes: ' + found);
+print('standardPasses: ' + foundStandard);
+print('ajaxPasses: ' + foundAjax);
+print('fails: ' + (total - found));
 
 pw.println('tests: ' + total);
 pw.println('passes: ' + found);
