@@ -1,0 +1,50 @@
+---
+env:
+  contexts:
+  - name: "Security Crawl Maze"
+    urls:
+    - "https://security-crawl-maze.app/"
+    includePaths: []
+    excludePaths: []
+    authentication:
+      parameters: {}
+      verification:
+        method: "response"
+        pollFrequency: 60
+        pollUnits: "requests"
+    sessionManagement:
+      method: "cookie"
+      parameters: {}
+  parameters:
+    failOnError: true
+    failOnWarning: false
+    progressToStdout: true
+  vars: {}
+jobs:
+- name: "add-script"
+  type: script
+  parameters:
+    action: add
+    type: standalone
+    file: /zap/wrk/crawl-maze-score.js
+- parameters: {}
+  name: "spider"
+  type: "spider"
+  tests:
+  - onFail: "INFO"
+    statistic: "automation.spider.urls.added"
+    site: ""
+    operator: ">="
+    value: 100
+    name: "At least 100 URLs found"
+    type: "stats"
+- parameters:
+    numberOfBrowsers: 10
+  name: "spiderAjax"
+  type: "spiderAjax"
+- name: "run-script"
+  type: script
+  parameters:
+    action: run
+    type: standalone
+    name: crawl-maze-score.js

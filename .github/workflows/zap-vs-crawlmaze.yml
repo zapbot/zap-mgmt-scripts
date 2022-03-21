@@ -1,8 +1,8 @@
-name: ZAP vs Firing Range
+name: ZAP vs Crawl Maze
 
 on: 
   schedule:
-    - cron:  '0 2 * * *' # 2 am every day
+    - cron:  '0 3 * * *' # 3 am every day
   workflow_dispatch:
 
 jobs:
@@ -24,23 +24,16 @@ jobs:
         cd zaproxy-website
         git remote set-url origin https://$GITHUB_USER:$GITHUB_TOKEN@github.com/$GITHUB_USER/zaproxy-website.git
         git remote add upstream https://github.com/zaproxy/zaproxy-website.git
-        git checkout -B firingrange
+        git checkout -B crawlmaze
         git pull upstream master
         git reset --hard upstream/master
-        git push --set-upstream origin firingrange --force
+        git push --set-upstream origin crawlmaze --force
 
-    - name: Scan Firing Range
+    - name: Scan Crawl Maze
       run: |
-        cd zap-mgmt-scripts/scans/firingrange
-        sections=( "escape" "mixedcontent" "reflected" "remoteinclude" "reverseclickjacking")
-        for s in "${sections[@]}"
-        do
-          cat fr-$s.js firing-range-score-main.js  > firing-range-score.js
-        
-          docker run --user=root -v $(pwd):/zap/wrk/:rw -t owasp/zap2docker-live zap.sh -cmd -silent -autorun /zap/wrk/fr-$s.yaml
-        
-          cp $s.yml ../../../zaproxy-website/site/data/scans/firingrange/
-        done
+        cd zap-mgmt-scripts/scans/crawlmaze
+        docker run --user=root -v $(pwd):/zap/wrk/:rw -t owasp/zap2docker-live zap.sh -cmd -silent -autorun /zap/wrk/crawl-maze.yaml
+        cp all.yml ../../../zaproxy-website/site/data/scans/crawlmaze/
 
     - name: Raise a PR on the website
       run: |
@@ -51,8 +44,8 @@ jobs:
         ## If there are changes: comment, commit, PR
         if ! git diff-index --quiet HEAD --; then
 
-          git add site/data/scans/firingrange/*
-          git commit -s -m "Updated Firing Range Results"
+          git add site/data/scans/crawlmaze/*
+          git commit -s -m "Updated Crawl Maze Results"
           git push origin
 
           echo ${{ secrets.ZAPBOT_TOKEN }} | gh auth login --with-token
