@@ -77,6 +77,26 @@ var expectedResults = [
 	"/misc/known-files/robots.txt.found",
 	"/misc/known-files/sitemap.xml.found"
 ]
+
+function findNode(scheme, path) {
+	var uri = new URI(scheme + '://' + target + '/test' + path, true);
+	var n = siteTree.findNode(uri);
+	if (n == null) {
+		// Find parent then loop through child nodes checking for the URL path
+		var parent = siteTree.findClosestParent(uri);
+		if (parent) {
+			for (var j = 0; j < parent.getChildCount(); j++) {
+				var child = parent.getChildAt(j);
+				if (child.getHierarchicNodeName().indexOf(path) > 0) {
+					n = child;
+					break;
+				}
+			}
+		}
+	}
+	return n;
+}
+
 var HistoryReference = Java.type('org.parosproxy.paros.model.HistoryReference');
 var URI = Java.type('org.apache.commons.httpclient.URI');
 
@@ -86,8 +106,6 @@ var foundAjax = 0;
 var total = expectedResults.length;
 
 var target = 'security-crawl-maze.app';
-var httpResults = 'http://' + target + '/test';
-var httpsResults = 'https://' + target + '/test';
 var siteTree = org.parosproxy.paros.model.Model.getSingleton().getSession().getSiteTree();
 
 var FileWriter = Java.type('java.io.FileWriter');
@@ -104,10 +122,10 @@ pw.println('details:');
 for (var i in expectedResults) {
 	var res = expectedResults[i];
 	var scheme = 'http';
-	var node = siteTree.findNode(new URI(httpResults + res, true));
+	var node = findNode(scheme, res);
 	if (!node) {
-		node = siteTree.findNode(new URI(httpsResults + res, true));
 		scheme = 'https';
+		node = findNode(scheme, res);
 	}
 
 	pw.println('- path: /test' + res);
