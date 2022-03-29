@@ -32,7 +32,7 @@ jobs:
     - name: Scan Firing Range
       run: |
         cd zap-mgmt-scripts/scans/firingrange
-        sections=( "escape" "mixedcontent" "reflected" "remoteinclude" "reverseclickjacking")
+        sections=( "escape" "mixedcontent" "reflected" "remoteinclude" "reverseclickjacking" "invalidframing")
         for s in "${sections[@]}"
         do
           cat fr-$s.js firing-range-score-main.js  > firing-range-score.js
