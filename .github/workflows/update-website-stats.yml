@@ -66,6 +66,12 @@ jobs:
         python stats.py website
         cd ../..
 
+    - name: Update the newer website stats
+      run: |
+        cd zap-mgmt-scripts/stats
+        python website_stats2.py
+        cd ../..
+
     - name: Raise a PR on the website
       run: |
         cd zaproxy-website
