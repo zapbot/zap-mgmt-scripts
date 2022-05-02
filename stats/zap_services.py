@@ -34,7 +34,8 @@ def aws_athena_query(query):
     process = subprocess.run(
         ["aws", "athena", "start-query-execution", 
             "--query-string", query, 
-            "--work-group", "project-zap"],
+            "--work-group", "project-zap",
+            "--region", aws_region],
         universal_newlines = True, stdout = subprocess.PIPE)
     res = json.loads(process.stdout)
     if aws_qei in res:
@@ -45,7 +46,8 @@ def aws_athena_query_result(id):
     print('AWS Athena query result: ' + id)
     process = subprocess.run(
         ["aws", "athena", "get-query-execution", 
-            "--query-execution-id", id],
+            "--query-execution-id", id,
+            "--region", aws_region],
         universal_newlines = True, stdout = subprocess.PIPE)
     #print(process.stdout)
     return json.loads(process.stdout)
