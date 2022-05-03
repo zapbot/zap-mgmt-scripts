@@ -240,6 +240,13 @@ gen_json_file(
     last_mon_sql + '  and "zaptype" = \'desktop\' GROUP BY os ORDER BY count DESC limit 20')
 
 gen_json_file(
+    "zaptype-last-month.json",
+    "News Pings by ZAP Run Type in " + last_mon_full_str, 
+    "The number of News pings from ZAP by run type in " + last_mon_full_str, 
+    'SELECT "zaptype" ZAPtype, "count"(*) Count FROM "project_zap_stats"."zap_news" WHERE ' +
+    last_mon_sql + ' GROUP BY zaptype ORDER BY count DESC limit 20')
+
+gen_json_file(
     "container-last-month.json",
     "News Pings by Container in " + last_mon_full_str, 
     "The number of News pings from ZAP by container in " + last_mon_full_str, 
