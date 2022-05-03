@@ -234,8 +234,8 @@ gen_json_file(
 
 gen_json_file(
     "os-desktop-last-month.json",
-    "News Pings by OS in " + last_mon_full_str, 
-    "The number of News pings from ZAP by OS in " + last_mon_full_str, 
+    "Desktop News Pings by OS in " + last_mon_full_str, 
+    "The number of News pings from ZAP Desktops by OS in " + last_mon_full_str, 
     'SELECT "os" OS, "count"(*) Count FROM "project_zap_stats"."zap_news" WHERE ' +
     last_mon_sql + '  and "zaptype" = \'desktop\' GROUP BY os ORDER BY count DESC limit 20')
 
