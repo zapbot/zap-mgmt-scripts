@@ -1,0 +1,67 @@
+---
+env:
+  contexts:
+  - name: "WebSecLab"
+    urls:
+    - "http://localhost:9090"
+    includePaths:
+    - "http://localhost:9090.*"
+    excludePaths: []
+    authentication:
+      parameters: {}
+      verification:
+        method: "response"
+        pollFrequency: 60
+        pollUnits: "requests"
+        pollUrl: ""
+        pollPostData: ""
+    sessionManagement:
+      method: "cookie"
+      parameters: {}
+  parameters:
+    failOnError: true
+    failOnWarning: false
+    progressToStdout: true
+  vars: {}
+jobs:
+- name: "add-script"
+  type: script
+  parameters:
+    action: add
+    type: standalone
+    file: /zap/wrk/ScoreWebSecLab.js
+- parameters: {}
+  tests:
+  - onFail: "INFO"
+    statistic: "automation.spider.urls.added"
+    site: ""
+    operator: ">="
+    value: 100
+    name: "At least 100 URLs found"
+    type: "stats"
+  name: "spider"
+  type: "spider"
+- parameters:
+    context: ""
+    user: ""
+    policy: ""
+    maxRuleDurationInMins: 0
+    maxScanDurationInMins: 0
+  policyDefinition:
+    defaultStrength: "medium"
+    defaultThreshold: "off"
+    rules:
+    - id: 40012
+      name: "Cross Site Scripting (Reflected)"
+      threshold: "medium"
+      strength: "default"
+  name: "activeScan"
+  type: "activeScan"
+- parameters:
+    action: "run"
+    type: "standalone"
+    engine: ""
+    name: "ScoreWebSecLab.js"
+  name: "script"
+  type: "script"
+
