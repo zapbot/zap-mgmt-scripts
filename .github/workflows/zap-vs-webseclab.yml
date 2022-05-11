@@ -31,7 +31,7 @@ jobs:
 
     - name: Start Webseclab
       run: |
-        docker run --network="host" -p 9090:9090 -i -t psiinon/webseclab /go/bin/webseclab -http=:9090 &
+        docker run --network="host" -p 9090:9090 -d psiinon/webseclab /go/bin/webseclab -http=:9090
 
     - name: Scan Webseclab
       run: |
