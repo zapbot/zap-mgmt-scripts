@@ -71,6 +71,11 @@ let "score = ($pass * 100) / ($pass + $fail)"
 
 echo "score: $score%" >> $file
 
+for rule in rule_40012 rule_40026 rule_90019 rule_90025 rule_90035 rule_90036 any; do
+  rulescore=`grep -c "$rule: Pass" $file`
+  echo "${rule}_score: $rulescore"  >> $file
+done
+
 echo Pass: $pass
 echo Fail: $fail
 echo Score: $score%
