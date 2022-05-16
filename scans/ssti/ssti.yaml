@@ -1,0 +1,88 @@
+---
+env:
+  contexts:
+  - name: "SSTI"
+    urls:
+    - "http://localhost:${port}/"
+    includePaths: []
+    excludePaths: []
+  parameters:
+    failOnError: true
+    failOnWarning: false
+    progressToStdout: true
+  vars: {}
+jobs:
+- name: "add-script"
+  type: script
+  parameters:
+    action: add
+    type: standalone
+    file: /zap/wrk/ssti-score.js
+- parameters:
+    updateAddOns: false
+  install: []
+  uninstall: []
+  name: "addOns"
+  type: "addOns"
+- parameters:
+    scanOnlyInScope: true
+    enableTags: false
+  rules: []
+  name: "passiveScan-config"
+  type: "passiveScan-config"
+- parameters: {}
+  name: "spider"
+  type: "spider"
+  tests:
+  - onFail: "INFO"
+    statistic: "automation.spider.urls.added"
+    site: ""
+    operator: ">="
+    value: 1
+    name: "At least 1 URLs found"
+    type: "stats"
+- parameters: {}
+  name: "passiveScan-wait"
+  type: "passiveScan-wait"
+- parameters:
+    context: ""
+    user: ""
+    policy: ""
+    maxRuleDurationInMins: 0
+    maxScanDurationInMins: 0
+  policyDefinition:
+    defaultStrength: "medium"
+    defaultThreshold: "off"
+    rules:
+    - id: 40012
+      name: "Cross Site Scripting (Reflected)"
+      threshold: "medium"
+      strength: "default"
+    - id: 40026
+      name: "Cross Site Scripting (DOM Based)"
+      threshold: "medium"
+      strength: "default"
+    - id: 90019
+      name: "Server Side Code Injection"
+      threshold: "medium"
+      strength: "default"
+    - id: 90025
+      name: "Expression Language Injection"
+      threshold: "medium"
+      strength: "default"
+    - id: 90035
+      name: "Expression Language Injection"
+      threshold: "medium"
+      strength: "default"
+    - id: 90036
+      name: "Expression Language Injection"
+      threshold: "medium"
+      strength: "default"
+  name: "activeScan"
+  type: "activeScan"
+- name: "run-script"
+  type: script
+  parameters:
+    action: run
+    type: standalone
+    name: ssti-score.js

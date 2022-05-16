@@ -1,0 +1,70 @@
+name: ZAP vs SSTI
+
+on: 
+  schedule:
+    - cron:  '0 5 * * *' # 5 am every day
+  workflow_dispatch:
+
+jobs:
+  scan:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Clone zap-mgmt-scripts and zaproxy-website
+      run: |
+        # Setup git details
+        export GITHUB_USER=zapbot
+        export GITHUB_TOKEN=${{ secrets.ZAPBOT_TOKEN }}
+        git config --global user.email "12745184+zapbot@users.noreply.github.com"
+        git config --global user.name $GITHUB_USER
+        git clone https://github.com/$GITHUB_USER/zap-mgmt-scripts.git
+
+        git clone https://github.com/$GITHUB_USER/zaproxy-website.git
+
+        # Update to the latest upstream
+        cd zaproxy-website
+        git remote set-url origin https://$GITHUB_USER:$GITHUB_TOKEN@github.com/$GITHUB_USER/zaproxy-website.git
+        git remote add upstream https://github.com/zaproxy/zaproxy-website.git
+        git checkout -B ssti
+        git pull upstream master
+        git reset --hard upstream/master
+        git push --set-upstream origin ssti --force
+
+    - name: Start V2SSTI
+      run: |
+        docker run -d -p 127.0.0.1:5000-5100:5000-5100 -p 127.0.0.1:6000-6100:6000-6100 -w /home d10g0mrs/websites_vuln_to_ssti sh ./start_all_services.sh
+
+    - name: Scan V2SSTI
+      run: |
+        cd zap-mgmt-scripts/scans/ssti
+        
+        export file=all.yml
+
+        # Need to do this so the zap user in docker can write to the file
+        touch $file
+        chmod a+w $file
+        touch ssti-score.js
+        chmod a+w ssti-score.js
+        
+        chmod +x ssti.sh
+        
+        docker run -v $(pwd):/zap/wrk/:rw --network="host" owasp/zap2docker-live /zap/wrk/ssti.sh
+        
+        cp $file ../../../zaproxy-website/site/data/scans/ssti/
+
+    - name: Raise a PR on the website
+      run: |
+        cd zaproxy-website
+
+        # Update the index to be sure git is aware of changes
+        git update-index -q --refresh
+        ## If there are changes: comment, commit, PR
+        if ! git diff-index --quiet HEAD --; then
+
+          git add site/data/scans/ssti/*
+          git commit -s -m "Updated Vuln to SSTI Results"
+          git push origin
+
+          echo ${{ secrets.ZAPBOT_TOKEN }} | gh auth login --with-token
+          gh pr create --fill
+
+        fi
