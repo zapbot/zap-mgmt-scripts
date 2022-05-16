@@ -59,7 +59,7 @@ for i in "${!targets[@]}"; do
   echo "$i  -> ${targets[$i]}";
   export port=$i
   pwd
-  /zap/zap.sh -silent -autorun /zap/wrk/ssti.yaml -dir ssti -cmd
+  /zap/zap.sh -silent -autorun /zap/wrk/ssti.yaml -cmd
   cat $file
   sleep 5
 done
