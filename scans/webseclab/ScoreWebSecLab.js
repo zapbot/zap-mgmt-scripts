@@ -3,7 +3,7 @@ var RULES = [40012];
 var MIN_LEVEL = 1;
 var IGNORE_PATHS = ['', 'write', 'write_hash', 'write_hash_urlstyle', 'node_hash', 'node_hash_unencoded', 'node_hash_urlstyle',
 	'/post1', '/post1_splash', '/raw1', '/raw1_fp', '/full_cookies1', '/full_headers1', '/full_useragent1', 
-	'/xyz', '/xyz/*http:', '/xyz//example.com'];
+	'/xyz', '/xyz/*http:', '/xyz//example.com', 'lab_refer.html(<script>alert'];
 
 // Polyfill for Nashorn c/o https://stackoverflow.com/questions/47543566/scriptengine-javascript-doesnt-support-includes
 if (!Array.prototype.includes) { 
