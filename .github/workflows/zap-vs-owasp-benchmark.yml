@@ -1,0 +1,69 @@
+name: ZAP vs OWASP Benchmark
+
+on:
+  schedule:
+    - cron: "0 6 * * *" # 6 am every day
+  workflow_dispatch:
+
+jobs:
+  scan:
+    runs-on: ubuntu-22.04
+    services:
+      benchmark:
+        image: owasp/benchmark
+        ports:
+          - 8443:8443
+        options: --entrypoint runRemoteAccessibleBenchmark.sh
+    steps:
+      - name: Wait for the Benchmark service to be available
+        run: |
+          curl -k --head --retry 12 --retry-all-errors --retry-delay 5 https://localhost:8443/benchmark
+
+      - name: Clone zap-mgmt-scripts and zaproxy-website
+        run: |
+          # Setup git details
+          export GITHUB_USER=zapbot
+          export GITHUB_TOKEN=${{ secrets.ZAPBOT_TOKEN }}
+          git config --global user.email "12745184+zapbot@users.noreply.github.com"
+          git config --global user.name $GITHUB_USER
+          git clone https://github.com/$GITHUB_USER/zap-mgmt-scripts.git
+          git clone https://github.com/$GITHUB_USER/zaproxy-website.git
+
+          # Update to the latest upstream
+          cd zaproxy-website
+          git remote set-url origin https://$GITHUB_USER:$GITHUB_TOKEN@github.com/$GITHUB_USER/zaproxy-website.git
+          git remote add upstream https://github.com/zaproxy/zaproxy-website.git
+          git checkout -B owasp-benchmark
+          git pull upstream master
+          git reset --hard upstream/master
+          git push --set-upstream origin owasp-benchmark --force
+
+      - name: Scan OWASP Benchmark
+        run: |
+          cd zap-mgmt-scripts/scans/benchmark
+          mkdir results
+          sections=( "cmdi" )
+          for s in "${sections[@]}"
+          do
+            docker run --network=host --user=root -v $(pwd):/zap/wrk/:rw owasp/zap2docker-live zap.sh \
+              -cmd -silent -config scanner.injectable=15 -autorun /zap/wrk/$s.yaml
+            cp results/$s.yaml ../../../zaproxy-website/site/data/scans/benchmark/
+          done
+
+      - name: Raise a PR on the website
+        run: |
+          cd zaproxy-website
+
+          # Update the index to be sure git is aware of changes
+          git update-index -q --refresh
+          ## If there are changes: comment, commit, PR
+          if ! git diff-index --quiet HEAD --; then
+
+            git add site/data/scans/benchmark/*
+            git commit -s -m "Updated OWASP Benchmark Results"
+            git push origin
+
+            echo ${{ secrets.ZAPBOT_TOKEN }} | gh auth login --with-token
+            gh pr create --fill
+
+          fi
