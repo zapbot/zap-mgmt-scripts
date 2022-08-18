@@ -1,0 +1,92 @@
+---
+env:
+  contexts:
+    - name: "Benchmark"
+      urls:
+        - "https://localhost:8443/benchmark/cmdi-Index.html"
+      includePaths:
+        - "https://localhost:8443/benchmark/cmdi.*"
+      excludePaths: []
+      authentication:
+        parameters: {}
+        verification:
+          method: "response"
+          pollFrequency: 60
+          pollUnits: "requests"
+      sessionManagement:
+        method: "cookie"
+        parameters: {}
+  parameters:
+    failOnError: true
+    failOnWarning: false
+    progressToStdout: true
+  vars:
+    OUTPUT_DIR: "/zap/wrk/results"
+    NAME: "Command Injection"
+    VULNERABILITY: "cmdi"
+    SCAN_RULES: "90020"
+    NESTED_NODE_LEVEL: 2
+    IGNORE_TREE_PATHS: ""
+jobs:
+  - name: "Add Scoring Script"
+    type: "script"
+    parameters:
+      action: "add"
+      type: "standalone"
+      engine: "ECMAScript : Graal.js"
+      name: "benchmark-scorer.js"
+      file: "/zap/wrk/benchmark-scorer.js"
+  - name: "Add Benchmark CMDi Variant Script"
+    type: "script"
+    parameters:
+      action: "add"
+      type: "variant"
+      engine: "ECMAScript : Graal.js"
+      name: "cmdi-variant.js"
+      file: "/zap/wrk/cmdi-variant.js"
+  - name: "Spider Benchmark CMDi Index"
+    type: "spider"
+    parameters:
+      context: "Benchmark"
+      user: ""
+      url: ""
+      maxDuration: 0
+      maxDepth: 0
+      maxChildren: 0
+  - name: "Start Active Scan"
+    type: "activeScan"
+    parameters:
+      context: "Benchmark"
+      user: ""
+      policy: ""
+      maxRuleDurationInMins: 60
+      maxScanDurationInMins: 60
+      addQueryParam: false
+      delayInMs: 0
+      handleAntiCSRFTokens: false
+      injectPluginIdInHeader: false
+      scanHeadersAllRequests: false
+      threadPerHost: 4
+    policyDefinition:
+      defaultStrength: "medium"
+      defaultThreshold: "off"
+      rules:
+        - id: 90020
+          name: "Remote OS Command Injection"
+          threshold: "medium"
+          strength: "medium"
+    tests:
+      - onFail: "INFO"
+        statistic: "stats.ascan.90020.alerts"
+        site: ""
+        operator: "=="
+        value: 251
+        name: "Number of CMDi Alerts Raised"
+        type: "stats"
+  - name: "Run Scoring Script"
+    type: "script"
+    parameters:
+      action: "run"
+      type: "standalone"
+      engine: ""
+      name: "benchmark-scorer.js"
