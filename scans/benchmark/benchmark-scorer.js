@@ -7,10 +7,11 @@ var VULNERABILITY = envVars.get('VULNERABILITY')
 var SCAN_RULES = envVars.get('SCAN_RULES').split(',')
 var NESTED_NODE_LEVEL = envVars.get('NESTED_NODE_LEVEL')
 var IGNORE_TREE_PATHS = envVars.get('IGNORE_TREE_PATHS').split(',')
+var VULNERABLE_TESTS = envVars.get('VULNERABLE_TESTS').split(',')
 
 var totalUrls = 0;
-var totalAlerts = 0;
-var target = 'https://localhost:8443/';
+var totalPassed = 0;
+var target = 'https://localhost:8443/benchmark';
 
 var FileWriter = Java.type('java.io.FileWriter');
 var PrintWriter = Java.type('java.io.PrintWriter');
@@ -43,14 +44,26 @@ function listChildren(node, level) {
             if (!IGNORE_TREE_PATHS.indexOf(path) >= 0) {
                 totalUrls++;
                 pw.println('- path: ' + path);
+                let testName = path.split('/')[2]
+                let testNumber = testName.substr(testName.length - 5)
+                let vulnerable = VULNERABLE_TESTS.indexOf(testNumber) >= 0;
+                let reported = false;
+                pw.println('  vulnerable: ' + vulnerable);
                 var pluginId = nodeHasAlert(child, SCAN_RULES);
                 if (pluginId) {
-                    totalAlerts++;
-                    pw.println('  result: Pass');
+                    reported = true;
+                    pw.println('  reported: true');
                     pw.println('  rule: ' + pluginId);
                 } else {
-                    pw.println('  result: FAIL');
+                    reported = false;
+                    pw.println('  reported: false');
                     pw.println('  rule: ' + SCAN_RULES[0]);
+                }
+                if (vulnerable == reported) {
+                    totalPassed++;
+                    pw.println('  result: Pass')
+                } else {
+                    pw.println('  result: FAIL')
                 }
             }
         } else {
@@ -65,9 +78,9 @@ root = org.parosproxy.paros.model.Model.getSingleton().
 listChildren(root, 0);
 
 pw.println('tests: ' + totalUrls);
-pw.println('passes: ' + totalAlerts);
-pw.println('fails: ' + (totalUrls - totalAlerts));
-pw.println('score: ' + Math.round(totalAlerts * 100 / totalUrls) + '%');
+pw.println('passes: ' + totalPassed);
+pw.println('fails: ' + (totalUrls - totalPassed));
+pw.println('score: ' + Math.round(totalPassed * 100 / totalUrls) + '%');
 pw.close();
 
 print('Wrote output to', YAML_FILE);

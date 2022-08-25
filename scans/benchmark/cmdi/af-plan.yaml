@@ -27,6 +27,7 @@ env:
     SCAN_RULES: "90020"
     NESTED_NODE_LEVEL: 2
     IGNORE_TREE_PATHS: ""
+    VULNERABLE_TESTS: "00006,00007,00015,00017,00077,00091,00092,00159,00172,00173,00174,00176,00293,00294,00295,00302,00303,00304,00306,00311,00407,00409,00480,00495,00496,00497,00498,00499,00500,00567,00568,00573,00574,00575,00576,00731,00740,00815,00816,00823,00824,00825,00968,00979,00981,00983,01064,01066,01190,01191,01192,01194,01270,01285,01286,01287,01288,01360,01361,01362,01363,01430,01441,01442,01446,01517,01531,01533,01601,01609,01610,01673,01674,01685,01689,01690,01691,01850,01851,01852,01864,01928,01929,01936,01938,01940,01942,01944,02059,02070,02137,02146,02147,02150,02151,02152,02154,02155,02243,02244,02249,02250,02251,02333,02334,02342,02343,02344,02411,02412,02414,02429,02430,02431,02432,02433,02496,02511,02512,02514,02515,02516,02517,02611,02612,02613"
 jobs:
   - name: "Add Scoring Script"
     type: "script"
@@ -43,7 +44,7 @@ jobs:
       type: "variant"
       engine: "ECMAScript : Graal.js"
       name: "cmdi-variant.js"
-      file: "/zap/wrk/cmdi-variant.js"
+      file: "/zap/wrk/cmdi/variant.js"
   - name: "Spider Benchmark CMDi Index"
     type: "spider"
     parameters:
@@ -65,7 +66,7 @@ jobs:
       delayInMs: 0
       handleAntiCSRFTokens: false
       injectPluginIdInHeader: false
-      scanHeadersAllRequests: false
+      scanHeadersAllRequests: true
       threadPerHost: 4
     policyDefinition:
       defaultStrength: "medium"
@@ -80,7 +81,7 @@ jobs:
         statistic: "stats.ascan.90020.alerts"
         site: ""
         operator: "=="
-        value: 251
+        value: 126
         name: "Number of CMDi Alerts Raised"
         type: "stats"
   - name: "Run Scoring Script"
