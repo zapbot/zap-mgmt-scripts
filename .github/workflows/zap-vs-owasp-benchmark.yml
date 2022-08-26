@@ -46,7 +46,7 @@ jobs:
           for s in "${sections[@]}"
           do
             docker run --network=host --user=root -v $(pwd):/zap/wrk/:rw owasp/zap2docker-live zap.sh \
-              -cmd -silent -config scanner.injectable=15 -autorun /zap/wrk/$s.yaml
+              -cmd -silent -config scanner.injectable=15 -autorun /zap/wrk/$s/af-plan.yaml
             cp results/$s.yaml ../../../zaproxy-website/site/data/scans/benchmark/
           done
 
