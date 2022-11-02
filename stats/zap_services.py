@@ -73,35 +73,58 @@ def aws_athena_query_to_file(query, file):
                 break
             time.sleep(5)
 
-def copy_without_quotes(source, dest) :
-    print ('Copying ' + source + ' to ' + dest + ' minus quotes')
+def convert_file(source, dest) :
+    '''
+        Old format: date,link,clicks where link is like '2-11-0' (desktop/cmdline) or '2-11-0d' (daemon)
+        New format: date,zapVersion,zaptype,count where zaptype is daemon/desktop/cmdline
+    '''
+    print ('Processing ' + source + ' to ' + dest + ' minus quotes')
+    first = True
     with open(source, 'r') as fs, open(dest, 'w') as fd:
+        daily = 0
         for line in fs:
-            fd.write(line.replace('"', '').replace("'", ""))
+            if first:
+                fd.write('date,link,clicks\n')
+                first = False
+            else:
+                (date, ver, type, count) = line.replace('"', '').replace("'", "").split(',')
+                valid = True
+                if ver.startswith('D-'):
+                    daily += int(count.strip())
+                    dday = date
+                    ver = 'Daily'
+                elif ver == '2.12.0':  # Will need to change for new releases
+                    ver = ver.replace('.', '-')
+                    if type == 'daemon':
+                        ver = ver + 'd'
+                    fd.write(date + ',' + ver + ',' + count)
+        if daily > 0:
+            fd.write(dday + ',Daily,' + str(daily) + '\n')
+
 
 def collect():
     # Requests by day and version
     aws_athena_query_to_file(
-        'SELECT day, zapVersion, count(*) as count FROM "AwsDataCatalog"."project_zap_stats"."zap_cfu_test1" WHERE day = \'' + today_str + '\' GROUP BY day, zapVersion', 
+        'SELECT day, zapVersion, zaptype, count(*) as count FROM "AwsDataCatalog"."project_zap_stats"."zap_cfu" WHERE day = \'' + today_str + '\' GROUP BY day, zapVersion, zaptype', 
         day_raw_file)
     
     # Requests by month and version
     if not os.path.isfile(mon_raw_file):
         # For historical reasons the monthly stats are collected on the 2nd of the next month
         aws_athena_query_to_file(
-            'SELECT \'' + this_mon_str + '-02\', zapVersion, count(*) as count FROM "AwsDataCatalog"."project_zap_stats"."zap_cfu_test1" WHERE day LIKE \'' + last_mon_str + '-%\' GROUP BY zapVersion', 
+            'SELECT \'' + this_mon_str + '-02\', zapVersion, zaptype, count(*) as count FROM "AwsDataCatalog"."project_zap_stats"."zap_cfu" WHERE day LIKE \'' + last_mon_str + '-%\' GROUP BY zapVersion, zaptype', 
             mon_raw_file)
     
 
 def daily():
-    # The raw files are mostly good but they need all of the double quotes stripping out
+    # The raw files need to be processed to match the 'old' expected format
     
     # Requests by day and version
-    copy_without_quotes(day_raw_file, day_proc_file)
+    convert_file(day_raw_file, day_proc_file)
 
     # Requests by month and version
     if not os.path.isfile(mon_proc_file):
-        copy_without_quotes(mon_raw_file, mon_proc_file)
+        convert_file(mon_raw_file, mon_proc_file)
 
 def website():
     # All handled by the bitly script
