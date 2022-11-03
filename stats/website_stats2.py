@@ -207,7 +207,35 @@ def gen_top_fps_file():
                         print('  status: ' + vals[3], file=f)
                         print('  type: ' + vals[4], file=f)
 
-
+def gen_top_ascan_rules_file():
+    outfile = utils.websitedir() + 'site/data/charts/top_ascan_rules_last_month.yaml'
+    tempfile = "tempfile.tmp"
+    with open(outfile, 'w') as f:
+        print('---', file=f)
+        aws_athena_query_to_file(
+            'select * from "project_zap_stats"."ascan_combined_stats" order by alert_count desc limit 30', tempfile)
+        if os.path.isfile(tempfile):
+            first = True
+            with open(tempfile) as file:
+                lines = file.readlines()
+                for line in lines:
+                    if first:
+                        first = False
+                    else:
+                        vals = line.split(',')
+                        
+                        fps_pc = vals[5].replace('"', '')
+                        if fps_pc == '':
+                            fps_pc = 0
+                        fps_pc = float(fps_pc) / 1000
+                        
+                        print('- id: ' + vals[0].replace('"', ''), file=f)
+                        print('  name: ' + vals[1], file=f)
+                        print('  status: ' + vals[2], file=f) # Capitalise?
+                        print('  alerts: ' + vals[3], file=f)
+                        print('  fps: ' + str(fps_pc), file=f)
+                        print('  num: ' + vals[6].replace('"', ''), file=f)
+                        print('  time: ' + vals[8].replace('"', ''), file=f)
 
 gen_headline_file()
 
@@ -256,3 +284,5 @@ gen_json_file(
 gen_top_addons_file()
 
 gen_top_fps_file()
+
+gen_top_ascan_rules_file()
