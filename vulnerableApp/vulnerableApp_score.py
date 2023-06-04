@@ -75,13 +75,14 @@ plugin_information = {
     '40024': ['SQL Injection - SQLite', 'SqliteSqli'],
     '40026': ["Cross Site Scripting (DOM Based)", "DXSS"],
     '40036': ['JWT Scan Rule', 'JWT'],
+    '40041': ['FileUpload Scan Rule', 'FileUpload'],
     '90018': ['Advanced SQL Injection', 'AdvSqli'],
     '90020': ['Remote OS Command Injection', 'CommandInjection'],
     '90023': ['XML External Entity Attack', 'XXE'],
     '90022': ["Application Error Disclosure", "AppError"],
     '90024': ["Generic Padding Oracle", "PaddingOracle"],
     '90027': ["Cookie Slack Detector", "CookieSlack"],
-    '90033': ["Loosely Scoped Cookie", "CookieLoose"],
+    '90033': ["Loosely Scoped Cookie", "CookieLoose"]
 }
 
 
@@ -129,7 +130,8 @@ def main(argv):
         '40024': ['UNION_BASED_SQL_INJECTION', 'BLIND_SQL_INJECTION', 'ERROR_BASED_SQL_INJECTION'],
         '90018': ['UNION_BASED_SQL_INJECTION', 'BLIND_SQL_INJECTION', 'ERROR_BASED_SQL_INJECTION'],
         '40036': ['SERVER_SIDE_VULNERABLE_JWT', 'INSECURE_CONFIGURATION_JWT', 'CLIENT_SIDE_VULNERABLE_JWT'],
-        '90023': ['XXE']
+        '90023': ['XXE'],
+        '40041': ['UNRESTRICTED_FILE_UPLOAD','PERSISTENT_XSS','REFLECTED_XSS','PATH_TRAVERSAL']
     }
 
     zap = ZAPv2(proxies={'http': zapUrl, 'https': zapUrl})
@@ -154,7 +156,7 @@ def main(argv):
     # Page through the alerts as otherwise ZAP can hang...
     alerts = zap.core.alerts('', offset, page)
     # Scanner endpoint of Owasp VulnerableApp which provides information related to vulnerabilities present.
-    vulnerable_app_scanner_response = requests.get("http://127.0.0.1:9090/scanner",
+    vulnerable_app_scanner_response = requests.get("http://127.0.0.1:9090/VulnerableApp/scanner",
                                                    proxies={'http': zapUrl, 'https': zapUrl}, verify=False)
     if vulnerable_app_scanner_response.status_code != 200:
         print("Failure while accessing scanner endpoint" + str(vulnerable_app_scanner_response))
@@ -162,18 +164,20 @@ def main(argv):
     else:
         vulnerability_info = vulnerable_app_scanner_response.json()
         for vulnapp_vuln_info in vulnerability_info:
-            url = vulnapp_vuln_info["url"]
-            if url not in url_vs_vulnapp_vuln_info:
-                url_vs_vulnapp_vuln_info[url] = []
-            url_vs_vulnapp_vuln_info[url].append(vulnapp_vuln_info)
-            for vulnerabilityType in vulnapp_vuln_info['vulnerabilityTypes']:
-                total_vulnerability_type_count[vulnerabilityType] = total_vulnerability_type_count.get(
-                    vulnerabilityType, 0) + 1
+            if vulnapp_vuln_info["variant"] == "UNSECURE":
+                url = vulnapp_vuln_info["url"]
+                if url not in url_vs_vulnapp_vuln_info:
+                    url_vs_vulnapp_vuln_info[url] = []
+                url_vs_vulnapp_vuln_info[url].append(vulnapp_vuln_info)
+                for vulnerabilityType in vulnapp_vuln_info['vulnerabilityTypes']:
+                    total_vulnerability_type_count[vulnerabilityType] = total_vulnerability_type_count.get(
+                        vulnerabilityType, 0) + 1
 
         while len(alerts) > 0:
             total_alerts += len(alerts)
             for alert in alerts:
                 url = alert.get('url')
+                print(url)
                 # Grab the url before any '?'
                 url_without_query_param = url.split('?')[0]
                 aDict = alerts_per_url.get(url_without_query_param,
