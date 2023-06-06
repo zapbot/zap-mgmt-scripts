@@ -35,7 +35,7 @@ def main(argv):
    
    # change this IP according to your environment
    
-   target = 'http://' + vulnerableAppHostIp + ':9090/'
+   target = 'http://' + vulnerableAppHostIp + ':9090/VulnerableApp/'
 
    print('Target %s' % target)
    print('ZAP %s' % zapHostIp)
@@ -46,7 +46,7 @@ def main(argv):
    
    zap.urlopen(target)
    time.sleep(2)
-   
+   zap.urlopen(target + 'sitemap.xml')
    print('Spidering %s' % target)
    zap.spider.scan(target)
    # Give the Spider a chance to start
