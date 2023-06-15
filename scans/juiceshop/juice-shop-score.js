@@ -35,6 +35,7 @@ var expectedResults = [
 	"GET http://localhost:3000/rest/admin/application-version",
 	"GET http://localhost:3000/rest/captcha/",
 	"GET http://localhost:3000/rest/languages",
+	"GET http://localhost:3000/rest/memories",
 	"GET http://localhost:3000/rest/products/search(q)",
 	"GET http://localhost:3000/rest/user/whoami",
 	"GET http://localhost:3000/runtime.js",
