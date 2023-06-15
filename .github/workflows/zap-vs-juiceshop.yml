@@ -1,0 +1,60 @@
+name: ZAP vs Juice Shop
+
+on: 
+  schedule:
+    - cron:  '0 3 30 * *' # 3:30 am every day
+  workflow_dispatch:
+
+jobs:
+  scan:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Clone zap-mgmt-scripts and zaproxy-website
+      run: |
+        # Setup git details
+        export GITHUB_USER=zapbot
+        export GITHUB_TOKEN=${{ secrets.ZAPBOT_TOKEN }}
+        git config --global user.email "12745184+zapbot@users.noreply.github.com"
+        git config --global user.name $GITHUB_USER
+        git clone https://github.com/$GITHUB_USER/zap-mgmt-scripts.git
+
+        git clone https://github.com/$GITHUB_USER/zaproxy-website.git
+
+        # Update to the latest upstream
+        cd zaproxy-website
+        git remote set-url origin https://$GITHUB_USER:$GITHUB_TOKEN@github.com/$GITHUB_USER/zaproxy-website.git
+        git remote add upstream https://github.com/zaproxy/zaproxy-website.git
+        git checkout -B juiceshop
+        git pull upstream master
+        git reset --hard upstream/master
+        git push --set-upstream origin juiceshop --force
+
+    - name: Scan Juice Shop
+      run: |
+        # start Juice Shop
+        docker run -d --rm -p 3000:3000 --network host bkimminich/juice-shop
+        
+        cd zap-mgmt-scripts/scans/juiceshop
+        # Need to do this so the zap user in docker can write to the file
+        touch all.yml
+        chmod a+w all.yml
+        docker run -v $(pwd):/zap/wrk/:rw --network host -t owasp/zap2docker-live zap.sh -cmd -silent -autorun /zap/wrk/juice-shop.yaml
+        cp all.yml ../../../zaproxy-website/site/data/scans/juiceshop/
+
+    - name: Raise a PR on the website
+      run: |
+        cd zaproxy-website
+
+        # Update the index to be sure git is aware of changes
+        git update-index -q --refresh
+        ## If there are changes: comment, commit, PR
+        if ! git diff-index --quiet HEAD --; then
+
+          git add site/data/scans/juiceshop/*
+          git commit -s -m "Updated Juice Shop Results"
+          git push origin
+
+          echo ${{ secrets.ZAPBOT_TOKEN }} | gh auth login --with-token
+          gh pr create --fill
+
+        fi
