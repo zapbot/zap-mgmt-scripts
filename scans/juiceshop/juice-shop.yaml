@@ -1,0 +1,39 @@
+---
+env:
+  contexts:
+  - name: "Juice Shop"
+    urls:
+    - "http://localhost:3000/"
+    includePaths: []
+    excludePaths: []
+    authentication:
+      parameters: {}
+      verification:
+        method: "response"
+        pollFrequency: 60
+        pollUnits: "requests"
+    sessionManagement:
+      method: "cookie"
+      parameters: {}
+  parameters:
+    failOnError: true
+    failOnWarning: false
+    progressToStdout: true
+  vars: {}
+jobs:
+- name: "add-script"
+  type: script
+  parameters:
+    action: add
+    type: standalone
+    file: /zap/wrk/juice-shop-score.js
+- parameters:
+    numberOfBrowsers: 10
+  name: "spiderAjax"
+  type: "spiderAjax"
+- name: "run-script"
+  type: script
+  parameters:
+    action: run
+    type: standalone
+    name: juice-shop-score.js
