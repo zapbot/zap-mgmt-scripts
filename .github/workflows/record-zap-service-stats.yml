@@ -22,7 +22,7 @@ jobs:
         # Set up AWS CLI
         export AWSCLI_ACCESS=${{ secrets.AWSCLI_ACCESS }}
         export AWSCLI_SECRET=${{ secrets.AWSCLI_SECRET }}
-        python -m pip install awscli
+        python -m pip install awscli --no-build-isolation
         mkdir ~/.aws
         echo "[default]" > ~/.aws/config
         echo "region = us-east-2" >> ~/.aws/config
