@@ -25,7 +25,6 @@ jobs:
 
     - name: Sync the Stats
       run: |
-        python -m pip install pyyaml==5.3.1
         python -m pip install requests
         # Set up AWS CLI
         export AWSCLI_ACCESS=${{ secrets.AWSCLI_ACCESS }}
