@@ -11,7 +11,7 @@
 # Other ajaxSpider options will also affect the results - please let us know if any others improve the score :)
 #
 # If running ZAP via docker use a command like:
-# 		docker run -u zap -p 8090:8090 -d owasp/zap2docker-weekly zap-x.sh \
+# 		docker run -u zap -p 8090:8090 -d ghcr.io/zaproxy/zaproxy:weekly zap-x.sh \
 #			-daemon -port 8090 -host 0.0.0.0 -config api.disablekey=true \
 #			-config ajaxSpider.clickDefaultElems=False
 # 

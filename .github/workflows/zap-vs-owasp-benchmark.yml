@@ -45,7 +45,7 @@ jobs:
           sections=( "cmdi" )
           for s in "${sections[@]}"
           do
-            docker run --network=host --user=root -v $(pwd):/zap/wrk/:rw owasp/zap2docker-live zap.sh \
+            docker run --network=host --user=root -v $(pwd):/zap/wrk/:rw ghcr.io/zaproxy/zaproxy:nightly zap.sh \
               -cmd -silent -config scanner.injectable=15 -autorun /zap/wrk/$s/af-plan.yaml
             cp results/$s.yaml ../../../zaproxy-website/site/data/scans/benchmark/
           done

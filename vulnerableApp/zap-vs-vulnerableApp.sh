@@ -8,9 +8,9 @@
 #	-z zap-options		Options to be passed directly to the ZAP command line call 
 #
 # Some example calls:
-# ./zap-vs-vulnerableApp.sh -d "owasp/zap2docker-weekly" -e "66" -n "vulnerableApp-weekly-RB-M-M" -t "Rel,Beta"
-# ./zap-vs-vulnerableApp.sh -d "owasp/zap2docker-weekly" -e "66" -p "St-High-Th-Med" -n "vulnerableApp-weekly-RB-H-M" -t "Rel,Beta"
-# ./zap-vs-vulnerableApp.sh -d "owasp/zap2docker-weekly" -e "66" -n "vulnerableApp-weekly-RBA-M-M" -t "Rel,Beta,Alpha" -z "-addoninstall ascanrulesAlpha"
+# ./zap-vs-vulnerableApp.sh -d "ghcr.io/zaproxy/zaproxy:weekly" -e "66" -n "vulnerableApp-weekly-RB-M-M" -t "Rel,Beta"
+# ./zap-vs-vulnerableApp.sh -d "ghcr.io/zaproxy/zaproxy:weekly" -e "66" -p "St-High-Th-Med" -n "vulnerableApp-weekly-RB-H-M" -t "Rel,Beta"
+# ./zap-vs-vulnerableApp.sh -d "ghcr.io/zaproxy/zaproxy:weekly" -e "66" -n "vulnerableApp-weekly-RBA-M-M" -t "Rel,Beta,Alpha" -z "-addoninstall ascanrulesAlpha"
 
 USAGE="Usage: $0 [-a] -d docker-image [-e expected-score] -n name [-t text] [-z zap-options]"
 

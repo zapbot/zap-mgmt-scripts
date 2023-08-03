@@ -9,7 +9,7 @@ jobs:
     - name: Start vulnerableApp
       run: docker run --rm -d -p 9090:9090 --network host --name=owasp-vulnerableapp sasanlabs/owasp-vulnerableapp:unreleased
     - name: Start ZAP
-      run: docker run --rm -d -p 8090:8090 --network host owasp/zap2docker-weekly zap-x.sh -daemon -host localhost -port 8090 -addoninstallall -addonupdate -config "api.addrs.addr.name=.*" -config api.addrs.addr.regex=true -config ajaxSpider.maxCrawlDepth=0 -config ajaxSpider.numberOfBrowsers=15 -config ajaxSpider.maxDuration=90 -config ajaxSpider.clickElemsOnce=false -config ajaxSpider.clickDefaultElems=false -config scanner.addQueryParam=true -config scanner.injectable=31 -config api.disablekey=true &
+      run: docker run --rm -d -p 8090:8090 --network host ghcr.io/zaproxy/zaproxy:weekly zap-x.sh -daemon -host localhost -port 8090 -addoninstallall -addonupdate -config "api.addrs.addr.name=.*" -config api.addrs.addr.regex=true -config ajaxSpider.maxCrawlDepth=0 -config ajaxSpider.numberOfBrowsers=15 -config ajaxSpider.maxDuration=90 -config ajaxSpider.clickElemsOnce=false -config ajaxSpider.clickDefaultElems=false -config scanner.addQueryParam=true -config scanner.injectable=31 -config api.disablekey=true &
     - name: Run ZAP API script
       env:
         GITHUB_TOKEN: ${{ secrets.ZAPBOT_TOKEN }}

@@ -11,7 +11,7 @@ jobs:
       run: docker run --rm -d -p 8080:8080 owaspvwad/wavsep &
     - name: Start ZAP
       run: |
-        docker run --rm -d -p 8090:8090 --network host owasp/zap2docker-live zap-x.sh \
+        docker run --rm -d -p 8090:8090 --network host ghcr.io/zaproxy/zaproxy:nightly zap-x.sh \
           -daemon -host localhost -port 8090 -addonupdate -addoninstall domxss \
           -config "api.addrs.addr.name=.*" -config api.addrs.addr.regex=true -config api.disablekey=true \
           -config database.recoverylog=false -config pscans.maxBodySizeInBytes=10 &

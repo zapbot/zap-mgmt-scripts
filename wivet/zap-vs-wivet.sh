@@ -1,7 +1,7 @@
 #!/bin/bash
 # Runs ZAP against wivet with default options, generates the report and issues a PR to update it
 # Parameters:
-#	-d docker-image		Name of the ZAP docker image to use, typically owasp/zap2docker-weekly or owasp/zap2docker-stable
+#	-d docker-image		Name of the ZAP docker image to use, typically ghcr.io/zaproxy/zaproxy:weekly or ghcr.io/zaproxy/zaproxy:stable
 #	-e expected-score	Expected score string
 #	-n name				Base name to use for the result files
 #	-t text				Text to use in the summary table for the add-ons installed
