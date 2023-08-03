@@ -38,7 +38,7 @@ jobs:
         # Need to do this so the zap user in docker can write to the file
         touch all.yml
         chmod a+w all.yml
-        docker run -v $(pwd):/zap/wrk/:rw --network host -t owasp/zap2docker-live zap.sh -cmd -silent -autorun /zap/wrk/juice-shop.yaml
+        docker run -v $(pwd):/zap/wrk/:rw --network host -t ghcr.io/zaproxy/zaproxy:nightly zap.sh -cmd -silent -autorun /zap/wrk/juice-shop.yaml
         cp all.yml ../../../zaproxy-website/site/data/scans/juiceshop/
 
     - name: Raise a PR on the website

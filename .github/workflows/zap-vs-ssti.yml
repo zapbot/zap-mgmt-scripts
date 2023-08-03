@@ -47,7 +47,7 @@ jobs:
         
         chmod +x ssti.sh
         
-        docker run -v $(pwd):/zap/wrk/:rw --network="host" owasp/zap2docker-live /zap/wrk/ssti.sh
+        docker run -v $(pwd):/zap/wrk/:rw --network="host" ghcr.io/zaproxy/zaproxy:nightly /zap/wrk/ssti.sh
         
         cp $file ../../../zaproxy-website/site/data/scans/ssti/
 

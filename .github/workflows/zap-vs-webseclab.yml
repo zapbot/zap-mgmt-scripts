@@ -39,7 +39,7 @@ jobs:
         # Need to do this so the zap user in docker can write to the file
         touch reflected.yml
         chmod a+w reflected.yml
-        docker run -v $(pwd):/zap/wrk/:rw --network="host" -t owasp/zap2docker-live zap.sh -cmd -silent -autorun /zap/wrk/webseclab.yaml -config "scanner.injectable=11" -config "scanner.scanHeadersAllRequests=true"
+        docker run -v $(pwd):/zap/wrk/:rw --network="host" -t ghcr.io/zaproxy/zaproxy:nightly zap.sh -cmd -silent -autorun /zap/wrk/webseclab.yaml -config "scanner.injectable=11" -config "scanner.scanHeadersAllRequests=true"
         cp reflected.yml ../../../zaproxy-website/site/data/scans/webseclab/
 
     - name: Raise a PR on the website
