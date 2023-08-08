@@ -14,4 +14,4 @@ jobs:
     - name: Run ZAP API script
       env:
         GITHUB_TOKEN: ${{ secrets.ZAPBOT_TOKEN }}
-      run: docker run --rm --network host --env ZAPBOT_TOKEN=${{ secrets.ZAPBOT_TOKEN }} owasp/zap-testing ./zap-vs-wavsep-1.5.sh -e 67 -p "St-High-Th-Med" -n "wavsep-1.5-weekly-RBA-H-M" -t "Rel, Beta, Alpha"
+      run: docker run --rm --network host --env ZAPBOT_TOKEN=${{ secrets.ZAPBOT_TOKEN }} softwaresecurityproject/zap-testing ./zap-vs-wavsep-1.5.sh -e 67 -p "St-High-Th-Med" -n "wavsep-1.5-weekly-RBA-H-M" -t "Rel, Beta, Alpha"
