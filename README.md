@@ -11,7 +11,7 @@ The current instance being used is a t2.medium running with Ubuntu trusty and 24
 From a bare bones install, as root run:
 * apt-get update -y
 * apt-get -y install python-pip
-* pip install python-owasp-zap-v2.4
+* pip install zaproxy
 * pip install awscli
 * curl -sSL https://get.docker.com/ | sh
 * usermod -aG docker ubuntu
