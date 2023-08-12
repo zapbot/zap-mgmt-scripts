@@ -22,8 +22,7 @@
 #
 # To use this script:
 # * Install the ZAP Python API:
-#     Use 'pip install python-owasp-zap-v2' or
-#     download from https://github.com/zaproxy/zaproxy/wiki/Downloads
+#     Use 'pip install zaproxy'
 # * Start ZAP (as this is for testing purposes you might not want the
 #     'standard' ZAP to be started)
 # * Access Owasp VulnerableApp via your browser, proxying through ZAP
