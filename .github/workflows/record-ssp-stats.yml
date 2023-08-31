@@ -48,10 +48,10 @@ jobs:
 
     - name: Sync S3 files
       run: |
-        mkdir ssp-project-zap
-        mkdir ssp-project-zap/stats
+        mkdir project-zap
+        mkdir project-zap/stats
         # This will gradually take longer and longer so at some point we could limit it to just recent files
-        aws s3 sync s3://ssp-project-zap/stats/ ssp-project-zap/stats/
+        aws s3 sync s3://ssp-project-zap/stats/ project-zap/stats/
         
     - name: Collect todays stats
       run: |
@@ -73,4 +73,4 @@ jobs:
 
     - name: Update S3 files
       run: |
-        aws s3 sync ssp-project-zap/stats/ s3://ssp-project-zap/stats/ 
+        aws s3 sync project-zap/stats/ s3://ssp-project-zap/stats/ 
