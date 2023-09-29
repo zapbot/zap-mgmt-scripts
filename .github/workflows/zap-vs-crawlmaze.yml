@@ -25,8 +25,8 @@ jobs:
         git remote set-url origin https://$GITHUB_USER:$GITHUB_TOKEN@github.com/$GITHUB_USER/zaproxy-website.git
         git remote add upstream https://github.com/zaproxy/zaproxy-website.git
         git checkout -B crawlmaze
-        git pull upstream master
-        git reset --hard upstream/master
+        git pull upstream main
+        git reset --hard upstream/main
         git push --set-upstream origin crawlmaze --force
 
     - name: Scan Crawl Maze
