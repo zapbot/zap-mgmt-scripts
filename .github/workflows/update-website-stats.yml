@@ -56,11 +56,11 @@ jobs:
         mkdir project-zap
         mkdir project-zap/stats
         # Just sync the subdirectories we need
-        aws s3 sync s3://project-zap/stats/bitly/ project-zap/stats/bitly/
-        aws s3 sync s3://project-zap/stats/cfu/ project-zap/stats/cfu/
-        aws s3 sync s3://project-zap/stats/docker/ project-zap/stats/docker/
-        aws s3 sync s3://project-zap/stats/downloads/ project-zap/stats/downloads/
-        aws s3 sync s3://project-zap/stats/groups/ project-zap/stats/groups/
+        aws s3 sync s3://ssp-project-zap/stats/bitly/ project-zap/stats/bitly/
+        aws s3 sync s3://ssp-project-zap/stats/cfu/ project-zap/stats/cfu/
+        aws s3 sync s3://ssp-project-zap/stats/docker/ project-zap/stats/docker/
+        aws s3 sync s3://ssp-project-zap/stats/downloads/ project-zap/stats/downloads/
+        aws s3 sync s3://ssp-project-zap/stats/groups/ project-zap/stats/groups/
         
     - name: Generate the stats data files
       run: |
