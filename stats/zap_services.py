@@ -93,7 +93,7 @@ def convert_file(source, dest) :
                     daily += int(count.strip())
                     dday = date
                     ver = 'Daily'
-                elif ver == '2.12.0' or ver == '2.13.0':  # Will need to change for new releases
+                elif ver == '2.12.0' or ver == '2.13.0' or ver == '2.14.0':  # Will need to change for new releases
                     ver = ver.replace('.', '-')
                     if type == 'daemon':
                         ver = ver + 'd'
