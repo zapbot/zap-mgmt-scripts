@@ -7,7 +7,7 @@ on:
 
 jobs:
   record_stats:
-    name: Collect Daily Stats
+    name: Collect Daily SSP Stats
     runs-on: ubuntu-latest
     steps:
     - name: Setup Python
@@ -50,8 +50,11 @@ jobs:
       run: |
         mkdir project-zap
         mkdir project-zap/stats
-        # This will gradually take longer and longer so at some point we could limit it to just recent files
-        aws s3 sync s3://ssp-project-zap/stats/ project-zap/stats/
+        # Just sync the last 2 months worth of files
+        # c/o https://stackoverflow.com/questions/13168463/using-date-command-to-get-previous-current-and-next-month
+        export LAST_MONTH=`date -d "$(date +%Y-%m-1) -1 month" +%-m`
+        export THIS_MONTH=`date -d "$(date +%Y-%m-1) 0 month" +%-m`
+        aws s3 sync s3://ssp-project-zap/stats/ project-zap/stats/ --exclude "*" --include "*${LAST_MONTH}*" --include "*${THIS_MONTH}*"
         
     - name: Collect todays stats
       run: |
