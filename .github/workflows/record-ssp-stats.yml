@@ -46,15 +46,20 @@ jobs:
         git remote set-url origin https://$GITHUB_USER:$GITHUB_TOKEN@github.com/$GITHUB_USER/zap-mgmt-scripts.git
         cd ..
 
+    - name: Set envs
+      run: |
+        # c/o https://stackoverflow.com/questions/13168463/using-date-command-to-get-previous-current-and-next-month
+        echo "START_MONTH=$(date +%Y-%m-1)" >> $GITHUB_ENV
+        echo "THIS_MONTH=$(date -d '${{ env.START_MONTH }} -0 month' +%Y-%m)" >> $GITHUB_ENV
+        echo "LAST_MONTH=$(date -d '${{ env.START_MONTH }} -1 month' +%Y-%m)" >> $GITHUB_ENV
+
     - name: Sync S3 files
       run: |
         mkdir project-zap
         mkdir project-zap/stats
         # Just sync the last 2 months worth of files
-        # c/o https://stackoverflow.com/questions/13168463/using-date-command-to-get-previous-current-and-next-month
-        export LAST_MONTH=`date -d "$(date +%Y-%m-1) -1 month" +%-m`
-        export THIS_MONTH=`date -d "$(date +%Y-%m-1) 0 month" +%-m`
-        aws s3 sync s3://ssp-project-zap/stats/ project-zap/stats/ --exclude "*" --include "*${LAST_MONTH}*" --include "*${THIS_MONTH}*"
+        echo "This month: ${{ env.THIS_MONTH }} last month: ${{ env.LAST_MONTH }}"
+        aws s3 sync s3://ssp-project-zap/stats/ project-zap/stats/ --exclude "*" --include "*${{ env.THIS_MONTH }}*" --include "*${{ env.LAST_MONTH }}*"
         
     - name: Collect todays stats
       run: |
