@@ -35,17 +35,23 @@ jobs:
         # Need to do this so the zap user in docker can write to the files
         touch all.yml zap.log
         chmod a+w all.yml zap.log
-        docker run -v $(pwd):/zap/wrk/:rw -t ghcr.io/zaproxy/zaproxy:nightly sh -c \
-          "chmod +x wrk/hack-profile.sh; \
-          wrk/hack-profile.sh; \
-          ./zap.sh -cmd -silent -addoninstall client -autorun /zap/wrk/crawl-maze.yaml; \
-          cp /home/zap/.ZAP_D/zap.log /zap/wrk"
+        
+        # The first set of commands are a hack to create the zap-client-profile
+        # as Selenium doesnt seem to allow us to do this in the ZAP Docker containers :/
+        
+        docker run -v $(pwd):/zap/wrk/:rw -v zap.log:/home/zap/.ZAP_D/zap.log:rw \
+          -t ghcr.io/zaproxy/zaproxy:nightly sh -c \
+            "mkdir -p /home/zap/.mozilla/firefox/abc5jhgf.zap-client-profile/; \
+            echo '[Profile0]' >> /home/zap/.mozilla/firefox/profiles.ini; \
+            echo 'Name=zap-client-profile' >> /home/zap/.mozilla/firefox/profiles.ini; \
+            echo 'IsRelative=1' >> /home/zap/.mozilla/firefox/profiles.ini; \
+            echo 'Path=abc5jhgf.zap-client-profile' >> /home/zap/.mozilla/firefox/profiles.ini; \
+            ./zap.sh -cmd -silent -addoninstall client -autorun /zap/wrk/crawl-maze.yaml; \
+            cp /home/zap/.ZAP_D/zap.log /zap/wrk;"
         cp all.yml ../../../zaproxy-website/site/data/scans/crawlmaze/
-        # Some diags
-        ls -l /home/zap/.mozilla/firefox/*
-        cat /home/zap/.mozilla/firefox/profiles.ini
 
     - name: 'Upload zap.log'
+      if: ${{ !cancelled() }}
       uses: actions/upload-artifact@v3
       with:
         name: zap.log
