@@ -35,7 +35,7 @@ jobs:
         # Need to do this so the zap user in docker can write to the file
         touch all.yml
         chmod a+w all.yml
-        docker run -v $(pwd):/zap/wrk/:rw -it ghcr.io/zaproxy/zaproxy:nightly sh -c \
+        docker run -v $(pwd):/zap/wrk/:rw -i ghcr.io/zaproxy/zaproxy:nightly sh -c \
           "chmod +x wrk/hack-profile.sh; \
           wrk/hack-profile.sh; \
           ./zap.sh -cmd -silent -addoninstall client -autorun /zap/wrk/crawl-maze.yaml; \
