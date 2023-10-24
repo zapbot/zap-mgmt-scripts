@@ -39,7 +39,7 @@ jobs:
         # The first set of commands are a hack to create the zap-client-profile
         # as Selenium doesnt seem to allow us to do this in the ZAP Docker containers :/
         
-        docker run -v $(pwd):/zap/wrk/:rw -v zap.log:/home/zap/.ZAP_D/zap.log:rw \
+        docker run -v $(pwd):/zap/wrk/:rw \
           -t ghcr.io/zaproxy/zaproxy:nightly sh -c \
             "mkdir -p /home/zap/.mozilla/firefox/abc5jhgf.zap-client-profile/; \
             echo '[Profile0]' >> /home/zap/.mozilla/firefox/profiles.ini; \
