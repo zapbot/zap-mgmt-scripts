@@ -122,9 +122,29 @@ function findNode(scheme, path) {
 var HistoryReference = Java.type('org.parosproxy.paros.model.HistoryReference');
 var URI = Java.type('org.apache.commons.httpclient.URI');
 
+var FieldUtils = Java.type('org.apache.commons.lang3.reflect.FieldUtils');
+
+function clientUrlExists(node, url) {
+	if (url == node.getUserObject().getUrl()) {
+		return true;
+	}
+	for (var i = 0; i < node.getChildCount(); i++) {
+		if (clientUrlExists(node.getChildAt(i), url)) {
+			return true;
+		}
+	}
+	return false;
+}
+
+var extClient = control.getExtensionLoader().getExtension("ExtensionClientIntegration");
+var clientRoot;
+if (extClient) {
+	clientRoot = FieldUtils.readField(extClient, "clientTree", true).getRoot();
+}
 var found = 0;
 var foundStandard = 0;
 var foundAjax = 0;
+var foundClient = 0;
 var total = expectedResults.length;
 
 var target = 'security-crawl-maze.app';
@@ -153,8 +173,10 @@ for (var i in expectedResults) {
 	pw.println('- path: ' + res);
 	var standardResult = "FAIL";
 	var ajaxResult = "FAIL";
+	var clientResult = "FAIL";
+	var passed = false;
 	if (node) {
-		found++;
+		passed = true;
 		if (node.hasHistoryType(HistoryReference.TYPE_SPIDER)) {
 			standardResult = "Pass";
 			foundStandard++;
@@ -164,21 +186,32 @@ for (var i in expectedResults) {
 			foundAjax++;
 		}
 	}
+	if (extClient && clientUrlExists(clientRoot, scheme + "://" + target + res)) {
+		clientResult = "Pass";
+		passed = true;
+		foundClient++;
+	}
+	if (passed) {
+		found++;
+	}
 	pw.println('  scheme: ' + scheme);
 	pw.println('  standard: ' + standardResult);
 	pw.println('  ajax: ' + ajaxResult);
+	pw.println('  client: ' + clientResult);
 }
 
 print('tests: ' + total);
 print('passes: ' + found);
 print('standardPasses: ' + foundStandard);
 print('ajaxPasses: ' + foundAjax);
+print('clientPasses: ' + foundClient);
 print('fails: ' + (total - found));
 
 pw.println('tests: ' + total);
 pw.println('passes: ' + found);
 pw.println('standardPasses: ' + foundStandard);
 pw.println('ajaxPasses: ' + foundAjax);
+pw.println('clientPasses: ' + foundClient);
 pw.println('fails: ' + (total - found));
 pw.println('score: ' + Math.round(found * 100 / total) + '%');
 
