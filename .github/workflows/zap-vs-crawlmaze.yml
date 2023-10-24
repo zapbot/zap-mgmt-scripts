@@ -35,8 +35,18 @@ jobs:
         # Need to do this so the zap user in docker can write to the file
         touch all.yml
         chmod a+w all.yml
-        docker run -v $(pwd):/zap/wrk/:rw -t ghcr.io/zaproxy/zaproxy:nightly zap.sh -cmd -silent -addoninstall client -autorun /zap/wrk/crawl-maze.yaml
+        docker run -v $(pwd):/zap/wrk/:rw -it ghcr.io/zaproxy/zaproxy:nightly sh -c \
+          "chmod +x wrk/hack-profile.sh; \
+          wrk/hack-profile.sh; \
+          ./zap.sh -cmd -silent -addoninstall client -autorun /zap/wrk/crawl-maze.yaml; \
+          cp /home/zap/.ZAP_D/zap.log /zap/wrk"
         cp all.yml ../../../zaproxy-website/site/data/scans/crawlmaze/
+
+    - name: 'Upload zap.log'
+      uses: actions/upload-artifact@v3
+      with:
+        name: zap.log
+        path: ./zap.log
 
     - name: Raise a PR on the website
       run: |
