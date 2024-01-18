@@ -89,7 +89,7 @@ def daily():
                 if tag in last_monthly_totals:
                     last_monthly_total = last_monthly_totals[tag]
 
-                if tag in last_monthly_totals or tags.index(tag) == 0:
+                if tag in last_monthly_totals or (tag in tags and tags.index(tag) == 0):
                     # we have a previous total or its the latest tag, which could be new
                     monthly_file = utils.basedir() + 'downloads/monthly/' + date_str + '.csv'
                     if not os.path.exists(monthly_file):
