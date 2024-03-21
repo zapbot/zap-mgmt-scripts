@@ -17,7 +17,7 @@ jobs:
     steps:
       - name: Wait for the Benchmark service to be available
         run: |
-          curl -k --head --retry 12 --retry-all-errors --retry-delay 30 https://localhost:8443/benchmark
+          curl -k --head --retry 12 --retry-all-errors --retry-delay 75 https://localhost:8443/benchmark
 
       - name: Clone zap-mgmt-scripts and zaproxy-website
         run: |
