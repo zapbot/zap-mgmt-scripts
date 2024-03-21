@@ -1,8 +1,9 @@
 name: ZAP vs OWASP Benchmark
 
 on:
-  schedule:
-    - cron: "0 6 * * *" # 6 am every day
+  # https://github.com/OWASP-Benchmark/BenchmarkJava/issues/223
+  #schedule:
+  #  - cron: "0 6 * * *" # 6 am every day
   workflow_dispatch:
 
 jobs:
@@ -17,7 +18,7 @@ jobs:
     steps:
       - name: Wait for the Benchmark service to be available
         run: |
-          curl -k --head --retry 12 --retry-all-errors --retry-delay 125 https://localhost:8443/benchmark
+          curl -k --head --retry 12 --retry-all-errors --retry-delay 5 https://localhost:8443/benchmark
 
       - name: Clone zap-mgmt-scripts and zaproxy-website
         run: |
