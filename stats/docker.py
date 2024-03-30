@@ -10,7 +10,6 @@ import utils
 urls = {
     "stable": "https://registry.hub.docker.com/v2/repositories/owasp/zap2docker-stable/",
     "weekly": "https://registry.hub.docker.com/v2/repositories/owasp/zap2docker-weekly/",
-    "live": "https://registry.hub.docker.com/v2/repositories/owasp/zap2docker-live/",
     "bare": "https://registry.hub.docker.com/v2/repositories/owasp/zap2docker-bare/",
     "ssp-stable": "https://registry.hub.docker.com/v2/repositories/softwaresecurityproject/zap-stable/",
     "ssp-weekly": "https://registry.hub.docker.com/v2/repositories/softwaresecurityproject/zap-weekly/",
