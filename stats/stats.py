@@ -1,5 +1,6 @@
 # Local files which handle specific stats
 import docker
+import ghcr
 import github
 import bitly
 import groups
@@ -14,18 +15,21 @@ def usage():
 
 def collect():
     docker.collect()
+    ghcr.collect()
     github.collect()
     bitly.collect()
     zap_services.collect()
 
 def daily():
     docker.daily()
+    ghcr.daily()
     github.daily()
     bitly.daily()
     zap_services.daily()
 
 def website():
     docker.website()
+    ghcr.website()
     github.website()
     bitly.website()
     groups.website()

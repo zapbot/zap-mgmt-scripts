@@ -71,9 +71,10 @@ def website():
     
     images = []
     map = {}
+    min_date = "2022-03-01"
     
     '''
-    All files have format: date,image,total,increase,stars
+    All Docker files have format: date,image,total,increase,stars
     '''
     
     for file in files:
@@ -85,15 +86,39 @@ def website():
                 if len(row) > 0:
                     date = row[0]
                     image = row[1]
-                    if image.startswith("zap2docker-"):
-                        # Still needed for old stats
-                        image = image[11:]
+                    
+                    if date > min_date:
+                        # Date is yyyy-mm-dd so string comparison works :)
+                        if image.startswith("zap2docker-"):
+                            # Still needed for old stats
+                            image = image[11:]
+                        increase = row[3]
+                        if not image in images:
+                            images.append(image)
+                        if not date in map:
+                            map[date] = {}
+                        map[date][image] = increase
+
+    '''
+    All Ghcr files have format: date,image,total,increase
+    '''
+    files = sorted(glob.glob(utils.basedir() + 'ghcr/monthly/*.csv'))
+    for file in files:
+        with open(file) as monthly_file:
+            csv_reader = csv.reader(monthly_file)
+            # Ignore the header
+            next(csv_reader)
+            for row in csv_reader:
+                if len(row) > 0:
+                    date = row[0]
+                    image = "ghcr-" + row[1]
                     increase = row[3]
-                    if not image in images:
-                        images.append(image)
-                    if not date in map:
-                        map[date] = {}
-                    map[date][image] = increase
+                    if date > min_date:
+                        if not image in images:
+                            images.append(image)
+                        if not date in map:
+                            map[date] = {}
+                        map[date][image] = increase
     
     with open(outfile, 'w') as f:
         print('{', file=f)
