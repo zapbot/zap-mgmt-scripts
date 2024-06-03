@@ -43,23 +43,24 @@ def daily():
         with open(file) as stats_file:
             date_str = os.path.basename(stats_file.name)[:10]
             image = os.path.basename(stats_file.name)[11:-5]
-            print(date_str + " / " + image)
             data = stats_file.read()
             total = find_count(data)
 
             is_monthly = date_str.endswith('-01')
             
             if is_monthly:
-                if image in last_monthly_totals:
-                    monthly_file = utils.basedir() + 'ghcr/monthly/' + date_str + '.csv'
-                    if not os.path.exists(monthly_file):
-                        with open(monthly_file, "a") as f:
-                            f.write('date,image,total,increase\n')
-                            monthly_files_to_write.add(date_str)
-                            print('Created ' + monthly_file)
-                    if date_str in monthly_files_to_write:
-                        with open(monthly_file, "a") as f:
+                monthly_file = utils.basedir() + 'ghcr/monthly/' + date_str + '.csv'
+                if not os.path.exists(monthly_file):
+                    with open(monthly_file, "a") as f:
+                        f.write('date,image,total,increase\n')
+                        monthly_files_to_write.add(date_str)
+                        print('Created ' + monthly_file)
+                if date_str in monthly_files_to_write:
+                    with open(monthly_file, "a") as f:
+                        if image in last_monthly_totals:
                             f.write(date_str + ',' + image + ',' + str(total) + ',' + str(total - last_monthly_totals[image]) + "\n")
+                        else:
+                            f.write(date_str + ',' + image + ',' + str(total) + ',' + str(total) + "\n")
                 last_monthly_totals[image] = total
 
             if image in last_day_totals:
