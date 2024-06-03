@@ -31,23 +31,29 @@ def daily():
     for file in files:
         with open(file) as stats_file:
             stats = json.load(stats_file)
-            link = os.path.basename(stats_file.name)[20:-5]
-            date_str = os.path.basename(stats_file.name)[:10]
+            basename = os.path.basename(stats_file.name)
+            link = basename[20:-5]
+            date_str = basename[:10]
             image = stats['name']
             total = stats['pull_count']
+            if not 'ssp' in basename:
+                # SSP and zaproxy images have the same names, change 'zap-' to 'zaproxy-'
+                image = 'zaproxy-' + image[4:]   
 
             is_monthly = date_str.endswith('-01') or date_str == '2021-08-02' # No stats for 2021-08-01 :/
             if is_monthly:
-                if image in last_monthly_totals:
-                    monthly_file = utils.basedir() + 'docker/monthly/' + date_str + '.csv'
-                    if not os.path.exists(monthly_file):
-                        with open(monthly_file, "a") as f:
-                            f.write('date,image,total,increase,stars\n')
-                            monthly_files_to_write.add(date_str)
-                            print('Created ' + monthly_file)
-                    if date_str in monthly_files_to_write:
-                        with open(monthly_file, "a") as f:
+                monthly_file = utils.basedir() + 'docker/monthly/' + date_str + '.csv'
+                if not os.path.exists(monthly_file):
+                    with open(monthly_file, "a") as f:
+                        f.write('date,image,total,increase,stars\n')
+                        monthly_files_to_write.add(date_str)
+                        print('Created ' + monthly_file)
+                if date_str in monthly_files_to_write:
+                    with open(monthly_file, "a") as f:
+                        if image in last_monthly_totals:
                             f.write(date_str + ',' + image + ',' + str(total) + ',' + str(total - last_monthly_totals[image]) + ',' + str(stats['star_count']) + "\n")
+                        else: 
+                            f.write(date_str + ',' + image + ',' + str(total) + ',' + str(total) + ',' + str(stats['star_count']) + "\n")
                 last_monthly_totals[image] = total
 
             if image in last_day_totals:
@@ -123,7 +129,7 @@ def website():
     with open(outfile, 'w') as f:
         print('{', file=f)
         print('  "title": "Docker Pulls",', file=f)
-        print('  "description": "Docker pulls since the ZAP Docker images were published.",', file=f)
+        print('  "description": "Docker pulls since April 2022.",', file=f)
         print('  "columns": ["Version" ', end='', file=f)
         for l in images:
             print(', "' + l + '"', end='', file=f)
