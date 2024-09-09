@@ -40,8 +40,10 @@ jobs:
         cd zap-mgmt-scripts/stats
 
         # The telemetry/raw directory should just contain unprocessed files so remain small
-        aws s3 sync s3://ssp-project-zap/telemetry/raw/ telemetry/raw/
+        # Move the current files so we don't delete any that come in while we are processing the current ones
+        aws s3 mv s3://ssp-project-zap/telemetry/raw/ s3://ssp-project-zap/telemetry/process/ --recursive
+        aws s3 sync s3://ssp-project-zap/telemetry/process/ telemetry/raw/
         python3 tel_postprocess.py
         aws s3 mv telemetry/ s3://ssp-project-zap/telemetry/ --recursive
-        aws s3 sync telemetry/raw/ s3://ssp-project-zap/telemetry/raw/ --delete
+        aws s3 sync telemetry/raw/ s3://ssp-project-zap/telemetry/process/ --delete
 
