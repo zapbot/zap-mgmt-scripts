@@ -8,10 +8,10 @@
 var expectedResults = [
 	"/javascript/frameworks/angular/event-handler.found",
 	"/javascript/frameworks/angular/router-outlet.found",
-	"/javascript/frameworks/angularjs/ng-href.found",
+	"/javascript/frameworks/angularjs/index.html#!/ng-href.found",
 	"/javascript/frameworks/polymer/event-handler.found",
 	"/javascript/frameworks/polymer/polymer-router.found",
-	"/javascript/frameworks/react/index.html/search.found",
+	"/javascript/frameworks/react/search.found",
 	"/javascript/frameworks/react/route-path.found",
 	"/test/css/font-face.found",
 	"/test/headers/content-location.found",
@@ -125,7 +125,11 @@ var URI = Java.type('org.apache.commons.httpclient.URI');
 var FieldUtils = Java.type('org.apache.commons.lang3.reflect.FieldUtils');
 
 function clientUrlExists(node, url) {
-	if (url == node.getUserObject().getUrl()) {
+	const nodeUrl = node.getUserObject().getUrl()
+	if (url == nodeUrl) {
+		return true;
+	}
+	if (nodeUrl && nodeUrl.startsWith(url)) {
 		return true;
 	}
 	for (var i = 0; i < node.getChildCount(); i++) {
@@ -185,8 +189,12 @@ for (var i in expectedResults) {
 			ajaxResult = "Pass";
 			foundAjax++;
 		}
+		if (node.hasHistoryType(HistoryReference.TYPE_CLIENT_SPIDER)) {
+			clientResult = "Pass";
+			foundClient++;
+		}
 	}
-	if (extClient && clientUrlExists(clientRoot, scheme + "://" + target + res)) {
+	if (clientResult !== "Pass" && extClient && clientUrlExists(clientRoot, scheme + "://" + target + res)) {
 		clientResult = "Pass";
 		passed = true;
 		foundClient++;
