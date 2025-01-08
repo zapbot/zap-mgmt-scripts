@@ -29,11 +29,7 @@ jobs:
     type: standalone
     file: /zap/wrk/crawl-maze-score.js
 - parameters:
-    numberOfBrowsers: 1
-  name: "spiderClient"
-  type: "spiderClient"
-- parameters:
-    maxDepth: 10
+    maxDepth: 100
   name: "spider"
   type: "spider"
   tests:
@@ -46,6 +42,12 @@ jobs:
     type: "stats"
 - parameters:
     numberOfBrowsers: 1
+    maxCrawlDepth: 100
+  name: "spiderClient"
+  type: "spiderClient"
+- parameters:
+    numberOfBrowsers: 1
+    maxCrawlDepth: 100
   name: "spiderAjax"
   type: "spiderAjax"
 - name: "run-script"
