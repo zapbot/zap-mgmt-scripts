@@ -1,0 +1,39 @@
+env:
+  contexts:
+  - name: Authentication Test
+    urls:
+    - http://testfire.net
+    includePaths:
+    - https?://testfire.net.*
+    authentication:
+      method: script
+      parameters:
+        script: ./testfire.zst
+        scriptEngine: Mozilla Zest
+      verification:
+        method: poll
+        loggedInRegex: \QCongratulations!\E
+        loggedOutRegex: \Q 403 Forbidden\E
+        pollFrequency: 60
+        pollUnits: seconds
+        pollUrl: http://testfire.net/bank/main.jsp
+        pollPostData: ""
+    sessionManagement:
+      method: headers
+      parameters:
+        Cookie: "JSESSIONID={%cookie:JSESSIONID%};"
+    users:
+    - name: jsmith
+      credentials:
+        Username: jsmith
+        Password: demo1234
+jobs:
+- type: requestor
+  parameters:
+    user: jsmith
+  requests:
+  - name: Get Account Details
+    url: 'http://testfire.net/bank/showAccount?listAccounts=800002'
+    method: GET
+    responseCode: 200
+

@@ -1,0 +1,80 @@
+{
+  "about": "This is a Zest script. For more details about Zest visit https://github.com/zaproxy/zest/",
+  "zestVersion": "0.3",
+  "title": "testfire.zst",
+  "description": "",
+  "prefix": "",
+  "type": "StandAlone",
+  "parameters": {
+    "tokenStart": "{{",
+    "tokenEnd": "}}",
+    "tokens": {},
+    "elementType": "ZestVariables"
+  },
+  "statements": [
+    {
+      "windowHandle": "windowHandle1",
+      "browserType": "firefox",
+      "url": "http://testfire.net/login.jsp",
+      "capabilities": "",
+      "headless": true,
+      "index": 1,
+      "enabled": true,
+      "elementType": "ZestClientLaunch"
+    },
+    {
+      "windowHandle": "windowHandle1",
+      "type": "id",
+      "element": "uid",
+      "index": 2,
+      "enabled": true,
+      "elementType": "ZestClientElementClear"
+    },
+    {
+      "value": "jsmith",
+      "windowHandle": "windowHandle1",
+      "type": "id",
+      "element": "uid",
+      "index": 3,
+      "enabled": true,
+      "elementType": "ZestClientElementSendKeys"
+    },
+    {
+      "windowHandle": "windowHandle1",
+      "type": "id",
+      "element": "passw",
+      "index": 4,
+      "enabled": true,
+      "elementType": "ZestClientElementClear"
+    },
+    {
+      "value": "demo1234",
+      "windowHandle": "windowHandle1",
+      "type": "id",
+      "element": "passw",
+      "index": 5,
+      "enabled": true,
+      "elementType": "ZestClientElementSendKeys"
+    },
+    {
+      "windowHandle": "windowHandle1",
+      "type": "id",
+      "element": "passw",
+      "index": 6,
+      "enabled": true,
+      "elementType": "ZestClientElementSubmit"
+    },
+    {
+      "windowHandle": "windowHandle1",
+      "type": "xpath",
+      "element": "/html/body/table/tbody/tr[2]/td[2]/div/form/table/tbody/tr[3]/td[2]/input",
+      "index": 7,
+      "enabled": true,
+      "elementType": "ZestClientElementClick"
+    }
+  ],
+  "authentication": [],
+  "index": 0,
+  "enabled": true,
+  "elementType": "ZestScript"
+}
