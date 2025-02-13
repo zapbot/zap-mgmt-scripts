@@ -2,21 +2,15 @@ env:
   contexts:
   - name: Authentication Test
     urls:
-    - http://testfire.net
+    - http://testphp.vulnweb.com
     includePaths:
-    - https?://testfire.net.*
+    - http://testphp.vulnweb.com.*
     authentication:
       method: browser
       parameters:
-        loginPageUrl: http://testfire.net/login.jsp
+        loginPageUrl: http://testphp.vulnweb.com/login.php
         loginPageWait: 2
         browserId: firefox-headless
-        steps:
-        - description: Fill Username
-          type: USERNAME
-          cssSelector: "#uid"
-          value: jsmith
-          timeout: 1000
       verification:
         method: autodetect
     sessionManagement:
@@ -24,15 +18,15 @@ env:
     users:
     - name: testuser
       credentials:
-        password: ${testfire_pas}
-        username: ${testfire_user}
+        password: ${testphp_pass}
+        username: ${testphp_user}
 jobs:
 - type: requestor
   parameters:
     user: testuser
   requests:
   - name: Get Account Details
-    url: 'http://testfire.net/bank/showAccount?listAccounts=800002'
+    url: 'http://testphp.vulnweb.com/userinfo.php'
     method: GET
     responseCode: 200
 
