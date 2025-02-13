@@ -18,17 +18,9 @@ env:
           value: jsmith
           timeout: 1000
       verification:
-        method: poll
-        loggedInRegex: \QCongratulations!\E
-        loggedOutRegex: \Q 403 Forbidden\E
-        pollFrequency: 60
-        pollUnits: seconds
-        pollUrl: http://testfire.net/bank/main.jsp
-        pollPostData: ""
+        method: autodetect
     sessionManagement:
-      method: headers
-      parameters:
-        Cookie: "JSESSIONID={%cookie:JSESSIONID%};"
+      method: autodetect
     users:
     - name: jsmith
       credentials:
