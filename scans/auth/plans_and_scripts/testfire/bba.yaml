@@ -4,7 +4,7 @@ env:
     urls:
     - http://testfire.net
     includePaths:
-    - https?://testfire.net.*
+    - http://testfire.net.*
     authentication:
       method: browser
       parameters:
@@ -16,14 +16,14 @@ env:
     sessionManagement:
       method: autodetect
     users:
-    - name: jsmith
+    - name: testuser
       credentials:
-        password: demo1234
-        username: jsmith
+        password: ${testfire_pass}
+        username: ${testfire_user}
 jobs:
 - type: requestor
   parameters:
-    user: jsmith
+    user: testuser
   requests:
   - name: Get Account Details
     url: 'http://testfire.net/bank/showAccount?listAccounts=800002'
