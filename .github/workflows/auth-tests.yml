@@ -8,10 +8,16 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - 
-        name: Authentication plan tests
+      - name: Build vars collection
+        id: "build-vars"
+        if: ${{ ! cancelled() }}
+        run: |
+          cd scans/auth/
+          collect_vars.sh
+          cd ../../
+      - name: Authentication plan tests
         id: "test-auth-plans"
         if: ${{ ! cancelled() }}
         run: |
           docker pull ghcr.io/zaproxy/zaproxy:nightly
-          docker run --rm -v $(pwd):/zap/wrk/:rw -t zaproxy/zap-nightly /zap/wrk/scans/auth/auth_plan_tests.sh
+          docker run --rm -v $(pwd):/zap/wrk/:rw --env-file ./scans/auth/all_vars.env -t zaproxy/zap-nightly /zap/wrk/scans/auth/auth_plan_tests.sh 
