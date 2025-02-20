@@ -13,13 +13,14 @@ echo
 
 cd /zap/wrk/scans/auth/plans_and_scripts/
 
-summary="\nSummary:\n"
+summary="\n\nSummary:\n========\n"
 INDENT="  "
 
 for TARGET in *
 do
     if [ -d "$TARGET" ]
     then
+        summary="${summary}$TARGET\n"
         echo
         cd "$TARGET"
         echo "$TARGET:"|tee -a "$OUTPUT" > /dev/null
