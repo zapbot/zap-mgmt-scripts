@@ -11,7 +11,7 @@ jobs:
       - name: Authentication plan tests
         id: "test-auth-plans"
         if: ${{ ! cancelled() }}
-	env:
+        env:
           AUTH_SCANS_CREDS: ${{ secrets.AUTH_SCANS_CREDS }}
         run: |
           docker pull ghcr.io/zaproxy/zaproxy:nightly
