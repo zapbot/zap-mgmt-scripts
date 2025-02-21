@@ -9,7 +9,7 @@
 
 ## Types
 
-- bba - Browser Based Auth
+- stdbba - Browser Based Auth
 - bbaplus - Browser Based Auth with manual config or extra steps
 - csa - Client Script Auth
 
@@ -18,4 +18,4 @@
 
 # One-offs
 
-1. To run a one-off: `docker run --rm -v $(pwd):/zap/wrk/:rw --env-file scans/auth/all_vars.env -t zaproxy/zap-nightly /zap/zap.sh -cmd -autorun /zap/wrk/scans/auth/plans_and_scripts/testfire/bba.yaml`.
+1. To run a one-off: `docker run --rm -v $(pwd):/zap/wrk/:rw --env-file scans/auth/all_vars.env -t zaproxy/zap-nightly /zap/zap.sh -cmd -autorun /zap/wrk/scans/auth/plans_and_scripts/testfire/bbaplus.yaml`.
