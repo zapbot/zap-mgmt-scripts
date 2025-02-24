@@ -7,14 +7,16 @@ jobs:
     name: Authentication Tests
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Pull nightly image
+        run: docker pull ghcr.io/zaproxy/zaproxy:nightly
       - name: Authentication plan tests
         id: "test-auth-plans"
         if: ${{ ! cancelled() }}
         env:
           AUTH_SCANS_CREDS: ${{ secrets.AUTH_SCANS_CREDS }}
         run: |
-          docker pull ghcr.io/zaproxy/zaproxy:nightly
           echo "$AUTH_SCANS_CREDS" | tee -a scans/auth/all_vars.env > /dev/null
           chmod -R a+w $(pwd)
           docker run --rm -v $(pwd):/zap/wrk/:rw --env-file scans/auth/all_vars.env -t zaproxy/zap-nightly /zap/wrk/scans/auth/auth_plan_tests.sh 

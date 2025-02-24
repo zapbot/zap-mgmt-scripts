@@ -2,13 +2,13 @@ env:
   contexts:
   - name: Authentication Test
     urls:
-    - http://testfire.net
+    - ${zapsite}
     includePaths:
-    - https?://testfire.net.*
+    - ${zapsite}.*
     authentication:
       method: browser
       parameters:
-        loginPageUrl: http://testfire.net/login.jsp
+        loginPageUrl: ${zaploginurl}
         loginPageWait: 2
         browserId: firefox-headless
         steps:
@@ -24,8 +24,8 @@ env:
     users:
     - name: testuser
       credentials:
-        password: ${testfire_pass}
-        username: ${testfire_user}
+        username: ${zapusername}
+        password: ${zappassword}
 jobs:
 - type: passiveScan-config
   parameters:
@@ -44,7 +44,7 @@ jobs:
   parameters:
     user: testuser
   requests:
-  - url: http://testfire.net
+  - url: ${zapsite}
 - type: passiveScan-wait
   parameters: {}
 - name: auth-test-report
