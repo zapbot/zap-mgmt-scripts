@@ -2,9 +2,9 @@ env:
   contexts:
   - name: Authentication Test
     urls:
-    - http://testfire.net
+    - ${zapsite}
     includePaths:
-    - https?://testfire.net.*
+    - ${zapsite}.*
     authentication:
       method: script
       parameters:
@@ -17,8 +17,8 @@ env:
     users:
     - name: testuser
       credentials:
-        Username: ${testfire_user}
-        Password: ${testfire_pass}
+        Username: ${zapusername}
+        Password: ${zappassword}
 jobs:
 - type: passiveScan-config
   parameters:
@@ -37,7 +37,7 @@ jobs:
   parameters:
     user: testuser
   requests:
-  - url: http://testfire.net
+  - url: ${zapsite}
 - type: passiveScan-wait
   parameters: {}
 - name: auth-test-report
