@@ -19,4 +19,11 @@ jobs:
         run: |
           echo "$AUTH_SCANS_CREDS" | tee -a scans/auth/all_vars.env > /dev/null
           chmod -R a+w $(pwd)
-          docker run --rm -v $(pwd):/zap/wrk/:rw --env-file scans/auth/all_vars.env -t zaproxy/zap-nightly /zap/wrk/scans/auth/auth_plan_tests.sh 
+          docker run --rm -v $(pwd):/zap/wrk/:rw --env-file scans/auth/all_vars.env -t zaproxy/zap-nightly /zap/wrk/scans/auth/auth_plan_tests.sh
+          echo "```yaml" >> $GITHUB_STEP_SUMMARY
+          cat output/output.yml >> $GITHUB_STEP_SUMMARY
+          echo "```" >> $GITHUB_STEP_SUMMARY
+      - name: Attach result
+        uses: actions/upload-artifact@v4
+        with:
+         path: output/output.yml
