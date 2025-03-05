@@ -6,7 +6,6 @@
 1. Create `scans/auth/all_vars.env` with standard `key=value` pairs. Keys should be `<target><user_or_pass>=value`, ex: `foo_user=jsmith`, `foo_pass=demo1234` (assuming a target known as `foo`).
 1. Run the tests: `docker run --rm -v $(pwd):/zap/wrk/:rw --env-file scans/auth/all_vars.env -t zaproxy/zap-nightly /zap/wrk/scans/auth/auth_plan_tests.sh`
 
-
 ## Types
 
 - stdbba - Browser Based Auth
@@ -16,6 +15,12 @@
 > [!IMPORTANT]
 > If `output.yml` does not contain a result for a given Type, then that type is unnecessary because easier options exist. Ex: If BBA works there likely won't be a bbaplus/csa plan nor result.
 
-# One-offs
+## One-offs
 
 1. To run a one-off: `docker run --rm -v $(pwd):/zap/wrk/:rw --env-file scans/auth/all_vars.env -t zaproxy/zap-nightly /zap/zap.sh -cmd -autorun /zap/wrk/scans/auth/plans_and_scripts/testfire/bbaplus.yaml`.
+
+## Local Tests
+
+Some `config` files have been renamed to `config.local` to prevent the tests running in CI/CD.
+This is done when the sites are too careful in checking for potential abuse and are locking the accounts.
+To run locally you just need to rename the file, but also keep an eye out for lock out emails.
