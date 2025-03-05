@@ -1,6 +1,9 @@
 name: Run Auth Tests
 on:
   workflow_dispatch:
+  schedule:
+    # daily at 03:10
+    - cron:  '10 3 * * *'
 
 jobs:
   publish:
@@ -42,7 +45,6 @@ jobs:
           git remote add origin https://github.com/$GITHUB_USER/zaproxy-website.git
           # Setup env vars for later
           BRANCH="auth-tests-update"
-          SHORT_DATE="$(date +"%Y-%m-%d")"
           export GITHUB_TOKEN=${{ secrets.ZAPBOT_TOKEN }}
           # Build the feature branch
           git checkout -b $BRANCH
@@ -51,10 +53,17 @@ jobs:
           git update-index -q --refresh
           ## If there are changes: comment, commit, PR
           if ! git diff-index --quiet HEAD --; then
-            git remote set-url origin https://$GITHUB_USER:$GITHUB_TOKEN@github.com/$GITHUB_USER/zaproxy-website.git
-            git add .
-            git commit -m "Authentication Tests Update $SHORT_DATE" --signoff
-            git push --set-upstream origin $BRANCH --force
-            # Open the PR
-            gh pr create -f
+            gh repo set-default zaproxy/zaproxy-website
+            if $(gh pr view); then
+              # There's already a PR so commit and update it
+              git commit -a --amend --no-edit --signoff
+              git push --force
+            else
+              git remote set-url origin https://$GITHUB_USER:$GITHUB_TOKEN@github.com/$GITHUB_USER/zaproxy-website.git
+              git add .
+              git commit -m "Authentication Tests Update" --signoff
+              git push --set-upstream origin $BRANCH --force
+              # Open the PR
+              gh pr create -f
+            fi
           fi
