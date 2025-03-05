@@ -53,6 +53,7 @@ jobs:
           git update-index -q --refresh
           ## If there are changes: comment, commit, PR
           if ! git diff-index --quiet HEAD --; then
+            git branch --set-upstream-to=origin/$BRANCH
             gh repo set-default zaproxy/zaproxy-website
             if $(gh pr view); then
               # There's already a PR so commit and update it
@@ -62,7 +63,7 @@ jobs:
               git remote set-url origin https://$GITHUB_USER:$GITHUB_TOKEN@github.com/$GITHUB_USER/zaproxy-website.git
               git add .
               git commit -m "Authentication Tests Update" --signoff
-              git push --set-upstream origin $BRANCH --force
+              git push --force
               # Open the PR
               gh pr create -f
             fi
