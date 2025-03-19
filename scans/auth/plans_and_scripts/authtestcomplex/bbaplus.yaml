@@ -1,0 +1,75 @@
+env:
+  contexts:
+  - name: Authentication Test
+    urls:
+    - https://authenticationtest.com
+    includePaths:
+    - https://authenticationtest.com.*
+    authentication:
+      method: browser
+      parameters:
+        loginPageUrl: https://authenticationtest.com/complexAuth/
+        loginPageWait: 2
+        browserId: firefox-headless
+        steps:
+        - description: Make a Selection Dropdown
+          type: CLICK
+          xpath: "//*[@id=\"selectLogin\"]"
+          timeout: 1000
+        - description: Select Please Log Me In
+          type: CLICK
+          xpath: "/html/body/div/div/div[2]/form/div[3]/select/option[2]"
+          timeout: 1000
+        - description: Love form manipulation
+          type: CLICK
+          xpath: "//*[@id=\"loveForm\"]"
+          timeout: 1000
+      verification:
+        method: response
+        loggedInRegex: mode=logout
+        pollFrequency: 60
+        pollUnits: requests
+        pollUrl: ""
+        pollPostData: ""
+    sessionManagement:
+      method: cookie
+    technology: {}
+    structure: {}
+    users:
+    - name: testuser
+      credentials:
+        username: ${zapusername}
+        password: ${zappassword}
+jobs:
+- type: passiveScan-config
+  parameters:
+    disableAllRules: true
+  rules:
+  - name: Authentication Request Identified
+    id: 10111
+    threshold: medium
+  - name: Session Management Response Identified
+    id: 10112
+    threshold: medium
+  - name: Verification Request Identified
+    id: 10113
+    threshold: medium
+- type: requestor
+  parameters:
+    user: testuser
+  requests:
+  - url: ${zapsite}
+- type: passiveScan-wait
+  parameters: {}
+- name: auth-test-report
+  type: report
+  parameters:
+    template: auth-report-json
+    theme: null
+    reportDir: .
+    reportFile: auth-report.json
+    reportTitle: ZAP by Checkmarx Scanning Report
+  sections:
+  - summary
+  - afenv
+  - statistics
