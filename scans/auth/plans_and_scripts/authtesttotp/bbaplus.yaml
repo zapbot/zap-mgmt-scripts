@@ -1,0 +1,72 @@
+env:
+  contexts:
+  - name: Authentication Test
+    urls:
+    - https://authenticationtest.com/
+    includePaths:
+    - https://authenticationtest.com.*
+    authentication:
+      method: browser
+      parameters:
+        loginPageUrl: https://authenticationtest.com/totpChallenge/
+        loginPageWait: 2
+        browserId: firefox-headless
+        steps:
+        - description: TOTP
+          type: TOTP_FIELD
+          cssSelector: "#totpmfa"
+          timeout: 1000
+      verification:
+        method: response
+        loggedInRegex: loginSuccess|mode=logout
+        pollFrequency: 60
+        pollUnits: requests
+        pollUrl: ""
+        pollPostData: ""
+    sessionManagement:
+      method: cookie
+    technology: {}
+    structure: {}
+    users:
+    - name: testuser
+      credentials:
+        totp:
+          secret: I65VU7K5ZQL7WB4E
+          period: 30
+          digits: 6
+          algorithm: SHA1
+      username: ${zapusername}
+      password: ${zappassword}
+jobs:
+- type: passiveScan-config
+  parameters:
+    disableAllRules: true
+  rules:
+  - name: Authentication Request Identified
+    id: 10111
+    threshold: medium
+  - name: Session Management Response Identified
+    id: 10112
+    threshold: medium
+  - name: Verification Request Identified
+    id: 10113
+    threshold: medium
+- type: requestor
+  parameters:
+    user: testuser
+  requests:
+  - url: ${zapsite}
+- type: passiveScan-wait
+  parameters: {}
+- name: auth-test-report
+  type: report
+  parameters:
+    template: auth-report-json
+    theme: null
+    reportDir: .
+    reportFile: auth-report.json
+    reportTitle: ZAP by Checkmarx Scanning Report
+  sections:
+  - summary
+  - afenv
+  - statistics
