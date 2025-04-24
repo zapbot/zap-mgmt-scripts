@@ -189,11 +189,11 @@ def gen_top_fps_file():
         print('---', file=f)
 
         aws_athena_query_to_file(
-            'SELECT stat, "substr"(stat, 19, ("length"(stat) - 26)) pluginId, alerts.name, alerts.status, alerts.type, "sum"(value) count ' +
+            'SELECT alerts.pluginId, alerts.name, alerts.status, alerts.type, "sum"(value) count ' +
             'FROM ("project_zap_stats"."tel_therest" ' +
-            'INNER JOIN "project_zap_stats"."alerts" ON (alerts.pluginId = CAST("substr"(tel_therest.stat, 19, ("length"(stat) - 26)) AS integer))) ' +
+            'INNER JOIN "project_zap_stats"."alerts" ON (alerts.pluginId = CAST("split_part"("substr"(tel_therest.stat, 19, ("length"(stat) - 26)), \'-\', 1) AS integer))) ' +
             'WHERE (' + last_mon_sql + ' AND (stat LIKE \'stats.alertFilter%-1\')) ' +
-            'GROUP BY stat, alerts.name, alerts.status, alerts.type ' +
+            'GROUP BY alerts.pluginId, alerts.name, alerts.status, alerts.type ' +
             'ORDER BY count DESC LIMIT 20', tempfile)
         if os.path.isfile(tempfile):
             first = True
@@ -204,10 +204,10 @@ def gen_top_fps_file():
                         first = False
                     else:
                         vals = line.split(',')
-                        print('- id: ' + vals[1].replace('"', ''), file=f)
-                        print('  name: ' + vals[2], file=f)
-                        print('  status: ' + vals[3], file=f)
-                        print('  type: ' + vals[4], file=f)
+                        print('- id: ' + vals[0].replace('"', ''), file=f)
+                        print('  name: ' + vals[1], file=f)
+                        print('  status: ' + vals[2], file=f)
+                        print('  type: ' + vals[3], file=f)
 
 def gen_top_ascan_rules_file():
     outfile = utils.websitedir() + 'site/data/charts/top_ascan_rules_last_month.yaml'
