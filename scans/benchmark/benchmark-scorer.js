@@ -16,7 +16,7 @@ var target = 'https://localhost:8443/benchmark';
 var FileWriter = Java.type('java.io.FileWriter');
 var PrintWriter = Java.type('java.io.PrintWriter');
 
-var YAML_FILE = OUTPUT_DIR + "/" + VULNERABILITY + ".yaml";
+var YAML_FILE = OUTPUT_DIR + "/" + VULNERABILITY + ".yml";
 var fw = new FileWriter(YAML_FILE);
 var pw = new PrintWriter(fw);
 
