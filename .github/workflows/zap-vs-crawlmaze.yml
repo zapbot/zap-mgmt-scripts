@@ -18,15 +18,6 @@ jobs:
 
         git clone https://github.com/$GITHUB_USER/zaproxy-website.git
 
-        # Update to the latest upstream
-        cd zaproxy-website
-        git remote set-url origin https://$GITHUB_USER:$GITHUB_TOKEN@github.com/$GITHUB_USER/zaproxy-website.git
-        git remote add upstream https://github.com/zaproxy/zaproxy-website.git
-        git checkout -B crawlmaze
-        git pull upstream main
-        git reset --hard upstream/main
-        git push --set-upstream origin crawlmaze --force
-
     - name: Scan Crawl Maze
       run: |
         cd zap-mgmt-scripts/scans/crawlmaze
@@ -56,16 +47,16 @@ jobs:
       run: |
         cd zaproxy-website
 
+        git checkout -b crawlmaze
+
         # Update the index to be sure git is aware of changes
         git update-index -q --refresh
         ## If there are changes: comment, commit, PR
         if ! git diff-index --quiet HEAD --; then
-
+          gh repo set-default zaproxy/zaproxy-website
+          git remote set-url origin https://$GITHUB_USER:$GITHUB_TOKEN@github.com/$GITHUB_USER/zaproxy-website.git
           git add site/data/scans/crawlmaze/*
-          git commit -s -m "Updated Crawl Maze Results"
-          git push origin
-
-          echo ${{ secrets.ZAPBOT_TOKEN }} | gh auth login --with-token
-          gh pr create --fill
-
+          git commit -sm "Updated Crawl Maze Results"
+          git push -u origin $BRANCH -f
+          gh pr view --json mergedAt|jq -e '.mergedAt' && gh pr create --fill
         fi
