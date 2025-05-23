@@ -89,6 +89,11 @@ for TARGET in *
 do
     if [ -d "$TARGET" ]
     then
+        if [ -f "config.disabled" ]
+        then
+            echo "Skipping $TARGET it has been disabled"
+            continue
+        fi
         summary="${summary}$TARGET\n"
         echo
         cd "$TARGET"
