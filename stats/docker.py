@@ -13,8 +13,6 @@ urls = {
     "ssp-nightly": "https://registry.hub.docker.com/v2/repositories/softwaresecurityproject/zap-nightly/",
     "ssp-bare": "https://registry.hub.docker.com/v2/repositories/softwaresecurityproject/zap-bare/",
     "zaproxy-stable": "https://registry.hub.docker.com/v2/repositories/zaproxy/zap-stable/",
-    "zaproxy-weekly": "https://registry.hub.docker.com/v2/repositories/zaproxy/zap-weekly/",
-    "zaproxy-nightly": "https://registry.hub.docker.com/v2/repositories/zaproxy/zap-nightly/",
     "zaproxy-bare": "https://registry.hub.docker.com/v2/repositories/zaproxy/zap-bare/",
     }
 
