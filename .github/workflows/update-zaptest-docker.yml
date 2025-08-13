@@ -12,5 +12,5 @@ jobs:
         git clone https://github.com/zapbot/zap-mgmt-scripts.git
         cd zap-mgmt-scripts
         docker login -u zapbot -p ${{ secrets.ZAPBOT_DOCKER }}
-        docker build -t softwaresecurityproject/zap-testing -f dockerfile .
-        docker push softwaresecurityproject/zap-testing
+        docker build -t zaproxy/zap-testing -f dockerfile .
+        docker push zaproxy/zap-testing
