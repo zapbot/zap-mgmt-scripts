@@ -8,8 +8,6 @@ import os
 import utils
 
 urls = {
-    "ssp-stable": "https://registry.hub.docker.com/v2/repositories/softwaresecurityproject/zap-stable/",
-    "ssp-bare": "https://registry.hub.docker.com/v2/repositories/softwaresecurityproject/zap-bare/",
     "zaproxy-stable": "https://registry.hub.docker.com/v2/repositories/zaproxy/zap-stable/",
     "zaproxy-weekly": "https://registry.hub.docker.com/v2/repositories/zaproxy/zap-weekly/",
     "zaproxy-nightly": "https://registry.hub.docker.com/v2/repositories/zaproxy/zap-nightly/",
@@ -34,9 +32,8 @@ def daily():
             date_str = basename[:10]
             image = stats['name']
             total = stats['pull_count']
-            if not 'ssp' in basename:
-                # SSP and zaproxy images have the same names, change 'zap-' to 'zaproxy-'
-                image = 'zaproxy-' + image[4:]   
+            # Change 'zap-' to 'zaproxy-' - was previously to normalise zaproxy and ssp names
+            image = 'zaproxy-' + image[4:]   
 
             is_monthly = date_str.endswith('-01') or date_str == '2021-08-02' # No stats for 2021-08-01 :/
             if is_monthly:
