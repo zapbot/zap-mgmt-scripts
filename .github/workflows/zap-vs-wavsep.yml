@@ -1,17 +1,61 @@
-name: ZAP vs Wavsep - Default
+name: ZAP vs Wavsep
 
 on: 
+# Enable once we've checked its working well
+#  schedule:
+#    - cron:  '40 3 * * 1' # 4:30 am every Monday
   workflow_dispatch:
 
 jobs:
   scan:
-    runs-on: [ubuntu-latest]
+    runs-on: ubuntu-latest
     steps:
-    - name: Start wavsep
-      run: docker run --rm -d -p 8080:8080 owaspvwad/wavsep &
-    - name: Start ZAP
-      run: docker run --rm -d -p 8090:8090 --network host ghcr.io/zaproxy/zaproxy:weekly zap-x.sh -daemon -host localhost -port 8090 -addonupdate -addoninstall domxss -config "api.addrs.addr.name=.*" -config api.addrs.addr.regex=true -config api.disablekey=true &
-    - name: Run ZAP API script
-      env:
-        GITHUB_TOKEN: ${{ secrets.ZAPBOT_TOKEN }}
-      run: docker run --rm --network host --env ZAPBOT_TOKEN=${{ secrets.ZAPBOT_TOKEN }} zaproxy/zap-testing ./zap-vs-wavsep-1.5.sh -e 61 -n wavsep-1.5-weekly-RBJ-M-M -t "Rel, Beta, DomXSS"
+    - name: Clone zap-mgmt-scripts and zaproxy-website
+      run: |
+        # Setup git details
+        export GITHUB_USER=zapbot
+        export GITHUB_TOKEN=${{ secrets.ZAPBOT_TOKEN }}
+        git config --global user.email "12745184+zapbot@users.noreply.github.com"
+        git config --global user.name $GITHUB_USER
+        git clone https://github.com/$GITHUB_USER/zap-mgmt-scripts.git
+
+        git clone https://github.com/$GITHUB_USER/zaproxy-website.git
+
+        # Update to the latest upstream
+        cd zaproxy-website
+        git remote set-url origin https://$GITHUB_USER:$GITHUB_TOKEN@github.com/$GITHUB_USER/zaproxy-website.git
+        git remote add upstream https://github.com/zaproxy/zaproxy-website.git
+        git checkout -B wavsep
+        git pull upstream main
+        git reset --hard upstream/main
+        git push --set-upstream origin wavsep --force
+
+    - name: Scan Wavsep
+      run: |
+        # start Wavsep
+        docker run --rm -it -p 8080:8080 -p 3306:3306 zaproxy/wavsep
+        
+        cd zap-mgmt-scripts/scans/wavsep
+        # Need to do this so the zap user in docker can write to the directory
+        mkdir res
+        chmod a+w res
+        docker run -v $(pwd):/zap/wrk/:rw --network host -t ghcr.io/zaproxy/zaproxy:nightly zap.sh -cmd -silent -autorun /zap/wrk/wavsep.yaml
+        cp res/*.yml ../../../zaproxy-website/site/data/scans/wavsep/
+
+    - name: Raise a PR on the website
+      run: |
+        cd zaproxy-website
+
+        # Update the index to be sure git is aware of changes
+        git update-index -q --refresh
+        ## If there are changes: comment, commit, PR
+        if ! git diff-index --quiet HEAD --; then
+
+          git add site/data/scans/wavsep/*
+          git commit -s -m "Updated WAVSEP Results"
+          git push origin
+
+          echo ${{ secrets.ZAPBOT_TOKEN }} | gh auth login --with-token
+          gh pr create --fill
+
+        fi

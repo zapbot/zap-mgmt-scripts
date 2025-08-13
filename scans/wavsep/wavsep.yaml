@@ -1,0 +1,147 @@
+env:
+  contexts:
+  - name: wavsep
+    urls:
+    - http://127.0.0.1:8080/wavsep
+    includePaths:
+    - http://127.0.0.1:8080/wavsep.*
+    authentication:
+      verification:
+        method: response
+        pollFrequency: 60
+        pollUnits: requests
+        pollUrl: ""
+        pollPostData: ""
+    sessionManagement:
+      method: cookie
+    technology: {}
+    structure: {}
+  parameters: {}
+jobs:
+- name: "add-script"
+  type: script
+  parameters:
+    action: add
+    type: standalone
+    file: /zap/wrk/wavsep-score.js
+- name: spider active
+  type: spider
+  parameters:
+    url: http://127.0.0.1:8080/wavsep/index-active.jsp
+    maxDepth: 0
+  tests:
+  - name: At least 100 URLs found
+    type: stats
+    onFail: INFO
+    statistic: automation.spider.urls.added
+    operator: '>='
+    value: 100
+- name: spider passive
+  type: spider
+  parameters:
+    url: http://127.0.0.1:8080/wavsep/index-passive.jsp
+- name: activeScan LFI
+  type: activeScan
+  parameters:
+    url: http://127.0.0.1:8080/wavsep/active/LFI
+  policyDefinition:
+    defaultStrength: medium
+    defaultThreshold: "off"
+    rules:
+    - name: Path Traversal
+      id: 6
+      threshold: medium
+      strength: high
+- name: activeScan DOM XSS
+  type: activeScan
+  parameters:
+    url: http://127.0.0.1:8080/wavsep/active/DOM-XSS
+  policyDefinition:
+    defaultStrength: medium
+    defaultThreshold: "off"
+    rules:
+    - name: "(Cross Site Scripting (DOM Based)"
+      id: 40026
+      threshold: medium
+      strength: high
+- name: activeScan RFI
+  type: activeScan
+  parameters:
+    url: http://127.0.0.1:8080/wavsep/active/RFI
+  policyDefinition:
+    defaultStrength: medium
+    defaultThreshold: "off"
+    rules:
+    - name: Remote File Inclusion
+      id: 7
+      threshold: medium
+      strength: high
+- name: activeScan Cmd
+  type: activeScan
+  parameters:
+    url: http://127.0.0.1:8080/wavsep/active/OS-Command-Injection
+  policyDefinition:
+    defaultStrength: medium
+    defaultThreshold: "off"
+    rules:
+    - name: Remote OS Command Injection
+      id: 90020
+      threshold: medium
+      strength: high
+  enabled: false
+- name: activeScan RXSS
+  type: activeScan
+  parameters:
+    context: wavsep
+    url: http://127.0.0.1:8080/wavsep/active/Reflected-XSS
+  policyDefinition:
+    defaultStrength: medium
+    defaultThreshold: "off"
+    rules:
+    - name: Cross Site Scripting (Reflected)
+      id: 40012
+      threshold: medium
+      strength: high
+- name: activeScan SQL
+  type: activeScan
+  parameters:
+    url: http://127.0.0.1:8080/wavsep/active/SQL-Injection
+  policyDefinition:
+    defaultStrength: medium
+    defaultThreshold: "off"
+    rules:
+    - name: SQL Injection
+      id: 40018
+      threshold: medium
+      strength: high
+- name: activeScan Redirect
+  type: activeScan
+  parameters:
+    url: http://127.0.0.1:8080/wavsep/active/Unvalidated-Redirect
+  policyDefinition:
+    defaultStrength: medium
+    defaultThreshold: "off"
+    rules:
+    - name: External Redirect
+      id: 20019
+      threshold: medium
+      strength: high
+- name: activeScan XXE
+  type: activeScan
+  parameters:
+    url: http://127.0.0.1:8080/wavsep/active/XXE
+  policyDefinition:
+    defaultStrength: medium
+    defaultThreshold: "off"
+    rules:
+    - name: XML External Entity Attack
+      id: 90023
+      threshold: medium
+      strength: high
+  enabled: false
+- name: "run-script"
+  type: script
+  parameters:
+    action: run
+    type: standalone
+    name: wavsep-score.js
