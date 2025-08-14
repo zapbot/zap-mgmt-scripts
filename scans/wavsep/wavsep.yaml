@@ -14,7 +14,9 @@ env:
         pollPostData: ""
     sessionManagement:
       method: cookie
-    technology: {}
+    technology:
+      exclude:
+      - Windows
     structure: {}
   parameters: {}
 jobs:
@@ -24,6 +26,29 @@ jobs:
     action: add
     type: standalone
     file: /zap/wrk/wavsep-score.js
+- type: activeScan-config
+  parameters: {}
+  inputVectors:
+    urlQueryStringAndDataDrivenNodes:
+      enabled: true
+      addParam: true
+      odata: true
+    postData:
+      enabled: true
+      multiPartFormData: true
+      xml: true
+      json:
+        enabled: true
+        scanNullValues: true
+      googleWebToolkit: true
+      directWebRemoting: true
+    urlPath: true
+    httpHeaders:
+      enabled: true
+      allRequests: true
+    cookieData:
+      enabled: true
+    scripts: true
 - name: spider active
   type: spider
   parameters:
@@ -51,7 +76,7 @@ jobs:
     - name: Path Traversal
       id: 6
       threshold: medium
-      strength: high
+      strength: insane
 - name: activeScan DOM XSS
   type: activeScan
   parameters:
