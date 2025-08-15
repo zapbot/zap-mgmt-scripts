@@ -34,12 +34,13 @@ jobs:
       run: |
         # start Wavsep
         docker run --rm -p 8080:8080 -p 3306:3306 zaproxy/wavsep &
+        sleep 10
         
         cd zap-mgmt-scripts/scans/wavsep
         # Need to do this so the zap user in docker can write to the directory
         mkdir res
         chmod a+w res
-        docker run -v $(pwd):/zap/wrk/:rw --network host ghcr.io/zaproxy/zaproxy:nightly zap.sh -cmd -silent -autorun /zap/wrk/wavsep.yaml
+        docker run -v $(pwd):/zap/wrk/:rw --network host ghcr.io/zaproxy/zaproxy:nightly zap.sh -cmd -port 9090 -silent -autorun /zap/wrk/wavsep.yaml
         cp res/*.yml ../../../zaproxy-website/site/data/scans/wavsep/
 
     - name: Raise a PR on the website
