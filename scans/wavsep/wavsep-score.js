@@ -21,8 +21,10 @@ if (!Array.prototype.includes) {
    });
 }
 
-var totalUrls;
-var totalAlerts;
+var totalUrls = 0;
+var totalAlerts = 0;
+var sectionUrls;
+var sectionAlerts;
 
 var FileWriter = Java.type('java.io.FileWriter');
 var PrintWriter = Java.type('java.io.PrintWriter');
@@ -56,12 +58,12 @@ function listChildren(pw, node, type, rules) {
              continue;
            }
            if (! IGNORE_PATHS.includes(path)) {
-             totalUrls++;
+             sectionUrls++;
              pw.println('- path: ' + path);
              var pluginId = nodeHasAlert(child, rules);
              // Following test is JS equiv of XOR
              if (path.indexOf("FalsePositives") > 0 ? !pluginId : pluginId) {
-                 totalAlerts++;
+                 sectionAlerts++;
                  pw.println('  result: Pass');
                  pw.println('  rule: ' + pluginId);
              } else {
@@ -84,11 +86,27 @@ function scoreChildren(file, name, type, rules) {
    pw.println('url: ' + type);
    pw.println('details:');
 
-   totalUrls = 0;
-   totalAlerts = 0;
+   sectionUrls = 0;
+   sectionAlerts = 0;
 
 
    listChildren(pw, root, type, rules);
+
+   pw.println('tests: ' + sectionUrls);
+   pw.println('passes: ' + sectionAlerts);
+   pw.println('fails: ' + (sectionUrls - sectionAlerts));
+   pw.println('score: ' + Math.round(sectionAlerts * 100 / sectionUrls) + '%');
+   
+   totalUrls += sectionUrls;
+   totalAlerts += sectionAlerts;
+
+   pw.close();
+}
+
+function scoreTotal() {
+   var YAML_FILE = DIR + "/totals.yml";
+   var fw = new FileWriter(YAML_FILE);
+   var pw = new PrintWriter(fw);
 
    pw.println('tests: ' + totalUrls);
    pw.println('passes: ' + totalAlerts);
@@ -135,22 +153,24 @@ scoreChildren("rxss-post", "Reflected XSS POST", "/RXSS-Detection-Evaluation-POS
 scoreChildren("rxss-post-exp", "Reflected XSS POST Experimental", "/RXSS-Detection-Evaluation-POST-Experimental/", [40012]);
 scoreChildren("rxss-fps", "Reflected XSS GET False Positives", "/RXSS-FalsePositives-GET/", [40012]);
 
-scoreChildren("sqli-get-200-err", "SQL Injection GET 200 Error", "/SInjection-Detection-Evaluation-GET-200Error/", [40018]);
-scoreChildren("sqli-get-200-err-exp", "SQL Injection GET 200 Error Experimental", "/SInjection-Detection-Evaluation-GET-200Error-Experimental/", [40018]);
-scoreChildren("sqli-get-200-id", "SQL Injection GET 200 Identical", "/SInjection-Detection-Evaluation-GET-200Identical/", [40018]);
-scoreChildren("sqli-get-200-valid", "SQL Injection GET 200 Valid", "/SInjection-Detection-Evaluation-GET-200Valid/", [40018]);
-scoreChildren("sqli-get-500-err", "SQL Injection GET 500 Error", "/SInjection-Detection-Evaluation-GET-500Error/", [40018]);
-scoreChildren("sqli-post-200-err", "SQL Injection POST 200 Error", "/SInjection-Detection-Evaluation-POST-200Error/", [40018]);
-scoreChildren("sqli-post-200-err-exp", "SQL Injection POST 200 Error Experimental", "/SInjection-Detection-Evaluation-POST-200Error-Experimental/", [40018]);
-scoreChildren("sqli-post-200-id", "SQL Injection POST 200 Identical", "/SInjection-Detection-Evaluation-POST-200Identical/", [40018]);
-scoreChildren("sqli-post-200-valid", "SQL Injection POST 200 Valid", "/SInjection-Detection-Evaluation-POST-200Valid/", [40018]);
-scoreChildren("sqli-post-500-err", "SQL Injection POST 500 Error", "/SInjection-Detection-Evaluation-POST-500Error/", [40018]);
-scoreChildren("sqli-get-fp", "SQL Injection GET False Positives", "/SInjection-FalsePositives-GET/", [40018]);
+scoreChildren("sqli-get-200-err", "SQL Injection GET 200 Error", "/SInjection-Detection-Evaluation-GET-200Error/", [40018,40019]);
+scoreChildren("sqli-get-200-err-exp", "SQL Injection GET 200 Error Experimental", "/SInjection-Detection-Evaluation-GET-200Error-Experimental/", [40018,40019]);
+scoreChildren("sqli-get-200-id", "SQL Injection GET 200 Identical", "/SInjection-Detection-Evaluation-GET-200Identical/", [40018,40019]);
+scoreChildren("sqli-get-200-valid", "SQL Injection GET 200 Valid", "/SInjection-Detection-Evaluation-GET-200Valid/", [40018,40019]);
+scoreChildren("sqli-get-500-err", "SQL Injection GET 500 Error", "/SInjection-Detection-Evaluation-GET-500Error/", [40018,40019]);
+scoreChildren("sqli-post-200-err", "SQL Injection POST 200 Error", "/SInjection-Detection-Evaluation-POST-200Error/", [40018,40019]);
+scoreChildren("sqli-post-200-err-exp", "SQL Injection POST 200 Error Experimental", "/SInjection-Detection-Evaluation-POST-200Error-Experimental/", [40018,40019]);
+scoreChildren("sqli-post-200-id", "SQL Injection POST 200 Identical", "/SInjection-Detection-Evaluation-POST-200Identical/", [40018,40019]);
+scoreChildren("sqli-post-200-valid", "SQL Injection POST 200 Valid", "/SInjection-Detection-Evaluation-POST-200Valid/", [40018,40019]);
+scoreChildren("sqli-post-500-err", "SQL Injection POST 500 Error", "/SInjection-Detection-Evaluation-POST-500Error/", [40018,40019]);
+scoreChildren("sqli-get-fp", "SQL Injection GET False Positives", "/SInjection-FalsePositives-GET/", [40018,40019]);
 
 scoreChildren("redir-get-302", "Unvalidated Redirect GET 200", "/Redirect-Detection-Evaluation-GET-302Redirect/", [20019]);
 scoreChildren("redir-post-302", "Unvalidated Redirect POST 302", "/Redirect-Detection-Evaluation-POST-302Redirect/", [20019]);
 scoreChildren("redir-get-fp", "Unvalidated Redirect GET False Positives", "/Redirect-FalsePositives-GET/", [20019]);
 scoreChildren("redir-get-200-valid", "Unvalidated Redirect GET 200 Valid", "/Redirect-JavaScript-Detection-Evaluation-GET-200Valid/", [20019]);
 scoreChildren("redir-post-200-valid", "Unvalidated Redirect POST 200 Valid", "/Redirect-JavaScript-Detection-Evaluation-POST-200Valid/", [20019]);
+
+scoreTotal();
 
 print('Done');
