@@ -2,6 +2,7 @@
 
 var DIR = "/zap/wrk/res/";
 var IGNORE_PATHS = [];
+var BROKEN_PATHS = [];
 
 // Polyfill for Nashorn c/o https://stackoverflow.com/questions/47543566/scriptengine-javascript-doesnt-support-includes
 if (!Array.prototype.includes) { 
@@ -21,10 +22,10 @@ if (!Array.prototype.includes) {
    });
 }
 
-var totalUrls = 0;
-var totalAlerts = 0;
-var sectionUrls;
-var sectionAlerts;
+var totalPass = 0;
+var totalFail = 0;
+var sectionPass;
+var sectionFail;
 
 var FileWriter = Java.type('java.io.FileWriter');
 var PrintWriter = Java.type('java.io.PrintWriter');
@@ -43,6 +44,26 @@ function nodeHasAlert(node, rules) {
    return null;
 }
 
+function isBroken(url) {
+   for (i=0;i<BROKEN_PATHS.length;i++) {
+      if (url.indexOf(BROKEN_PATHS[i]) > 0) {
+         return true;
+      }
+   }
+   // Mass check for broken LFI tests - all odd numbers 37+
+   var paths = url.split("/");
+   if (paths[5] === "LFI") {
+      // The 7th element will be like Case08-LFI-...
+      var c = paths[7];
+      var dash = c.indexOf("-");
+      var idx = parseInt(c.substring(4, dash));
+      if (idx >= 37 && (idx & 1)) {
+         return true;
+      }
+   }
+   return false;
+}
+
 function listChildren(pw, node, type, rules) {
    var j;
    for (j=0;j<node.getChildCount();j++) {
@@ -58,15 +79,18 @@ function listChildren(pw, node, type, rules) {
              continue;
            }
            if (! IGNORE_PATHS.includes(path)) {
-             sectionUrls++;
              pw.println('- path: ' + path);
              var pluginId = nodeHasAlert(child, rules);
              // Following test is JS equiv of XOR
              if (path.indexOf("FalsePositives") > 0 ? !pluginId : pluginId) {
-                 sectionAlerts++;
+                 sectionPass++;
                  pw.println('  result: Pass');
                  pw.println('  rule: ' + pluginId);
+             } else if (isBroken(path)) {
+                 pw.println('  result: Broken');
+                 pw.println('  rule: ' + rules[0]);
              } else {
+                 sectionFail++;
                  pw.println('  result: FAIL');
                  pw.println('  rule: ' + rules[0]);
              }
@@ -86,19 +110,19 @@ function scoreChildren(file, name, type, rules) {
    pw.println('url: ' + type);
    pw.println('details:');
 
-   sectionUrls = 0;
-   sectionAlerts = 0;
-
+   sectionPass = 0;
+   sectionFail = 0;
 
    listChildren(pw, root, type, rules);
 
-   pw.println('tests: ' + sectionUrls);
-   pw.println('passes: ' + sectionAlerts);
-   pw.println('fails: ' + (sectionUrls - sectionAlerts));
-   pw.println('score: ' + Math.round(sectionAlerts * 100 / sectionUrls) + '%');
+   var sectionTotal = sectionPass + sectionFail;
+   pw.println('tests: ' + sectionTotal);
+   pw.println('passes: ' + sectionPass);
+   pw.println('fails: ' + sectionFail);
+   pw.println('score: ' + Math.round(sectionPass * 100 / sectionTotal) + '%');
    
-   totalUrls += sectionUrls;
-   totalAlerts += sectionAlerts;
+   totalPass += sectionPass;
+   totalFail += sectionFail;
 
    pw.close();
 }
@@ -108,10 +132,11 @@ function scoreTotal() {
    var fw = new FileWriter(YAML_FILE);
    var pw = new PrintWriter(fw);
 
-   pw.println('tests: ' + totalUrls);
-   pw.println('passes: ' + totalAlerts);
-   pw.println('fails: ' + (totalUrls - totalAlerts));
-   pw.println('score: ' + Math.round(totalAlerts * 100 / totalUrls) + '%');
+   var total = totalPass + totalFail;
+   pw.println('tests: ' + total);
+   pw.println('passes: ' + totalPass);
+   pw.println('fails: ' + totalFail);
+   pw.println('score: ' + Math.round(totalPass * 100 / total) + '%');
 
    pw.close();
 }
