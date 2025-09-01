@@ -196,6 +196,11 @@ scoreChildren("redir-get-fp", "Unvalidated Redirect GET False Positives", "/Redi
 scoreChildren("redir-get-200-valid", "Unvalidated Redirect GET 200 Valid", "/Redirect-JavaScript-Detection-Evaluation-GET-200Valid/", [20019]);
 scoreChildren("redir-post-200-valid", "Unvalidated Redirect POST 200 Valid", "/Redirect-JavaScript-Detection-Evaluation-POST-200Valid/", [20019]);
 
+scoreChildren("cmdi-get-200-error", "OS Command Injection GET 200 Error", "/OS-Command-Injection/OS-Command-Injection-GET-200Error", [90020]);
+scoreChildren("cmdi-get-500-error", "OS Command Injection GET 500 Error", "/OS-Command-Injection/OS-Command-Injection-GET-500Error", [90020]);
+scoreChildren("cmdi-post-200-error", "OS Command Injection POST 200 Error", "/OS-Command-Injection/OS-Command-Injection-POST-200Error", [90020]);
+scoreChildren("cmdi-post-500-error", "OS Command Injection POST 500 Error", "/OS-Command-Injection/OS-Command-Injection-POST-500Error", [90020]);
+
 scoreTotal();
 
 print('Done');
