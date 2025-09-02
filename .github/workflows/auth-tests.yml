@@ -2,8 +2,8 @@ name: Run Auth Tests
 on:
   workflow_dispatch:
   schedule:
-    # daily at 03:10
-    - cron:  '10 3 * * *'
+    # 03:10 every Monday
+    - cron:  '10 3 * * 1'
 
 jobs:
   publish:
