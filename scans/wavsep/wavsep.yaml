@@ -65,6 +65,13 @@ jobs:
   type: spider
   parameters:
     url: http://127.0.0.1:8080/wavsep/index-passive.jsp
+- type: spiderClient
+  parameters:
+    context: wavsep
+    url: http://127.0.0.1:8080/wavsep/active/index-xxe.jsp
+    maxDuration: 0
+    maxChildren: 0
+    maxCrawlDepth: 10
 - name: activeScan LFI
   type: activeScan
   parameters:
@@ -162,7 +169,6 @@ jobs:
       id: 90023
       threshold: medium
       strength: high
-  enabled: false
 - name: "run-script"
   type: script
   parameters:
