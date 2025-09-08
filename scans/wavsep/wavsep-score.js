@@ -201,6 +201,10 @@ scoreChildren("cmdi-get-500-error", "OS Command Injection GET 500 Error", "/OS-C
 scoreChildren("cmdi-post-200-error", "OS Command Injection POST 200 Error", "/OS-Command-Injection/OS-Command-Injection-POST-200Error", [90020]);
 scoreChildren("cmdi-post-500-error", "OS Command Injection POST 500 Error", "/OS-Command-Injection/OS-Command-Injection-POST-500Error", [90020]);
 
+scoreChildren("xxe-post-500-error", "XXE POST Error", "/XXE-POST-500Error", [90023]);
+scoreChildren("xxe-post-input-500-error", "XXE POST Field Input Error", "/XXE-POST-Input-500Error", [90023]);
+scoreChildren("xxe-post-intercept-500-error", "XXE POST Intercepted Request Error", "/XXE-POST-Intercept-500Error", [90023]);
+
 scoreTotal();
 
 print('Done');
