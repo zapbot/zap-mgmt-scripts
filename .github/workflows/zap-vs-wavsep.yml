@@ -34,7 +34,7 @@ jobs:
       run: |
         # start Wavsep
         docker run --rm -p 8080:8080 -p 3306:3306 zaproxy/wavsep &
-        sleep 10
+        sleep 20
         
         cd zap-mgmt-scripts/scans/wavsep
         # Need to do this so the zap user in docker can write to the directory
