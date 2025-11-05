@@ -57,6 +57,8 @@ jobs:
       run: |
         mkdir project-zap
         mkdir project-zap/stats
+        # Try to reduce the change of exceeding the rate limits, default is 10
+        aws configure set default.s3.max_concurrent_requests 5
         # Just sync the last 2 months worth of files
         echo "This month: ${{ env.THIS_MONTH }} last month: ${{ env.LAST_MONTH }}"
         aws s3 sync s3://ssp-project-zap/stats/ project-zap/stats/ --exclude "*" --include "*${{ env.THIS_MONTH }}*" --include "*${{ env.LAST_MONTH }}*"
