@@ -8,11 +8,12 @@ import json
 import os
 import sys
 
+# Tags array updated by zap-admin on main releases.
 tags = [
     "v2.17.0",
     "v2.16.1",
     "v2.16.0",
-    ]
+]
 
 mappings = {
   "core": "core",
