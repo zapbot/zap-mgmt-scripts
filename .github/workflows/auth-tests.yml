@@ -58,5 +58,5 @@ jobs:
             git add .
             git commit -sm 'Authentication Tests Update'
             git push -u origin $BRANCH -f
-            gh pr view --json mergedAt|jq -e '.mergedAt' && gh pr create -f
+            gh pr view --json mergedAt|jq -e '.mergedAt' && gh pr create --fill
           fi

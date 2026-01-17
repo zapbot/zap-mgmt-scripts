@@ -20,15 +20,6 @@ jobs:
 
         git clone https://github.com/$GITHUB_USER/zaproxy-website.git
 
-        # Update to the latest upstream
-        cd zaproxy-website
-        git remote set-url origin https://$GITHUB_USER:$GITHUB_TOKEN@github.com/$GITHUB_USER/zaproxy-website.git
-        git remote add upstream https://github.com/zaproxy/zaproxy-website.git
-        git checkout -B webseclab
-        git pull upstream main
-        git reset --hard upstream/main
-        git push --set-upstream origin webseclab --force
-
     - name: Start Webseclab
       run: |
         docker run --network="host" -p 9090:9090 -d psiinon/webseclab
@@ -46,16 +37,16 @@ jobs:
       run: |
         cd zaproxy-website
 
+        git checkout -b webseclab
+
         # Update the index to be sure git is aware of changes
         git update-index -q --refresh
         ## If there are changes: comment, commit, PR
         if ! git diff-index --quiet HEAD --; then
-
+          gh repo set-default zaproxy/zaproxy-website
+          git remote set-url origin https://$GITHUB_USER:$GITHUB_TOKEN@github.com/$GITHUB_USER/zaproxy-website.git
           git add site/data/scans/webseclab/*
-          git commit -s -m "Updated Webseclab Results"
-          git push origin
-
-          echo ${{ secrets.ZAPBOT_TOKEN }} | gh auth login --with-token
-          gh pr create --fill
-
+          git commit -sm "Updated Webseclab Results"
+          git push -u origin $BRANCH -f
+          gh pr view --json mergedAt|jq -e '.mergedAt' && gh pr create --fill
         fi
