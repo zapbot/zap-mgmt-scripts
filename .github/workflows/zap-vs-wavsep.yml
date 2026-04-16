@@ -14,21 +14,13 @@ jobs:
       run: |
         # Setup git details
         export GITHUB_USER=zapbot
-        export GITHUB_TOKEN=${{ secrets.ZAPBOT_TOKEN }}
         git config --global user.email "12745184+zapbot@users.noreply.github.com"
         git config --global user.name $GITHUB_USER
         git clone https://github.com/$GITHUB_USER/zap-mgmt-scripts.git
 
-        git clone https://github.com/$GITHUB_USER/zaproxy-website.git
-
-        # Update to the latest upstream
+        git clone -o upstream https://github.com/zaproxy/zaproxy-website.git
         cd zaproxy-website
-        git remote set-url origin https://$GITHUB_USER:$GITHUB_TOKEN@github.com/$GITHUB_USER/zaproxy-website.git
-        git remote add upstream https://github.com/zaproxy/zaproxy-website.git
-        git checkout -B wavsep
-        git pull upstream main
-        git reset --hard upstream/main
-        git push --set-upstream origin wavsep --force
+        git remote add origin https://$GITHUB_USER:${{ secrets.ZAPBOT_TOKEN }}@github.com/$GITHUB_USER/zaproxy-website.git
 
     - name: Scan Wavsep
       run: |
@@ -47,16 +39,17 @@ jobs:
       run: |
         cd zaproxy-website
 
+        BRANCH="wavsep"
+        git checkout -b $BRANCH
+
         # Update the index to be sure git is aware of changes
         git update-index -q --refresh
         ## If there are changes: comment, commit, PR
         if ! git diff-index --quiet HEAD --; then
-
+          gh repo set-default zaproxy/zaproxy-website
           git add site/data/scans/wavsep/*
-          git commit -s -m "Updated WAVSEP Results"
-          git push origin
-
+          git commit -sm "Updated WAVSEP Results"
+          git push -u origin $BRANCH -f
           echo ${{ secrets.ZAPBOT_TOKEN }} | gh auth login --with-token
-          gh pr create --fill
-
+          gh pr create --fill || true
         fi

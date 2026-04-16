@@ -42,10 +42,8 @@ jobs:
           # Clone destination repo
           git clone -o upstream https://github.com/zaproxy/zaproxy-website.git
           cd zaproxy-website
-          git remote add origin https://github.com/$GITHUB_USER/zaproxy-website.git
-          # Setup env vars for later
+          git remote add origin https://$GITHUB_USER:${{ secrets.ZAPBOT_TOKEN }}@github.com/$GITHUB_USER/zaproxy-website.git
           BRANCH="auth-tests-update"
-          export GITHUB_TOKEN=${{ secrets.ZAPBOT_TOKEN }}
           # Build the feature branch
           git checkout -b $BRANCH
           cp -f ../output/output.yml site/data/scans/auth/output.yml
@@ -54,9 +52,9 @@ jobs:
           ## If there are changes: comment, commit, PR
           if ! git diff-index --quiet HEAD --; then
             gh repo set-default zaproxy/zaproxy-website
-            git remote set-url origin https://$GITHUB_USER:$GITHUB_TOKEN@github.com/$GITHUB_USER/zaproxy-website.git
             git add .
             git commit -sm 'Authentication Tests Update'
             git push -u origin $BRANCH -f
-            gh pr view --json mergedAt|jq -e '.mergedAt' && gh pr create --fill
+            echo ${{ secrets.ZAPBOT_TOKEN }} | gh auth login --with-token
+            gh pr create --fill || true
           fi
