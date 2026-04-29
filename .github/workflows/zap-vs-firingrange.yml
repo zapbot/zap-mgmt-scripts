@@ -28,8 +28,11 @@ jobs:
         for s in "${sections[@]}"
         do
           cat fr-$s.js firing-range-score-main.js  > firing-range-score.js
+
+          touch $s.yml
+          chmod go+w $s.yml
         
-          docker run --user=root -v $(pwd):/zap/wrk/:rw -t ghcr.io/zaproxy/zaproxy:nightly zap.sh -cmd -silent -autorun /zap/wrk/fr-$s.yaml
+          docker run -v $(pwd):/zap/wrk/:rw -t ghcr.io/zaproxy/zaproxy:nightly zap.sh -cmd -silent -autorun /zap/wrk/fr-$s.yaml
         
           cp $s.yml ../../../zaproxy-website/site/data/scans/firingrange/
         done
