@@ -1,0 +1,33 @@
+---
+env:
+  contexts:
+  - name: "Target"
+    urls:
+    - "${target}"
+    includePaths: []
+    excludePaths: []
+  parameters:
+    failOnError: true
+    failOnWarning: false
+    progressToStdout: true
+  vars: {}
+jobs:
+- type: spiderClient
+  name: "spiderClient"
+  parameters:
+    numberOfBrowsers: 6
+    maxDuration: 5
+- type: passiveScan-wait
+  name: "passiveScan-wait"
+- type: export
+  parameters:
+    source: sitestree
+    context: Target
+    type: yaml
+    fileName: client-site.yaml
+- type: export
+  parameters:
+    source: clientmap
+    context: Target
+    type: yaml
+    fileName: client-map.yaml

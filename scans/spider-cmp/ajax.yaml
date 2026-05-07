@@ -1,0 +1,34 @@
+---
+env:
+  contexts:
+  - name: "Target"
+    urls:
+    - "${target}"
+    includePaths: []
+    excludePaths: []
+  parameters:
+    failOnError: true
+    failOnWarning: false
+    progressToStdout: true
+  vars: {}
+jobs:
+- type: spiderAjax
+  name: "spiderAjax"
+  parameters:
+    numberOfBrowsers: 6
+    maxDuration: 5
+    enableExtensions: true
+- type: passiveScan-wait
+  name: "passiveScan-wait"
+- type: export
+  parameters:
+    source: sitestree
+    context: Target
+    type: yaml
+    fileName: ajax-site.yaml
+- type: export
+  parameters:
+    source: clientmap
+    context: Target
+    type: yaml
+    fileName: ajax-map.yaml
