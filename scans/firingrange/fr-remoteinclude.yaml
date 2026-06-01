@@ -16,7 +16,10 @@ env:
       method: "cookie"
       parameters: {}
   configs:
-    ptk.automatedScanning.enabled: true
+    ptk.activescan.actionWaitTime: 2
+    ptk.activescan.browserId: firefox-headless
+    ptk.activescan.rule.enabled: true
+    ptk.activescan.threadCount: 4
   parameters:
     failOnError: true
     failOnWarning: false
@@ -40,11 +43,6 @@ jobs:
     value: 100
     name: "At least 100 URLs found"
     type: "stats"
-- type: spiderClient
-  name: "spiderClient"
-  parameters:
-    pageLoadTime: 2
-    actionWaitTime: 1
 - parameters:
     context: ""
     user: ""
@@ -63,6 +61,10 @@ jobs:
       name: "Cross Site Scripting (DOM)"
       threshold: "medium"
       strength: "default"
+    - name: PTK Scan Rules
+      id: 230000
+      threshold: medium
+      strength: default
   name: "activeScan"
   type: "activeScan"
 - name: "run-script"
