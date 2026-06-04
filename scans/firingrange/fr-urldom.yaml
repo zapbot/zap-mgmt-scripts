@@ -3,7 +3,7 @@ env:
   contexts:
   - name: "Firing Range"
     urls:
-    - "https://public-firing-range.appspot.com/reflected/"
+    - "https://public-firing-range.appspot.com/urldom/"
     includePaths: []
     excludePaths: []
     authentication:
@@ -15,6 +15,11 @@ env:
     sessionManagement:
       method: "cookie"
       parameters: {}
+  configs:
+    ptk.activescan.actionWaitTime: 2
+    ptk.activescan.browserId: firefox-headless
+    ptk.activescan.rule.enabled: true
+    ptk.activescan.threadCount: 4
   parameters:
     failOnError: true
     failOnWarning: false
@@ -50,8 +55,12 @@ jobs:
     rules:
     - id: 40012
       name: "Cross Site Scripting (Reflected)"
-      threshold: "low"
+      threshold: "medium"
       strength: "default"
+    - name: PTK Scan Rules
+      id: 230000
+      threshold: medium
+      strength: default
   name: "activeScan"
   type: "activeScan"
 - name: "run-script"

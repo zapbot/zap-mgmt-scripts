@@ -3,7 +3,7 @@ env:
   contexts:
   - name: "Firing Range"
     urls:
-    - "https://public-firing-range.appspot.com/reflected/"
+    - "https://public-firing-range.appspot.com/dom/"
     includePaths: []
     excludePaths: []
     authentication:
@@ -15,6 +15,8 @@ env:
     sessionManagement:
       method: "cookie"
       parameters: {}
+  configs:
+    ptk.activescan.rule.enabled: true
   parameters:
     failOnError: true
     failOnWarning: false
@@ -38,6 +40,11 @@ jobs:
     value: 100
     name: "At least 100 URLs found"
     type: "stats"
+- type: spiderClient
+  name: "spiderClient"
+  parameters:
+    pageLoadTime: 2
+    actionWaitTime: 1
 - parameters:
     context: ""
     user: ""
@@ -50,8 +57,12 @@ jobs:
     rules:
     - id: 40012
       name: "Cross Site Scripting (Reflected)"
-      threshold: "low"
+      threshold: "medium"
       strength: "default"
+    - name: PTK Scan Rules
+      id: 230000
+      threshold: medium
+      strength: default
   name: "activeScan"
   type: "activeScan"
 - name: "run-script"

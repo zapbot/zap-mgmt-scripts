@@ -1,7 +1,54 @@
 var DIR = "/zap/wrk/";
 var NAME = "Reflected XSS";
 var TARGET = "reflected";
-var RULES = [40012, 40026, 200002, 200007, 210000, 220000];
+var RULES = [40012, 40026];
 var MIN_LEVEL = 2;
-var IGNORE_PATHS = ['/parameter/form', '/url/a'];
+var INCLUDE_PATHS = [
+	'/contentsniffing/json',
+	'/contentsniffing/plaintext',
+	'/escapedparameter/js_eventhandler_quoted/DOUBLE_QUOTED_ATTRIBUTE',
+	'/escapedparameter/js_eventhandler_singlequoted/SINGLE_QUOTED_ATTRIBUTE',
+	'/escapedparameter/js_eventhandler_unquoted/UNQUOTED_ATTRIBUTE',
+	'/filteredcharsets/attribute_unquoted/DoubleQuoteSinglequote',
+	'/filteredcharsets/body/SpaceDoubleQuoteSlashEquals',
+	'/filteredstrings/body/caseInsensitive/script',
+	'/filteredstrings/body/caseSensitive/SCRIPT',
+	'/filteredstrings/body/caseSensitive/script',
+	'/parameter/attribute_name',
+	'/parameter/attribute_quoted',
+	'/parameter/attribute_script',
+	'/parameter/attribute_singlequoted',
+	'/parameter/attribute_unquoted',
+	'/parameter/body',
+	'/parameter/body/400',
+	'/parameter/body/401',
+	'/parameter/body/403',
+	'/parameter/body/404',
+	'/parameter/body/500',
+	'/parameter/body_comment',
+	'/parameter/css_style',
+	'/parameter/css_style_font_value',
+	'/parameter/css_style_value',
+	'/parameter/head',
+	'/parameter/iframe_attribute_value',
+	'/parameter/iframe_srcdoc',
+	'/parameter/js_assignment',
+	'/parameter/js_comment',
+	'/parameter/js_eval',
+	'/parameter/js_quoted_string',
+	'/parameter/js_singlequoted_string',
+	'/parameter/js_slashquoted_string',
+	'/parameter/json',
+	'/parameter/noscript',
+	'/parameter/style_attribute_value',
+	'/parameter/tagname',
+	'/parameter/textarea',
+	'/parameter/textarea_attribute_value',
+	'/parameter/title',
+	'/url/css_import',
+	'/url/href',
+	'/url/object_data',
+	'/url/object_param',
+	'/url/script_src',
+];
 var BROKEN_PATHS = [];
