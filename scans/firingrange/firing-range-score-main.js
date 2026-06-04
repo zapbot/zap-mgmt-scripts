@@ -1,4 +1,3 @@
-
 // This script will _not_ run on its own - it needs a set of fields prepended to it
 
 // Polyfill for Nashorn c/o https://stackoverflow.com/questions/47543566/scriptengine-javascript-doesnt-support-includes
@@ -45,32 +44,34 @@ function nodeHasAlert(node, rules) {
    return null;
 }
 
+var results = {};
+
 function listChildren(node, level) {
    var j;
    for (j=0;j<node.getChildCount();j++) {
        var child = node.getChildAt(j);
        if (child.getChildCount() == 0 && level > MIN_LEVEL) {
+           if (j + 1<node.getChildCount()) {
+               // Check for sibling with same name - those will be GETs to parent nodes, which we can ignore
+               var sibling = node.getChildAt(j+1);
+               if (child.getHierarchicNodeName() === sibling.getHierarchicNodeName() && sibling.getChildCount() > 0) {
+                   continue;
+               }
+           }
+
            var path = child.getHierarchicNodeName();
            if (!path.startsWith(target)) {
                continue;
            }
            path = path.substring(target.length);
-           if (! IGNORE_PATHS.includes(path)) {
-             totalUrls++;
-             pw.println('- path: ' + path);
-             var pluginId = nodeHasAlert(child, RULES);
-             if (BROKEN_PATHS.includes(path)) {
-               totalUrls--;
-               pw.println('  result: Broken');
-               pw.println('  rule: ' + pluginId);
-             } else if (pluginId) {
-                 totalAlerts++;
-                 pw.println('  result: Pass');
-                 pw.println('  rule: ' + pluginId);
-             } else {
-                 pw.println('  result: FAIL');
-                 pw.println('  rule: ' + RULES[0]);
-             }
+           if (INCLUDE_PATHS.length === 0 || INCLUDE_PATHS.includes(path)) {
+               var pluginId = nodeHasAlert(child, RULES);
+               if (!(path in results)) {
+                   results[path] = null;
+               }
+               if (pluginId && !results[path]) {
+                   results[path] = pluginId;
+               }
            }
        } else {
            listChildren(child, level+1);
@@ -83,11 +84,33 @@ root = org.parosproxy.paros.model.Model.getSingleton().
 
 listChildren(root, 0);
 
+var paths = Object.keys(results).sort();
+for (var i = 0; i < paths.length; i++) {
+    var path = paths[i];
+    var pluginId = results[path];
+    totalUrls++;
+    pw.println('- path: ' + path);
+    if (BROKEN_PATHS.includes(path)) {
+        totalUrls--;
+        pw.println('  result: Broken');
+        pw.println('  rule: ' + pluginId);
+    } else if (pluginId) {
+        totalAlerts++;
+        pw.println('  result: Pass');
+        pw.println('  rule: ' + pluginId);
+    } else {
+        pw.println('  result: FAIL');
+        pw.println('  rule: ' + RULES[0]);
+    }
+}
+
+var score = Math.round(totalAlerts * 100 / totalUrls);
 pw.println('tests: ' + totalUrls);
 pw.println('passes: ' + totalAlerts);
 pw.println('fails: ' + (totalUrls - totalAlerts));
-pw.println('score: ' + Math.round(totalAlerts * 100 / totalUrls) + '%');
+pw.println('score: ' + score + '%');
 
 print('Done');
+print('Done: ' + NAME + ' score: ' + score);
 
 pw.close();
