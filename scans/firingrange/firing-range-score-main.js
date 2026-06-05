@@ -91,9 +91,16 @@ for (var i = 0; i < paths.length; i++) {
     totalUrls++;
     pw.println('- path: ' + path);
     if (BROKEN_PATHS.includes(path)) {
-        totalUrls--;
-        pw.println('  result: Broken');
-        pw.println('  rule: ' + pluginId);
+        if (pluginId) {
+            // Not really broken, would be good to flag in some way?
+            totalAlerts++;
+            pw.println('  result: Pass');
+            pw.println('  rule: ' + pluginId);
+        } else {
+            totalUrls--;
+            pw.println('  result: Broken');
+            pw.println('  rule: ' + pluginId);
+        }
     } else if (pluginId) {
         totalAlerts++;
         pw.println('  result: Pass');
