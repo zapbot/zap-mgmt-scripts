@@ -1,0 +1,72 @@
+env:
+  contexts:
+  - name: Crawlground
+    urls:
+    - http://localhost:3456
+    includePaths:
+    - http://localhost:3456.*
+    authentication:
+      verification:
+        method: response
+        pollFrequency: 60
+        pollUnits: requests
+        pollUrl: ""
+        pollPostData: ""
+    sessionManagement:
+      method: cookie
+    technology: {}
+    structure: {}
+  parameters: {}
+jobs:
+- type: requestor
+  parameters:
+    user: ""
+  requests:
+  - url: http://localhost:3456/set-tool
+    method: POST
+    headers:
+    - Content-Type:application/json
+    data: "{\"name\":\"standard\"}"
+- type: spider
+  parameters: {}
+  tests:
+  - name: At least 100 URLs found
+    type: stats
+    onFail: INFO
+    statistic: automation.spider.urls.added
+    operator: '>='
+    value: 100
+- type: requestor
+  parameters:
+    user: ""
+  requests:
+  - url: http://localhost:3456/set-tool
+    method: POST
+    headers:
+    - Content-Type:application/json
+    data: "{\"name\":\"ajax\"}"
+- type: spiderAjax
+  parameters:
+    numberOfBrowsers: 2
+    browserId: null
+  tests:
+  - name: At least 100 URLs found
+    type: stats
+    onFail: INFO
+    statistic: spiderAjax.urls.added
+    operator: '>='
+    value: 100
+- type: requestor
+  parameters:
+    user: ""
+  requests:
+  - url: http://localhost:3456/set-tool
+    method: POST
+    headers:
+    - Content-Type:application/json
+    data: "{\"name\":\"client\"}"
+- type: spiderClient
+  parameters:
+    maxDuration: 0
+    maxChildren: 0
+    numberOfBrowsers: 2

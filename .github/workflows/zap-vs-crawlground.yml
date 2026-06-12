@@ -1,0 +1,71 @@
+name: ZAP vs Crawlground
+
+on:
+  schedule:
+    - cron: '0 7 * * *'
+  workflow_dispatch:
+
+jobs:
+  scan:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Clone zap-mgmt-scripts and zaproxy-website
+      run: |
+        # Setup git details
+        export GITHUB_USER=zapbot
+        git config --global user.email "12745184+zapbot@users.noreply.github.com"
+        git config --global user.name $GITHUB_USER
+        git clone https://github.com/$GITHUB_USER/zap-mgmt-scripts.git
+
+        git clone -o upstream https://github.com/zaproxy/zaproxy-website.git
+        cd zaproxy-website
+        git remote add origin https://$GITHUB_USER:${{ secrets.ZAPBOT_TOKEN }}@github.com/$GITHUB_USER/zaproxy-website.git
+
+    - name: Build and start Crawlground
+      run: |
+        git clone https://github.com/zaproxy/crawlground.git
+        docker build -t crawlground crawlground/
+        docker run -d --name crawlground --network host -p 3456:3456 crawlground
+        until curl -sf http://localhost:3456/ > /dev/null; do sleep 2; done
+
+    - name: Scan Crawlground
+      run: |
+        cd zap-mgmt-scripts/scans/crawlground
+        # Need to do this so the zap user in docker can write to the files
+        touch all.yml zap.log
+        chmod a+w all.yml zap.log
+
+        docker run -v $(pwd):/zap/wrk/:rw \
+          --network host \
+          -t ghcr.io/zaproxy/zaproxy:nightly sh -c \
+            "zap.sh -cmd -silent -autorun /zap/wrk/crawlground.yaml; \
+            cp /home/zap/.ZAP_D/zap.log /zap/wrk"
+
+        curl -sf http://localhost:3456/website-results.yaml > all.yml
+        cp all.yml ../../../zaproxy-website/site/data/scans/crawlground/
+
+    - name: 'Upload zap.log'
+      if: ${{ !cancelled() }}
+      uses: actions/upload-artifact@v7
+      with:
+        name: zap.log
+        path: zap-mgmt-scripts/scans/crawlground/zap.log
+
+    - name: Raise a PR on the website
+      run: |
+        cd zaproxy-website
+
+        BRANCH="crawlground"
+        git checkout -b $BRANCH
+
+        # Update the index to be sure git is aware of changes
+        git update-index -q --refresh
+        ## If there are changes: commit and PR
+        if ! git diff-index --quiet HEAD --; then
+          echo ${{ secrets.ZAPBOT_TOKEN }} | gh auth login --with-token
+          gh repo set-default zaproxy/zaproxy-website
+          git add site/data/scans/crawlground/*
+          git commit -sm "Updated Crawlground Results"
+          git push -u origin $BRANCH -f
+          gh pr create --fill || true
+        fi
