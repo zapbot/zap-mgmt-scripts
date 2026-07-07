@@ -35,6 +35,19 @@ jobs:
         docker run -v $(pwd):/zap/wrk/:rw --network host ghcr.io/zaproxy/zaproxy:nightly zap.sh -cmd -port 9090 -silent -autorun /zap/wrk/wavsep.yaml
         cp res/*.yml ../../../zaproxy-website/site/data/scans/wavsep/
 
+    - name: Upload results to S3
+      continue-on-error: true
+      env:
+        AWS_ACCESS_KEY_ID: ${{ secrets.AWSCLI_SSP_ACCESS }}
+        AWS_SECRET_ACCESS_KEY: ${{ secrets.AWSCLI_SSP_SECRET }}
+        AWS_DEFAULT_REGION: us-east-2
+      run: |
+        pip install pyyaml
+        DATE=$(date +%Y-%m-%d)
+        python3 zap-mgmt-scripts/scans/yaml_to_jsonl.py $DATE wavsep \
+          zap-mgmt-scripts/scans/wavsep/res/*.yml \
+          | aws s3 cp - s3://ssp-project-zap/scans/raw/wavsep/$DATE.jsonl
+
     - name: Raise a PR on the website
       run: |
         cd zaproxy-website
