@@ -33,15 +33,16 @@ var PrintWriter = Java.type('java.io.PrintWriter');
 root = org.parosproxy.paros.model.Model.getSingleton().
        getSession().getSiteTree().getRoot();
 
-function nodeHasAlert(node, rules) {
+function nodeGetAlerts(node, rules) {
+   var matchedRules = [];
    var alerts = node.getAlerts();
    for (var a in alerts) {
        var pluginId = alerts.get(a).getPluginId();
-       if (rules.includes(pluginId)) {
-           return pluginId;
+       if (rules.includes(pluginId) && !matchedRules.includes(pluginId)) {
+           matchedRules.push(pluginId);
        }
    }
-   return null;
+   return matchedRules.sort(function(a, b) { return a - b; });
 }
 
 function isBroken(url) {
@@ -80,19 +81,25 @@ function listChildren(pw, node, type, rules) {
            }
            if (! IGNORE_PATHS.includes(path)) {
              pw.println('- path: ' + path);
-             var pluginId = nodeHasAlert(child, rules);
-             // Following test is JS equiv of XOR
-             if (path.indexOf("FalsePositives") > 0 ? !pluginId : pluginId) {
+             var matchedRules = nodeGetAlerts(child, rules);
+             var isFP = path.indexOf("FalsePositives") > 0;
+             // For false positive paths, pass means no rule fired; for others, pass means any rule fired
+             var passed = isFP ? matchedRules.length === 0 : matchedRules.length > 0;
+             if (passed) {
                  sectionPass++;
                  pw.println('  result: Pass');
-                 pw.println('  rule: ' + pluginId);
+                 if (matchedRules.length > 0) {
+                     pw.println('  rules: [' + matchedRules.join(', ') + ']');
+                 }
              } else if (isBroken(path)) {
                  pw.println('  result: Broken');
-                 pw.println('  rule: ' + rules[0]);
              } else {
                  sectionFail++;
                  pw.println('  result: FAIL');
-                 pw.println('  rule: ' + rules[0]);
+                 if (matchedRules.length > 0) {
+                     // FP path: record which rules incorrectly fired
+                     pw.println('  rules: [' + matchedRules.join(', ') + ']');
+                 }
              }
            }
        } else {

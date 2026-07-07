@@ -12,6 +12,8 @@ import yaml
 def convert(date, scan, yaml_path):
     with open(yaml_path) as f:
         data = yaml.safe_load(f)
+    if 'section' not in data:
+        return
     section = data['section']
     for detail in data.get('details', []):
         record = {
