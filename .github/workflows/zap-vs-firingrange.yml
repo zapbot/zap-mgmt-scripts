@@ -37,6 +37,23 @@ jobs:
           cp $s.yml ../../../zaproxy-website/site/data/scans/firingrange/
         done
 
+    - name: Upload results to S3
+      continue-on-error: true
+      env:
+        AWS_ACCESS_KEY_ID: ${{ secrets.AWSCLI_SSP_ACCESS }}
+        AWS_SECRET_ACCESS_KEY: ${{ secrets.AWSCLI_SSP_SECRET }}
+        AWS_DEFAULT_REGION: us-east-2
+      run: |
+        pip install pyyaml
+        DATE=$(date +%Y-%m-%d)
+        SRC=zap-mgmt-scripts/scans/firingrange
+        python3 zap-mgmt-scripts/scans/yaml_to_jsonl.py $DATE firingrange \
+          $SRC/address.yml $SRC/angular.yml $SRC/dom.yml $SRC/escape.yml \
+          $SRC/mixedcontent.yml $SRC/reflected.yml $SRC/remoteinclude.yml \
+          $SRC/reverseclickjacking.yml $SRC/leakedcookie.yml \
+          $SRC/clickjacking.yml $SRC/urldom.yml \
+          | aws s3 cp - s3://ssp-project-zap/scans/raw/firingrange/$DATE.jsonl
+
     - name: Raise a PR on the website
       run: |
         cd zaproxy-website

@@ -33,15 +33,16 @@ pw.println('section: ' + NAME);
 pw.println('url: ' + target);
 pw.println('details:');
 
-function nodeHasAlert(node, rules) {
+function nodeGetAlerts(node, rules) {
+   var matchedRules = [];
    var alerts = node.getAlerts();
    for (var a in alerts) {
        var pluginId = alerts.get(a).getPluginId();
-       if (rules.includes(pluginId)) {
-           return pluginId;
+       if (rules.includes(pluginId) && !matchedRules.includes(pluginId)) {
+           matchedRules.push(pluginId);
        }
    }
-   return null;
+   return matchedRules;
 }
 
 var results = {};
@@ -65,12 +66,14 @@ function listChildren(node, level) {
            }
            path = path.substring(target.length);
            if (INCLUDE_PATHS.length === 0 || INCLUDE_PATHS.includes(path)) {
-               var pluginId = nodeHasAlert(child, RULES);
                if (!(path in results)) {
-                   results[path] = null;
+                   results[path] = [];
                }
-               if (pluginId && !results[path]) {
-                   results[path] = pluginId;
+               var matchedRules = nodeGetAlerts(child, RULES);
+               for (var r = 0; r < matchedRules.length; r++) {
+                   if (!results[path].includes(matchedRules[r])) {
+                       results[path].push(matchedRules[r]);
+                   }
                }
            }
        } else {
@@ -87,27 +90,26 @@ listChildren(root, 0);
 var paths = Object.keys(results).sort();
 for (var i = 0; i < paths.length; i++) {
     var path = paths[i];
-    var pluginId = results[path];
+    var matchedRules = results[path];
+    var passed = matchedRules.length > 0;
     totalUrls++;
     pw.println('- path: ' + path);
     if (BROKEN_PATHS.includes(path)) {
-        if (pluginId) {
+        if (passed) {
             // Not really broken, would be good to flag in some way?
             totalAlerts++;
             pw.println('  result: Pass');
-            pw.println('  rule: ' + pluginId);
+            pw.println('  rules: [' + matchedRules.join(', ') + ']');
         } else {
             totalUrls--;
             pw.println('  result: Broken');
-            pw.println('  rule: ' + pluginId);
         }
-    } else if (pluginId) {
+    } else if (passed) {
         totalAlerts++;
         pw.println('  result: Pass');
-        pw.println('  rule: ' + pluginId);
+        pw.println('  rules: [' + matchedRules.join(', ') + ']');
     } else {
         pw.println('  result: FAIL');
-        pw.println('  rule: ' + RULES[0]);
     }
 }
 
