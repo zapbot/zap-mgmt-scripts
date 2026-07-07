@@ -15,11 +15,6 @@ env:
     sessionManagement:
       method: "cookie"
       parameters: {}
-  configs:
-    ptk.activescan.actionWaitTime: 2
-    ptk.activescan.browserId: firefox-headless
-    ptk.activescan.rule.enabled: true
-    ptk.activescan.threadCount: 4
   parameters:
     failOnError: true
     failOnWarning: false
@@ -43,6 +38,9 @@ jobs:
     value: 100
     name: "At least 100 URLs found"
     type: "stats"
+- type: spiderClient
+  name: "spiderClient"
+- type: passiveScan-wait
 - parameters:
     context: ""
     user: ""

@@ -15,8 +15,6 @@ env:
     sessionManagement:
       method: "cookie"
       parameters: {}
-  configs:
-    ptk.activescan.rule.enabled: true
   parameters:
     failOnError: true
     failOnWarning: false
@@ -42,9 +40,7 @@ jobs:
     type: "stats"
 - type: spiderClient
   name: "spiderClient"
-  parameters:
-    pageLoadTime: 2
-    actionWaitTime: 1
+- type: passiveScan-wait
 - parameters:
     context: ""
     user: ""
