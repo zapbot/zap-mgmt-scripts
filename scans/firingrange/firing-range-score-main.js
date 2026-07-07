@@ -90,7 +90,7 @@ listChildren(root, 0);
 var paths = Object.keys(results).sort();
 for (var i = 0; i < paths.length; i++) {
     var path = paths[i];
-    var matchedRules = results[path];
+    var matchedRules = results[path].sort(function(a, b) { return a - b; });
     var passed = matchedRules.length > 0;
     totalUrls++;
     pw.println('- path: ' + path);

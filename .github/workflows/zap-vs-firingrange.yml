@@ -24,16 +24,17 @@ jobs:
     - name: Scan Firing Range
       run: |
         cd zap-mgmt-scripts/scans/firingrange
-        sections=( "address" "angular" "dom" "escape" "mixedcontent" "reflected" "remoteinclude" "reverseclickjacking" "leakedcookie" "clickjacking" "urldom")
-        for s in "${sections[@]}"
-        do
-          cat fr-$s.js firing-range-score-main.js  > firing-range-score.js
+        for fr_js in fr-*.js; do
+          s="${fr_js#fr-}"
+          s="${s%.js}"
+
+          cat $fr_js firing-range-score-main.js > firing-range-score.js
 
           touch $s.yml
           chmod go+w $s.yml
-        
+
           docker run -v $(pwd):/zap/wrk/:rw -t ghcr.io/zaproxy/zaproxy:nightly zap.sh -cmd -silent -autorun /zap/wrk/fr-$s.yaml
-        
+
           cp $s.yml ../../../zaproxy-website/site/data/scans/firingrange/
         done
 
@@ -47,11 +48,12 @@ jobs:
         pip install pyyaml
         DATE=$(date +%Y-%m-%d)
         SRC=zap-mgmt-scripts/scans/firingrange
-        python3 zap-mgmt-scripts/scans/yaml_to_jsonl.py $DATE firingrange \
-          $SRC/address.yml $SRC/angular.yml $SRC/dom.yml $SRC/escape.yml \
-          $SRC/mixedcontent.yml $SRC/reflected.yml $SRC/remoteinclude.yml \
-          $SRC/reverseclickjacking.yml $SRC/leakedcookie.yml \
-          $SRC/clickjacking.yml $SRC/urldom.yml \
+        YMLS=()
+        for f in $SRC/fr-*.js; do
+          s=$(basename "$f" .js)
+          YMLS+=("$SRC/${s#fr-}.yml")
+        done
+        python3 zap-mgmt-scripts/scans/yaml_to_jsonl.py $DATE firingrange "${YMLS[@]}" \
           | aws s3 cp - s3://ssp-project-zap/scans/raw/firingrange/$DATE.jsonl
 
     - name: Raise a PR on the website
