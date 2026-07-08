@@ -5,6 +5,7 @@ Usage: yaml_to_jsonl.py <date> <scan> <yaml_file> [<yaml_file> ...]
 Output: JSON Lines to stdout, one record per tested path.
 """
 import json
+import os
 import sys
 import yaml
 
@@ -14,12 +15,16 @@ def convert(date, scan, yaml_path):
         data = yaml.safe_load(f)
     if 'section' not in data:
         return
+    section_key = os.path.splitext(os.path.basename(yaml_path))[0]
     section = data['section']
+    url = data.get('url', '')
     for detail in data.get('details', []):
         record = {
             'date': date,
             'scan': scan,
+            'section_key': section_key,
             'section': section,
+            'url': url,
             'path': detail['path'],
             'result': detail['result'],
             'rules': detail.get('rules', []),
