@@ -49,3 +49,32 @@ jobs:
         python3 zap-mgmt-scripts/scans/yaml_to_jsonl.py $DATE firingrange "${YMLS[@]}" \
           | aws s3 cp - s3://ssp-project-zap/scans/raw/firingrange/$DATE.jsonl
 
+    - name: Check for regressions
+      continue-on-error: true
+      env:
+        AWS_ACCESS_KEY_ID: ${{ secrets.AWSCLI_SSP_ACCESS }}
+        AWS_SECRET_ACCESS_KEY: ${{ secrets.AWSCLI_SSP_SECRET }}
+        AWS_DEFAULT_REGION: us-east-2
+        SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+      run: |
+        RECENT=$(mktemp -d)
+        aws s3 sync s3://ssp-project-zap/scans/raw/firingrange/ "$RECENT/"
+        python3 zap-mgmt-scripts/scans/generate-scan-stats.py \
+          --data-dir "$RECENT" \
+          --output-dir "$(mktemp -d)" \
+          --days 1 \
+          --compare-days 7 \
+          --scan firingrange \
+          --slack-webhook "$SLACK_WEBHOOK_URL"
+
+    - name: Notify Slack on scan failure
+      if: failure()
+      env:
+        SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+      run: |
+        if [ -n "$SLACK_WEBHOOK_URL" ]; then
+          curl -s -X POST "$SLACK_WEBHOOK_URL" \
+            -H 'Content-type: application/json' \
+            --data "{\"text\": \"❌ ZAP vs Firing Range scan failed: https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}\"}"
+        fi
+

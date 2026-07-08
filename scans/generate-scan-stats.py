@@ -16,6 +16,7 @@ Usage:
 import argparse
 import json
 import os
+import urllib.request
 from collections import defaultdict
 from datetime import date, timedelta
 
@@ -35,6 +36,10 @@ def parse_args():
                    help='Previous window size for trend (default: same as --days)')
     p.add_argument('--end-date', default=None,
                    help='Last date (inclusive) of current window, YYYY-MM-DD (default: yesterday)')
+    p.add_argument('--scan', default=None,
+                   help='Scan name for Slack messages (default: basename of --data-dir)')
+    p.add_argument('--slack-webhook', default=None,
+                   help='Slack incoming webhook URL; if set, posts regressions (down trends)')
     return p.parse_args()
 
 
@@ -112,13 +117,17 @@ def get_trend(curr_rate, prev_rate):
 def build_section_yaml(sec_info, curr_firing, prev_firing, path_order,
                        curr_window, prev_window):
     """
-    Build the YAML dict for one section.
+    Build the YAML dict for one section and return a list of regressions.
 
     curr_firing / prev_firing: {path -> {rule -> set(dates)}}
     path_order: ordered list of paths seen in current window
     curr_window / prev_window: number of days in each window (denominator)
+
+    Returns (yaml_dict, regressions) where regressions is a list of
+    {'path', optionally 'rule', 'prev', 'score'} dicts for down trends.
     """
     details = []
+    regressions = []
     section_pass_days = 0
     section_passes = 0
     section_fails = 0
@@ -154,6 +163,8 @@ def build_section_yaml(sec_info, curr_firing, prev_firing, path_order,
             if trend:
                 row['trend'] = trend
                 row['prev'] = prev_score
+                if trend == 'down':
+                    regressions.append({'path': path, 'prev': prev_score, 'score': 'Fail'})
             details.append(row)
         else:
             # One row per rule that fired at least once in the current window
@@ -169,6 +180,9 @@ def build_section_yaml(sec_info, curr_firing, prev_firing, path_order,
                 if trend:
                     row['trend'] = trend
                     row['prev'] = prev_score
+                    if trend == 'down':
+                        regressions.append({'path': path, 'rule': rule,
+                                            'prev': prev_score, 'score': fmt_score(curr_rate)})
                 details.append(row)
 
     section_rate = section_pass_days / (curr_window * n_paths) if curr_window and n_paths else 0
@@ -180,7 +194,26 @@ def build_section_yaml(sec_info, curr_firing, prev_firing, path_order,
         'passes': section_passes,
         'fails': section_fails,
         'score': fmt_pct(section_rate),
-    }
+    }, regressions
+
+
+def post_slack_alert(scan, all_regressions, webhook_url):
+    total = sum(len(r) for _, r in all_regressions)
+    n_sections = len(all_regressions)
+    lines = [f'⚠️ *ZAP scan regressions: {scan}* — {total} regression(s) across {n_sections} section(s)']
+    # If there are many regressions the target is likely down — keep the message short
+    if total <= 10:
+        for section, regressions in all_regressions:
+            lines.append(f'\n*{section}*')
+            for r in regressions:
+                rule = f' (rule {r["rule"]})' if 'rule' in r else ''
+                lines.append(f'  • `{r["path"]}`{rule}: {r["prev"]} → {r["score"]}')
+    else:
+        lines.append('Large number of regressions — target site may be down or a scan rule has broken.')
+    body = json.dumps({'text': '\n'.join(lines)}).encode()
+    req = urllib.request.Request(webhook_url, data=body,
+                                 headers={'Content-Type': 'application/json'})
+    urllib.request.urlopen(req, timeout=10)
 
 
 def main():
@@ -210,9 +243,10 @@ def main():
         print(f'Previous window: {prev_window} days with data')
 
     os.makedirs(args.output_dir, exist_ok=True)
+    all_regressions = []
     for key, sec_info in sections.items():
         prev_firing = prev_firing_by_section.get(key) if prev_firing_by_section else None
-        data = build_section_yaml(
+        data, regressions = build_section_yaml(
             sec_info,
             curr_firing[key],
             prev_firing,
@@ -220,10 +254,20 @@ def main():
             curr_window,
             prev_window,
         )
+        if regressions:
+            all_regressions.append((sec_info['name'], regressions))
         out_path = os.path.join(args.output_dir, f'{key}.yml')
         with open(out_path, 'w') as f:
             yaml.dump(data, f, default_flow_style=False, allow_unicode=True, sort_keys=False)
         print(f'  Written {out_path}')
+
+    if all_regressions:
+        scan = args.scan or os.path.basename(os.path.normpath(args.data_dir))
+        total = sum(len(r) for _, r in all_regressions)
+        print(f'  {total} regression(s) detected across {len(all_regressions)} section(s)')
+        if args.slack_webhook:
+            post_slack_alert(scan, all_regressions, args.slack_webhook)
+            print('  Slack alert posted')
 
 
 if __name__ == '__main__':
