@@ -1,0 +1,79 @@
+name: Update Scan Stats
+
+on:
+  schedule:
+    - cron: '0 6 * * 1'  # Monday 6am, after all daily scans have completed
+  workflow_dispatch:
+    inputs:
+      days:
+        description: 'Current window size in days'
+        default: '7'
+      compare_days:
+        description: 'Comparison window size in days (0 to disable trend)'
+        default: '7'
+
+jobs:
+  update_stats:
+    name: Update Scan Stats
+    runs-on: ubuntu-latest
+    steps:
+    - name: Set up Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: '3.x'
+
+    - name: Set up env
+      run: |
+        pip install pyyaml awscli
+
+    - name: Clone repos
+      run: |
+        export GITHUB_USER=zapbot
+        export GITHUB_TOKEN=${{ secrets.ZAPBOT_TOKEN }}
+        git config --global user.email "12745184+zapbot@users.noreply.github.com"
+        git config --global user.name $GITHUB_USER
+        git config --global pull.rebase false
+        git clone https://github.com/$GITHUB_USER/zap-mgmt-scripts.git
+
+        git clone -o upstream https://github.com/zaproxy/zaproxy-website.git
+        cd zaproxy-website
+        git remote add origin https://$GITHUB_USER:${{ secrets.ZAPBOT_TOKEN }}@github.com/$GITHUB_USER/zaproxy-website.git
+
+    - name: Sync S3 data
+      env:
+        AWS_ACCESS_KEY_ID: ${{ secrets.AWSCLI_SSP_ACCESS }}
+        AWS_SECRET_ACCESS_KEY: ${{ secrets.AWSCLI_SSP_SECRET }}
+        AWS_DEFAULT_REGION: us-east-2
+      run: |
+        aws configure set default.s3.max_concurrent_requests 5
+        aws s3 sync s3://ssp-project-zap/scans/raw/ scan-data/
+
+    - name: Generate scan stats
+      run: |
+        DAYS=${{ inputs.days || '7' }}
+        COMPARE=${{ inputs.compare_days || '7' }}
+        for scan in firingrange wavsep; do
+          python3 zap-mgmt-scripts/scans/generate-scan-stats.py \
+            --data-dir scan-data/$scan \
+            --output-dir zaproxy-website/site/data/scans/$scan \
+            --days $DAYS \
+            --compare-days $COMPARE
+        done
+
+    - name: Raise a PR on the website
+      run: |
+        cd zaproxy-website
+        BRANCH="scan-stats"
+        git checkout -b $BRANCH
+
+        # Update the index to be sure git is aware of changes
+        git update-index -q --refresh
+        ## If there are changes: comment, commit, PR
+        if ! git diff-index --quiet HEAD --; then
+          echo ${{ secrets.ZAPBOT_TOKEN }} | gh auth login --with-token
+          gh repo set-default zaproxy/zaproxy-website
+          git add site/data/scans/
+          git commit -sm "Updated Scan Results"
+          git push -u origin $BRANCH -f
+          gh pr create --fill || true
+        fi

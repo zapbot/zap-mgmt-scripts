@@ -9,17 +9,12 @@ jobs:
   scan:
     runs-on: ubuntu-latest
     steps:
-    - name: Clone zap-mgmt-scripts and zaproxy-website
+    - name: Clone zap-mgmt-scripts
       run: |
-        # Setup git details
         export GITHUB_USER=zapbot
         git config --global user.email "12745184+zapbot@users.noreply.github.com"
         git config --global user.name $GITHUB_USER
         git clone https://github.com/$GITHUB_USER/zap-mgmt-scripts.git
-
-        git clone -o upstream https://github.com/zaproxy/zaproxy-website.git
-        cd zaproxy-website
-        git remote add origin https://$GITHUB_USER:${{ secrets.ZAPBOT_TOKEN }}@github.com/$GITHUB_USER/zaproxy-website.git
 
     - name: Scan Firing Range
       run: |
@@ -34,8 +29,6 @@ jobs:
           chmod go+w $s.yml
 
           docker run -v $(pwd):/zap/wrk/:rw -t ghcr.io/zaproxy/zaproxy:nightly zap.sh -cmd -silent -autorun /zap/wrk/fr-$s.yaml
-
-          cp $s.yml ../../../zaproxy-website/site/data/scans/firingrange/
         done
 
     - name: Upload results to S3
@@ -56,21 +49,3 @@ jobs:
         python3 zap-mgmt-scripts/scans/yaml_to_jsonl.py $DATE firingrange "${YMLS[@]}" \
           | aws s3 cp - s3://ssp-project-zap/scans/raw/firingrange/$DATE.jsonl
 
-    - name: Raise a PR on the website
-      run: |
-        cd zaproxy-website
-
-        BRANCH="firingrange"
-        git checkout -b $BRANCH
-
-        # Update the index to be sure git is aware of changes
-        git update-index -q --refresh
-        ## If there are changes: comment, commit, PR
-        if ! git diff-index --quiet HEAD --; then
-          echo ${{ secrets.ZAPBOT_TOKEN }} | gh auth login --with-token
-          gh repo set-default zaproxy/zaproxy-website
-          git add site/data/scans/firingrange/*
-          git commit -sm "Updated Firing Range Results"
-          git push -u origin $BRANCH -f
-          gh pr create --fill || true
-        fi
