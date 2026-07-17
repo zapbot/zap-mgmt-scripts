@@ -51,6 +51,37 @@ jobs:
         name: zap.log
         path: zap-mgmt-scripts/scans/crawlground/zap.log
 
+    - name: Upload results to S3
+      continue-on-error: true
+      env:
+        AWS_ACCESS_KEY_ID: ${{ secrets.AWSCLI_SSP_ACCESS }}
+        AWS_SECRET_ACCESS_KEY: ${{ secrets.AWSCLI_SSP_SECRET }}
+        AWS_DEFAULT_REGION: us-east-2
+      run: |
+        pip install pyyaml
+        DATE=$(date +%Y-%m-%d)
+        python3 zap-mgmt-scripts/scans/yaml_to_jsonl.py $DATE crawlground \
+          zap-mgmt-scripts/scans/crawlground/all.yml \
+          | aws s3 cp - s3://ssp-project-zap/scans/raw/crawlground/$DATE.jsonl
+
+    - name: Check for regressions
+      continue-on-error: true
+      env:
+        AWS_ACCESS_KEY_ID: ${{ secrets.AWSCLI_SSP_ACCESS }}
+        AWS_SECRET_ACCESS_KEY: ${{ secrets.AWSCLI_SSP_SECRET }}
+        AWS_DEFAULT_REGION: us-east-2
+        SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+      run: |
+        RECENT=$(mktemp -d)
+        aws s3 sync s3://ssp-project-zap/scans/raw/crawlground/ "$RECENT/"
+        python3 zap-mgmt-scripts/scans/generate-scan-stats.py \
+          --data-dir "$RECENT" \
+          --output-dir "$(mktemp -d)" \
+          --days 1 \
+          --compare-days 7 \
+          --scan crawlground \
+          --slack-webhook "$SLACK_WEBHOOK_URL"
+
     - name: Raise a PR on the website
       run: |
         cd zaproxy-website
@@ -68,4 +99,15 @@ jobs:
           git commit -sm "Updated Crawlground Results"
           git push -u origin $BRANCH -f
           gh pr create --fill || true
+        fi
+
+    - name: Notify Slack on scan failure
+      if: failure()
+      env:
+        SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+      run: |
+        if [ -n "$SLACK_WEBHOOK_URL" ]; then
+          curl -s -X POST "$SLACK_WEBHOOK_URL" \
+            -H 'Content-type: application/json' \
+            --data "{\"text\": \"❌ ZAP vs Crawlground scan failed: https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}\"}"
         fi
