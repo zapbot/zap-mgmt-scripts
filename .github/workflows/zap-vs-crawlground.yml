@@ -33,7 +33,7 @@ jobs:
         docker run -v $(pwd):/zap/wrk/:rw \
           --network host \
           -t ghcr.io/zaproxy/zaproxy:nightly sh -c \
-            "zap.sh -cmd -silent -autorun /zap/wrk/crawlground.yaml; \
+            "zap.sh -cmd -silent -addoninstall spiderAjax -autorun /zap/wrk/crawlground.yaml; \
             cp /home/zap/.ZAP_D/zap.log /zap/wrk"
 
         curl -sf http://localhost:3456/website-results.yaml > all.yml
