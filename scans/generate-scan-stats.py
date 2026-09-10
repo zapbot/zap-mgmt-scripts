@@ -75,13 +75,22 @@ def index_records(records):
     """
     Build lookup structures from a list of records.
 
+    A rule "firing" is not the same as a test "passing": for false-positive
+    test cases, a fired rule means the scan incorrectly flagged the page, so
+    the record's own `result` field (not rule presence) is the ground truth
+    for pass/fail.
+
     Returns:
-      sections: {section_key -> {name, url}}
-      firing:   {section_key -> {path -> {rule -> set(dates)}}}
-      paths:    {section_key -> ordered list of paths (insertion order)}
+      sections:     {section_key -> {name, url}}
+      firing:       {section_key -> {path -> {rule -> set(dates rule fired, any result)}}}
+      pass_firing:  {section_key -> {path -> {rule -> set(dates rule fired with result==Pass)}}}
+      path_pass:    {section_key -> {path -> set(dates with result==Pass)}}
+      paths:        {section_key -> ordered list of paths (insertion order)}
     """
     sections = {}
     firing = defaultdict(lambda: defaultdict(lambda: defaultdict(set)))
+    pass_firing = defaultdict(lambda: defaultdict(lambda: defaultdict(set)))
+    path_pass = defaultdict(lambda: defaultdict(set))
     path_order = defaultdict(dict)  # section_key -> {path: None} (ordered set)
 
     for r in records:
@@ -92,10 +101,15 @@ def index_records(records):
             sections[key] = {'name': r.get('section', key), 'url': r.get('url', '')}
         path = r['path']
         path_order[key][path] = None
+        is_pass = r.get('result') == 'Pass'
+        if is_pass:
+            path_pass[key][path].add(r['date'])
         for rule in r.get('rules', []):
             firing[key][path][rule].add(r['date'])
+            if is_pass:
+                pass_firing[key][path][rule].add(r['date'])
 
-    return sections, firing, path_order
+    return sections, firing, pass_firing, path_pass, path_order
 
 
 def fmt_score(rate):
@@ -122,12 +136,19 @@ def get_trend(curr_rate, prev_rate):
     return 'stable', fmt_score(prev_rate)
 
 
-def build_section_yaml(sec_info, curr_firing, prev_firing, path_order,
+def build_section_yaml(sec_info, curr_rules, curr_pass_firing, curr_path_pass,
+                       prev_pass_firing, prev_path_pass, path_order,
                        curr_window, prev_window):
     """
     Build the YAML dict for one section and return a list of regressions.
 
-    curr_firing / prev_firing: {path -> {rule -> set(dates)}}
+    curr_rules:        {path -> {rule -> set(dates rule fired, any result)}} —
+                       used only to know which rule rows to show.
+    curr_pass_firing:  {path -> {rule -> set(dates rule fired with result==Pass)}}
+    curr_path_pass:    {path -> set(dates with result==Pass)} — ground truth
+                       for pass/fail (rule firing alone is not: for
+                       false-positive test cases, firing means the scan
+                       incorrectly flagged the page, i.e. a fail).
     path_order: ordered list of paths seen in current window
     curr_window / prev_window: number of days in each window (denominator)
 
@@ -142,14 +163,9 @@ def build_section_yaml(sec_info, curr_firing, prev_firing, path_order,
     n_paths = len(path_order)
 
     for path in path_order:
-        rule_days = curr_firing.get(path, {})
-        rules = sorted(rule_days.keys())
+        rules = sorted(curr_rules.get(path, {}).keys())
 
-        # Any-rule pass days for this path (used for section-level scoring)
-        any_rule_days = set()
-        for rule in rules:
-            any_rule_days |= rule_days[rule]
-        path_pass_days = len(any_rule_days)
+        path_pass_days = len(curr_path_pass.get(path, set()))
         section_pass_days += path_pass_days
         path_rate = path_pass_days / curr_window if curr_window else 0
 
@@ -159,29 +175,31 @@ def build_section_yaml(sec_info, curr_firing, prev_firing, path_order,
             section_fails += 1
 
         if not rules:
-            # Path never passed in current window — one FAIL row, no rule
+            # No rule ever fired for this path in the current window — one
+            # row scored on the path's own pass rate (e.g. a false-positive
+            # test case where correctly not firing means Pass).
             prev_rate = None
-            if prev_firing is not None and prev_window:
-                prev_any = set()
-                for rd in prev_firing.get(path, {}).values():
-                    prev_any |= rd
-                prev_rate = len(prev_any) / prev_window
-            trend, prev_score = get_trend(0.0, prev_rate)
-            row = {'path': path, 'score': 'Fail'}
+            if prev_path_pass is not None and prev_window:
+                prev_rate = len(prev_path_pass.get(path, set())) / prev_window
+            trend, prev_score = get_trend(path_rate, prev_rate)
+            row = {'path': path, 'score': fmt_score(path_rate)}
             if trend:
                 row['trend'] = trend
                 row['prev'] = prev_score
                 if trend == 'down':
-                    regressions.append({'path': path, 'prev': prev_score, 'score': 'Fail'})
+                    regressions.append({'path': path, 'prev': prev_score,
+                                        'score': fmt_score(path_rate)})
             details.append(row)
         else:
-            # One row per rule that fired at least once in the current window
+            # One row per rule that fired at least once in the current
+            # window, scored on days that firing coincided with a Pass
+            # result (so a false-positive-triggering rule scores as a fail).
             for rule in rules:
-                days_fired = len(rule_days[rule])
-                curr_rate = days_fired / curr_window if curr_window else 0
+                pass_days = len(curr_pass_firing.get(path, {}).get(rule, set()))
+                curr_rate = pass_days / curr_window if curr_window else 0
                 prev_rate = None
-                if prev_firing is not None and prev_window:
-                    prev_days = len(prev_firing.get(path, {}).get(rule, set()))
+                if prev_pass_firing is not None and prev_window:
+                    prev_days = len(prev_pass_firing.get(path, {}).get(rule, set()))
                     prev_rate = prev_days / prev_window
                 trend, prev_score = get_trend(curr_rate, prev_rate)
                 row = {'path': path, 'rule': rule, 'score': fmt_score(curr_rate)}
@@ -343,14 +361,18 @@ def main():
     print(f'Current window:  {curr_start} – {curr_end} ({args.days} days requested)')
 
     curr_records, curr_window = load_records(args.data_dir, curr_start, args.days)
-    sections, curr_firing, path_order = index_records(curr_records)
+    sections, curr_firing, curr_pass_firing, curr_path_pass, path_order = index_records(curr_records)
 
     prev_firing_by_section = None
+    prev_pass_firing_by_section = None
+    prev_path_pass_by_section = None
     prev_window = 0
     if compare_days:
         prev_records, prev_window = load_records(args.data_dir, prev_start, compare_days)
-        _, prev_firing_raw, _ = index_records(prev_records)
+        _, prev_firing_raw, prev_pass_firing_raw, prev_path_pass_raw, _ = index_records(prev_records)
         prev_firing_by_section = prev_firing_raw
+        prev_pass_firing_by_section = prev_pass_firing_raw
+        prev_path_pass_by_section = prev_path_pass_raw
 
     print(f'Current window:  {curr_window} days with data')
     if compare_days:
@@ -371,10 +393,15 @@ def main():
                 prev_window,
             )
         else:
+            prev_pass_firing = prev_pass_firing_by_section.get(key) if prev_pass_firing_by_section else None
+            prev_path_pass = prev_path_pass_by_section.get(key) if prev_path_pass_by_section else None
             data, regressions = build_section_yaml(
                 sec_info,
                 curr_firing[key],
-                prev_firing,
+                curr_pass_firing[key],
+                curr_path_pass[key],
+                prev_pass_firing,
+                prev_path_pass,
                 list(path_order[key].keys()),
                 curr_window,
                 prev_window,
