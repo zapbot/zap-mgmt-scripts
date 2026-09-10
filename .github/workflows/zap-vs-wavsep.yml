@@ -27,7 +27,7 @@ jobs:
         # Need to do this so the zap user in docker can write to the directory
         mkdir res
         chmod a+w res
-        docker run -v $(pwd):/zap/wrk/:rw --network host ghcr.io/zaproxy/zaproxy:nightly zap.sh -cmd -port 9090 -silent -autorun /zap/wrk/wavsep.yaml
+        docker run -v $(pwd):/zap/wrk/:rw --network host ghcr.io/zaproxy/zaproxy:nightly zap.sh -cmd -port 9090 -silent -addoninstall domxss -autorun /zap/wrk/wavsep.yaml
 
     - name: Upload results to S3
       continue-on-error: true

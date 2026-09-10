@@ -47,7 +47,7 @@ cd /zap/wrk/
 
 export file=/zap/wrk/all.yml
 
-/zap/zap.sh -silent -addoninstall ascanrulesAlpha -cmd
+/zap/zap.sh -silent -addoninstall ascanrulesAlpha -addoninstall domxss -cmd
 
 echo "section: All URLs" > $file
 echo "details:" >> $file
