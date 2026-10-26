@@ -4,6 +4,15 @@ on:
   schedule:
     - cron:  '0 2 * * *' # 2 am every day
   workflow_dispatch:
+    inputs:
+      image:
+        description: 'Tag of the ghcr.io/zaproxy/zaproxy image to use. Anything other than "nightly" prints a summary only and does not upload results to S3'
+        required: false
+        default: 'nightly'
+        type: string
+
+env:
+  ZAP_TAG: ${{ inputs.image || 'nightly' }}
 
 jobs:
   scan:
@@ -28,10 +37,32 @@ jobs:
           touch $s.yml
           chmod go+w $s.yml
 
-          docker run -v $(pwd):/zap/wrk/:rw -t ghcr.io/zaproxy/zaproxy:nightly zap.sh -cmd -silent -autorun /zap/wrk/fr-$s.yaml
+          docker run -v $(pwd):/zap/wrk/:rw -t ghcr.io/zaproxy/zaproxy:$ZAP_TAG zap.sh -cmd -silent -autorun /zap/wrk/fr-$s.yaml
         done
 
+    - name: Print summary of results
+      run: |
+        pip install pyyaml
+        SRC=zap-mgmt-scripts/scans/firingrange
+        echo "Results for ghcr.io/zaproxy/zaproxy:$ZAP_TAG"
+        python3 - $SRC/*.yml <<'PYEOF' | tee -a "$GITHUB_STEP_SUMMARY"
+        import sys, yaml
+        print("| Section | Pass | Fail |")
+        print("|---|---|---|")
+        tp = tf = 0
+        for f in sorted(sys.argv[1:]):
+            data = yaml.safe_load(open(f)) or {}
+            details = data.get('details', [])
+            p = sum(1 for d in details if d.get('result') == 'Pass')
+            fl = sum(1 for d in details if d.get('result') != 'Pass')
+            tp += p
+            tf += fl
+            print(f"| {data.get('section', f)} | {p} | {fl} |")
+        print(f"| **Total** | {tp} | {tf} |")
+        PYEOF
+
     - name: Upload results to S3
+      if: env.ZAP_TAG == 'nightly'
       continue-on-error: true
       env:
         AWS_ACCESS_KEY_ID: ${{ secrets.AWSCLI_SSP_ACCESS }}
@@ -50,6 +81,7 @@ jobs:
           | aws s3 cp - s3://ssp-project-zap/scans/raw/firingrange/$DATE.jsonl
 
     - name: Check for regressions
+      if: env.ZAP_TAG == 'nightly'
       continue-on-error: true
       env:
         AWS_ACCESS_KEY_ID: ${{ secrets.AWSCLI_SSP_ACCESS }}
@@ -75,6 +107,6 @@ jobs:
         if [ -n "$SLACK_WEBHOOK_URL" ]; then
           curl -s -X POST "$SLACK_WEBHOOK_URL" \
             -H 'Content-type: application/json' \
-            --data "{\"text\": \"❌ ZAP vs Firing Range scan failed: https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}\"}"
+            --data "{\"text\": \"❌ ZAP vs Firing Range scan failed (image tag: ${ZAP_TAG}): https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}\"}"
         fi
 
