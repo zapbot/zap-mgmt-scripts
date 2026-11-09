@@ -41,7 +41,7 @@ function listChildren(node, level) {
         var child = node.getChildAt(j);
         if (child.getChildCount() == 0 && level > NESTED_NODE_LEVEL) {
             var path = child.getHierarchicNodeName().substring(target.length).replace('()', '');
-            if (!IGNORE_TREE_PATHS.indexOf(path) >= 0) {
+            if (IGNORE_TREE_PATHS.indexOf(path) < 0) {
                 totalUrls++;
                 pw.println('- path: ' + path);
                 let testName = path.split('/')[2]
