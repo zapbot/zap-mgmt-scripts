@@ -1,0 +1,85 @@
+---
+env:
+  contexts:
+    - name: "Benchmark"
+      urls:
+        - "https://localhost:8443/benchmark/pathtraver-Index.html"
+      includePaths:
+        - "https://localhost:8443/benchmark/pathtraver.*"
+      excludePaths: []
+      authentication:
+        parameters: {}
+        verification:
+          method: "response"
+          pollFrequency: 60
+          pollUnits: "requests"
+      sessionManagement:
+        method: "cookie"
+        parameters: {}
+  parameters:
+    failOnError: true
+    failOnWarning: false
+    progressToStdout: true
+  vars:
+    OUTPUT_DIR: "/zap/wrk/results"
+    NAME: "Path Traversal"
+    VULNERABILITY: "pathtraver"
+    SCAN_RULES: "6"
+    NESTED_NODE_LEVEL: 2
+    IGNORE_TREE_PATHS: ""
+    VULNERABLE_TESTS: "00001,00002,00011,00028,00040,00045,00060,00061,00062,00065,00133,00215,00216,00218,00219,00222,00262,00264,00359,00360,00362,00363,00452,00453,00455,00456,00457,00459,00525,00526,00527,00528,00529,00619,00623,00624,00627,00629,00696,00697,00698,00700,00783,00785,00787,00788,00949,00950,00952,00953,00956,01025,01029,01032,01033,01034,01111,01112,01116,01117,01155,01156,01157,01161,01231,01232,01234,01235,01236,01238,01329,01330,01403,01405,01408,01494,01495,01496,01497,01498,01500,01571,01572,01642,01643,01645,01647,01833,01835,01836,01839,01840,01904,01906,01907,01908,01983,01985,01987,01988,01989,02027,02032,02034,02105,02106,02109,02112,02113,02197,02198,02199,02205,02302,02303,02304,02377,02378,02383,02463,02465,02466,02469,02555,02556,02559,02560,02561,02562,02564,02565,02567,02569"
+jobs:
+  - name: "Add Scoring Script"
+    type: "script"
+    parameters:
+      action: "add"
+      type: "standalone"
+      engine: "ECMAScript : Graal.js"
+      name: "benchmark-scorer.js"
+      file: "/zap/wrk/benchmark-scorer.js"
+  - name: "Add Benchmark Pathtraver Variant Script"
+    type: "script"
+    parameters:
+      action: "add"
+      type: "variant"
+      engine: "ECMAScript : Graal.js"
+      name: "pathtraver-variant.js"
+      file: "/zap/wrk/pathtraver/variant.js"
+  - name: "Spider Benchmark Pathtraver Index"
+    type: "spider"
+    parameters:
+      context: "Benchmark"
+      user: ""
+      url: ""
+      maxDuration: 0
+      maxDepth: 0
+      maxChildren: 0
+  - name: "Start Active Scan"
+    type: "activeScan"
+    parameters:
+      context: "Benchmark"
+      user: ""
+      policy: ""
+      maxRuleDurationInMins: 120
+      maxScanDurationInMins: 120
+      addQueryParam: false
+      delayInMs: 0
+      handleAntiCSRFTokens: false
+      injectPluginIdInHeader: false
+      scanHeadersAllRequests: true
+      threadPerHost: 4
+    policyDefinition:
+      defaultStrength: "medium"
+      defaultThreshold: "off"
+      rules:
+        - id: 6
+          name: "Path Traversal"
+          threshold: "medium"
+          strength: "medium"
+  - name: "Run Scoring Script"
+    type: "script"
+    parameters:
+      action: "run"
+      type: "standalone"
+      engine: ""
+      name: "benchmark-scorer.js"
