@@ -1,0 +1,105 @@
+---
+env:
+  contexts:
+    - name: "Benchmark"
+      urls:
+        - "https://localhost:8443/benchmark/sqli-Index.html"
+      includePaths:
+        - "https://localhost:8443/benchmark/sqli.*"
+      excludePaths: []
+      authentication:
+        parameters: {}
+        verification:
+          method: "response"
+          pollFrequency: 60
+          pollUnits: "requests"
+      sessionManagement:
+        method: "cookie"
+        parameters: {}
+  parameters:
+    failOnError: true
+    failOnWarning: false
+    progressToStdout: true
+  vars:
+    OUTPUT_DIR: "/zap/wrk/results"
+    NAME: "SQL Injection"
+    VULNERABILITY: "sqli"
+    SCAN_RULES: "40018,40019,40020,40021,40022,40027"
+    NESTED_NODE_LEVEL: 2
+    IGNORE_TREE_PATHS: ""
+    VULNERABLE_TESTS: "00008,00018,00024,00025,00026,00027,00032,00033,00034,00037,00038,00039,00043,00100,00101,00102,00103,00106,00108,00109,00111,00112,00115,00192,00193,00194,00195,00196,00198,00199,00203,00204,00328,00335,00337,00339,00341,00342,00428,00429,00431,00433,00434,00435,00438,00439,00441,00510,00512,00515,00516,00518,00590,00591,00593,00594,00595,00596,00597,00598,00600,00603,00604,00606,00673,00677,00678,00679,00681,00760,00761,00762,00764,00765,00767,00768,00769,00770,00771,00839,00840,00841,00842,00843,00845,00846,00847,00848,00849,00850,00996,00997,00998,01000,01002,01003,01004,01005,01006,01007,01008,01009,01011,01083,01084,01087,01088,01090,01091,01093,01094,01097,01208,01209,01210,01211,01214,01221,01222,01302,01304,01306,01308,01311,01312,01313,01314,01379,01381,01382,01383,01384,01388,01390,01391,01394,01395,01396,01460,01462,01463,01464,01465,01466,01470,01471,01473,01474,01475,01476,01477,01552,01554,01557,01558,01559,01560,01620,01621,01623,01624,01625,01626,01627,01630,01631,01712,01715,01716,01718,01720,01721,01723,01724,01725,01726,01727,01728,01730,01731,01733,01881,01882,01883,01887,01888,01889,01890,01891,01962,01963,01964,01970,01971,01972,02087,02088,02090,02091,02092,02094,02096,02099,02169,02170,02171,02177,02178,02179,02181,02182,02186,02187,02264,02269,02270,02272,02273,02275,02277,02281,02284,02286,02287,02288,02354,02355,02356,02357,02358,02359,02360,02362,02364,02369,02449,02451,02453,02454,02455,02528,02530,02531,02532,02533,02534,02535,02537,02542,02543,02545,02625,02627,02628,02630,02632,02635,02638,02641,02642,02643,02644,02645,02646,02647,02649,02650,02651,02653,02654,02655,02656"
+jobs:
+  - name: "Add Scoring Script"
+    type: "script"
+    parameters:
+      action: "add"
+      type: "standalone"
+      engine: "ECMAScript : Graal.js"
+      name: "benchmark-scorer.js"
+      file: "/zap/wrk/benchmark-scorer.js"
+  - name: "Add Benchmark SQLi Variant Script"
+    type: "script"
+    parameters:
+      action: "add"
+      type: "variant"
+      engine: "ECMAScript : Graal.js"
+      name: "sqli-variant.js"
+      file: "/zap/wrk/sqli/variant.js"
+  - name: "Spider Benchmark SQLi Index"
+    type: "spider"
+    parameters:
+      context: "Benchmark"
+      user: ""
+      url: ""
+      maxDuration: 0
+      maxDepth: 0
+      maxChildren: 0
+  - name: "Start Active Scan"
+    type: "activeScan"
+    parameters:
+      context: "Benchmark"
+      user: ""
+      policy: ""
+      maxRuleDurationInMins: 120
+      maxScanDurationInMins: 120
+      addQueryParam: false
+      delayInMs: 0
+      handleAntiCSRFTokens: false
+      injectPluginIdInHeader: false
+      scanHeadersAllRequests: true
+      threadPerHost: 4
+    policyDefinition:
+      defaultStrength: "medium"
+      defaultThreshold: "off"
+      rules:
+        - id: 40018
+          name: "SQL Injection"
+          threshold: "medium"
+          strength: "medium"
+        - id: 40019
+          name: "SQL Injection - MySQL"
+          threshold: "medium"
+          strength: "medium"
+        - id: 40020
+          name: "SQL Injection - Hypersonic SQL"
+          threshold: "medium"
+          strength: "medium"
+        - id: 40021
+          name: "SQL Injection - Oracle"
+          threshold: "medium"
+          strength: "medium"
+        - id: 40022
+          name: "SQL Injection - PostgreSQL"
+          threshold: "medium"
+          strength: "medium"
+        - id: 40027
+          name: "SQL Injection - MsSQL"
+          threshold: "medium"
+          strength: "medium"
+  - name: "Run Scoring Script"
+    type: "script"
+    parameters:
+      action: "run"
+      type: "standalone"
+      engine: ""
+      name: "benchmark-scorer.js"

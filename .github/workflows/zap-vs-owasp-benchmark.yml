@@ -34,7 +34,7 @@ jobs:
         run: |
           cd zap-mgmt-scripts/scans/benchmark
           mkdir results
-          sections=( "cmdi" )
+          sections=( "cmdi" "sqli" )
           for s in "${sections[@]}"
           do
             docker run --network=host --user=root -v $(pwd):/zap/wrk/:rw ghcr.io/zaproxy/zaproxy:nightly zap.sh \
