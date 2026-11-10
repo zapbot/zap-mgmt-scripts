@@ -40,23 +40,14 @@ jobs:
             docker run --network=host --user=root -v $(pwd):/zap/wrk/:rw ghcr.io/zaproxy/zaproxy:nightly zap.sh \
               -cmd -silent -config scanner.injectable=15 -autorun /zap/wrk/$s/af-plan.yaml
             cp results/$s.yml ../../../zaproxy-website/site/data/scans/benchmark/
+
+            # Also show the results in the log, useful for debugging
+            ../show-results.sh results/$s.yml $s
           done
 
       - name: Raise a PR on the website
+        env:
+          ZAPBOT_TOKEN: ${{ secrets.ZAPBOT_TOKEN }}
         run: |
-          cd zaproxy-website
-
-          BRANCH="owasp-benchmark"
-          git checkout -b $BRANCH
-
-          # Update the index to be sure git is aware of changes
-          git update-index -q --refresh
-          ## If there are changes: comment, commit, PR
-          if ! git diff-index --quiet HEAD --; then
-            echo ${{ secrets.ZAPBOT_TOKEN }} | gh auth login --with-token
-            gh repo set-default zaproxy/zaproxy-website
-            git add site/data/scans/benchmark/*
-            git commit -sm "Updated OWASP Benchmark Results"
-            git push -u origin $BRANCH -f
-            gh pr create --fill || true
-          fi
+          zap-mgmt-scripts/scans/website-pr.sh zaproxy-website site/data/scans/benchmark \
+            owasp-benchmark "Updated OWASP Benchmark Results"
