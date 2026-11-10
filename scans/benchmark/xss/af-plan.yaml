@@ -1,0 +1,85 @@
+---
+env:
+  contexts:
+    - name: "Benchmark"
+      urls:
+        - "https://localhost:8443/benchmark/xss-Index.html"
+      includePaths:
+        - "https://localhost:8443/benchmark/xss.*"
+      excludePaths: []
+      authentication:
+        parameters: {}
+        verification:
+          method: "response"
+          pollFrequency: 60
+          pollUnits: "requests"
+      sessionManagement:
+        method: "cookie"
+        parameters: {}
+  parameters:
+    failOnError: true
+    failOnWarning: false
+    progressToStdout: true
+  vars:
+    OUTPUT_DIR: "/zap/wrk/results"
+    NAME: "Cross Site Scripting"
+    VULNERABILITY: "xss"
+    SCAN_RULES: "40012"
+    NESTED_NODE_LEVEL: 2
+    IGNORE_TREE_PATHS: ""
+    VULNERABLE_TESTS: "00013,00014,00030,00036,00041,00047,00048,00049,00144,00145,00146,00148,00149,00150,00152,00153,00154,00155,00156,00157,00276,00279,00280,00284,00287,00290,00291,00292,00301,00375,00376,00378,00380,00382,00383,00384,00385,00387,00388,00390,00392,00395,00467,00472,00473,00475,00477,00478,00492,00541,00542,00543,00547,00549,00551,00552,00554,00555,00557,00642,00643,00644,00645,00651,00656,00711,00715,00719,00720,00721,00724,00725,00727,00728,00729,00737,00800,00801,00802,00803,00804,00805,00806,00807,00809,00810,00811,00822,01046,01047,01049,01050,01055,01056,01057,01063,01171,01172,01173,01174,01177,01178,01179,01181,01253,01254,01257,01258,01259,01260,01261,01262,01263,01266,01267,01268,01284,01335,01337,01346,01347,01349,01350,01417,01418,01423,01424,01426,01427,01428,01429,01437,01438,01505,01506,01507,01509,01510,01511,01512,01525,01583,01584,01587,01589,01590,01592,01594,01596,01597,01598,01657,01658,01660,01662,01665,01666,01667,01670,01916,01919,01920,01921,01922,01923,01925,01926,01927,02046,02047,02050,02051,02054,02055,02056,02057,02123,02124,02126,02127,02128,02129,02130,02131,02132,02133,02134,02136,02145,02221,02223,02224,02225,02227,02228,02230,02232,02234,02241,02314,02315,02316,02317,02321,02322,02323,02324,02326,02327,02328,02332,02395,02396,02397,02399,02400,02402,02403,02405,02407,02409,02410,02480,02483,02486,02487,02489,02493,02494,02578,02579,02580,02582,02583,02584,02585,02586,02587,02588,02591,02592,02595,02597,02598,02600,02608"
+jobs:
+  - name: "Add Scoring Script"
+    type: "script"
+    parameters:
+      action: "add"
+      type: "standalone"
+      engine: "ECMAScript : Graal.js"
+      name: "benchmark-scorer.js"
+      file: "/zap/wrk/benchmark-scorer.js"
+  - name: "Add Benchmark XSS Variant Script"
+    type: "script"
+    parameters:
+      action: "add"
+      type: "variant"
+      engine: "ECMAScript : Graal.js"
+      name: "xss-variant.js"
+      file: "/zap/wrk/xss/variant.js"
+  - name: "Spider Benchmark XSS Index"
+    type: "spider"
+    parameters:
+      context: "Benchmark"
+      user: ""
+      url: ""
+      maxDuration: 0
+      maxDepth: 0
+      maxChildren: 0
+  - name: "Start Active Scan"
+    type: "activeScan"
+    parameters:
+      context: "Benchmark"
+      user: ""
+      policy: ""
+      maxRuleDurationInMins: 120
+      maxScanDurationInMins: 120
+      addQueryParam: false
+      delayInMs: 0
+      handleAntiCSRFTokens: false
+      injectPluginIdInHeader: false
+      scanHeadersAllRequests: true
+      threadPerHost: 4
+    policyDefinition:
+      defaultStrength: "medium"
+      defaultThreshold: "off"
+      rules:
+        - id: 40012
+          name: "Cross Site Scripting (Reflected)"
+          threshold: "medium"
+          strength: "medium"
+  - name: "Run Scoring Script"
+    type: "script"
+    parameters:
+      action: "run"
+      type: "standalone"
+      engine: ""
+      name: "benchmark-scorer.js"
